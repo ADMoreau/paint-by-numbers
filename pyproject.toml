@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paint_by_numbers"
+version = "0.1.0"
+description = "Plan layered Golden acrylic paint stacks from an image."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "torch",  # CPU build: pip install torch --index-url https://download.pytorch.org/whl/cpu
+    "numpy",
+    "pillow",
+    "scikit-learn",
+]
+
+[project.scripts]
+paint-by-numbers = "paint_by_numbers.cli:main"
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["paint_by_numbers*"]
+
+[tool.setuptools.package-data]
+paint_by_numbers = ["data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

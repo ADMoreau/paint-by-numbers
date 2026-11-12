@@ -1,0 +1,756 @@
+{
+  "image": {
+    "width": 256,
+    "height": 192,
+    "source": "docs/examples/rainbow/rainbow.jpg"
+  },
+  "background": {
+    "kind": "color",
+    "value": "#ffffff",
+    "srgb_hex": "#ffffff",
+    "lab": [
+      100.0,
+      0.0,
+      0.0
+    ]
+  },
+  "layers": [
+    {
+      "layer": 1,
+      "file": "layers/01_cadmium-yellow-medium-hue.png",
+      "color_file": "layers_color/01_cadmium-yellow-medium-hue.png",
+      "color_file_ground": "white",
+      "step_file": "steps/01_cadmium-yellow-medium-hue.png",
+      "swatch_file": "swatches/01_cadmium-yellow-medium-hue.png",
+      "paint": "Cadmium Yellow Medium Hue",
+      "item": 1554,
+      "transparency": "semi-opaque",
+      "sheen": "gloss",
+      "lightfastness": "Excellent",
+      "coverage": 0.2019,
+      "coats_by_area": {
+        "0.125": 0.1606,
+        "0.25": 0.0292,
+        "0.5": 0.0063,
+        "0.75": 0.0044,
+        "1": 0.0005,
+        "1.5": 0.0006,
+        "2": 0.0003
+      },
+      "swatch": {
+        "full_strength": "#ffbf00",
+        "on_white": {
+          "0.125": "#ffea00",
+          "0.25": "#ffd800",
+          "0.5": "#ffc600",
+          "0.75": "#ffc000",
+          "1": "#ffbf00",
+          "1.5": "#ffbf00",
+          "2": "#ffbf00"
+        },
+        "on_black": {
+          "0.125": "#a79a26",
+          "0.25": "#cab20d",
+          "0.5": "#e8bf00",
+          "0.75": "#f5c100",
+          "1": "#fdc100",
+          "1.5": "#ffc000",
+          "2": "#ffc000"
+        }
+      },
+      "thicknesses": [
+        {
+          "coats": 0.125,
+          "how": "1 coat of 1 part paint to 7 parts medium",
+          "area": 0.1606,
+          "file": "thickness/01_cadmium-yellow-medium-hue_0.125coats.png",
+          "mask_file": "thickness/01_cadmium-yellow-medium-hue_0.125coats_mask.png",
+          "after_file": "thickness/01_cadmium-yellow-medium-hue_0.125coats_after.png"
+        },
+        {
+          "coats": 0.25,
+          "how": "1 coat of 1 part paint to 3 parts medium",
+          "area": 0.0292,
+          "file": "thickness/01_cadmium-yellow-medium-hue_0.25coats.png",
+          "mask_file": "thickness/01_cadmium-yellow-medium-hue_0.25coats_mask.png",
+          "after_file": "thickness/01_cadmium-yellow-medium-hue_0.25coats_after.png"
+        },
+        {
+          "coats": 0.5,
+          "how": "1 coat of 1 part paint to 1 part medium",
+          "area": 0.0063,
+          "file": "thickness/01_cadmium-yellow-medium-hue_0.5coats.png",
+          "mask_file": "thickness/01_cadmium-yellow-medium-hue_0.5coats_mask.png",
+          "after_file": "thickness/01_cadmium-yellow-medium-hue_0.5coats_after.png"
+        },
+        {
+          "coats": 0.75,
+          "how": "1 coat of 3 parts paint to 1 part medium",
+          "area": 0.0044,
+          "file": "thickness/01_cadmium-yellow-medium-hue_0.75coats.png",
+          "mask_file": "thickness/01_cadmium-yellow-medium-hue_0.75coats_mask.png",
+          "after_file": "thickness/01_cadmium-yellow-medium-hue_0.75coats_after.png"
+        },
+        {
+          "coats": 1.0,
+          "how": "1 full coat",
+          "area": 0.0005,
+          "file": "thickness/01_cadmium-yellow-medium-hue_1coats.png",
+          "mask_file": "thickness/01_cadmium-yellow-medium-hue_1coats_mask.png",
+          "after_file": "thickness/01_cadmium-yellow-medium-hue_1coats_after.png"
+        },
+        {
+          "coats": 1.5,
+          "how": "1 full coat + 1 coat of 1 part paint to 1 part medium",
+          "area": 0.0006,
+          "file": "thickness/01_cadmium-yellow-medium-hue_1.5coats.png",
+          "mask_file": "thickness/01_cadmium-yellow-medium-hue_1.5coats_mask.png",
+          "after_file": "thickness/01_cadmium-yellow-medium-hue_1.5coats_after.png"
+        },
+        {
+          "coats": 2.0,
+          "how": "2 full coats",
+          "area": 0.0003,
+          "file": "thickness/01_cadmium-yellow-medium-hue_2coats.png",
+          "mask_file": "thickness/01_cadmium-yellow-medium-hue_2coats_mask.png",
+          "after_file": "thickness/01_cadmium-yellow-medium-hue_2coats_after.png"
+        }
+      ]
+    },
+    {
+      "layer": 2,
+      "file": "layers/02_raw-umber.png",
+      "color_file": "layers_color/02_raw-umber.png",
+      "color_file_ground": "white",
+      "step_file": "steps/02_raw-umber.png",
+      "swatch_file": "swatches/02_raw-umber.png",
+      "paint": "Raw Umber",
+      "item": 1350,
+      "transparency": "opaque",
+      "sheen": "satin",
+      "lightfastness": "Excellent",
+      "coverage": 0.633,
+      "coats_by_area": {
+        "0.125": 0.5191,
+        "0.25": 0.083,
+        "0.5": 0.0005,
+        "0.75": 0.0045,
+        "1": 0.0259,
+        "1.5": 0.0
+      },
+      "swatch": {
+        "full_strength": "#4a433e",
+        "on_white": {
+          "0.125": "#cec3ba",
+          "0.25": "#a79689",
+          "0.5": "#726155",
+          "0.75": "#594c43",
+          "1": "#4f453f",
+          "1.5": "#4a433e"
+        },
+        "on_black": {
+          "0.125": "#302e2d",
+          "0.25": "#3d3a37",
+          "0.5": "#46413d",
+          "0.75": "#48423e",
+          "1": "#49433e",
+          "1.5": "#4a433e"
+        }
+      },
+      "thicknesses": [
+        {
+          "coats": 0.125,
+          "how": "1 coat of 1 part paint to 7 parts medium",
+          "area": 0.5191,
+          "file": "thickness/02_raw-umber_0.125coats.png",
+          "mask_file": "thickness/02_raw-umber_0.125coats_mask.png",
+          "after_file": "thickness/02_raw-umber_0.125coats_after.png"
+        },
+        {
+          "coats": 0.25,
+          "how": "1 coat of 1 part paint to 3 parts medium",
+          "area": 0.083,
+          "file": "thickness/02_raw-umber_0.25coats.png",
+          "mask_file": "thickness/02_raw-umber_0.25coats_mask.png",
+          "after_file": "thickness/02_raw-umber_0.25coats_after.png"
+        },
+        {
+          "coats": 0.5,
+          "how": "1 coat of 1 part paint to 1 part medium",
+          "area": 0.0005,
+          "file": "thickness/02_raw-umber_0.5coats.png",
+          "mask_file": "thickness/02_raw-umber_0.5coats_mask.png",
+          "after_file": "thickness/02_raw-umber_0.5coats_after.png"
+        },
+        {
+          "coats": 0.75,
+          "how": "1 coat of 3 parts paint to 1 part medium",
+          "area": 0.0045,
+          "file": "thickness/02_raw-umber_0.75coats.png",
+          "mask_file": "thickness/02_raw-umber_0.75coats_mask.png",
+          "after_file": "thickness/02_raw-umber_0.75coats_after.png"
+        },
+        {
+          "coats": 1.0,
+          "how": "1 full coat",
+          "area": 0.0259,
+          "file": "thickness/02_raw-umber_1coats.png",
+          "mask_file": "thickness/02_raw-umber_1coats_mask.png",
+          "after_file": "thickness/02_raw-umber_1coats_after.png"
+        },
+        {
+          "coats": 1.5,
+          "how": "1 full coat + 1 coat of 1 part paint to 1 part medium",
+          "area": 0.0,
+          "file": "thickness/02_raw-umber_1.5coats.png",
+          "mask_file": "thickness/02_raw-umber_1.5coats_mask.png",
+          "after_file": "thickness/02_raw-umber_1.5coats_after.png"
+        }
+      ]
+    },
+    {
+      "layer": 3,
+      "file": "layers/03_azurite-hue.png",
+      "color_file": "layers_color/03_azurite-hue.png",
+      "color_file_ground": "white",
+      "step_file": "steps/03_azurite-hue.png",
+      "swatch_file": "swatches/03_azurite-hue.png",
+      "paint": "Azurite Hue",
+      "item": 1464,
+      "transparency": "semi-transparent",
+      "sheen": "satin",
+      "lightfastness": "Excellent",
+      "coverage": 0.8683,
+      "coats_by_area": {
+        "0.125": 0.1195,
+        "0.25": 0.2116,
+        "0.5": 0.2087,
+        "0.75": 0.122,
+        "1": 0.0748,
+        "1.5": 0.0355,
+        "2": 0.0962
+      },
+      "swatch": {
+        "full_strength": "#304e64",
+        "on_white": {
+          "0.125": "#daedf6",
+          "0.25": "#b9dded",
+          "0.5": "#81bfdc",
+          "0.75": "#56a6cc",
+          "1": "#3491bd",
+          "1.5": "#0e73a4",
+          "2": "#176191"
+        },
+        "on_black": {
+          "0.125": "#1d1f1f",
+          "0.25": "#272b2d",
+          "0.5": "#30393e",
+          "0.75": "#334148",
+          "1": "#34464f",
+          "1.5": "#334a58",
+          "2": "#324c5d"
+        }
+      },
+      "thicknesses": [
+        {
+          "coats": 0.125,
+          "how": "1 coat of 1 part paint to 7 parts medium",
+          "area": 0.1195,
+          "file": "thickness/03_azurite-hue_0.125coats.png",
+          "mask_file": "thickness/03_azurite-hue_0.125coats_mask.png",
+          "after_file": "thickness/03_azurite-hue_0.125coats_after.png"
+        },
+        {
+          "coats": 0.25,
+          "how": "1 coat of 1 part paint to 3 parts medium",
+          "area": 0.2116,
+          "file": "thickness/03_azurite-hue_0.25coats.png",
+          "mask_file": "thickness/03_azurite-hue_0.25coats_mask.png",
+          "after_file": "thickness/03_azurite-hue_0.25coats_after.png"
+        },
+        {
+          "coats": 0.5,
+          "how": "1 coat of 1 part paint to 1 part medium",
+          "area": 0.2087,
+          "file": "thickness/03_azurite-hue_0.5coats.png",
+          "mask_file": "thickness/03_azurite-hue_0.5coats_mask.png",
+          "after_file": "thickness/03_azurite-hue_0.5coats_after.png"
+        },
+        {
+          "coats": 0.75,
+          "how": "1 coat of 3 parts paint to 1 part medium",
+          "area": 0.122,
+          "file": "thickness/03_azurite-hue_0.75coats.png",
+          "mask_file": "thickness/03_azurite-hue_0.75coats_mask.png",
+          "after_file": "thickness/03_azurite-hue_0.75coats_after.png"
+        },
+        {
+          "coats": 1.0,
+          "how": "1 full coat",
+          "area": 0.0748,
+          "file": "thickness/03_azurite-hue_1coats.png",
+          "mask_file": "thickness/03_azurite-hue_1coats_mask.png",
+          "after_file": "thickness/03_azurite-hue_1coats_after.png"
+        },
+        {
+          "coats": 1.5,
+          "how": "1 full coat + 1 coat of 1 part paint to 1 part medium",
+          "area": 0.0355,
+          "file": "thickness/03_azurite-hue_1.5coats.png",
+          "mask_file": "thickness/03_azurite-hue_1.5coats_mask.png",
+          "after_file": "thickness/03_azurite-hue_1.5coats_after.png"
+        },
+        {
+          "coats": 2.0,
+          "how": "2 full coats",
+          "area": 0.0962,
+          "file": "thickness/03_azurite-hue_2coats.png",
+          "mask_file": "thickness/03_azurite-hue_2coats_mask.png",
+          "after_file": "thickness/03_azurite-hue_2coats_after.png"
+        }
+      ]
+    },
+    {
+      "layer": 4,
+      "file": "layers/04_nickel-azo-yellow.png",
+      "color_file": "layers_color/04_nickel-azo-yellow.png",
+      "color_file_ground": "white",
+      "step_file": "steps/04_nickel-azo-yellow.png",
+      "swatch_file": "swatches/04_nickel-azo-yellow.png",
+      "paint": "Nickel Azo Yellow",
+      "item": 1225,
+      "transparency": "transparent",
+      "sheen": "gloss",
+      "lightfastness": "Excellent",
+      "coverage": 0.4864,
+      "coats_by_area": {
+        "0.125": 0.2999,
+        "0.25": 0.134,
+        "0.5": 0.027,
+        "0.75": 0.0098,
+        "1": 0.0079,
+        "1.5": 0.0029,
+        "2": 0.005
+      },
+      "swatch": {
+        "full_strength": "#a87131",
+        "on_white": {
+          "0.125": "#fffbeb",
+          "0.25": "#fff7d9",
+          "0.5": "#fff0b7",
+          "0.75": "#ffe89a",
+          "1": "#ffe180",
+          "1.5": "#fed357",
+          "2": "#fbc738"
+        },
+        "on_black": {
+          "0.125": "#181716",
+          "0.25": "#242320",
+          "0.5": "#34322b",
+          "0.75": "#403c31",
+          "1": "#494434",
+          "1.5": "#585037",
+          "2": "#635738"
+        }
+      },
+      "thicknesses": [
+        {
+          "coats": 0.125,
+          "how": "1 coat of 1 part paint to 7 parts medium",
+          "area": 0.2999,
+          "file": "thickness/04_nickel-azo-yellow_0.125coats.png",
+          "mask_file": "thickness/04_nickel-azo-yellow_0.125coats_mask.png",
+          "after_file": "thickness/04_nickel-azo-yellow_0.125coats_after.png"
+        },
+        {
+          "coats": 0.25,
+          "how": "1 coat of 1 part paint to 3 parts medium",
+          "area": 0.134,
+          "file": "thickness/04_nickel-azo-yellow_0.25coats.png",
+          "mask_file": "thickness/04_nickel-azo-yellow_0.25coats_mask.png",
+          "after_file": "thickness/04_nickel-azo-yellow_0.25coats_after.png"
+        },
+        {
+          "coats": 0.5,
+          "how": "1 coat of 1 part paint to 1 part medium",
+          "area": 0.027,
+          "file": "thickness/04_nickel-azo-yellow_0.5coats.png",
+          "mask_file": "thickness/04_nickel-azo-yellow_0.5coats_mask.png",
+          "after_file": "thickness/04_nickel-azo-yellow_0.5coats_after.png"
+        },
+        {
+          "coats": 0.75,
+          "how": "1 coat of 3 parts paint to 1 part medium",
+          "area": 0.0098,
+          "file": "thickness/04_nickel-azo-yellow_0.75coats.png",
+          "mask_file": "thickness/04_nickel-azo-yellow_0.75coats_mask.png",
+          "after_file": "thickness/04_nickel-azo-yellow_0.75coats_after.png"
+        },
+        {
+          "coats": 1.0,
+          "how": "1 full coat",
+          "area": 0.0079,
+          "file": "thickness/04_nickel-azo-yellow_1coats.png",
+          "mask_file": "thickness/04_nickel-azo-yellow_1coats_mask.png",
+          "after_file": "thickness/04_nickel-azo-yellow_1coats_after.png"
+        },
+        {
+          "coats": 1.5,
+          "how": "1 full coat + 1 coat of 1 part paint to 1 part medium",
+          "area": 0.0029,
+          "file": "thickness/04_nickel-azo-yellow_1.5coats.png",
+          "mask_file": "thickness/04_nickel-azo-yellow_1.5coats_mask.png",
+          "after_file": "thickness/04_nickel-azo-yellow_1.5coats_after.png"
+        },
+        {
+          "coats": 2.0,
+          "how": "2 full coats",
+          "area": 0.005,
+          "file": "thickness/04_nickel-azo-yellow_2coats.png",
+          "mask_file": "thickness/04_nickel-azo-yellow_2coats_mask.png",
+          "after_file": "thickness/04_nickel-azo-yellow_2coats_after.png"
+        }
+      ]
+    },
+    {
+      "layer": 5,
+      "file": "layers/05_bone-black.png",
+      "color_file": "layers_color/05_bone-black.png",
+      "color_file_ground": "white",
+      "step_file": "steps/05_bone-black.png",
+      "swatch_file": "swatches/05_bone-black.png",
+      "paint": "Bone Black",
+      "item": 1010,
+      "transparency": "semi-opaque",
+      "sheen": "satin",
+      "lightfastness": "Excellent",
+      "coverage": 0.7271,
+      "coats_by_area": {
+        "0.125": 0.4665,
+        "0.25": 0.1543,
+        "0.5": 0.021,
+        "0.75": 0.0179,
+        "1": 0.0213,
+        "1.5": 0.004,
+        "2": 0.0421
+      },
+      "swatch": {
+        "full_strength": "#383939",
+        "on_white": {
+          "0.125": "#e0e0e1",
+          "0.25": "#c4c5c6",
+          "0.5": "#98999b",
+          "0.75": "#77797b",
+          "1": "#606163",
+          "1.5": "#464749",
+          "2": "#3c3d3e"
+        },
+        "on_black": {
+          "0.125": "#1b1b1b",
+          "0.25": "#252626",
+          "0.5": "#2f3030",
+          "0.75": "#343434",
+          "1": "#363637",
+          "1.5": "#383839",
+          "2": "#383939"
+        }
+      },
+      "thicknesses": [
+        {
+          "coats": 0.125,
+          "how": "1 coat of 1 part paint to 7 parts medium",
+          "area": 0.4665,
+          "file": "thickness/05_bone-black_0.125coats.png",
+          "mask_file": "thickness/05_bone-black_0.125coats_mask.png",
+          "after_file": "thickness/05_bone-black_0.125coats_after.png"
+        },
+        {
+          "coats": 0.25,
+          "how": "1 coat of 1 part paint to 3 parts medium",
+          "area": 0.1543,
+          "file": "thickness/05_bone-black_0.25coats.png",
+          "mask_file": "thickness/05_bone-black_0.25coats_mask.png",
+          "after_file": "thickness/05_bone-black_0.25coats_after.png"
+        },
+        {
+          "coats": 0.5,
+          "how": "1 coat of 1 part paint to 1 part medium",
+          "area": 0.021,
+          "file": "thickness/05_bone-black_0.5coats.png",
+          "mask_file": "thickness/05_bone-black_0.5coats_mask.png",
+          "after_file": "thickness/05_bone-black_0.5coats_after.png"
+        },
+        {
+          "coats": 0.75,
+          "how": "1 coat of 3 parts paint to 1 part medium",
+          "area": 0.0179,
+          "file": "thickness/05_bone-black_0.75coats.png",
+          "mask_file": "thickness/05_bone-black_0.75coats_mask.png",
+          "after_file": "thickness/05_bone-black_0.75coats_after.png"
+        },
+        {
+          "coats": 1.0,
+          "how": "1 full coat",
+          "area": 0.0213,
+          "file": "thickness/05_bone-black_1coats.png",
+          "mask_file": "thickness/05_bone-black_1coats_mask.png",
+          "after_file": "thickness/05_bone-black_1coats_after.png"
+        },
+        {
+          "coats": 1.5,
+          "how": "1 full coat + 1 coat of 1 part paint to 1 part medium",
+          "area": 0.004,
+          "file": "thickness/05_bone-black_1.5coats.png",
+          "mask_file": "thickness/05_bone-black_1.5coats_mask.png",
+          "after_file": "thickness/05_bone-black_1.5coats_after.png"
+        },
+        {
+          "coats": 2.0,
+          "how": "2 full coats",
+          "area": 0.0421,
+          "file": "thickness/05_bone-black_2coats.png",
+          "mask_file": "thickness/05_bone-black_2coats_mask.png",
+          "after_file": "thickness/05_bone-black_2coats_after.png"
+        }
+      ]
+    },
+    {
+      "layer": 6,
+      "file": "layers/06_quinacridone-violet.png",
+      "color_file": "layers_color/06_quinacridone-violet.png",
+      "color_file_ground": "white",
+      "step_file": "steps/06_quinacridone-violet.png",
+      "swatch_file": "swatches/06_quinacridone-violet.png",
+      "paint": "Quinacridone Violet",
+      "item": 1330,
+      "transparency": "transparent",
+      "sheen": "gloss",
+      "lightfastness": "Excellent",
+      "coverage": 0.4572,
+      "coats_by_area": {
+        "0.125": 0.1453,
+        "0.25": 0.1425,
+        "0.5": 0.1059,
+        "0.75": 0.0445,
+        "1": 0.0164,
+        "1.5": 0.0004,
+        "2": 0.0022
+      },
+      "swatch": {
+        "full_strength": "#69363c",
+        "on_white": {
+          "0.125": "#fff7f8",
+          "0.25": "#ffeff1",
+          "0.5": "#fee0e3",
+          "0.75": "#fdd2d6",
+          "1": "#fbc4ca",
+          "1.5": "#f7acb4",
+          "2": "#f196a0"
+        },
+        "on_black": {
+          "0.125": "#0b0a0a",
+          "0.25": "#131212",
+          "0.5": "#1e1b1c",
+          "0.75": "#262222",
+          "1": "#2c2627",
+          "1.5": "#362c2d",
+          "2": "#3e3031"
+        }
+      },
+      "thicknesses": [
+        {
+          "coats": 0.125,
+          "how": "1 coat of 1 part paint to 7 parts medium",
+          "area": 0.1453,
+          "file": "thickness/06_quinacridone-violet_0.125coats.png",
+          "mask_file": "thickness/06_quinacridone-violet_0.125coats_mask.png",
+          "after_file": "thickness/06_quinacridone-violet_0.125coats_after.png"
+        },
+        {
+          "coats": 0.25,
+          "how": "1 coat of 1 part paint to 3 parts medium",
+          "area": 0.1425,
+          "file": "thickness/06_quinacridone-violet_0.25coats.png",
+          "mask_file": "thickness/06_quinacridone-violet_0.25coats_mask.png",
+          "after_file": "thickness/06_quinacridone-violet_0.25coats_after.png"
+        },
+        {
+          "coats": 0.5,
+          "how": "1 coat of 1 part paint to 1 part medium",
+          "area": 0.1059,
+          "file": "thickness/06_quinacridone-violet_0.5coats.png",
+          "mask_file": "thickness/06_quinacridone-violet_0.5coats_mask.png",
+          "after_file": "thickness/06_quinacridone-violet_0.5coats_after.png"
+        },
+        {
+          "coats": 0.75,
+          "how": "1 coat of 3 parts paint to 1 part medium",
+          "area": 0.0445,
+          "file": "thickness/06_quinacridone-violet_0.75coats.png",
+          "mask_file": "thickness/06_quinacridone-violet_0.75coats_mask.png",
+          "after_file": "thickness/06_quinacridone-violet_0.75coats_after.png"
+        },
+        {
+          "coats": 1.0,
+          "how": "1 full coat",
+          "area": 0.0164,
+          "file": "thickness/06_quinacridone-violet_1coats.png",
+          "mask_file": "thickness/06_quinacridone-violet_1coats_mask.png",
+          "after_file": "thickness/06_quinacridone-violet_1coats_after.png"
+        },
+        {
+          "coats": 1.5,
+          "how": "1 full coat + 1 coat of 1 part paint to 1 part medium",
+          "area": 0.0004,
+          "file": "thickness/06_quinacridone-violet_1.5coats.png",
+          "mask_file": "thickness/06_quinacridone-violet_1.5coats_mask.png",
+          "after_file": "thickness/06_quinacridone-violet_1.5coats_after.png"
+        },
+        {
+          "coats": 2.0,
+          "how": "2 full coats",
+          "area": 0.0022,
+          "file": "thickness/06_quinacridone-violet_2coats.png",
+          "mask_file": "thickness/06_quinacridone-violet_2coats_mask.png",
+          "after_file": "thickness/06_quinacridone-violet_2coats_after.png"
+        }
+      ]
+    }
+  ],
+  "thickness_levels": [
+    {
+      "coats": 0.0,
+      "pixel_value": 0,
+      "how": "no paint"
+    },
+    {
+      "coats": 0.125,
+      "pixel_value": 16,
+      "how": "1 coat of 1 part paint to 7 parts medium"
+    },
+    {
+      "coats": 0.25,
+      "pixel_value": 32,
+      "how": "1 coat of 1 part paint to 3 parts medium"
+    },
+    {
+      "coats": 0.5,
+      "pixel_value": 64,
+      "how": "1 coat of 1 part paint to 1 part medium"
+    },
+    {
+      "coats": 0.75,
+      "pixel_value": 96,
+      "how": "1 coat of 3 parts paint to 1 part medium"
+    },
+    {
+      "coats": 1.0,
+      "pixel_value": 128,
+      "how": "1 full coat"
+    },
+    {
+      "coats": 1.5,
+      "pixel_value": 191,
+      "how": "1 full coat + 1 coat of 1 part paint to 1 part medium"
+    },
+    {
+      "coats": 2.0,
+      "pixel_value": 255,
+      "how": "2 full coats"
+    }
+  ],
+  "error": {
+    "mean": 4.678,
+    "max": 38.784,
+    "mean_before_quantizing": 2.013,
+    "max_before_quantizing": 30.478,
+    "error_png_white_at": 20.0,
+    "metric": "CIE76 ΔE"
+  },
+  "selection": {
+    "colors_clustered": 64,
+    "rms_error_background_only": 59.126,
+    "rounds": [
+      {
+        "paint": "Raw Umber",
+        "position": 0,
+        "rms_error": 22.351,
+        "forced": false
+      },
+      {
+        "paint": "Nickel Azo Yellow",
+        "position": 1,
+        "rms_error": 18.09,
+        "forced": false
+      },
+      {
+        "paint": "Azurite Hue",
+        "position": 1,
+        "rms_error": 11.112,
+        "forced": false
+      },
+      {
+        "paint": "Bone Black",
+        "position": 3,
+        "rms_error": 9.759,
+        "forced": false
+      },
+      {
+        "paint": "Cadmium Yellow Medium Hue",
+        "position": 0,
+        "rms_error": 8.898,
+        "forced": false
+      },
+      {
+        "paint": "Quinacridone Violet",
+        "position": 5,
+        "rms_error": 8.313,
+        "forced": false
+      }
+    ],
+    "paints_used": [
+      "Azurite Hue",
+      "Bone Black",
+      "Cadmium Yellow Medium Hue",
+      "Nickel Azo Yellow",
+      "Quinacridone Violet",
+      "Raw Umber"
+    ]
+  },
+  "settings": {
+    "solve": {
+      "t_max": 2.0,
+      "lam_smooth": 0.05,
+      "lam_paint": 0.01,
+      "lr": 0.05,
+      "beta2": 0.99,
+      "steps": 2000,
+      "init_u": -10.0,
+      "levels": [
+        0.0,
+        0.125,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.5,
+        2.0
+      ],
+      "refine_sweeps": 6,
+      "refine_paint_cost": 0.1,
+      "max_thicknesses": null,
+      "refine_smooth": 2.0
+    },
+    "palette": {
+      "n_colors": 64,
+      "min_gain": 0.5,
+      "max_layers": null,
+      "max_paints": null,
+      "steps": 400,
+      "seed": 0
+    }
+  },
+  "notes": [
+    "Paints with different sheens (gloss, satin): finish with a varnish for an even surface."
+  ]
+}

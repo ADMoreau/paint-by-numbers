@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Virtual environment (recreate with the README's setup steps)
+.venv/
+
+# Test and tool caches
+.pytest_cache/
+
+# Run outputs and the fetch script's page cache (README examples use these names)
+out/
+pages/
