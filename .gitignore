@@ -14,3 +14,10 @@ dist/
 # Run outputs and the fetch script's page cache (README examples use these names)
 out/
 pages/
+
+# Android build outputs and machine-specific settings
+android/.gradle/
+android/.kotlin/
+android/build/
+android/app/build/
+android/local.properties

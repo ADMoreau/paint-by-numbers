@@ -19,6 +19,7 @@ from dataclasses import replace
 from pathlib import Path
 
 from . import paints as paintdb
+from .package import PACKAGE_NAME, write_package
 from .palette import PaletteConfig
 from .plan import (
     BREAKDOWNS,
@@ -160,6 +161,7 @@ def main(argv: list[str] | None = None) -> int:
 
     result = plan(image, available, background, palette_config, solve_config, progress=say)
     written = write_outputs(result, args.out, source=str(args.input), breakdown=args.breakdown)
+    write_package(args.out, source=args.input)
 
     sol, stack = result.solution, result.selection.stack
     distinct = len({p.name for p in stack})
@@ -178,6 +180,7 @@ def main(argv: list[str] | None = None) -> int:
           + {"thickness": ", thickness/ and thickness_overview.png", "passes": ", passes/ and passes_overview.png",
              "both": ", thickness/, passes/ and their overviews", "none": ""}[args.breakdown]
           + f" to {args.out}/")  # fmt: skip
+    print(f"phone app project: {Path(args.out) / PACKAGE_NAME}")
     print(f"done in {time.perf_counter() - start:.0f}s")
     return 0 if written else 1
 

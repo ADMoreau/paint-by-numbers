@@ -177,3 +177,21 @@ def test_swatch_blocks_format():
 def test_no_color_codes_when_not_a_terminal(tmp_path, capsys, sample):
     assert cli.main([str(sample), "--out", str(tmp_path), *FAST, "--max-layers", "1", "-q"]) == 0
     assert "\x1b[" not in capsys.readouterr().out
+
+
+def test_writes_phone_app_package(tmp_path, sample):
+    """project.pbn bundles the recipe, the target image and each layer's files for the phone app."""
+    import zipfile
+
+    assert cli.main([str(sample), "--out", str(tmp_path), *FAST, "--max-layers", "2", "-q"]) == 0
+    r = recipe(tmp_path)
+    with zipfile.ZipFile(tmp_path / "project.pbn") as z:
+        names = set(z.namelist())
+        meta = json.loads(z.read("package.json"))
+        assert json.loads(z.read("recipe.json")) == r
+        target = Image.open(__import__("io").BytesIO(z.read("target.png")))
+    assert meta == {"format": "paint-by-numbers project", "version": 1, "target_file": "target.png"}
+    assert {"recipe.json", "preview.png", "target.png"} <= names
+    for layer in r["layers"]:
+        assert {layer["file"], layer["step_file"], layer["swatch_file"]} <= names
+    assert target.size == Image.open(sample).size  # small sources are kept at full size
