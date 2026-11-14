@@ -11,25 +11,33 @@ from PIL import Image
 from paint_by_numbers import cli, paints
 
 ROOT = Path(__file__).resolve().parent.parent
-SAMPLE = ROOT / "samples" / "landscape.png"
 from core_paints import CORE_NAMES
+from images import landscape
 
 # Small and quick, and pinned to the core paints so tests do not depend on database size.
 # A later --paints in a test overrides this one.
 FAST = ["--size", "32", "--steps", "300", "--paints", ",".join(CORE_NAMES)]
 
 
+@pytest.fixture(scope="module")
+def sample(tmp_path_factory) -> Path:
+    """The sample image: the synthetic landscape at 384x288."""
+    path = tmp_path_factory.mktemp("img") / "landscape.png"
+    landscape(384, 288).save(path)
+    return path
+
+
 def recipe(out: Path) -> dict:
     return json.loads((out / "recipe.json").read_text())
 
 
-def test_one_command_writes_all_outputs(tmp_path):
+def test_one_command_writes_all_outputs(tmp_path, sample):
     """Spec check: one command on the sample image writes layers, preview,
     recipe and error map. (Small size here to keep the test quick; the README
     shows the default 256 px run.)"""
     out = tmp_path / "out"
     proc = subprocess.run(
-        [sys.executable, "-m", "paint_by_numbers.cli", str(SAMPLE), "--out", str(out), *FAST, "--background", "#7A6A58"],
+        [sys.executable, "-m", "paint_by_numbers.cli", str(sample), "--out", str(out), *FAST, "--background", "#7A6A58"],
         capture_output=True, text=True, cwd=ROOT, timeout=600,
     )  # fmt: skip
     assert proc.returncode == 0, proc.stderr
@@ -39,35 +47,35 @@ def test_one_command_writes_all_outputs(tmp_path):
     assert (out / "preview.png").is_file() and (out / "error.png").is_file()
     assert Image.open(out / "preview.png").size == (32, 24)
     assert r["background"]["srgb_hex"] == "#7a6a58"
-    assert r["image"]["source"] == str(SAMPLE)
+    assert r["image"]["source"] == str(sample)
     assert "different paint" in proc.stdout and "bottom first" in proc.stdout and "done in" in proc.stdout
 
 
-def test_paints_restricts_selection(tmp_path):
+def test_paints_restricts_selection(tmp_path, sample):
     owned = "Titanium White, ultramarine blue, BURNT UMBER, Cadmium Yellow Primrose"
-    assert cli.main([str(SAMPLE), "--out", str(tmp_path), *FAST, "--paints", owned, "-q"]) == 0
+    assert cli.main([str(sample), "--out", str(tmp_path), *FAST, "--paints", owned, "-q"]) == 0
     used = {layer["paint"] for layer in recipe(tmp_path)["layers"]}
     assert used and used <= {"Titanium White", "Ultramarine Blue", "Burnt Umber", "Cadmium Yellow Primrose"}
 
 
-def test_background_paint_is_layer_zero(tmp_path):
-    assert cli.main([str(SAMPLE), "--out", str(tmp_path), *FAST, "--background-paint", "burnt umber", "--max-layers", "2", "-q"]) == 0
+def test_background_paint_is_layer_zero(tmp_path, sample):
+    assert cli.main([str(sample), "--out", str(tmp_path), *FAST, "--background-paint", "burnt umber", "--max-layers", "2", "-q"]) == 0
     r = recipe(tmp_path)
     assert r["background"]["kind"] == "paint"
     assert r["layers"][0] == {**r["layers"][0], "layer": 0, "paint": "Burnt Umber", "role": "ground"}
     assert len(list((tmp_path / "layers").glob("*.png"))) == len(r["layers"]) - 1
 
 
-def test_background_image(tmp_path):
+def test_background_image(tmp_path, sample):
     ground = tmp_path / "ground.png"
     Image.new("RGB", (20, 20), (90, 80, 70)).save(ground)
     out = tmp_path / "out"
-    assert cli.main([str(SAMPLE), "--out", str(out), *FAST, "--background-image", str(ground), "--max-layers", "2", "-q"]) == 0
+    assert cli.main([str(sample), "--out", str(out), *FAST, "--background-image", str(ground), "--max-layers", "2", "-q"]) == 0
     assert recipe(out)["background"] == {"kind": "image", "value": str(ground)}
 
 
-def test_max_layers_and_levels(tmp_path):
-    args = [str(SAMPLE), "--out", str(tmp_path), *FAST, "--max-layers", "2", "--t-max", "1", "--levels", "0.5,1", "-q"]
+def test_max_layers_and_levels(tmp_path, sample):
+    args = [str(sample), "--out", str(tmp_path), *FAST, "--max-layers", "2", "--t-max", "1", "--levels", "0.5,1", "-q"]
     assert cli.main(args) == 0
     r = recipe(tmp_path)
     assert len(r["layers"]) <= 2
@@ -85,9 +93,9 @@ def test_max_layers_and_levels(tmp_path):
         (["--background", "#fff", "--background-paint", "Carbon Black"], "not allowed with"),
     ],
 )
-def test_bad_arguments_exit_with_message(tmp_path, capsys, extra, message):
+def test_bad_arguments_exit_with_message(tmp_path, capsys, extra, message, sample):
     with pytest.raises(SystemExit) as exc:
-        cli.main([str(SAMPLE), "--out", str(tmp_path), *FAST, *extra])
+        cli.main([str(sample), "--out", str(tmp_path), *FAST, *extra])
     assert exc.value.code == 2
     assert message in capsys.readouterr().err
 
@@ -123,11 +131,11 @@ def test_read_paint_names(tmp_path):
     assert paints.read_paint_names(f) == ["Titanium White", "Burnt Umber", "Ultramarine Blue", "carbon black"]
 
 
-def test_paints_file_and_max_paints(tmp_path):
+def test_paints_file_and_max_paints(tmp_path, sample):
     palette_file = tmp_path / "palette.txt"
     palette_file.write_text("Titanium White\nUltramarine Blue\nBurnt Umber\nCadmium Yellow Primrose\nPyrrole Red\n")
     out = tmp_path / "out"
-    args = [str(SAMPLE), "--out", str(out), "--size", "32", "--steps", "300",
+    args = [str(sample), "--out", str(out), "--size", "32", "--steps", "300",
             "--paints-file", str(palette_file), "--max-paints", "2", "-q"]  # fmt: skip
     assert cli.main(args) == 0
     used = set(recipe(out)["selection"]["paints_used"])
@@ -135,27 +143,27 @@ def test_paints_file_and_max_paints(tmp_path):
     assert used <= {"Titanium White", "Ultramarine Blue", "Burnt Umber", "Cadmium Yellow Primrose", "Pyrrole Red"}
 
 
-def test_breakdown_flag(tmp_path):
-    assert cli.main([str(SAMPLE), "--out", str(tmp_path), *FAST, "--max-layers", "2", "--breakdown", "passes", "-q"]) == 0
+def test_breakdown_flag(tmp_path, sample):
+    assert cli.main([str(sample), "--out", str(tmp_path), *FAST, "--max-layers", "2", "--breakdown", "passes", "-q"]) == 0
     assert any((tmp_path / "passes").glob("*.png")) and not (tmp_path / "thickness_overview.png").exists()
 
 
-def test_missing_paints_file(tmp_path, capsys):
+def test_missing_paints_file(tmp_path, capsys, sample):
     with pytest.raises(SystemExit):
-        cli.main([str(SAMPLE), "--out", str(tmp_path), "--paints-file", str(tmp_path / "nope.txt")])
+        cli.main([str(sample), "--out", str(tmp_path), "--paints-file", str(tmp_path / "nope.txt")])
     assert "paints file not found" in capsys.readouterr().err
 
 
-def test_max_thicknesses_and_smoothing_flags(tmp_path):
-    args = [str(SAMPLE), "--out", str(tmp_path), *FAST, "--max-layers", "2", "--max-thicknesses", "2", "--smoothing", "1.5", "-q"]
+def test_max_thicknesses_and_smoothing_flags(tmp_path, sample):
+    args = [str(sample), "--out", str(tmp_path), *FAST, "--max-layers", "2", "--max-thicknesses", "2", "--smoothing", "1.5", "-q"]
     assert cli.main(args) == 0
     r = recipe(tmp_path)
     assert r["settings"]["solve"]["max_thicknesses"] == 2 and r["settings"]["solve"]["refine_smooth"] == 1.5
     assert all(len(layer["thicknesses"]) <= 2 for layer in r["layers"])
 
 
-def test_max_thicknesses_zero_means_no_limit(tmp_path):
-    assert cli.main([str(SAMPLE), "--out", str(tmp_path), *FAST, "--max-layers", "1", "--max-thicknesses", "0", "-q"]) == 0
+def test_max_thicknesses_zero_means_no_limit(tmp_path, sample):
+    assert cli.main([str(sample), "--out", str(tmp_path), *FAST, "--max-layers", "1", "--max-thicknesses", "0", "-q"]) == 0
     assert recipe(tmp_path)["settings"]["solve"]["max_thicknesses"] is None
 
 
@@ -166,6 +174,6 @@ def test_swatch_blocks_format():
     assert "\x1b[38;2;10;20;30m" in text and "\x1b[38;2;100;110;120m" in text
 
 
-def test_no_color_codes_when_not_a_terminal(tmp_path, capsys):
-    assert cli.main([str(SAMPLE), "--out", str(tmp_path), *FAST, "--max-layers", "1", "-q"]) == 0
+def test_no_color_codes_when_not_a_terminal(tmp_path, capsys, sample):
+    assert cli.main([str(sample), "--out", str(tmp_path), *FAST, "--max-layers", "1", "-q"]) == 0
     assert "\x1b[" not in capsys.readouterr().out
