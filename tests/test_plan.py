@@ -447,3 +447,19 @@ def test_swatch_card_size():
     colors = plan.swatch_colors(BY_NAME["Titanium White"], [0.125, 0.25, 1.5], torch.tensor([0.4, 0.2, 0.3], dtype=torch.float64))
     for size in [(256, 192), (520, 260), (40, 40)]:
         assert plan._swatch_card(BY_NAME["Titanium White"], colors, size).size == size
+
+
+def test_swatch_title_always_fits():
+    """Long names shrink, then wrap, instead of running off the card."""
+    from PIL import ImageDraw
+
+    draw = ImageDraw.Draw(Image.new("RGB", (10, 10)))
+    title = "12. Quinacridone / Nickel Azo Gold (semi-transparent)"
+    for width, size in [(700, 16), (256, 12), (150, 12), (90, 12)]:
+        font, lines = plan._fit_title(draw, title, width, size)
+        assert " ".join(lines).replace(" (", "(").replace("(", " (") == title or len(lines) > 1
+        assert all(draw.textlength(line, font=font) <= width or " " not in line for line in lines)
+    font, lines = plan._fit_title(draw, title, 700, 16)
+    assert lines == [title] and font.size == 16  # roomy: unchanged
+    font, lines = plan._fit_title(draw, title, 90, 12)
+    assert len(lines) >= 2 and font.size == 8  # narrow: smallest font, wrapped

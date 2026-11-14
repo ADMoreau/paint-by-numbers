@@ -1,6 +1,22 @@
 # Paint by Numbers
 
-Turns an image into a stack of single-paint layers of Golden Heavy Body acrylics over a background you choose. For each layer it writes a grayscale map of where that paint goes and how thick, the way one channel of an RGB image says how much red goes where. Layers are added for as long as they improve the match, and a paint can appear in more than one layer.
+Turns a picture into a plan for painting it in layers of Golden Heavy Body acrylics, over a background you choose. It picks the paints, the order to apply them, and how thick each one goes where. Layers are added for as long as they improve the match, and a paint can appear in more than one layer.
+
+## How it works
+
+A digital color image is stored as three grayscale pictures, called channels: one each for red, green and blue light. In the red channel, a bright pixel means a lot of red light at that spot and a dark pixel means little. The screen mixes the three channels back into the colors you see.
+
+Paint by Numbers does the same thing with paint. Instead of red, green and blue light, it uses a handful of real paints, and for each paint it makes a grayscale picture called a **layer map**:
+
+- **Black** means none of that paint here.
+- **White** means the thickest application (2 full coats by default).
+- **Grays in between** mean thinner coats, painted as glazes thinned with clear medium. Each gray value matches a specific mix; see [Thickness levels](#thickness-levels).
+
+Paint the layers one on top of another, bottom layer first, and the picture comes back.
+
+One big difference from light: color channels simply add up, but paint layers **stack**. Each layer covers or tints whatever is beneath it. Opaque paints hide what is below them, and transparent paints act like colored glass. That is why the order of the layers matters, and why the same paint can be useful in two different layers.
+
+To see what each layer should look like, every layer also gets a **swatch**: its paint at full strength and at each thickness the layer uses, over white and over black.
 
 The full design is in `docs/paint-by-numbers-spec.md`.
 
@@ -14,16 +30,16 @@ The full design is in `docs/paint-by-numbers-spec.md`.
 paint-by-numbers docs/examples/rainbow/rainbow.jpg --out out/rainbow
 ```
 
-With default settings (white background, choosing from 116 paints, 256 px) the planner picks six layers, mean color error 4.7 ΔE. Bottom layer first:
+With default settings (white background, choosing from 116 paints, 256 px) the planner picks six layers, mean color error 4.7 ΔE. Below, bottom layer first: each paint with its layer map (white is where it goes thickest) and its swatch (each thickness the layer uses, over white and over black, then full strength).
 
-| # | Swatch: each thickness used, over white and black, and full strength | Paint | Transparency | Covers | Layer map |
-| --- | --- | --- | --- | --- | --- |
-| 1 | <img src="docs/examples/rainbow/swatches/01_cadmium-yellow-medium-hue.png" width="360" alt="Cadmium Yellow Medium Hue swatch"> | Cadmium Yellow Medium Hue | semi-opaque | 20% | [map](docs/examples/rainbow/layers/01_cadmium-yellow-medium-hue.png) |
-| 2 | <img src="docs/examples/rainbow/swatches/02_raw-umber.png" width="360" alt="Raw Umber swatch"> | Raw Umber | opaque | 63% | [map](docs/examples/rainbow/layers/02_raw-umber.png) |
-| 3 | <img src="docs/examples/rainbow/swatches/03_azurite-hue.png" width="360" alt="Azurite Hue swatch"> | Azurite Hue | semi-transparent | 87% | [map](docs/examples/rainbow/layers/03_azurite-hue.png) |
-| 4 | <img src="docs/examples/rainbow/swatches/04_nickel-azo-yellow.png" width="360" alt="Nickel Azo Yellow swatch"> | Nickel Azo Yellow | transparent | 49% | [map](docs/examples/rainbow/layers/04_nickel-azo-yellow.png) |
-| 5 | <img src="docs/examples/rainbow/swatches/05_bone-black.png" width="360" alt="Bone Black swatch"> | Bone Black | semi-opaque | 73% | [map](docs/examples/rainbow/layers/05_bone-black.png) |
-| 6 | <img src="docs/examples/rainbow/swatches/06_quinacridone-violet.png" width="360" alt="Quinacridone Violet swatch"> | Quinacridone Violet | transparent | 46% | [map](docs/examples/rainbow/layers/06_quinacridone-violet.png) |
+| # | Paint and layer map | Swatch |
+| --- | --- | --- |
+| 1 | **Cadmium Yellow Medium Hue**<br>semi-opaque, covers 20%<br><img src="docs/examples/rainbow/layers/01_cadmium-yellow-medium-hue.png" width="160" alt="Cadmium Yellow Medium Hue layer map"> | <img src="docs/examples/rainbow/swatches/01_cadmium-yellow-medium-hue.png" width="460" alt="Cadmium Yellow Medium Hue swatch"> |
+| 2 | **Raw Umber**<br>opaque, covers 63%<br><img src="docs/examples/rainbow/layers/02_raw-umber.png" width="160" alt="Raw Umber layer map"> | <img src="docs/examples/rainbow/swatches/02_raw-umber.png" width="460" alt="Raw Umber swatch"> |
+| 3 | **Azurite Hue**<br>semi-transparent, covers 87%<br><img src="docs/examples/rainbow/layers/03_azurite-hue.png" width="160" alt="Azurite Hue layer map"> | <img src="docs/examples/rainbow/swatches/03_azurite-hue.png" width="460" alt="Azurite Hue swatch"> |
+| 4 | **Nickel Azo Yellow**<br>transparent, covers 49%<br><img src="docs/examples/rainbow/layers/04_nickel-azo-yellow.png" width="160" alt="Nickel Azo Yellow layer map"> | <img src="docs/examples/rainbow/swatches/04_nickel-azo-yellow.png" width="460" alt="Nickel Azo Yellow swatch"> |
+| 5 | **Bone Black**<br>semi-opaque, covers 73%<br><img src="docs/examples/rainbow/layers/05_bone-black.png" width="160" alt="Bone Black layer map"> | <img src="docs/examples/rainbow/swatches/05_bone-black.png" width="460" alt="Bone Black swatch"> |
+| 6 | **Quinacridone Violet**<br>transparent, covers 46%<br><img src="docs/examples/rainbow/layers/06_quinacridone-violet.png" width="160" alt="Quinacridone Violet layer map"> | <img src="docs/examples/rainbow/swatches/06_quinacridone-violet.png" width="460" alt="Quinacridone Violet swatch"> |
 
 The overview puts each layer's swatch, each layer on its own, and the painting after each layer on one sheet, with the photo, the preview and the color error at the bottom:
 
@@ -108,7 +124,9 @@ The example above took about 2 minutes on an 8-thread laptop CPU. Restricting `-
 | `error.png` | Per-pixel color error between preview and image. Black is a perfect match; white is 20 ΔE or worse. |
 | `recipe.json` | Background, layer order, paint per layer, how much area gets each thickness, how to paint each thickness level, color error, and notes. |
 
-Thickness levels and their gray values, with the default `--t-max 2`:
+### Thickness levels
+
+Thickness levels and their gray values in the layer maps, with the default `--t-max 2`:
 
 | Coats | Gray value | How to paint it |
 | --- | --- | --- |
@@ -163,6 +181,10 @@ The fetch script makes one request per paint (`--all` is about 156), and only wh
 | `paint_by_numbers/plan.py` | End-to-end pipeline and output files |
 | `paint_by_numbers/cli.py` | Command line |
 | `scripts/fetch_golden.py` | Adds paints from Golden's product pages (build time only) |
+
+## Prototypes
+
+`prototypes/x_tracking/` is a simulation of how a phone app could keep a guide image locked to the canvas, using small hand-drawn X marks the camera recognizes, even close up. See its [README](prototypes/x_tracking/README.md) for findings. It needs OpenCV: `pip install -e ".[tracking]"`.
 
 ## License
 

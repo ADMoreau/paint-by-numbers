@@ -291,9 +291,42 @@ def _short_coats(coats: float) -> str:
     return str(Fraction(coats).limit_denominator(16)) if coats < 1 else f"{coats:g}"
 
 
-def _swatch_card(paint: Paint, colors: dict, size: tuple[int, int], title: str | None = None) -> Image.Image:
-    """A paint chip: one column per thickness plus full strength, one row per ground."""
-    from PIL import ImageDraw
+def _fit_title(draw, title: str, max_width: int, size: int, min_size: int = 8):
+    """Font and lines for a title that must fit ``max_width``: shrink the font,
+    then wrap before the parenthesized part (and at spaces) if still too wide."""
+    from PIL import ImageFont
+
+    for s in range(size, min_size - 1, -1):
+        font = ImageFont.load_default(size=s)
+        if draw.textlength(title, font=font) <= max_width:
+            return font, [title]
+    font = ImageFont.load_default(size=min_size)
+    lines, line = [], ""
+    for word in title.replace(" (", "\n(").replace("\n", " \n ").split(" "):
+        if word == "\n":
+            if line:
+                lines.append(line)
+            line = ""
+            continue
+        candidate = f"{line} {word}".strip()
+        if line and draw.textlength(candidate, font=font) > max_width:
+            lines.append(line)
+            line = word
+        else:
+            line = candidate
+    if line:
+        lines.append(line)
+    return font, lines
+
+
+def _swatch_card(
+    paint: Paint, colors: dict, size: tuple[int, int], title: str | None = None, font_size: int = 10
+) -> Image.Image:
+    """A paint chip: one column per thickness plus full strength, one row per ground.
+
+    The title shrinks, then wraps, to stay inside the card.
+    """
+    from PIL import ImageDraw, ImageFont
 
     w, h = size
     rows = [k for k in ("on_white", "on_black", "on_ground") if k in colors]
@@ -301,16 +334,25 @@ def _swatch_card(paint: Paint, colors: dict, size: tuple[int, int], title: str |
     cols = len(coats) + 1
     card = Image.new("RGB", (w, h), "white")
     draw = ImageDraw.Draw(card)
-    header, label_h, left = 16, 12, min(60, w // 4)
+    title_font, title_lines = _fit_title(draw, title or f"{paint.name} ({paint.transparency})", w - 8, font_size + 2)
+    line_h = title_font.size + 3
+    label_font = ImageFont.load_default(size=font_size)
+    header = 4 + line_h * len(title_lines)
+    label_h = font_size + 4
+    left = min(int(font_size * 6), w // 4)
     cell_w = max(4, (w - left - 2) // cols)
     cell_h = max(4, (h - header - label_h - 2) // len(rows))
     top = header + label_h
-    draw.text((4, 2), title or f"{paint.name} ({paint.transparency})", fill="black")
-    for c, label in enumerate([f"{_short_coats(x)} coat" if cell_w > 60 else _short_coats(x) for x in coats] + ["full"]):
-        draw.text((left + c * cell_w + 2, header), label, fill="black")
+    for k, line in enumerate(title_lines):
+        draw.text((4, 3 + k * line_h), line, fill="black", font=title_font)
+    long_labels = draw.textlength("3/4 coat", font=label_font) < cell_w - 4
+    for c, label in enumerate([f"{_short_coats(x)} coat" if long_labels else _short_coats(x) for x in coats] + ["full"]):
+        draw.text((left + c * cell_w + 2, header + 1), label, fill="black", font=label_font)
+    full_names = all(draw.textlength(k.replace("_", " "), font=label_font) <= left - 4 for k in rows)
     for r, key in enumerate(rows):
         y = top + r * cell_h
-        draw.text((2, y + cell_h // 2 - 5), key.replace("_", " "), fill="black")
+        row_label = key.replace("_", " ") if full_names else key.removeprefix("on_")
+        draw.text((2, y + cell_h // 2 - font_size // 2), row_label, fill="black", font=label_font)
         for c, x in enumerate(coats):
             x0 = left + c * cell_w
             draw.rectangle((x0 + 1, y + 1, x0 + cell_w - 2, y + cell_h - 2), fill=colors[key][x], outline=(200, 200, 200))
@@ -453,7 +495,8 @@ def write_outputs(
         colors = swatch_colors(paint, used, flat_ground)
         rows = 2 + (flat_ground is not None)
         title = f"{i}. {paint.name} ({paint.transparency})"
-        _swatch_card(paint, colors, (max(320, 70 + 72 * (len(used) + 1)), 36 + 56 * rows), title).save(swatch_dir / name)
+        card_size = (max(400, 90 + 76 * (len(used) + 1)), 50 + 60 * rows)
+        _swatch_card(paint, colors, card_size, title, font_size=14).save(swatch_dir / name)
         swatch_tile = _swatch_card(paint, colors, tile_size, title)
         overview_swatches.append(("", swatch_tile))
         written[f"swatch_{i}"] = swatch_dir / name

@@ -22,6 +22,7 @@ paint-by-numbers = "paint_by_numbers.cli:main"
 
 [project.optional-dependencies]
 test = ["pytest"]
+tracking = ["opencv-python-headless", "scipy"]  # prototypes/x_tracking only
 
 [tool.setuptools.packages.find]
 include = ["paint_by_numbers*"]
