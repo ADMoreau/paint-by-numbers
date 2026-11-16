@@ -21,3 +21,6 @@ android/.kotlin/
 android/build/
 android/app/build/
 android/local.properties
+
+# Private on-device test images (e.g. photos of the user's own artwork); tests skip when absent
+android/app/src/androidTest/assets/local/

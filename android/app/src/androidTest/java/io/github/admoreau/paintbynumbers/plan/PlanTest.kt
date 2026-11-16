@@ -7,13 +7,21 @@ import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
+import org.junit.BeforeClass
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.opencv.android.OpenCVLoader
 import java.io.File
 
 /** A small plan from the desktop planner (synthetic landscape, 3 layers over mauve): import, read, draw regions. */
 @RunWith(AndroidJUnit4::class)
 class PlanTest {
+    companion object {
+        @BeforeClass
+        @JvmStatic
+        fun load() = check(OpenCVLoader.initLocal()).let { } // the region renderer uses OpenCV, as the app does from launch
+    }
+
     @Test
     fun importsReadsAndDrawsRegions() {
         val inst = InstrumentationRegistry.getInstrumentation()
@@ -30,7 +38,7 @@ class PlanTest {
             assertTrue(plan.file(plan.targetFile).exists())
             for (layer in plan.layers) {
                 assertTrue("${layer.paint} has no thicknesses", layer.thicknesses.isNotEmpty())
-                val all = RegionRenderer.render(plan, layer, null)
+                val all = RegionRenderer.render(plan, layer, null)?.fill
                 assertNotNull(all)
                 val px = IntArray(all!!.width * all.height).also { all.getPixels(it, 0, all.width, 0, 0, all.width, all.height) }
                 val painted = px.count { Color.alpha(it) > 0 }.toDouble() / px.size

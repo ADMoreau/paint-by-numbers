@@ -68,6 +68,8 @@ class FrameAnalyzer(private val onFrame: (Frame) -> Unit) : ImageAnalysis.Analyz
     @Volatile var sensorIntrinsics: SensorIntrinsics? = null
     /** Where to look for X's in the next frame (null = everywhere); set by tracking. */
     @Volatile var regions: List<XDetector.Region>? = null
+    /** Set to be handed a copy of the next frame's luminance (CV_8UC1, buffer pixels; caller releases it); cleared once delivered. */
+    @Volatile var grab: ((Mat) -> Unit)? = null
 
     private val detector = XDetector()
     private val markerFinder by lazy { MarkerFinder() }
@@ -85,6 +87,7 @@ class FrameAnalyzer(private val onFrame: (Frame) -> Unit) : ImageAnalysis.Analyz
         try {
             val plane = image.planes[0] // Y (luminance): all the detectors need
             val gray = Mat(image.height, image.width, CvType.CV_8UC1, plane.buffer, plane.rowStride.toLong())
+            grab?.let { g -> grab = null; g(gray.clone()) }
             val t0 = SystemClock.elapsedRealtimeNanos()
             var dets = emptyList<XDetection>()
             var markers = emptyList<MarkerDetection>()

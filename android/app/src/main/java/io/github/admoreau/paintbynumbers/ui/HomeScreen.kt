@@ -109,7 +109,7 @@ fun HomeScreen(
                     }
                 }
                 TrackingMode.FREE -> Text(
-                    "No tracking: the image is fixed to the screen where you place it. Keep the phone still (a stand or tripod helps) and trace through the camera view.",
+                    "No tracking: the image is fixed to the screen where you place it. Keep the phone still (a stand or tripod helps) and trace through the camera view. If you've drawn the composition on the canvas, Snap to drawing lines the image up with it.",
                     style = MaterialTheme.typography.bodySmall,
                 )
             }

@@ -191,8 +191,42 @@ The fetch script makes one request per paint (`--all` is about 156), and only wh
    - **X marks**: draw X's about 1.5 cm across, every 8-12 cm over the canvas, in a color that stands out. Scan once (stand back, move the phone side to side and up and down for a few seconds) and the app maps them; after that it follows the canvas as you move, even close up. A **Tune** panel adjusts how sensitive the X finder is.
    - **Square markers**: print the marker sheet from the app (4x4 ArUco markers), stick a few anywhere around the canvas. No scan: the app maps them as it sees them.
    - **Free**: no tracking; the image stays where you put it on the screen (phone on a stand).
+   - **Your drawing**: if you've sketched the composition on the canvas, **Snap to drawing** finds the image in it (see below). Works in any of the modes above, with no X's or markers needed.
 2. **Import the plan** (`project.pbn`), or just pick an image.
-3. **Paint**: place, size and turn the image on the canvas with your fingers, then lock it. Step through the layers; for each thickness, the regions to paint are highlighted and the glaze mix is shown. Switch to the painting as it should look after the layer, or the final image.
+3. **Paint**: place, size and turn the image on the canvas with your fingers, then lock it. Step through the layers. Each area a layer paints is shown in the colour it should be once painted, outlined in white, and each thickness chip carries that thickness's colour. Pick a thickness to see just its areas and its glaze mix. The plan's small thickness maps are smoothed when drawn, so areas have rounded edges instead of boxes. For more detail, plan at a higher `--size`. Switch to the painting as it should look after the layer, or the final image.
+
+On the paint screen:
+
+- **Lock view** (X or marker mode) freezes the overlay where the canvas is now. Use it with the phone on a stand, so a hand or brush covering X's can't nudge it. It locks the average of the last second of tracking, so lock with your hands out of view. Tap **Locked** to let go. If the phone gets bumped, the cyan crosses (with **Show X's** on) drift off the real X's; let go and lock again.
+- **Hide** leaves just the camera and the image; tap anywhere to bring the controls back. The screen stays on while the paint screen is open.
+
+### Snap to drawing
+
+Many painters sketch the composition on the canvas first. **Snap to drawing** finds the image in the camera's view of that sketch and lays it exactly over it. With the phone on a stand you then don't need X's at all. Tap it with the drawing in view and your hands out of the way; about five seconds later the overlay sits on your lines and is locked there. Keep the phone still; if it moves, snap again. The **Light/Dark** setting at the top left must match your chalk or pencil. It's the same setting as for X's, labelled "marks" in X mode and "lines" otherwise. If X's or markers are tracking at the time, the image's placement moves there too, so tracking carries on from the snapped spot after you let go. If it lands wrong, tap **Undo**.
+
+How it works (`android/app/src/main/java/.../align/`):
+
+1. **Find the drawn lines** in one camera frame (1280 x 960). A pixel is on a line if, across it, the brightness curves like a thin ridge (a valley for dark lines). It must also be the strongest point across, and lighter (darker) than the ground on *both* sides. Thresholds are set by the frame's own noise.
+2. **Describe the image by its edges.** These are the colour edges of the final image, found on whichever Lab channel changes most, at two blur scales. They're sorted into 8 directions, each with a distance map: from any point, how far it is to the nearest edge running that way, and which edge that is.
+3. **Search.** A blurred copy of the image's edges is slid over the drawn lines (correlation on a 256-pixel copy of the frame). It tries every size from 30% to 160% of the frame, at turns within 15° of upright on screen, plus sizes and turns around wherever the image is drawn now. The six best distinct positions go on to step 4.
+4. **Refine.** Each drawn point is paired with the nearest image edge running the same way (within about 30°). The placement is then solved by robust least squares while the pairing radius shrinks. It goes from size, turn and position, to stretch, to full perspective, since the phone sees the canvas at an angle. The candidate whose lines sit closest to image edges wins.
+
+Why it's built this way:
+
+- **Lines, not colours.** A sketch has no colour, and the canvas around it is paint, weave and texture. What the drawing and the image share is where the boundaries are.
+- **The both-sides test.** The edge of a painted area is a step in brightness, not a line. Requiring the line to be lighter than the ground on both sides keeps paint edges, which are everywhere on a canvas in progress, out of the drawing.
+- **Direction matters.** Pairing each drawn line only with edges running the same way stops it latching onto a crossing edge. Precomputing the distance maps per direction makes each pairing a lookup, not a search.
+- **Search, then refine.** Least squares only converges from close by. The coarse search finds the right neighbourhood with no starting placement at all, which is what lets it work without X's.
+- **Robust weights.** Drawn lines that match nothing in the image get no weight instead of pulling the fit. That covers X's, notes, construction lines and hatching.
+- **Snap once, then hold.** On a stand the phone doesn't move, so finding the image once is enough. Tracking the drawing continuously wouldn't work anyway, because painting covers it.
+
+**Limits:**
+
+- **It's only as accurate as the drawing.** Where the sketch strays from the image, the overlay follows the drawing on average, not each line. The prototype can also bend the image to follow the drawing, but that isn't in the app.
+- **It can't be sure it's right.** Check the result, and tap Undo or snap again if needed.
+- **Loose sketches often fail.** If proportions are off by 5% or more, expect misses.
+
+It was designed and tested in simulation in `prototypes/sketch_align/` (see its [README](prototypes/sketch_align/README.md)). On a real chalk sketch it landed within about 1–2 mm of the drawn lines.
 
 The camera's lens details come from Android, so it works on any phone without calibration. Build it with JDK 17 and the Android SDK (platform 35):
 
@@ -208,6 +242,8 @@ The release build is signed with the debug key and is about four times faster th
 ## Prototypes
 
 `prototypes/x_tracking/` is the simulation the app's X tracking was designed and validated with: how to keep a guide image locked to the canvas from small hand-drawn X marks, even close up. See its [README](prototypes/x_tracking/README.md) for findings. It needs OpenCV: `pip install -e ".[tracking]"`. The app's on-device tests replay its simulated frames and check the Kotlin port matches.
+
+`prototypes/sketch_align/` is where Snap to drawing was worked out: a simulator of freehand sketches photographed on a canvas, and the aligner tested against it. See its [README](prototypes/sketch_align/README.md). `export_test_case.py` writes cases for the app's `SketchAlignTest`, which checks the Kotlin port finds the image where the prototype does. Private test images, such as photos of your own artwork, go in `android/app/src/androidTest/assets/local/`, which git ignores.
 
 ## License
 

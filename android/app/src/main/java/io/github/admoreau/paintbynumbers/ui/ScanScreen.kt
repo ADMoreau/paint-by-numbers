@@ -65,10 +65,10 @@ fun DrawScope.drawDetections(frame: Frame, color: (Int) -> Color = { MARK_GREEN 
 
 /** Dark / light mark switch, shown over the camera so the effect is visible at once. */
 @Composable
-fun MarkColorChips(polarity: XDetector.Polarity, onPolarity: (XDetector.Polarity) -> Unit) {
+fun MarkColorChips(polarity: XDetector.Polarity, onPolarity: (XDetector.Polarity) -> Unit, noun: String = "marks") {
     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-        FilterChip(selected = polarity == XDetector.Polarity.DARK, onClick = { onPolarity(XDetector.Polarity.DARK) }, label = { Text("Dark marks") })
-        FilterChip(selected = polarity == XDetector.Polarity.LIGHT, onClick = { onPolarity(XDetector.Polarity.LIGHT) }, label = { Text("Light marks") })
+        FilterChip(selected = polarity == XDetector.Polarity.DARK, onClick = { onPolarity(XDetector.Polarity.DARK) }, label = { Text("Dark $noun") })
+        FilterChip(selected = polarity == XDetector.Polarity.LIGHT, onClick = { onPolarity(XDetector.Polarity.LIGHT) }, label = { Text("Light $noun") })
     }
 }
 
