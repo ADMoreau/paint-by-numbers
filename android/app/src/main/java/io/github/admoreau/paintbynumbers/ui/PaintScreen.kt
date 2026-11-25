@@ -574,7 +574,9 @@ fun PaintScreen(
                         )
                         TextButton(onClick = { if (layerIndex < plan.layers.size - 1) { layerIndex++; thickness = null; onLayer(layerIndex) } }, enabled = layerIndex < plan.layers.size - 1) { Text("▶") }
                     }
-                    Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    // a layer painted at one weight (planned with --layers) has nothing to pick between
+                    val single = layer.thicknesses.singleOrNull()
+                    if (single == null) Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                         FilterChip(selected = thickness == null, onClick = { thickness = null }, label = { Text("All") })
                         for (t in layer.thicknesses) {
                             FilterChip(selected = thickness == t, onClick = { thickness = t; kind = OverlayKind.REGIONS }, label = { Text(t.label.removeSuffix(" coats").removeSuffix(" coat")) }, leadingIcon = {
@@ -582,13 +584,14 @@ fun PaintScreen(
                             })
                         }
                     }
-                    val t = thickness
+                    val t = thickness ?: single
                     if (t != null) Row(verticalAlignment = Alignment.CenterVertically) {
                         Box(Modifier.size(14.dp).clip(CircleShape).background(Color(android.graphics.Color.parseColor(t.colorHex))))
                         Text("  looks like this on the canvas", color = Color(0xFFBDBDBD))
                     }
                     Text(
-                        if (t != null) "${t.label}: ${t.how}. %.0f%% of the canvas.".format(100 * t.area)
+                        if (t != null) "${t.label}: ${t.how}. %.0f%% of the canvas.".format(100 * t.area) +
+                            (if (single != null && layerIndex == 0 && plan.groundPaint != null) " Ground coat first: ${plan.groundPaint}." else "")
                         else "${layer.transparency}, ${layer.thicknesses.size} thickness${if (layer.thicknesses.size == 1) "" else "es"}" +
                             (if (layerIndex == 0 && plan.groundPaint != null) ". Ground coat first: ${plan.groundPaint}" else "") + ". Pick one to see where it goes.",
                         color = Color(0xFFE0E0E0),

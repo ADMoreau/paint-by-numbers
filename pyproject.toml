@@ -15,6 +15,7 @@ dependencies = [
     "numpy",
     "pillow",
     "scikit-learn",
+    "scipy",
 ]
 
 [project.scripts]

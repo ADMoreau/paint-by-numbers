@@ -2,7 +2,7 @@
 
     python -m paint_by_numbers.cli input.jpg --out out/ \\
         --background "#7A6A58" --size 256 \\
-        [--max-layers N] [--min-gain 0.5] \\
+        [--layers N | --max-layers N] [--min-gain 0.5] \\
         [--paints "Titanium White,Ultramarine Blue,..."] \\
         [--background-paint NAME | --background-image PATH]
 
@@ -27,12 +27,15 @@ from .plan import (
     background_from_image,
     background_from_paint,
     layer_thicknesses,
+    level_instructions,
     load_image,
     swatch_colors,
     plan,
+    plan_uniform,
     write_outputs,
 )
 from .solve import SolveConfig
+from .uniform import UniformConfig
 
 
 def parse_levels(text: str | None, t_max: float) -> tuple[float, ...]:
@@ -81,7 +84,12 @@ def build_parser() -> argparse.ArgumentParser:
                     help="text file of paints you own, one per line ('#' comments); combined with --paints")
     ap.add_argument("--max-paints", type=int,
                     help="most different paints to use; the planner picks the best set (default: no limit)")
-    ap.add_argument("--max-layers", type=int, help="cap on the number of layers (default: no limit)")
+    ap.add_argument("--layers", type=int, metavar="N",
+                    help="paint the image in N layers, each one paint at one weight over one region; "
+                         "gradations come from stacking layers rather than from patches of different "
+                         "weights side by side (recommended for painting)")
+    ap.add_argument("--max-layers", type=int,
+                    help="without --layers: cap on the number of layers, each with its own thickness map (default: no limit)")
     ap.add_argument("--min-gain", type=float, default=PaletteConfig.min_gain,
                     help="RMS Lab error a new layer must save to be added (default %(default)s)")  # fmt: skip
 
@@ -96,6 +104,13 @@ def build_parser() -> argparse.ArgumentParser:
     tune.add_argument("--smoothing", type=float, default=SolveConfig.refine_smooth,
                       help="how strongly thickness regions are kept in one piece rather than speckled; "
                            "0 is off (default %(default)s)")
+
+    one = ap.add_argument_group("regions, with --layers")
+    one.add_argument("--region-smoothing", type=float, default=100 * UniformConfig.smooth, metavar="PERCENT",
+                     help="how far regions are smoothed, as a percent of the image's long side; they still "
+                          "follow the image's edges. 0 is off (default %(default)g)")
+    one.add_argument("--min-region", type=float, default=100 * UniformConfig.min_region, metavar="PERCENT",
+                     help="smallest patch or hole kept, as a percent of the image area (default %(default)g)")
 
     ap.add_argument("--breakdown", choices=BREAKDOWNS, default="thickness",
                     help="how to split each layer further: each thickness as its own layer (default), "
@@ -118,6 +133,12 @@ def main(argv: list[str] | None = None) -> int:
             raise ValueError("--size must be at least 8")
         if args.max_layers is not None and args.max_layers < 0:
             raise ValueError("--max-layers must not be negative")
+        if args.layers is not None and args.layers < 1:
+            raise ValueError("--layers must be at least 1")
+        if args.layers is not None and args.max_layers is not None:
+            raise ValueError("use --layers or --max-layers, not both")
+        if args.region_smoothing < 0 or args.min_region < 0:
+            raise ValueError("--region-smoothing and --min-region must not be negative")
         if args.max_paints is not None and args.max_paints < 1:
             raise ValueError("--max-paints must be at least 1")
         if args.t_max <= 0:
@@ -159,7 +180,14 @@ def main(argv: list[str] | None = None) -> int:
     say(f"{args.input.name}: {image.shape[2]}x{image.shape[1]} px, background {background.description}, "
         f"{len(available)} paints{left_out}")  # fmt: skip
 
-    result = plan(image, available, background, palette_config, solve_config, progress=say)
+    if args.layers is not None:
+        uniform_config = UniformConfig(
+            layers=args.layers, weights=tuple(lv for lv in levels if lv > 0), max_paints=args.max_paints,
+            smooth=args.region_smoothing / 100, min_region=args.min_region / 100,
+        )  # fmt: skip
+        result = plan_uniform(image, available, background, uniform_config, progress=say)
+    else:
+        result = plan(image, available, background, palette_config, solve_config, progress=say)
     written = write_outputs(result, args.out, source=str(args.input), breakdown=args.breakdown)
     write_package(args.out, source=args.input)
 
@@ -170,12 +198,17 @@ def main(argv: list[str] | None = None) -> int:
         print(f"   0  {background.paint.name} (ground coat)")
     color_blocks = _use_color()
     for i, p in enumerate(stack, start=1):
-        regions = layer_thicknesses(sol.t_snapped[i - 1, 0], solve_config.levels)
+        regions = layer_thicknesses(sol.t_snapped[i - 1, 0], result.solve_config.levels)
         n = len(regions)
         blocks = swatch_blocks(swatch_colors(p, [c for c, _ in regions])) + "  " if color_blocks else ""
-        print(f"  {i:2d}  {blocks}{p.name}  [{p.transparency}]  {n} thickness{'es' if n != 1 else ''}")
+        if result.uniform_config is not None and n == 1:
+            coats, mask = regions[0]
+            detail = f"{level_instructions(coats)}, {mask.float().mean().item():.0%} of the image"
+        else:
+            detail = f"{n} thickness{'es' if n != 1 else ''}"
+        print(f"  {i:2d}  {blocks}{p.name}  [{p.transparency}]  {detail}")
     print(f"color error (ΔE): mean {sol.mean_error:.2f}, max {sol.max_error:.1f}"
-          f"  (before quantizing: mean {sol.mean_error_continuous:.2f})")  # fmt: skip
+          + (f"  (before quantizing: mean {sol.mean_error_continuous:.2f})" if result.uniform_config is None else ""))  # fmt: skip
     print(f"wrote layer maps, overview.png, preview.png, error.png, recipe.json"
           + {"thickness": ", thickness/ and thickness_overview.png", "passes": ", passes/ and passes_overview.png",
              "both": ", thickness/, passes/ and their overviews", "none": ""}[args.breakdown]

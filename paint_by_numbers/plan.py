@@ -34,6 +34,7 @@ from . import color, km
 from .paints import Paint
 from .palette import PaletteConfig, Selection, select_stack
 from .solve import Solution, SolveConfig, solve
+from .uniform import UniformConfig, select_uniform_stack, solve_uniform
 
 __all__ = [
     "Background",
@@ -44,6 +45,7 @@ __all__ = [
     "background_from_paint",
     "background_from_image",
     "plan",
+    "plan_uniform",
     "write_outputs",
     "layer_filename",
     "layer_passes",
@@ -134,6 +136,7 @@ class PlanResult:
     solution: Solution
     solve_config: SolveConfig
     palette_config: PaletteConfig
+    uniform_config: UniformConfig | None = None  # set when every layer has one weight (plan_uniform)
 
 
 def plan(
@@ -162,6 +165,28 @@ def plan(
 
     solution = solve(target, background.linear.float(), K, S, solve_config, report)
     return PlanResult(image_srgb, target, background, selection, solution, solve_config, palette_config)
+
+
+def plan_uniform(
+    image_srgb: torch.Tensor,
+    paints: Sequence[Paint],
+    background: Background,
+    config: UniformConfig = UniformConfig(),
+    progress: Callable[[str], None] | None = None,
+) -> PlanResult:
+    """Plan ``config.layers`` layers, each one paint at one weight over one region (see uniform.py)."""
+    target = color.srgb_to_lab(image_srgb.float(), dim=0)
+    if background.linear.ndim > 1 and background.linear.shape[1:] != target.shape[1:]:
+        raise ValueError(f"background image is {tuple(background.linear.shape[1:])}, image is {tuple(target.shape[1:])}")
+    selection = select_uniform_stack(target, background.linear, paints, config, progress)
+    if progress:
+        progress(f"regions for {len(selection.stack)} layers at {target.shape[2]}x{target.shape[1]}")
+    solution = solve_uniform(target, background.linear, selection, config, progress)
+    weights = tuple(sorted({float(w) for w in config.weights}))
+    # the layer maps store thickness as gray value / 255 * t_max, as in plan()
+    solve_config = SolveConfig(t_max=max(weights), levels=(0.0, *weights), steps=0, refine_sweeps=0)
+    palette_config = PaletteConfig(n_colors=config.n_colors, max_layers=config.layers, max_paints=config.max_paints, seed=config.seed)
+    return PlanResult(image_srgb, target, background, selection, solution, solve_config, palette_config, config)
 
 
 # ---------------------------------------------------------------- outputs
@@ -508,6 +533,8 @@ def write_outputs(
             "coverage": round((t > 0).sum().item() / pixels, 4), "coats_by_area": usage,
             "swatch": _swatch_entry(colors),
         }  # fmt: skip
+        if result.uniform_config is not None and used:
+            entry["coats"], entry["how"] = used[0], level_instructions(used[0])
 
         if breakdown in ("thickness", "both"):
             before_img = _to_pil(km.render_stack(bg_linear, K[: i - 1], S[: i - 1], t_all[: i - 1]))
@@ -616,7 +643,11 @@ def write_outputs(
             "rounds": [{**r, "rms_error": round(r["rms_error"], 3)} for r in result.selection.rounds],
             "paints_used": sorted({p.name for p in stack}),
         },
-        "settings": {"solve": asdict(cfg), "palette": asdict(result.palette_config)},
+        "settings": (
+            {"mode": "one weight per layer", "uniform": asdict(result.uniform_config)}
+            if result.uniform_config is not None
+            else {"solve": asdict(cfg), "palette": asdict(result.palette_config)}
+        ),
         "notes": notes,
     }
     (out / "recipe.json").write_text(json.dumps(recipe, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

@@ -1,6 +1,6 @@
 # Paint by Numbers
 
-Turns a picture into a plan for painting it in layers of Golden Heavy Body acrylics, over a background you choose. It picks the paints, the order to apply them, and how thick each one goes where. Layers are added for as long as they improve the match, and a paint can appear in more than one layer.
+Turns a picture into a plan for painting it in layers of Golden Heavy Body acrylics, over a background you choose. It picks the paints, the order to apply them, and how thick each one goes where. Layers are added for as long as they improve the match (or you set how many with `--layers`), and a paint can appear in more than one layer.
 
 ## How it works
 
@@ -94,16 +94,40 @@ Common options:
 | `--paints "Titanium White,Ultramarine Blue,..."` | Only use these paints. Names ignore case. Default: every current, non-fluorescent paint. |
 | `--paints-file my_palette.txt` | Same, from a text file: one paint per line (or comma-separated), `#` for comments. Combines with `--paints`. |
 | `--max-paints N` | Use at most N different paints; the planner picks the best set. A paint can still appear in several layers. |
-| `--max-layers N` | Cap the number of layers. Default: no cap. |
+| `--layers N` | Paint in exactly N layers, each one paint at one weight over one region. Easier to paint; see [One weight per layer](#one-weight-per-layer). |
+| `--max-layers N` | Without `--layers`: cap the number of layers. Default: no cap. |
 | `--min-gain 0.5` | How much a new layer must improve the match (RMS ΔE) to be added. Lower adds more layers. |
 | `--size 256` | Working size, long side in pixels. |
-| `--levels 0,0.25,0.5,1,2` and `--t-max 2` | Allowed thicknesses in coats, and the maximum per layer. |
+| `--levels 0,0.25,0.5,1,2` and `--t-max 2` | Allowed thicknesses in coats, and the maximum per layer. With `--layers`, the weights a layer may be painted at. |
 | `--max-thicknesses N` | Each layer uses at most N different thicknesses, so it has fewer regions to paint. Default: no limit. |
 | `--smoothing 2` | Keeps each thickness region in one piece instead of scattered specks. Higher is smoother but less exact; 0 turns it off. |
 | `--breakdown thickness` | How each layer is broken down further: `thickness` (default) shows each thickness as its own layer, `passes` shows nested coats, `both`, or `none`. |
 | `--steps`, `--lam-smooth`, `--lam-paint` | Solver tuning. See `--help`. |
 
 Only one background option can be given.
+
+### One weight per layer
+
+By default each layer gets a thickness map with several weights, so at the easel you paint patches of different dilutions next to each other. Closing the gaps where they meet, without overlapping, is hard, and the patches are often small and scattered.
+
+With `--layers N` the plan has exactly N layers (fewer only if more would not help), and each one is a single mix, such as Cadmium Orange at 1/8 coat (1 part paint to 7 parts medium), filled over one region. Shades come from stacking layers instead of from patches side by side: a pale wash over a large area, then a stronger coat of the same or another paint over part of it. Where layers meet they overlap, so nothing has to butt up against anything. The same paint can appear in consecutive layers to build up a gradation.
+
+```
+paint-by-numbers input.jpg --out out/ --layers 14 --size 512
+```
+
+How it works:
+
+1. **Choosing the layers.** The image is reduced to 64 representative colors. Each round, every paint at every weight is tried at every position in the stack. For each try, the planner decides which colors each layer covers: per layer and per color, on or off, whichever matches better, repeated until nothing changes. The best try is kept. After the last layer, each layer is tried with every other paint and weight in its place.
+2. **Drawing the regions.** Every pixel starts with its color's on/off pattern, then the same on/off choice is made per pixel. Before choosing, each layer's preference is smoothed with a filter guided by the image: it averages over flat areas but stops at the image's own edges. Regions come out as solid shapes, and outlines and thin lines keep their shape.
+3. **Cleaning up.** Patches and holes smaller than `--min-region` are removed.
+
+| Option | Meaning |
+| --- | --- |
+| `--region-smoothing 0.8` | How far regions are smoothed, in percent of the image's long side. Higher gives fewer, rounder regions and less detail; 0 turns it off. |
+| `--min-region 0.03` | Smallest patch or hole kept, in percent of the image area. |
+
+On a 12-paint test portrait, the default plan (256 px) had 40 thickness regions split into 2,484 separate patches, with a mean error of 2.67 ΔE. `--layers 14 --size 512` had 14 regions in 186 patches, at 2.76 ΔE, and took about 40 seconds. Thin outlines in the picture survived as thin regions.
 
 The example above took about 2 minutes on an 8-thread laptop CPU. Restricting `--paints` to a few makes it faster. Run time grows with image size, layer count and paint count; there is no time limit.
 
@@ -161,7 +185,8 @@ The fetch script makes one request per paint (`--all` is about 156), and only wh
 - **Fluorescent and phosphorescent paints are not modeled.** They emit light (Fluorescent Chartreuse's published L\* is 106, brighter than white), so a reflectance model cannot reproduce them. They are left out unless named in `--paints`.
 - **Wide-gamut model, sRGB files.** Paint is modeled in linear Rec.2020, which holds every non-fluorescent Golden paint (cadmium yellows, cobalt teals). Input images and `preview.png` are sRGB, so a preview cannot show colors more saturated than a screen's sRGB; the color error is measured in Lab and is not affected.
 - **Some colors are unreachable.** Saturated screen colors, and anything darker than Carbon Black (L\* 25), cannot be painted with these paints. `error.png` shows where.
-- **Rounding to thickness levels costs accuracy.** Smooth gradients show banding. Fine texture in the image becomes many small regions; `--smoothing` and `--max-thicknesses` trade accuracy for fewer, larger regions. On the test render, smoothing 2 cut the number of separate regions by about 80% for 0.3 ΔE.
+- **Rounding to thickness levels costs accuracy.** Smooth gradients show banding. Fine texture in the image becomes many small regions; `--smoothing` and `--max-thicknesses` trade accuracy for fewer, larger regions. On the test render, smoothing 2 cut the number of separate regions by about 80% for 0.3 ΔE. `--layers` goes further: one region per layer.
+- **With `--layers`, the layers are chosen on 64 colors, not on the regions you will paint.** A layer that looked useful on the colors can end up with only a few small patches once its regions are smoothed, and a layer left with no region is dropped.
 - **Sheen is not modeled.** When the paints used have different sheens, `recipe.json` suggests a final varnish.
 - **Illuminant.** Golden's L\*a\*b\* values are taken as D65, 2°. Golden's own sRGB and Lab agree under D65 within 0.5 ΔE for every paint in the database.
 
@@ -193,7 +218,7 @@ The fetch script makes one request per paint (`--all` is about 156), and only wh
    - **Free**: no tracking; the image stays where you put it on the screen (phone on a stand).
    - **Your drawing**: if you've sketched the composition on the canvas, **Snap to drawing** finds the image in it (see below). Works in any of the modes above, with no X's or markers needed.
 2. **Import the plan** (`project.pbn`), or just pick an image.
-3. **Paint**: place, size and turn the image on the canvas with your fingers, then lock it. Step through the layers. Each area a layer paints is shown in the colour it should be once painted, outlined in white, and each thickness chip carries that thickness's colour. Pick a thickness to see just its areas and its glaze mix. The plan's small thickness maps are smoothed when drawn, so areas have rounded edges instead of boxes. For more detail, plan at a higher `--size`. Switch to the painting as it should look after the layer, or the final image.
+3. **Paint**: place, size and turn the image on the canvas with your fingers, then lock it. Step through the layers. Each area a layer paints is shown in the colour it should be once painted, outlined in white, and each thickness chip carries that thickness's colour. Pick a thickness to see just its areas and its glaze mix. A layer planned with `--layers` has one weight, so its mix is shown straight away. The plan's small thickness maps are smoothed when drawn, so areas have rounded edges instead of boxes. For more detail, plan at a higher `--size`. Switch to the painting as it should look after the layer, or the final image.
 
 On the paint screen:
 
