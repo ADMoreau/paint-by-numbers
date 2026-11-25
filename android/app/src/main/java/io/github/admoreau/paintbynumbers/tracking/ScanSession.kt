@@ -23,7 +23,8 @@ class Keyframe(val obs: List<ScanObservation>)
  * view has changed enough since the last one.
  */
 class ScanSession(private val width: Int, private val height: Int, private val minSlender: Double = 0.0) {
-    class Status(val idsByDet: Map<Int, Int>, val mapped: Int, val keyframes: Int, val lost: Boolean)
+    /** [startCenter]: where the centre of the first view is in this frame (buffer pixels), showing how far the view has moved; null when lost. */
+    class Status(val idsByDet: Map<Int, Int>, val mapped: Int, val keyframes: Int, val lost: Boolean, val startCenter: DoubleArray? = null)
 
     /** Each X's position in the first frame's pixels (a projective map of the canvas). */
     val refPositions = ArrayList<DoubleArray>()
@@ -49,7 +50,7 @@ class ScanSession(private val width: Int, private val height: Int, private val m
         val keep = allDets.indices.filter { allDets[it].slender >= 0.6 * minSlender }
         val dets = keep.map { allDets[it] }
         val st = track(dets)
-        return Status(st.idsByDet.mapKeys { keep[it.key] }, st.mapped, st.keyframes, st.lost)
+        return Status(st.idsByDet.mapKeys { keep[it.key] }, st.mapped, st.keyframes, st.lost, st.startCenter)
     }
 
     private fun track(dets: List<XDetection>): Status {
@@ -66,7 +67,7 @@ class ScanSession(private val width: Int, private val height: Int, private val m
             }
             hRefToCur = doubleArrayOf(1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0)
             addKeyframe(obs)
-            return Status(seeds.withIndex().associate { (id, i) -> i to id }, 0, keyframes.size, false)
+            return Status(seeds.withIndex().associate { (id, i) -> i to id }, 0, keyframes.size, false, doubleArrayOf(width / 2.0, height / 2.0))
         }
         val spacing = medianNearest(dets)
         val pred = refPositions.map { M3.apply(h, it[0], it[1]) }
@@ -109,7 +110,7 @@ class ScanSession(private val width: Int, private val height: Int, private val m
             val moved = common.sumOf { val p = lastKey[it.id]!!; hypot(it.x - p[0], it.y - p[1]) } / common.size
             if (moved > 0.06 * diag && keyframes.size < MAX_KEYFRAMES) addKeyframe(obs)
         }
-        return Status(ids, reliableIds().size, keyframes.size, false)
+        return Status(ids, reliableIds().size, keyframes.size, false, M3.apply(hNew, width / 2.0, height / 2.0))
     }
 
     /** X's found again and again as the view changed: real marks, not flickering clutter. */

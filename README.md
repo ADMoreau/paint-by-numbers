@@ -213,7 +213,7 @@ The fetch script makes one request per paint (`--all` is about 156), and only wh
 `android/` is an app that lays the plan over your canvas through the phone's camera, layer by layer, so you can see where each thickness of each paint goes while you paint.
 
 1. **Find the canvas**, one of three ways:
-   - **X marks**: draw X's about 1.5 cm across, every 8-12 cm over the canvas, in a color that stands out. Scan once (stand back, move the phone side to side and up and down for a few seconds) and the app maps them; after that it follows the canvas as you move, even close up. A **Tune** panel adjusts how sensitive the X finder is.
+   - **X marks**: draw X's about 1.5 cm across, every 8-12 cm over the canvas, in a color that stands out (dark or light). Scan once and the app maps them; after that it follows the canvas as you move, even close up. The scan walks you through two steps: point at the canvas until 6 X's have green circles and tap Start (it works out by itself whether your X's are dark or light), then slide the phone toward each arrow on screen until the arrows are gone. It then finishes and works out the map. Hints say what to do if the camera is covered or too few X's are in view, and a **Tune** panel adjusts how sensitive the X finder is.
    - **Square markers**: print the marker sheet from the app (4x4 ArUco markers), stick a few anywhere around the canvas. No scan: the app maps them as it sees them.
    - **Free**: no tracking; the image stays where you put it on the screen (phone on a stand).
    - **Your drawing**: if you've sketched the composition on the canvas, **Snap to drawing** finds the image in it (see below). Works in any of the modes above, with no X's or markers needed.

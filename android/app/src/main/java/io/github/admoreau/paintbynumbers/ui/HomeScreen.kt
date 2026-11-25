@@ -66,17 +66,13 @@ fun HomeScreen(
             when (project.mode) {
                 TrackingMode.X_MARKS -> {
                     Text(
-                        "Draw X's about 1.5 cm across, every 8-12 cm over the canvas, each clear of other marks, in a colour that stands out. " +
-                            "Then scan: stand back so most X's are in view, tap Start, and move the phone side to side and up and down for a few seconds.",
+                        "Draw X's about 1.5 cm across, every 8-12 cm over the canvas, each with clear canvas around it, in a colour that stands out (dark or light). " +
+                            "Then scan: the app walks you through it in two steps and takes about half a minute.",
                         style = MaterialTheme.typography.bodySmall,
                     )
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        FilterChip(selected = project.polarity == XDetector.Polarity.DARK, onClick = { onChange(project.copy(polarity = XDetector.Polarity.DARK)) }, label = { Text("Dark marks") })
-                        FilterChip(selected = project.polarity == XDetector.Polarity.LIGHT, onClick = { onChange(project.copy(polarity = XDetector.Polarity.LIGHT)) }, label = { Text("Light marks") })
-                    }
                     val n = project.marks.size
-                    Text(if (n == 0) "Not scanned yet." else "$n X's mapped.")
-                    OutlinedButton(onClick = onScan) { Text(if (n == 0) "Scan canvas" else "Scan again") }
+                    Text(if (n == 0) "Not scanned yet." else "$n X's mapped (${if (project.polarity == XDetector.Polarity.DARK) "dark" else "light"} marks). New canvas or more X's? Scan again.")
+                    Button(onClick = onScan) { Text(if (n == 0) "Scan canvas" else "Scan a new canvas") }
                 }
                 TrackingMode.MARKERS -> {
                     Text(

@@ -10,6 +10,7 @@ import io.github.admoreau.paintbynumbers.tracking.MarkerDetection
 import io.github.admoreau.paintbynumbers.tracking.MarkerFinder
 import io.github.admoreau.paintbynumbers.tracking.XDetection
 import io.github.admoreau.paintbynumbers.tracking.XDetector
+import org.opencv.core.Core
 import org.opencv.core.CvType
 import org.opencv.core.Mat
 import org.opencv.imgcodecs.Imgcodecs
@@ -25,6 +26,8 @@ class Frame(
     val intrinsics: Intrinsics?,
     val detectMs: Double,
     val fps: Double,
+    val polarity: XDetector.Polarity = XDetector.Polarity.DARK, // the mark colour these detections were found with
+    val brightness: Double = 128.0, // mean luminance, 0-255: near 0 when the lens is covered
 ) {
     fun toView(x: Double, y: Double, out: FloatArray = FloatArray(2)): FloatArray {
         out[0] = x.toFloat(); out[1] = y.toFloat()
@@ -63,6 +66,8 @@ enum class Finder { X_MARKS, MARKERS, NONE }
  */
 class FrameAnalyzer(private val onFrame: (Frame) -> Unit) : ImageAnalysis.Analyzer {
     @Volatile var polarity = XDetector.Polarity.DARK
+    /** Alternate dark and light marks frame by frame (each frame's [Frame.polarity] says which), to find out which the canvas has. */
+    @Volatile var bothPolarities = false
     @Volatile var settings = DetectorSettings.DEFAULT
     @Volatile var finder = Finder.X_MARKS
     @Volatile var sensorIntrinsics: SensorIntrinsics? = null
@@ -76,6 +81,7 @@ class FrameAnalyzer(private val onFrame: (Frame) -> Unit) : ImageAnalysis.Analyz
     private var sensorToView: Matrix? = null
     private var lastFrameNs = 0L
     private var fps = 0.0
+    private var frameCount = 0L
 
     override fun getTargetCoordinateSystem(): Int = ImageAnalysis.COORDINATE_SYSTEM_VIEW_REFERENCED
 
@@ -91,10 +97,12 @@ class FrameAnalyzer(private val onFrame: (Frame) -> Unit) : ImageAnalysis.Analyz
             val t0 = SystemClock.elapsedRealtimeNanos()
             var dets = emptyList<XDetection>()
             var markers = emptyList<MarkerDetection>()
+            val pol = if (bothPolarities) XDetector.Polarity.entries[(frameCount++ % 2).toInt()] else polarity
+            val brightness = Core.mean(gray).`val`[0]
             when (finder) {
                 Finder.X_MARKS -> {
                     val s = settings
-                    detector.polarity = polarity
+                    detector.polarity = pol
                     detector.low = s.contrast
                     detector.high = 2 * s.contrast
                     detector.minExtent = s.minSizePx
@@ -118,7 +126,7 @@ class FrameAnalyzer(private val onFrame: (Frame) -> Unit) : ImageAnalysis.Analyz
                 Matrix().also { m -> s2b.invert(m); m.postConcat(s2v) } // buffer -> sensor -> view
             }
             val intr = sensorIntrinsics?.toBuffer(s2b)
-            onFrame(Frame(dets, markers, image.width, image.height, toView, intr, (t1 - t0) / 1e6, fps))
+            onFrame(Frame(dets, markers, image.width, image.height, toView, intr, (t1 - t0) / 1e6, fps, pol, brightness))
         } finally {
             image.close()
         }
