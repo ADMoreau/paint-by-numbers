@@ -18,6 +18,8 @@ android {
         ndk { abiFilters += listOf("arm64-v8a", "armeabi-v7a", "x86_64") }
     }
 
+    // -PtestBuildType=release runs the on-device tests against the fast release build (for timing)
+    testBuildType = (project.findProperty("testBuildType") as String?) ?: "debug"
     buildTypes {
         // signed with the debug key so it installs over (and keeps the data of) debug builds; not debuggable, so ~4x faster
         release {
@@ -31,6 +33,9 @@ android {
     }
     kotlinOptions { jvmTarget = "17" }
     buildFeatures { compose = true }
+    // the paint database is shared with the desktop planner
+    sourceSets["main"].assets.srcDir("../../paint_by_numbers/data")
+    testOptions { unitTests.isReturnDefaultValues = false }
 }
 
 dependencies {
@@ -53,6 +58,7 @@ dependencies {
     implementation("org.opencv:opencv:4.10.0")
 
     testImplementation("junit:junit:4.13.2")
+    testImplementation("org.json:json:20240303") // the real org.json for JVM tests (Android's is a stub there)
     androidTestImplementation("androidx.test:runner:1.6.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
 }
