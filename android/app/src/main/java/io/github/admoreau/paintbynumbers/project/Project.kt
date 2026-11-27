@@ -23,7 +23,35 @@ data class Placement(val cx: Double, val cy: Double, val scale: Double, val angl
         val s = scale * sin(angle)
         return doubleArrayOf(c, -s, cx - c * w / 2 + s * h / 2, s, c, cy - s * w / 2 - c * h / 2, 0.0, 0.0, 1.0)
     }
+
+    /**
+     * The same placement for the same picture at another resolution ([fromW] x [fromH] px before,
+     * [toW] x [toH] now): same centre, size on the canvas and turn. Null if the shapes differ (more
+     * than 1%), as a different picture needs placing afresh.
+     */
+    fun forImage(fromW: Int, fromH: Int, toW: Int, toH: Int): Placement? {
+        if (fromW <= 0 || fromH <= 0 || toW <= 0 || toH <= 0) return null
+        val a = fromW.toDouble() / fromH
+        val b = toW.toDouble() / toH
+        if (kotlin.math.abs(a / b - 1) > 0.01) return null
+        return copy(scale = scale * fromW / toW)
+    }
 }
+
+/** A scanned canvas: its X map and square-marker map, and where the image sat on it. */
+data class SavedCanvas(
+    val id: String,
+    val name: String,
+    val created: Long,
+    val polarity: XDetector.Polarity,
+    val minSlender: Double,
+    val marks: List<MapMark>,
+    val markerMap: List<MapMark> = emptyList(),
+    val placement: Placement? = null,
+    val markerPlacement: Placement? = null,
+    val imageW: Int = 0, // the image size the placements are for (as loaded, see ProjectStore.imageSize)
+    val imageH: Int = 0,
+)
 
 /** How the app knows where the canvas is. */
 enum class TrackingMode { X_MARKS, MARKERS, FREE }
@@ -54,6 +82,11 @@ data class Project(
     val markerPlacement: Placement? = null, // on the tracked canvas (square markers)
     val freePlacement: Placement? = null, // on the screen, in fractions of its width (free mode)
     val minSlender: Double = 0.0, // how X-like a detection must be to count (learned from the user's X's at scan time)
+    val palette: List<String> = emptyList(), // paints the user owns, for planning on the phone
+    val backgroundHex: String = "#ffffff", // the canvas colour plans are made over
+    val planLayers: Int = 14,
+    val planSize: Int = 512, // planning resolution, longer side in px
+    val canvasId: String? = null, // the saved canvas the maps and placements above belong to
 ) {
     /** The X-likeness cutoff in use: the user's setting, or what the scan learned. */
     val shapeCutoff: Double get() = detector.shape ?: minSlender
@@ -84,6 +117,11 @@ class ProjectStore(private val context: Context) {
                 markerPlacement = readPlacement(o.optJSONObject("marker_placement")),
                 freePlacement = readPlacement(o.optJSONObject("free_placement")),
                 minSlender = o.optDouble("min_slender", 0.0),
+                palette = o.optJSONArray("palette")?.let { a -> List(a.length()) { a.getString(it) } } ?: emptyList(),
+                backgroundHex = o.optString("background_hex", "#ffffff"),
+                planLayers = o.optInt("plan_layers", 14),
+                planSize = o.optInt("plan_size", 512),
+                canvasId = o.optString("canvas_id").ifEmpty { null },
             )
         } catch (e: Exception) {
             Project()
@@ -117,12 +155,71 @@ class ProjectStore(private val context: Context) {
             .put("plan_dir", p.planDir ?: "")
             .put("current_layer", p.currentLayer)
             .put("min_slender", p.minSlender)
+            .put("palette", JSONArray(p.palette))
+            .put("background_hex", p.backgroundHex)
+            .put("plan_layers", p.planLayers)
+            .put("plan_size", p.planSize)
+            .put("canvas_id", p.canvasId ?: "")
         p.placement?.let { o.put("placement", writePlacement(it)) }
         p.markerPlacement?.let { o.put("marker_placement", writePlacement(it)) }
         p.freePlacement?.let { o.put("free_placement", writePlacement(it)) }
         val tmp = File(context.filesDir, "project.json.tmp")
         tmp.writeText(o.toString(2))
         tmp.renameTo(file)
+    }
+
+    private val canvasFile = File(context.filesDir, "canvases.json")
+
+    /** The saved canvases, oldest first. */
+    fun loadCanvases(): List<SavedCanvas> {
+        if (!canvasFile.exists()) return emptyList()
+        return try {
+            val a = JSONArray(canvasFile.readText())
+            (0 until a.length()).map { i ->
+                val o = a.getJSONObject(i)
+                SavedCanvas(
+                    id = o.getString("id"),
+                    name = o.getString("name"),
+                    created = o.optLong("created"),
+                    polarity = runCatching { XDetector.Polarity.valueOf(o.optString("polarity", "DARK")) }.getOrDefault(XDetector.Polarity.DARK),
+                    minSlender = o.optDouble("min_slender", 0.0),
+                    marks = readMarks(o.optJSONArray("marks")),
+                    markerMap = readMarks(o.optJSONArray("marker_map")),
+                    placement = readPlacement(o.optJSONObject("placement")),
+                    markerPlacement = readPlacement(o.optJSONObject("marker_placement")),
+                    imageW = o.optInt("image_w"),
+                    imageH = o.optInt("image_h"),
+                )
+            }
+        } catch (e: Exception) {
+            emptyList()
+        }
+    }
+
+    fun saveCanvases(cs: List<SavedCanvas>) {
+        val a = JSONArray()
+        for (c in cs) {
+            val o = JSONObject().put("id", c.id).put("name", c.name).put("created", c.created).put("polarity", c.polarity.name)
+                .put("min_slender", c.minSlender).put("marks", writeMarks(c.marks)).put("marker_map", writeMarks(c.markerMap))
+                .put("image_w", c.imageW).put("image_h", c.imageH)
+            c.placement?.let { o.put("placement", writePlacement(it)) }
+            c.markerPlacement?.let { o.put("marker_placement", writePlacement(it)) }
+            a.put(o)
+        }
+        val tmp = File(context.filesDir, "canvases.json.tmp")
+        tmp.writeText(a.toString(2))
+        tmp.renameTo(canvasFile)
+    }
+
+    /** The size [loadImage] decodes a stored image at, without decoding it; null if it can't be read. */
+    fun imageSize(name: String?, maxSide: Int = 2048): Pair<Int, Int>? {
+        val f = name?.let { File(context.filesDir, it) }?.takeIf { it.exists() } ?: return null
+        val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
+        BitmapFactory.decodeFile(f.path, bounds)
+        if (bounds.outWidth <= 0 || bounds.outHeight <= 0) return null
+        var sample = 1
+        while (maxOf(bounds.outWidth, bounds.outHeight) / sample > maxSide) sample *= 2
+        return (bounds.outWidth + sample - 1) / sample to (bounds.outHeight + sample - 1) / sample
     }
 
     /** Copies a picked image into private storage; returns its file name. */

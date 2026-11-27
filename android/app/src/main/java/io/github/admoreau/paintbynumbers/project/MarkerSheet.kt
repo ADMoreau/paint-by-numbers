@@ -64,10 +64,7 @@ object MarkerSheet {
         doc.finishPage(page)
 
         val name = "paint-by-numbers markers %.0fmm.pdf".format(sideMm)
-        val values = ContentValues().apply {
-            put(MediaStore.Downloads.DISPLAY_NAME, name)
-            put(MediaStore.Downloads.MIME_TYPE, "application/pdf")
-        }
+        val values = AppFolder.values(name, "application/pdf")
         val uri = context.contentResolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, values) ?: return null
         context.contentResolver.openOutputStream(uri)!!.use { doc.writeTo(it) }
         doc.close()

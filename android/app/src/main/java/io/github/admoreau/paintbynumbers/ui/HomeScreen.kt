@@ -2,6 +2,7 @@ package io.github.admoreau.paintbynumbers.ui
 
 import android.graphics.Bitmap
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,7 +15,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
+import androidx.compose.material3.RadioButton
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.Card
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.MaterialTheme
@@ -26,13 +30,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import io.github.admoreau.paintbynumbers.plan.Plan
 import io.github.admoreau.paintbynumbers.project.Project
+import io.github.admoreau.paintbynumbers.project.SavedCanvas
 import io.github.admoreau.paintbynumbers.project.TrackingMode
 import io.github.admoreau.paintbynumbers.tracking.XDetector
 
@@ -48,7 +55,13 @@ fun HomeScreen(
     onPickImage: () -> Unit,
     onSaveMarkerSheet: () -> Unit,
     onScan: () -> Unit,
+    onPlan: () -> Unit,
+    onLayers: () -> Unit,
     onPaint: () -> Unit,
+    canvases: List<SavedCanvas> = emptyList(),
+    onUseCanvas: (SavedCanvas) -> Unit = {},
+    onRenameCanvas: (SavedCanvas, String) -> Unit = { _, _ -> },
+    onDeleteCanvas: (SavedCanvas) -> Unit = {},
 ) {
     Column(
         Modifier.fillMaxSize().safeDrawingPadding().verticalScroll(rememberScrollState()).padding(16.dp),
@@ -71,8 +84,10 @@ fun HomeScreen(
                         style = MaterialTheme.typography.bodySmall,
                     )
                     val n = project.marks.size
-                    Text(if (n == 0) "Not scanned yet." else "$n X's mapped (${if (project.polarity == XDetector.Polarity.DARK) "dark" else "light"} marks). New canvas or more X's? Scan again.")
-                    Button(onClick = onScan) { Text(if (n == 0) "Scan canvas" else "Scan a new canvas") }
+                    if (canvases.isEmpty()) Text(if (n == 0) "Not scanned yet." else "$n X's mapped (${if (project.polarity == XDetector.Polarity.DARK) "dark" else "light"} marks).")
+                    else SavedCanvases(canvases, project.canvasId, onUseCanvas, onRenameCanvas, onDeleteCanvas)
+                    Button(onClick = onScan) { Text(if (n == 0 && canvases.isEmpty()) "Scan canvas" else "Scan a new canvas") }
+                    if (canvases.isNotEmpty()) Text("Each scan is saved, with where you placed the image on it. Tap a canvas to switch to it.", style = MaterialTheme.typography.bodySmall)
                 }
                 TrackingMode.MARKERS -> {
                     Text(
@@ -118,18 +133,78 @@ fun HomeScreen(
             if (plan != null) {
                 Text("Plan: ${plan.layers.size} layers" + (plan.groundPaint?.let { " over a ground of $it" } ?: "") + ", ${plan.layers.map { it.paint }.distinct().size} paints.")
             } else if (image == null) {
-                Text("Import a plan made by the desktop planner (project.pbn), or just choose an image.")
+                Text("Choose an image, then make a layer plan for it here, or import a plan made by the desktop planner (project.pbn).")
+            } else {
+                Text("No plan yet: you can paint from the image as it is, or make a layer plan for it.")
             }
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                OutlinedButton(onClick = onImportPlan) { Text("Import plan") }
                 OutlinedButton(onClick = onPickImage) { Text("Choose image") }
+                OutlinedButton(onClick = onImportPlan) { Text("Import plan") }
             }
-            Text("You place, size and turn it on the canvas in the Paint view.", style = MaterialTheme.typography.bodySmall)
+            if (plan != null && plan.layers.isNotEmpty()) Button(onClick = onLayers) { Text("See the layers") }
+            if (image != null) {
+                if (plan == null) Button(onClick = onPlan) { Text("Make a plan") } else OutlinedButton(onClick = onPlan) { Text("Make a new plan") }
+            }
+            Text(
+                "Keep plans (project.pbn) and images in the phone's Download/${io.github.admoreau.paintbynumbers.project.AppFolder.NAME} folder: Choose image and Import plan open there. " +
+                    "You place, size and turn the image on the canvas in the Paint view.",
+                style = MaterialTheme.typography.bodySmall,
+            )
         }
 
         val ready = image != null && (project.mode != TrackingMode.X_MARKS || project.marks.size >= 4)
         Button(onClick = onPaint, enabled = ready, modifier = Modifier.fillMaxWidth()) { Text("Paint") }
         if (project.mode == TrackingMode.X_MARKS && project.marks.size < 4) Text("Scan the canvas first (the map needs at least 4 X's).", style = MaterialTheme.typography.bodySmall)
+    }
+}
+
+/** The saved canvases: tap one to switch to it; rename or delete. */
+@Composable
+private fun SavedCanvases(
+    canvases: List<SavedCanvas>,
+    activeId: String?,
+    onUse: (SavedCanvas) -> Unit,
+    onRename: (SavedCanvas, String) -> Unit,
+    onDelete: (SavedCanvas) -> Unit,
+) {
+    var renaming by remember { mutableStateOf<SavedCanvas?>(null) }
+    var deleting by remember { mutableStateOf<SavedCanvas?>(null) }
+    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+        for (c in canvases.sortedByDescending { it.created }) {
+            val active = c.id == activeId
+            Row(Modifier.fillMaxWidth().clickable(enabled = !active) { onUse(c) }, verticalAlignment = Alignment.CenterVertically) {
+                RadioButton(selected = active, onClick = if (active) null else ({ onUse(c) }))
+                Column(Modifier.weight(1f)) {
+                    Text(c.name, fontWeight = if (active) FontWeight.Bold else FontWeight.Normal)
+                    val placed = if (c.placement != null || c.markerPlacement != null) ", image placed" else ""
+                    Text(
+                        "${c.marks.size} X's, ${if (c.polarity == XDetector.Polarity.DARK) "dark" else "light"}$placed",
+                        style = MaterialTheme.typography.bodySmall,
+                    )
+                }
+                TextButton(onClick = { renaming = c }) { Text("Rename") }
+                TextButton(onClick = { deleting = c }) { Text("Delete") }
+            }
+        }
+    }
+    renaming?.let { c ->
+        var text by remember(c.id) { mutableStateOf(c.name) }
+        AlertDialog(
+            onDismissRequest = { renaming = null },
+            title = { Text("Rename canvas") },
+            text = { OutlinedTextField(value = text, onValueChange = { text = it }, singleLine = true) },
+            confirmButton = { TextButton(onClick = { if (text.isNotBlank()) onRename(c, text.trim()); renaming = null }) { Text("Save") } },
+            dismissButton = { TextButton(onClick = { renaming = null }) { Text("Cancel") } },
+        )
+    }
+    deleting?.let { c ->
+        AlertDialog(
+            onDismissRequest = { deleting = null },
+            title = { Text("Delete ${c.name}?") },
+            text = { Text("Its X map and image placement are removed. The X's on the canvas would need scanning again.") },
+            confirmButton = { TextButton(onClick = { onDelete(c); deleting = null }) { Text("Delete") } },
+            dismissButton = { TextButton(onClick = { deleting = null }) { Text("Cancel") } },
+        )
     }
 }
 

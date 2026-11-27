@@ -217,13 +217,24 @@ The fetch script makes one request per paint (`--all` is about 156), and only wh
    - **Square markers**: print the marker sheet from the app (4x4 ArUco markers), stick a few anywhere around the canvas. No scan: the app maps them as it sees them.
    - **Free**: no tracking; the image stays where you put it on the screen (phone on a stand).
    - **Your drawing**: if you've sketched the composition on the canvas, **Snap to drawing** finds the image in it (see below). Works in any of the modes above, with no X's or markers needed.
-2. **Import the plan** (`project.pbn`), or just pick an image.
-3. **Paint**: place, size and turn the image on the canvas with your fingers, then lock it. Step through the layers. Each area a layer paints is shown in the colour it should be once painted, outlined in white, and each thickness chip carries that thickness's colour. Pick a thickness to see just its areas and its glaze mix. A layer planned with `--layers` has one weight, so its mix is shown straight away. The plan's small thickness maps are smoothed when drawn, so areas have rounded edges instead of boxes. For more detail, plan at a higher `--size`. Switch to the painting as it should look after the layer, or the final image.
+   - Every scan is saved as a canvas, together with where you placed the image on it. The home screen lists them: tap one to switch to it (for several paintings on the go), or rename or delete it.
+2. **Make a plan on the phone** (see [Planning on the phone](#planning-on-the-phone)), **import a plan** from the desktop planner (`project.pbn`), or just pick an image.
+   Keep plans and images in the phone's **Download/Paint by Numbers** folder (the app creates it): **Choose image** and **Import plan** open there, and the marker sheet is saved there. When you import a plan of the picture you've already placed (same shape), it stays where you put it on the canvas.
+3. **See the layers** (optional, no camera or canvas needed): step through the plan one layer at a time. **Where it goes** shows the layer's areas, outlined in white and in the colour they'll be once painted, over the painting so far (darkened). Below that are the paint, how to mix it and how much of the canvas it covers. **After this layer**, **Finished** and **Your image** show the whole picture. A strip of thumbnails jumps to any layer, and you can pinch to zoom (double-tap resets). A plan made on the phone opens here.
+4. **Paint**: place, size and turn the image on the canvas with your fingers, then lock it. Step through the layers. Each area a layer paints is shown in the colour it should be once painted, outlined in white, and each thickness chip carries that thickness's colour. Pick a thickness to see just its areas and its glaze mix. A layer planned with `--layers` has one weight, so its mix is shown straight away. The plan's small thickness maps are smoothed when drawn, so areas have rounded edges instead of boxes. For more detail, plan at a higher `--size`. Switch to the painting as it should look after the layer, or the final image.
 
 On the paint screen:
 
 - **Lock view** (X or marker mode) freezes the overlay where the canvas is now. Use it with the phone on a stand, so a hand or brush covering X's can't nudge it. It locks the average of the last second of tracking, so lock with your hands out of view. Tap **Locked** to let go. If the phone gets bumped, the cyan crosses (with **Show X's** on) drift off the real X's; let go and lock again.
 - **Hide** leaves just the camera and the image; tap anywhere to bring the controls back. The screen stays on while the paint screen is open.
+
+### Planning on the phone
+
+Pick an image, tap **Make a plan**, tick the paints you own, set the canvas colour and the number of layers, and tap **Make plan**. It runs the same one-weight-per-layer planner as `--layers` (each layer one paint at one strength over one area), ported to Kotlin in `android/app/src/main/java/.../planner/`. **Fine** plans at 512 px, **Quick** at 256. The plan is saved like an imported one, so everything on the paint screen works the same.
+
+The port is checked against the desktop planner. `android/scripts/make_planner_fixture.py` records the desktop's answers on a small image (colours, paint layers, the guided filter, region cleanup and a whole plan). The JVM tests (`./gradlew testDebugUnitTest`) check the phone code gives the same layers, the same colour assignment and the same regions, pixel for pixel. The k-means step is not bit-identical to scikit-learn's, so a plan of the same image can differ slightly. On the 13-paint test painting at 512 px with 14 layers, the phone code gives 2.90 ΔE, the same as the desktop.
+
+Not ported yet: background images or a ground paint (the canvas colour is a flat colour) and swatch cards. A limit on the number of different paints (`--max-paints`) is in the Kotlin planner but not on the screen yet.
 
 ### Snap to drawing
 
@@ -259,6 +270,7 @@ The camera's lens details come from Android, so it works on any phone without ca
 cd android
 ./gradlew assembleRelease        # app/build/outputs/apk/release/app-release.apk
 adb install -r app/build/outputs/apk/release/app-release.apk
+./gradlew testDebugUnitTest      # JVM tests: the phone planner against the desktop planner
 scripts/device-test.sh           # on-device tests (keeps the app's data, unlike connectedAndroidTest)
 ```
 
