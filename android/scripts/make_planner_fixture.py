@@ -35,19 +35,22 @@ def main():
     rng = np.random.default_rng(0)
     paints = core_paints()  # K and S from the rating alone, so they are stored here for the phone tests
     fx = {"paints": [{"name": p.name, "K": list(p.K), "S": list(p.S)} for p in paints]}
-    # plus a database paint with a different S on each channel (from its tint and glaze photo)
+    # plus a database paint fit to its tint and glaze photo (K and S differ freely across the bands)
     photo_fit = next(p for p in paintdb.load_paints() if p.name == "Dioxazine Purple")
 
-    srgb = rng.random((8, 3))
+    # random colours plus saturated ones, whose smoothest spectrum leaves [0, 1] (the sigmoid fallback)
+    srgb = np.vstack([rng.random((8, 3)), [[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0], [1.0, 0.85, 0.0]]])
+    spectra = rng.random((8, color.CHANNELS))
     fx["color"] = {
         "srgb": srgb.tolist(),
         "srgb_to_lab": color.srgb_to_lab(torch.from_numpy(srgb)).tolist(),
         "srgb_to_working": color.srgb_to_working(torch.from_numpy(srgb)).tolist(),
-        "working_to_lab": color.working_to_lab(torch.from_numpy(srgb)).tolist(),
-        "working_to_srgb": color.working_to_srgb(torch.from_numpy(srgb)).tolist(),
+        "working": spectra.tolist(),
+        "working_to_lab": color.working_to_lab(torch.from_numpy(spectra)).tolist(),
+        "working_to_srgb": color.working_to_srgb(torch.from_numpy(spectra)).tolist(),
     }
 
-    rg = rng.random(3)
+    rg = rng.random(color.CHANNELS)
     fx["km"] = {
         "rg": rg.tolist(),
         "cases": [

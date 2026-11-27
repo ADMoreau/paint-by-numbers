@@ -21,8 +21,9 @@ SEED_PAINTS = {
 
 
 def spec_ks(lab, rating):
-    """K, S from the spec's original fixed-S-per-rating estimate."""
-    r = color.lab_to_working(torch.tensor(lab, dtype=F64)).clamp(0.01, 0.99)
+    """K, S from the spec's original fixed-S-per-rating estimate (on linear sRGB channels: the
+    Kubelka-Munk code is the same for any number of channels)."""
+    r = color.lab_to_linear(torch.tensor(lab, dtype=F64)).clamp(0.01, 0.99)
     s = torch.full((3,), S_PER_COAT[rating], dtype=F64)
     return (1 - r) ** 2 / (2 * r) * s, s, r
 
@@ -159,7 +160,7 @@ def test_gradients_finite_at_zero_thickness(bg):
     target = color.srgb_to_lab(torch.rand(3, 4, 4, generator=gen, dtype=F64), dim=0)
 
     out = km.render_stack(torch.tensor(BACKGROUNDS[bg], dtype=F64), K, S, t)
-    loss = color.delta_e_squared(color.working_to_lab(out, dim=0), target, dim=0).mean()
+    loss = color.delta_e_squared(color.linear_to_lab(out, dim=0), target, dim=0).mean()
     loss.backward()
 
     for name, x in (("t", t), ("K", K), ("S", S)):

@@ -177,7 +177,7 @@ fun PlanScreen(
                     Box(Modifier.padding(horizontal = 8.dp).size(20.dp).background(hexColor(masstoneHex(p)), CircleShape))
                     Column {
                         Text(p.name)
-                        Text(p.transparency, style = MaterialTheme.typography.bodySmall, color = Color.Gray)
+                        Text(p.transparency + if (p.approximate) " · approximate colour (no swatch data)" else "", style = MaterialTheme.typography.bodySmall, color = Color.Gray)
                     }
                 }
             }
@@ -204,5 +204,5 @@ private fun hexColor(hex: String): Color = runCatching { Color(android.graphics.
 
 private fun masstoneHex(p: Paint): String {
     val m = io.github.admoreau.paintbynumbers.planner.Km.masstone(p.K, p.S)
-    return "#%06x".format(io.github.admoreau.paintbynumbers.planner.ColorMath.workingToArgb(m[0], m[1], m[2]) and 0xFFFFFF)
+    return "#%06x".format(io.github.admoreau.paintbynumbers.planner.ColorMath.workingToArgb(m) and 0xFFFFFF)
 }

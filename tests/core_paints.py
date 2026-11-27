@@ -30,3 +30,13 @@ def core_paints() -> list[paints.Paint]:
         K, S = fit.estimate_ks(p.lab, p.transparency)
         out.append(dataclasses.replace(p, K=tuple(fit._rounded(K)), S=tuple(fit._rounded(S))))
     return out
+
+
+def spectrum(linear_rgb) -> "torch.Tensor":
+    """A working-space (spectral) reflectance with the color of ``linear_rgb`` (linear sRGB), for
+    test backgrounds written as three numbers."""
+    import torch
+
+    from paint_by_numbers import color
+
+    return color.xyz_to_working(color.linear_to_xyz(torch.as_tensor(linear_rgb, dtype=torch.float64)))

@@ -74,7 +74,7 @@ class SolveConfig:
 class Solution:
     t: torch.Tensor  # (n, 1, *spatial) continuous thickness, coats
     t_snapped: torch.Tensor  # (n, 1, *spatial) quantized to levels (after refinement)
-    preview: torch.Tensor  # (3, *spatial) working-space reflectance of the quantized stack
+    preview: torch.Tensor  # (C, *spatial) working-space reflectance of the quantized stack
     error: torch.Tensor  # (*spatial) ΔE76 of the quantized stack vs target
     mean_error: float  # quantized
     max_error: float  # quantized
@@ -271,8 +271,8 @@ def solve(
     Args:
         target_lab: target image in L*a*b*, shape (3, *spatial). Its dtype
             (float32 if not floating) sets the working precision.
-        background: working-space reflectance, (3,) or broadcastable to (3, *spatial).
-        K, S: layer paints, (n, 3) bottom first, or (n, 3, *spatial).
+        background: working-space reflectance, (C,) or broadcastable to (C, *spatial).
+        K, S: layer paints, (n, C) bottom first, or (n, C, *spatial).
         config: solver settings.
         progress: called as progress(step, loss) every 100 steps.
     """

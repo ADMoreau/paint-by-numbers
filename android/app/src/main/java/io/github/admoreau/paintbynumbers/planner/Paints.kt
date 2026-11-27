@@ -16,7 +16,11 @@ data class Paint(
     val lightfastness: String? = null,
     val discontinued: Boolean = false,
     val special: String? = null,
+    val fitSource: String? = null, // what K and S were fit to: "photo", "<line> photo" or "rating"
 ) {
+    /** Weak colour data: K and S from the opacity rating alone, which can be far off (fit.py). */
+    val approximate: Boolean get() = fitSource == "rating"
+
     val slug: String get() = slugify(name)
 }
 
@@ -36,17 +40,19 @@ object PaintDb {
             if (lab.all { it == 0.0 }) continue
             val k = r.optJSONArray("K") ?: continue
             val s = r.optJSONArray("S") ?: continue
+            require(k.length() == Bands.N && s.length() == Bands.N) { "${r.getString("name")}: K and S need ${Bands.N} bands, got ${k.length()}" }
             out += Paint(
                 name = r.getString("name"),
                 item = r.optInt("item"),
                 transparency = r.getString("transparency"),
                 lab = lab,
-                K = DoubleArray(3) { k.getDouble(it) },
-                S = DoubleArray(3) { s.getDouble(it) },
+                K = DoubleArray(Bands.N) { k.getDouble(it) },
+                S = DoubleArray(Bands.N) { s.getDouble(it) },
                 sheen = r.optString("sheen").takeIf { r.has("sheen") && !r.isNull("sheen") },
                 lightfastness = r.optString("lightfastness").takeIf { r.has("lightfastness") && !r.isNull("lightfastness") },
                 discontinued = r.optBoolean("discontinued", false),
                 special = r.optString("special").takeIf { r.has("special") && !r.isNull("special") },
+                fitSource = r.optString("fit_source").takeIf { r.has("fit_source") && !r.isNull("fit_source") },
             )
         }
         return out
@@ -77,21 +83,22 @@ fun orderViolations(stack: List<Paint>): Int {
 }
 
 /**
- * Kubelka-Munk paint layers (km.py). Reflectances are working-space (linear Rec.2020), one value
- * per channel; thickness is in coats.
+ * Kubelka-Munk paint layers (km.py). Reflectances are working-space (spectral), one value per
+ * band; thickness is in coats.
  */
 object Km {
     const val MIN_KS = 1e-4
 
-    /** Per-paint constants per channel: a, b, masstone R_inf, b*S. */
+    /** Per-paint constants per band: a, b, masstone R_inf, b*S. */
     class Coefficients(K: DoubleArray, S: DoubleArray) {
-        val a = DoubleArray(3)
-        val b = DoubleArray(3)
-        val rInf = DoubleArray(3)
-        val bs = DoubleArray(3)
+        val n = K.size
+        val a = DoubleArray(n)
+        val b = DoubleArray(n)
+        val rInf = DoubleArray(n)
+        val bs = DoubleArray(n)
 
         init {
-            for (c in 0 until 3) {
+            for (c in 0 until n) {
                 val k0 = maxOf(K[c], MIN_KS)
                 val s0 = maxOf(S[c], MIN_KS)
                 val ks = k0 / s0
@@ -102,7 +109,7 @@ object Km {
             }
         }
 
-        /** One layer [t] coats thick over reflectance [rg], channel [c] (the cancellation-free form of km.py). */
+        /** One layer [t] coats thick over reflectance [rg], band [c] (the cancellation-free form of km.py). */
         fun layer(rg: Double, t: Double, c: Int): Double {
             val th = tanh(bs[c] * t)
             val w = th * (a[c] + b[c] - rg) / ((a[c] - rg) * th + b[c])
@@ -112,17 +119,18 @@ object Km {
 
     /**
      * A layer [t] coats thick as a map of the reflectance R beneath it: (m00 R + m01) / (m10 R + 1),
-     * per channel. Returned as [m00 r, m00 g, m00 b, m01 r, ..., m10 b]. Such maps compose like 2x2
-     * matrices, so a run of layers is again one map of this form.
+     * per band. Returned as [m00 per band, m01 per band, m10 per band] (3n values). Such maps
+     * compose like 2x2 matrices, so a run of layers is again one map of this form.
      */
     fun layerMap(co: Coefficients, t: Double): DoubleArray {
-        val m = DoubleArray(9)
-        for (c in 0 until 3) {
+        val n = co.n
+        val m = DoubleArray(3 * n)
+        for (c in 0 until n) {
             val th = tanh(co.bs[c] * t)
             val d = co.a[c] * th + co.b[c]
             m[c] = (co.b[c] - th * (co.rInf[c] + co.b[c])) / d
-            m[3 + c] = th / d
-            m[6 + c] = -th / d
+            m[n + c] = th / d
+            m[2 * n + c] = -th / d
         }
         return m
     }

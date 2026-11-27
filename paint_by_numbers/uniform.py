@@ -71,7 +71,7 @@ class UniformSelection(Selection):
     labels: torch.Tensor | None = None  # (H*W,) each pixel's color
 
 
-_TO_XYZ_OVER_WHITE = (color._WORKING_TO_XYZ / color._WHITE_XYZ.reshape(3, 1)).tolist()
+_TO_XYZ_OVER_WHITE = color._WORKING_TO_XYZ / color._WHITE_XYZ.reshape(3, 1)  # (3, CHANNELS)
 
 
 def _lab_f(t):
@@ -79,14 +79,11 @@ def _lab_f(t):
 
 
 def _delta_e(rgb, target_lab):
-    """ΔE76 of working-space reflectance ``rgb`` (3, ...) from ``target_lab`` (3, ...): the same as
-    color.delta_e(color.working_to_lab(rgb, dim=0), target_lab, dim=0), written out per channel,
-    which is several times faster on large batches."""
-    r, g, b = rgb[0], rgb[1], rgb[2]
-    (m00, m01, m02), (m10, m11, m12), (m20, m21, m22) = _TO_XYZ_OVER_WHITE
-    fx = _lab_f(m00 * r + m01 * g + m02 * b)
-    fy = _lab_f(m10 * r + m11 * g + m12 * b)
-    fz = _lab_f(m20 * r + m21 * g + m22 * b)
+    """ΔE76 of working-space reflectance ``rgb`` (C, ...) from ``target_lab`` (3, ...): the same as
+    color.delta_e(color.working_to_lab(rgb, dim=0), target_lab, dim=0), written out, which is
+    several times faster on large batches."""
+    xyz = torch.tensordot(_TO_XYZ_OVER_WHITE.to(rgb), rgb, dims=([1], [0]))
+    fx, fy, fz = _lab_f(xyz[0]), _lab_f(xyz[1]), _lab_f(xyz[2])
     dl = 116.0 * fy - 16.0 - target_lab[0]
     da = 500.0 * (fx - fy) - target_lab[1]
     db = 200.0 * (fy - fz) - target_lab[2]
@@ -155,11 +152,12 @@ def _descend(target, background, K, S, W, X, sweeps, paint_cost, smooth=None):
     """
     n, spatial = X.shape[0], X.shape[2:]
     ones = (1,) * len(spatial)
+    ch = K.shape[1]
     if K.ndim == 2:
-        K, S = K.reshape(n, 3, *ones), S.reshape(n, 3, *ones)
+        K, S = K.reshape(n, ch, *ones), S.reshape(n, ch, *ones)
     m00, m01, m10 = _layer_maps(K, S, W)
-    bg = background.reshape(3, *ones) if background.ndim == 1 else background
-    bg = bg.to(m00.dtype).expand(3, *spatial)
+    bg = background.reshape(ch, *ones) if background.ndim == 1 else background
+    bg = bg.to(m00.dtype).expand(ch, *spatial)
 
     def paint(i, r):
         return (m00[i] * r + m01[i]) / (m10[i] * r + 1)
@@ -262,7 +260,7 @@ def select_uniform_stack(
     bg = _background_per_cluster(background, labels, k).float()
     K_all, S_all = (x.float() for x in ks_tensors(paints))
 
-    bare = km.render_stack(bg, torch.empty(0, 3), torch.empty(0, 3), torch.zeros(0, 1, k, 1))
+    bare = km.render_stack(bg, torch.empty(0, color.CHANNELS), torch.empty(0, color.CHANNELS), torch.zeros(0, 1, k, 1))
     baseline = _rms(color.delta_e(color.working_to_lab(bare, dim=0), target_k, dim=0))[0].item()
     say(f"background alone: RMS error {baseline:.2f}")
     sel = UniformSelection(stack=[], forced_first=None, baseline_error=baseline, cluster_lab=centers)

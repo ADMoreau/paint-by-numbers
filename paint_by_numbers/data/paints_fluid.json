@@ -11,15 +11,35 @@
     "pigments": ["PR122", "PY150", "PG7"],
     "discontinued": false,
     "special": null,
-    "K": [0.111349, 0.173476, 0.167635],
-    "S": [0.0195065, 0.0195065, 0.0195065],
+    "K": [0.185019, 2.38451, 53.6956, 6.3623, 2.81881, 64.1256, 8.22734, 0.491556, 1.10943, 1.18015, 1.18965],
+    "S": [0.499584, 0.146236, 0.168346, 1.19937, 0.335887, 0.138659, 0.0450076, 0.192447, 0.0259466, 0.0186266, 0.017921],
     "munsell": "Hue:1.9 R Value:2.8 Chroma:2.1",
     "gloss_average": 100.92,
     "tint_strength": 73.1,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-alizarin-crimson-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2435-alizarin-crimson-hue-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [55.0, 58.5, 53.0],
+      "glaze_1_10": {
+        "white": [237.0, 142.0, 153.0],
+        "black": [33.0, 35.0, 33.0]
+      },
+      "glaze_1_1": {
+        "white": [191.0, 63.0, 78.0],
+        "black": [48.0, 33.0, 34.0]
+      },
+      "masstone": {
+        "white": [123.0, 40.0, 46.0],
+        "black": [52.0, 31.0, 32.0]
+      },
+      "tint_1_1": [199.0, 107.0, 102.0],
+      "tint_1_10": [238.0, 173.0, 181.5],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Anthraquinone Blue",
@@ -33,15 +53,35 @@
     "pigments": ["PB60"],
     "discontinued": false,
     "special": null,
-    "K": [0.533476, 0.577925, 0.462493],
-    "S": [0.050825, 0.050825, 0.050825],
+    "K": [0.45268, 0.427366, 3.99043, 0.680796, 4.47793, 97.7689, 4.17507, 123.703, 17.5798, 1.01708, 0.0146619],
+    "S": [0.0335587, 0.0293422, 0.0244146, 0.16827, 0.16141, 2.73178, 0.0839449, 0.324817, 1.01124, 1.16951, 0.484796],
     "munsell": "Hue:4.3 P Value:2.4 Chroma:0.9",
     "gloss_average": 94.74,
     "tint_strength": 67.09,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-anthraquinone-blue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2005-anthraquinone-blue-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [53.0, 59.0, 54.0],
+      "glaze_1_10": {
+        "white": [89.0, 148.0, 220.0],
+        "black": [30.0, 35.0, 36.0]
+      },
+      "glaze_1_1": {
+        "white": [18.0, 55.0, 149.0],
+        "black": [29.0, 31.0, 39.0]
+      },
+      "masstone": {
+        "white": [29.0, 33.0, 110.0],
+        "black": [29.0, 27.0, 42.0]
+      },
+      "tint_1_1": [46.0, 102.0, 179.0],
+      "tint_1_10": [133.0, 172.0, 234.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Benzimidazolone Yellow Light",
@@ -55,15 +95,35 @@
     "pigments": ["PY175"],
     "discontinued": false,
     "special": null,
-    "K": [0.00567017, 0.040482, 2.43898],
-    "S": [0.349624, 0.349624, 0.349624],
+    "K": [30.0107, 38.831, 11.93, 0.410757, 0.28237, 0.0354847, 0.0171433, 0.0041964, 0.00200873, 0.00170622, 0.00167261],
+    "S": [24.7329, 14.5854, 0.119172, 0.00921013, 0.581399, 0.754809, 0.524173, 0.310676, 0.223284, 0.201557, 0.198433],
     "munsell": "Hue:4.9 Y Value:8.5 Chroma:12.4",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-benzimidazolone-yellow-light",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2009-benzimidazolone-yellow-light-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [51.0, 55.0, 51.0],
+      "glaze_1_10": {
+        "white": [249.0, 244.0, 113.0],
+        "black": [32.0, 45.0, 36.0]
+      },
+      "glaze_1_1": {
+        "white": [250.0, 235.0, 68.0],
+        "black": [107.0, 135.0, 52.0]
+      },
+      "masstone": {
+        "white": [248.0, 226.0, 60.0],
+        "black": [171.0, 184.0, 54.0]
+      },
+      "tint_1_1": [250.0, 241.0, 105.0],
+      "tint_1_10": [248.0, 244.0, 162.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Benzimidazolone Yellow Medium",
@@ -77,15 +137,35 @@
     "pigments": ["PY154"],
     "discontinued": false,
     "special": null,
-    "K": [0.0211391, 0.289941, 14.7833],
-    "S": [1.45503, 1.45503, 1.45503],
+    "K": [1.13153, 15.5071, 32.3274, 0.411684, 0.795705, 0.071277, 0.0431457, 0.000821568, 0.000218516, 0.000167836, 0.000162622],
+    "S": [5.37455, 1.24678, 0.179996, 0.0406263, 1.37983, 0.430237, 0.573077, 0.453583, 0.328984, 0.299392, 0.295579],
     "munsell": "Hue:2.7 Y Value:8.2 Chroma:13.7",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-benzimidazolone-yellow-medium",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2008-benzimidazolone-yellow-medium-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [48.0, 53.0, 47.0],
+      "glaze_1_10": {
+        "white": [247.0, 234.0, 81.0],
+        "black": [56.0, 74.0, 24.0]
+      },
+      "glaze_1_1": {
+        "white": [249.0, 224.0, 48.0],
+        "black": [120.0, 135.0, 33.0]
+      },
+      "masstone": {
+        "white": [250.0, 213.0, 39.0],
+        "black": [177.0, 174.0, 35.0]
+      },
+      "tint_1_1": [253.0, 231.0, 87.0],
+      "tint_1_10": [251.0, 244.0, 155.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Bone Black",
@@ -99,15 +179,35 @@
     "pigments": ["PBk9"],
     "discontinued": false,
     "special": null,
-    "K": [0.468019, 0.467326, 0.46126],
-    "S": [0.0405127, 0.0405127, 0.0405127],
+    "K": [0.199297, 1.07247, 4.57853, 9.07026, 0.870956, 2.43234, 12.5166, 2.01008, 0.985277, 0.37706, 0.311842],
+    "S": [0.50396, 0.0761593, 0.0297037, 0.0439556, 0.139269, 0.0151949, 0.00983599, 0.0142747, 0.0760152, 0.363971, 0.42586],
     "munsell": "Hue:7.6 PB Value:2.3 Chroma:0.1",
     "gloss_average": 32.62,
     "tint_strength": 78.87,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-bone-black",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2010-bone-black-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [59.0, 58.0, 53.0],
+      "glaze_1_10": {
+        "white": [189.0, 185.0, 177.0],
+        "black": [29.0, 31.0, 26.0]
+      },
+      "glaze_1_1": {
+        "white": [127.0, 124.0, 116.0],
+        "black": [31.0, 34.0, 31.0]
+      },
+      "masstone": {
+        "white": [53.0, 54.0, 49.0],
+        "black": [35.0, 39.0, 36.0]
+      },
+      "tint_1_1": [136.0, 140.0, 147.0],
+      "tint_1_10": [205.0, 207.0, 211.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Burnt Sienna",
@@ -121,15 +221,35 @@
     "pigments": ["PBr7"],
     "discontinued": false,
     "special": null,
-    "K": [0.966317, 2.06566, 3.07682],
-    "S": [0.311651, 0.311651, 0.311651],
+    "K": [0.0124328, 2.92999, 42.8172, 3.27642, 7.84608, 3.46131, 0.458837, 4.20683, 0.341631, 0.10753, 0.0917112],
+    "S": [0.156234, 0.0628955, 1.42768, 0.181629, 0.102837, 0.129671, 0.223696, 0.0327197, 0.148116, 0.258419, 0.271636],
     "munsell": "Hue:0.5 YR Value:3.4 Chroma:4.1",
     "gloss_average": 13.63,
     "tint_strength": 80.56,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-burnt-sienna",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2020-burnt-sienna-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [52.0, 56.0, 53.0],
+      "glaze_1_10": {
+        "white": [237.0, 190.0, 140.0],
+        "black": [39.5, 33.0, 26.0]
+      },
+      "glaze_1_1": {
+        "white": [192.0, 101.0, 47.0],
+        "black": [73.0, 48.0, 30.0]
+      },
+      "masstone": {
+        "white": [163.0, 82.0, 40.0],
+        "black": [98.0, 61.0, 39.0]
+      },
+      "tint_1_1": [192.0, 137.0, 105.0],
+      "tint_1_10": [243.0, 219.0, 174.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Burnt Umber Light",
@@ -143,15 +263,35 @@
     "pigments": ["PBr7"],
     "discontinued": false,
     "special": null,
-    "K": [1.11124, 1.56787, 1.97434],
-    "S": [0.189337, 0.189337, 0.189337],
+    "K": [0.0981117, 3.57876, 11.5579, 1.33455, 20.5569, 2.85542, 0.591312, 8.05626, 1.41066, 0.113884, 0.0560046],
+    "S": [0.20652, 0.0625023, 0.167965, 0.197432, 0.045187, 0.0192894, 0.18909, 0.0125936, 0.0145446, 0.124838, 0.14799],
     "munsell": "Hue:3.6 YR Value:2.9 Chroma:1.6",
     "gloss_average": 21.69,
     "tint_strength": 80.07,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-burnt-umber-light",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2035-burnt-umber-light-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [44.0, 48.0, 43.0],
+      "glaze_1_10": {
+        "white": [218.0, 186.0, 158.0],
+        "black": [20.0, 22.0, 18.0]
+      },
+      "glaze_1_1": {
+        "white": [163.0, 117.0, 77.0],
+        "black": [41.0, 32.0, 23.0]
+      },
+      "masstone": {
+        "white": [110.0, 69.0, 41.0],
+        "black": [55.0, 44.0, 33.0]
+      },
+      "tint_1_1": [155.0, 126.0, 111.0],
+      "tint_1_10": [230.0, 211.0, 198.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Cadmium Red Medium Hue",
@@ -165,15 +305,35 @@
     "pigments": ["PR5", "PR112"],
     "discontinued": false,
     "special": null,
-    "K": [0.22942, 1.67733, 2.8633],
-    "S": [0.279501, 0.279501, 0.279501],
+    "K": [6.01788, 6.11226, 5.80843, 20.8337, 42.5379, 6.29669, 10.0133, 0.178552, 0.0229101, 0.00932213, 0.00819445],
+    "S": [0.159535, 0.165402, 0.320841, 2.16862, 7.09367, 0.150501, 0.0775754, 0.944377, 0.0212611, 0.0212766, 0.0217431],
     "munsell": "Hue:6.5 R Value:4.3 Chroma:12.2",
     "gloss_average": 74.7,
     "tint_strength": 73.39,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-cadmium-red-medium-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2425-cadmium-red-medium-hue-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [57.0, 60.0, 54.0],
+      "glaze_1_10": {
+        "white": [248.0, 107.0, 142.0],
+        "black": [47.0, 38.0, 29.0]
+      },
+      "glaze_1_1": {
+        "white": [227.0, 18.0, 26.0],
+        "black": [111.0, 38.0, 15.0]
+      },
+      "masstone": {
+        "white": [221.0, 26.0, 28.0],
+        "black": [117.0, 41.0, 22.0]
+      },
+      "tint_1_1": [241.0, 85.0, 114.0],
+      "tint_1_10": [250.0, 161.0, 189.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Cadmium Yellow Medium Hue",
@@ -187,15 +347,35 @@
     "pigments": ["PY74", "PY175", "PY83"],
     "discontinued": false,
     "special": null,
-    "K": [0.0398403, 0.81177, 37.4951],
-    "S": [4.18012, 4.18012, 4.18012],
+    "K": [7.78964, 10.3451, 5.39667, 0.883809, 0.188824, 0.0779297, 0.0299079, 0.000816612, 0.000207097, 0.000155821, 0.000150566],
+    "S": [27.891, 2.11736, 0.0419659, 0.0123159, 0.156921, 0.846473, 0.605674, 0.325542, 0.192507, 0.163045, 0.159204],
     "munsell": "Hue:2.3 Y Value:8.3 Chroma:13.7",
     "gloss_average": 73.8,
     "tint_strength": 93.75,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-cadmium-yellow-medium-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2428-cadmium-yellow-medium-hue-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [59.0, 62.0, 55.0],
+      "glaze_1_10": {
+        "white": [251.0, 243.0, 152.0],
+        "black": [46.0, 56.0, 39.0]
+      },
+      "glaze_1_1": {
+        "white": [252.0, 230.0, 11.0],
+        "black": [120.0, 123.0, 31.0]
+      },
+      "masstone": {
+        "white": [252.0, 225.0, 4.0],
+        "black": [175.0, 169.0, 17.0]
+      },
+      "tint_1_1": [251.0, 240.0, 104.0],
+      "tint_1_10": [253.0, 252.0, 198.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Carbon Black",
@@ -209,15 +389,35 @@
     "pigments": ["PBk7"],
     "discontinued": false,
     "special": null,
-    "K": [2.305, 2.30535, 2.25308],
-    "S": [0.216704, 0.216704, 0.216704],
+    "K": [5.89027, 7.20402, 66.6886, 335.289, 713.234, 11.1169, 7.95083, 175.805, 251.852, 227.517, 223.719],
+    "S": [1.44609, 1.17079, 0.449192, 0.519557, 0.68361, 0.967579, 0.721724, 2.05608, 3.27898, 3.66348, 3.71357],
     "munsell": "Hue:9.3 PB Value:2.4 Chroma:0.1",
     "gloss_average": 79.23,
     "tint_strength": 56.55,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-carbon-black",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2040-carbon-black-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [59.0, 58.0, 53.0],
+      "glaze_1_10": {
+        "white": [92.0, 92.0, 85.0],
+        "black": [40.0, 38.0, 34.0]
+      },
+      "glaze_1_1": {
+        "white": [42.0, 41.0, 39.0],
+        "black": [38.0, 35.0, 32.0]
+      },
+      "masstone": {
+        "white": [41.0, 40.0, 39.0],
+        "black": [37.0, 35.0, 33.0]
+      },
+      "tint_1_1": [64.0, 64.0, 65.0],
+      "tint_1_10": [122.0, 127.0, 131.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Cerulean Blue Deep",
@@ -231,15 +431,35 @@
     "pigments": ["PB36"],
     "discontinued": false,
     "special": null,
-    "K": [4.64186, 1.58408, 0.819421],
-    "S": [0.402385, 0.402385, 0.402385],
+    "K": [0.738303, 1.8433, 0.615186, 0.0795915, 1.02742, 5.31638, 0.598907, 4.96144, 94.9051, 170.739, 182.752],
+    "S": [1.32491, 0.53977, 0.0265959, 0.524708, 0.0305803, 0.0309581, 0.194369, 0.0475965, 0.0455926, 0.0453711, 0.0453466],
     "munsell": "Hue:9.2 B Value:3.3 Chroma:5.8",
     "gloss_average": 53.2,
     "tint_strength": 83.1,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-cerulean-blue-deep",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2051-cerulean-blue-deep-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [51.0, 58.0, 59.0],
+      "glaze_1_10": {
+        "white": [144.0, 213.0, 233.0],
+        "black": [18.0, 38.0, 47.0]
+      },
+      "glaze_1_1": {
+        "white": [16.0, 152.0, 185.0],
+        "black": [5.0, 61.0, 91.0]
+      },
+      "masstone": {
+        "white": [11.0, 106.0, 144.0],
+        "black": [8.0, 73.0, 109.0]
+      },
+      "tint_1_1": [81.0, 172.0, 210.0],
+      "tint_1_10": [169.0, 225.0, 244.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Cerulean Blue, Chromium",
@@ -253,15 +473,35 @@
     "pigments": ["PB36"],
     "discontinued": false,
     "special": null,
-    "K": [6.14976, 1.89783, 0.602244],
-    "S": [0.661261, 0.661261, 0.661261],
+    "K": [0.284206, 0.286855, 0.266586, 0.00862155, 1.23634, 3.22791, 0.565936, 3.47456, 3.27476, 126.859, 185.33],
+    "S": [0.423517, 0.400478, 0.0384319, 0.227476, 0.136507, 0.0434393, 0.247815, 0.0171877, 0.00969703, 0.00965283, 0.00964901],
     "munsell": "Hue:3 PB Value:3.8 Chroma:8.8",
     "gloss_average": 21.44,
     "tint_strength": 87.78,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-cerulean-blue-chromium",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2050-cerulean-blue-chromium-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [56.0, 61.0, 56.0],
+      "glaze_1_10": {
+        "white": [200.0, 222.0, 244.0],
+        "black": [28.0, 38.0, 39.0]
+      },
+      "glaze_1_1": {
+        "white": [70.0, 139.0, 227.0],
+        "black": [27.0, 51.0, 75.0]
+      },
+      "masstone": {
+        "white": [30.0, 113.0, 207.0],
+        "black": [24.0, 69.0, 115.0]
+      },
+      "tint_1_1": [130.0, 174.0, 242.0],
+      "tint_1_10": [202.0, 226.0, 249.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Chromium Oxide Green",
@@ -275,15 +515,35 @@
     "pigments": ["PG17"],
     "discontinued": false,
     "special": null,
-    "K": [2.66102, 1.84119, 3.92506],
-    "S": [0.801391, 0.801391, 0.801391],
+    "K": [30.1951, 23.3178, 3.63185, 0.436093, 0.947349, 0.640406, 12.763, 1.98826, 0.184493, 1.38514, 1.46832],
+    "S": [1.05444, 0.806457, 0.0201847, 0.465535, 1.66326, 0.0093378, 0.0111605, 0.0257143, 0.667555, 11.028, 19.6827],
     "munsell": "Hue:9.6 GY Value:4.3 Chroma:4.2",
     "gloss_average": 50.6,
     "tint_strength": 81.19,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-chromium-oxide-green",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2060-chromium-oxide-green-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [55.0, 61.0, 54.0],
+      "glaze_1_10": {
+        "white": [177.0, 211.0, 160.0],
+        "black": [37.0, 57.0, 37.0]
+      },
+      "glaze_1_1": {
+        "white": [90.0, 148.0, 69.0],
+        "black": [54.0, 102.0, 44.0]
+      },
+      "masstone": {
+        "white": [64.0, 123.0, 52.0],
+        "black": [59.0, 117.0, 50.0]
+      },
+      "tint_1_1": [120.0, 170.0, 122.0],
+      "tint_1_10": [189.0, 225.0, 196.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Cobalt Blue",
@@ -297,15 +557,35 @@
     "pigments": ["PB28"],
     "discontinued": false,
     "special": null,
-    "K": [2.85056, 1.53716, 0.205978],
-    "S": [0.31263, 0.31263, 0.31263],
+    "K": [0.0175646, 0.019885, 0.0998099, 0.024234, 1.08157, 8.47461, 3.42531, 0.962186, 36.3072, 179.637, 216.353],
+    "S": [0.00147155, 0.00183531, 0.227795, 0.14243, 0.0281617, 0.649346, 0.0356487, 0.212055, 0.0822105, 0.0786587, 0.0783073],
     "munsell": "Hue:7.4 PB Value:3.3 Chroma:12.8",
     "gloss_average": 69.45,
     "tint_strength": 83.7,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-cobalt-blue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2140-cobalt-blue-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [55.0, 60.0, 55.0],
+      "glaze_1_10": {
+        "white": [164.0, 184.0, 247.0],
+        "black": [28.0, 36.0, 37.0]
+      },
+      "glaze_1_1": {
+        "white": [68.0, 114.0, 244.0],
+        "black": [23.0, 35.0, 70.0]
+      },
+      "masstone": {
+        "white": [31.0, 73.0, 234.0],
+        "black": [26.0, 41.5, 106.0]
+      },
+      "tint_1_1": [117.0, 145.0, 249.0],
+      "tint_1_10": [190.0, 209.0, 251.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Cobalt Teal",
@@ -319,15 +599,35 @@
     "pigments": ["PG50"],
     "discontinued": false,
     "special": null,
-    "K": [3.60597, 0.527596, 0.475029],
-    "S": [0.716977, 0.716977, 0.716977],
+    "K": [0.193209, 0.208535, 0.551783, 2.4671, 0.00270893, 2.0874, 0.542282, 4.72132, 28.0349, 28.1037, 27.9668],
+    "S": [2.71295, 2.61514, 0.307266, 0.115691, 2.20936, 0.10412, 0.162745, 1.64554, 0.233062, 0.16965, 0.163465],
     "munsell": "Hue:8.4 BG Value:5.4 Chroma:9.2",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-cobalt-teal",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2145-cobalt-teal-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [51.0, 57.0, 58.0],
+      "glaze_1_10": {
+        "white": [121.0, 210.0, 217.0],
+        "black": [33.0, 79.0, 89.0]
+      },
+      "glaze_1_1": {
+        "white": [42.0, 156.0, 168.0],
+        "black": [40.0, 128.0, 142.0]
+      },
+      "masstone": {
+        "white": [64.0, 167.0, 182.0],
+        "black": [63.0, 166.0, 182.0]
+      },
+      "tint_1_1": [128.0, 210.0, 225.0],
+      "tint_1_10": [193.0, 241.0, 249.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Cobalt Turquoise",
@@ -341,15 +641,35 @@
     "pigments": ["PB36"],
     "discontinued": false,
     "special": null,
-    "K": [3.00372, 0.875715, 0.80303],
-    "S": [0.355703, 0.355703, 0.355703],
+    "K": [7.86788, 2.7946, 0.743153, 4.79444, 0.47929, 4.32656, 0.987352, 6.57454, 132.242, 198.633, 207.707],
+    "S": [0.51098, 0.813528, 0.425794, 0.101091, 0.994599, 0.0497014, 0.119456, 1.15521, 0.889673, 0.864848, 0.862243],
     "munsell": "Hue:8.1 BG Value:3.9 Chroma:5.8",
     "gloss_average": 51.82,
     "tint_strength": 86.04,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-cobalt-turquoise",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2144-cobalt-turquoise-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [50.0, 57.0, 56.0],
+      "glaze_1_10": {
+        "white": [129.0, 206.0, 206.0],
+        "black": [26.0, 45.0, 47.0]
+      },
+      "glaze_1_1": {
+        "white": [31.0, 120.0, 122.0],
+        "black": [26.0, 100.0, 105.0]
+      },
+      "masstone": {
+        "white": [33.0, 117.0, 120.0],
+        "black": [27.0, 107.0, 112.0]
+      },
+      "tint_1_1": [84.0, 179.0, 187.0],
+      "tint_1_10": [163.0, 223.0, 232.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Diarylide Yellow",
@@ -363,15 +683,35 @@
     "pigments": ["PY83"],
     "discontinued": false,
     "special": null,
-    "K": [0.0623713, 1.50184, 32.1878],
-    "S": [3.32669, 3.32669, 3.32669],
+    "K": [0.0310893, 8.73267, 44.7292, 29.8013, 0.342903, 0.632456, 0.130351, 0.000193102, 0.00012341, 0.00012341, 0.00012341],
+    "S": [0.00102994, 0.0503318, 5.5428, 0.906368, 0.148897, 1.51021, 0.977236, 0.372392, 0.249574, 0.223825, 0.219871],
     "munsell": "Hue:7.7 YR Value:7.7 Chroma:14.1",
     "gloss_average": 85.52,
     "tint_strength": 88.16,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-diarylide-yellow",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2147-diarylide-yellow-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [58.0, 61.0, 53.0],
+      "glaze_1_10": {
+        "white": [250.0, 223.0, 35.0],
+        "black": [49.0, 62.0, 24.0]
+      },
+      "glaze_1_1": {
+        "white": [253.0, 200.0, 3.0],
+        "black": [127.0, 134.0, 9.0]
+      },
+      "masstone": {
+        "white": [253.0, 186.0, 3.0],
+        "black": [197.0, 170.0, 6.0]
+      },
+      "tint_1_1": [251.0, 210.0, 13.0],
+      "tint_1_10": [252.0, 238.0, 142.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Dioxazine Purple",
@@ -385,15 +725,35 @@
     "pigments": ["PV23"],
     "discontinued": false,
     "special": null,
-    "K": [0.11268, 0.125295, 0.125778],
-    "S": [0.0114161, 0.0114161, 0.0114161],
+    "K": [10.8778, 10.6471, 1.43089, 9.58528, 9.43674, 95.5618, 85.2773, 6.80099, 12.2108, 0.414318, 0.00100683],
+    "S": [0.0200069, 0.0217657, 0.112284, 0.0777358, 1.52965, 0.320187, 0.186398, 0.126616, 0.945984, 0.466158, 0.0984518],
     "munsell": "Hue:7 R Value:2.4 Chroma:0.4",
     "gloss_average": 90.47,
     "tint_strength": 67.34,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-dioxazine-purple",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2150-dioxazine-purple-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [40.0, 57.0, 54.0],
+      "glaze_1_10": {
+        "white": [126.5, 62.0, 178.0],
+        "black": [12.0, 27.0, 25.0]
+      },
+      "glaze_1_1": {
+        "white": [66.0, 32.0, 95.0],
+        "black": [16.0, 27.0, 23.0]
+      },
+      "masstone": {
+        "white": [47.0, 31.0, 60.0],
+        "black": [14.0, 29.0, 26.0]
+      },
+      "tint_1_1": [105.0, 68.0, 156.0],
+      "tint_1_10": [169.0, 135.0, 215.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Fluorescent Green",
@@ -407,15 +767,16 @@
     "pigments": [],
     "discontinued": false,
     "special": "fluorescent",
-    "K": [0.334737, 0.029212, 1.15946],
-    "S": [0.154518, 0.154518, 0.154518],
+    "K": [42.0786, 42.0786, 42.0786, 0.224443, 0.0226677, 0.0161462, 0.0970396, 3.23393, 42.0786, 42.0786, 42.0786],
+    "S": [0.16899, 0.16899, 0.16899, 0.16899, 0.16899, 0.16899, 0.16899, 0.16899, 0.16899, 0.16899, 0.16899],
     "munsell": "Hue:1.1 G Value:6.9 Chroma:19.1",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-fluorescent-green",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Fluorescent Magenta",
@@ -429,15 +790,16 @@
     "pigments": [],
     "discontinued": false,
     "special": "fluorescent",
-    "K": [0.0198255, 1.02698, 0.654991],
-    "S": [0.162516, 0.162516, 0.162516],
+    "K": [0.000887887, 0.56234, 57.8433, 113.129, 113.129, 113.129, 1.49982, 0.00672935, 2.29461e-05, 2.29461e-05, 2.29461e-05],
+    "S": [0.454332, 0.454332, 0.454332, 0.454332, 0.454332, 0.454332, 0.454332, 0.454332, 0.454332, 0.454332, 0.454332],
     "munsell": "Hue:3 R Value:5.3 Chroma:20.8",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-fluorescent-magenta",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Fluorescent Pink",
@@ -451,15 +813,16 @@
     "pigments": [],
     "discontinued": false,
     "special": "fluorescent",
-    "K": [5.89046e-05, 3.42159, 3.60627],
-    "S": [1.16631, 1.16631, 1.16631],
+    "K": [0.36388, 234.262, 234.262, 234.262, 234.262, 234.262, 234.262, 0.000102576, 4.75155e-05, 4.75155e-05, 4.75155e-05],
+    "S": [0.940806, 0.940806, 0.940806, 0.940806, 0.940806, 0.940806, 0.940806, 0.940806, 0.940806, 0.940806, 0.940806],
     "munsell": "Hue:10 RP Value:6.8 Chroma:5.3",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-fluorescent-pink",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Fluorescent Red",
@@ -473,15 +836,16 @@
     "pigments": [],
     "discontinued": false,
     "special": "fluorescent",
-    "K": [5.96565e-05, 3.56852, 11.3082],
-    "S": [1.1812, 1.1812, 1.1812],
+    "K": [0.0346715, 192.847, 192.847, 192.847, 192.847, 192.847, 8.78012, 0.000504379, 3.91152e-05, 3.91152e-05, 3.91152e-05],
+    "S": [0.774481, 0.774481, 0.774481, 0.774481, 0.774481, 0.774481, 0.774481, 0.774481, 0.774481, 0.774481, 0.774481],
     "munsell": "Hue:10 RP Value:6.6 Chroma:11.8",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-fluorescent-red",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Fluorescent Yellow",
@@ -495,15 +859,16 @@
     "pigments": [],
     "discontinued": false,
     "special": "fluorescent",
-    "K": [5.92471e-05, 5.92471e-05, 12.3508],
-    "S": [1.17309, 1.17309, 1.17309],
+    "K": [0.0257973, 0.000365858, 3.63294e-05, 3.63294e-05, 3.63294e-05, 3.63294e-05, 3.63294e-05, 3.63294e-05, 3.63294e-05, 3.63294e-05, 3.63294e-05],
+    "S": [0.719323, 0.719323, 0.719323, 0.719323, 0.719323, 0.719323, 0.719323, 0.719323, 0.719323, 0.719323, 0.719323],
     "munsell": "Hue:0 Value:0 Chroma:0",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-fluorescent-yellow",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Green Gold",
@@ -517,15 +882,35 @@
     "pigments": ["PY150", "PG36", "PY175"],
     "discontinued": false,
     "special": null,
-    "K": [0.0991629, 0.0887724, 0.351635],
-    "S": [0.0377124, 0.0377124, 0.0377124],
+    "K": [23.8242, 25.5989, 35.2032, 1.99944, 0.0498495, 0.949538, 0.817208, 0.0725207, 0.58541, 0.600074, 0.596996],
+    "S": [5.10362, 4.10425, 0.376144, 0.0504905, 0.0266363, 0.429432, 0.0494739, 0.0710739, 0.0140938, 0.0107004, 0.0103596],
     "munsell": "Hue:4.8 GY Value:4.4 Chroma:5.1",
     "gloss_average": 93.13,
     "tint_strength": 89.11,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-green-gold",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2170-green-gold-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [52.0, 57.0, 54.0],
+      "glaze_1_10": {
+        "white": [244.0, 236.0, 64.0],
+        "black": [34.0, 45.0, 31.0]
+      },
+      "glaze_1_1": {
+        "white": [213.0, 204.0, 38.0],
+        "black": [51.0, 71.0, 31.0]
+      },
+      "masstone": {
+        "white": [185.0, 184.0, 35.0],
+        "black": [62.0, 84.0, 34.0]
+      },
+      "tint_1_1": [211.0, 209.0, 69.0],
+      "tint_1_10": [242.0, 233.0, 139.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Hansa Yellow Opaque",
@@ -539,15 +924,35 @@
     "pigments": ["PY74"],
     "discontinued": false,
     "special": null,
-    "K": [0.0315688, 0.604206, 40.6498],
-    "S": [4.7252, 4.7252, 4.7252],
+    "K": [35.4953, 31.8254, 6.77533, 25.4414, 1.04186, 0.028172, 0.000242194, 0.000184962, 0.0157209, 2.55604, 2.97204],
+    "S": [3.97256, 3.94425, 0.786732, 1.89515, 0.119716, 1.69649, 0.761802, 0.371043, 0.401831, 0.0533378, 0.043822],
     "munsell": "Hue:3.7 Y Value:8.6 Chroma:13.6",
     "gloss_average": 78.28,
     "tint_strength": 92.91,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-hansa-yellow-opaque",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2191-hansa-yellow-opaque-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [60.0, 62.0, 55.0],
+      "glaze_1_10": {
+        "white": [249.0, 223.0, 79.0],
+        "black": [42.0, 61.0, 31.0]
+      },
+      "glaze_1_1": {
+        "white": [253.0, 210.0, 2.0],
+        "black": [126.0, 133.0, 9.0]
+      },
+      "masstone": {
+        "white": [253.0, 208.0, 2.0],
+        "black": [180.0, 172.0, 4.0]
+      },
+      "tint_1_1": [252.0, 216.0, 21.0],
+      "tint_1_10": [251.0, 240.0, 164.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "India Yellow Hue",
@@ -561,15 +966,35 @@
     "pigments": ["PY175", "PY150", "PR122"],
     "discontinued": false,
     "special": null,
-    "K": [0.0478747, 0.176085, 0.769609],
-    "S": [0.0881267, 0.0881267, 0.0881267],
+    "K": [90.8122, 74.2461, 4.01909, 31.0091, 0.319151, 1.14475, 0.533912, 0.00660422, 0.0140321, 0.0148178, 0.0148933],
+    "S": [14.0904, 12.1446, 0.0676862, 0.224055, 0.37905, 0.0386144, 0.119309, 0.170931, 0.00883205, 0.00450546, 0.00415162],
     "munsell": "Hue:3.9 YR Value:5.3 Chroma:9.1",
     "gloss_average": 86.88,
     "tint_strength": 90.36,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-india-yellow-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2436-india-yellow-hue-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [56.0, 61.0, 54.0],
+      "glaze_1_10": {
+        "white": [250.0, 228.0, 128.0],
+        "black": [32.0, 40.0, 34.0]
+      },
+      "glaze_1_1": {
+        "white": [250.0, 188.0, 9.0],
+        "black": [49.0, 60.0, 31.0]
+      },
+      "masstone": {
+        "white": [245.0, 139.0, 8.0],
+        "black": [90.0, 84.0, 15.0]
+      },
+      "tint_1_1": [250.0, 194.0, 67.0],
+      "tint_1_10": [251.0, 237.0, 171.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Jenkins Green",
@@ -583,15 +1008,35 @@
     "pigments": ["PBk9", "PG36", "PY150"],
     "discontinued": false,
     "special": null,
-    "K": [0.554085, 0.476285, 0.503043],
-    "S": [0.0491342, 0.0491342, 0.0491342],
+    "K": [43.7166, 39.3502, 5.96076, 1.36082, 8.7536, 0.910141, 5.59783, 1.52942, 78.5842, 153.052, 165.423],
+    "S": [0.0566595, 0.0559789, 0.0444247, 0.443987, 0.071062, 0.0513866, 0.0379672, 0.193495, 0.131513, 0.12632, 0.125759],
     "munsell": "Hue:1.8 BG Value:2.5 Chroma:0.8",
     "gloss_average": 53.26,
     "tint_strength": 77.3,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-jenkins-green",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2195-jenkins-green-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [57.0, 59.0, 45.0],
+      "glaze_1_10": {
+        "white": [171.0, 203.0, 146.0],
+        "black": [27.0, 35.0, 22.0]
+      },
+      "glaze_1_1": {
+        "white": [73.0, 120.0, 51.0],
+        "black": [23.0, 39.0, 26.0]
+      },
+      "masstone": {
+        "white": [45.0, 81.0, 38.0],
+        "black": [29.0, 43.0, 30.0]
+      },
+      "tint_1_1": [101.0, 150.0, 104.0],
+      "tint_1_10": [177.0, 216.0, 180.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Light Magenta",
@@ -605,15 +1050,35 @@
     "pigments": ["PW6", "PR112"],
     "discontinued": false,
     "special": null,
-    "K": [0.142377, 1.25332, 0.889288],
-    "S": [2.06484, 2.06484, 2.06484],
+    "K": [0.169367, 0.201868, 3.50189, 2.01134, 0.853737, 8.7808, 1.55203, 0.0165623, 0.00554183, 0.00453094, 0.0044246],
+    "S": [6.11713, 5.82736, 1.99931, 2.65475, 2.67783, 4.96111, 2.7267, 1.89435, 2.24119, 2.34447, 2.35894],
     "munsell": "Hue:8.4 RP Value:7.1 Chroma:9.8",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-light-magenta",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2362-light-magenta-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [35.0, 41.0, 40.0],
+      "glaze_1_10": {
+        "white": [247.0, 194.0, 211.0],
+        "black": [117.0, 117.0, 126.0]
+      },
+      "glaze_1_1": {
+        "white": [244.0, 155.0, 173.0],
+        "black": [185.0, 144.0, 162.0]
+      },
+      "masstone": {
+        "white": [243.0, 145.0, 165.0],
+        "black": [214.0, 143.0, 163.0]
+      },
+      "tint_1_1": [242.0, 164.0, 185.0],
+      "tint_1_10": [246.0, 210.0, 226.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Light Phthalo Blue",
@@ -627,15 +1092,35 @@
     "pigments": ["PW6", "PB15:3"],
     "discontinued": false,
     "special": null,
-    "K": [1.25973, 0.288293, 0.0448005],
-    "S": [3.35957, 3.35957, 3.35957],
+    "K": [0.0615327, 0.0615178, 0.06036, 0.0407346, 0.00807674, 0.390328, 0.738343, 0.685489, 0.901286, 93.7763, 151.965],
+    "S": [3.74167, 3.761, 3.89485, 5.09079, 2.5405, 5.81353, 0.535498, 3.63173, 5.38791, 5.55191, 5.52255],
     "munsell": "Hue:8.7 B Value:8 Chroma:6.1",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-light-phthalo-blue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2377-light-phthalo-blue-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [37.0, 45.0, 44.0],
+      "glaze_1_10": {
+        "white": [229.0, 248.0, 251.0],
+        "black": [110.0, 129.0, 138.0]
+      },
+      "glaze_1_1": {
+        "white": [169.0, 230.0, 249.0],
+        "black": [159.0, 201.0, 225.0]
+      },
+      "masstone": {
+        "white": [154.0, 219.0, 249.0],
+        "black": [152.5, 210.5, 243.0]
+      },
+      "tint_1_1": [177.0, 229.0, 248.0],
+      "tint_1_10": [218.0, 242.0, 248.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Light Ultramarine Blue",
@@ -649,15 +1134,35 @@
     "pigments": ["PW6", "PB29"],
     "discontinued": false,
     "special": null,
-    "K": [5.69241, 2.92445, 0.209642],
-    "S": [4.76215, 4.76215, 4.76215],
+    "K": [0.113292, 0.114325, 0.215829, 0.000385382, 0.211321, 4.31348, 4.49814, 0.466207, 17.6808, 42.086, 46.7148],
+    "S": [7.01384, 6.85402, 1.39142, 0.588597, 9.68666, 0.1408, 0.126603, 1.35865, 29.0657, 47.8442, 50.6985],
     "munsell": "Hue:6.6 PB Value:6.2 Chroma:11",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-light-ultramarine-blue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2366-light-ultramarine-blue-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [35.0, 43.0, 42.0],
+      "glaze_1_10": {
+        "white": [188.5, 208.0, 247.0],
+        "black": [86.0, 103.0, 117.0]
+      },
+      "glaze_1_1": {
+        "white": [119.0, 152.0, 246.0],
+        "black": [111.0, 140.0, 203.0]
+      },
+      "masstone": {
+        "white": [109.0, 142.0, 242.0],
+        "black": [106.0, 139.0, 220.0]
+      },
+      "tint_1_1": [140.0, 168.0, 243.0],
+      "tint_1_10": [199.0, 217.0, 248.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Manganese Blue Hue",
@@ -671,15 +1176,35 @@
     "pigments": ["PW6", "PB15:3", "PG7"],
     "discontinued": false,
     "special": null,
-    "K": [2.91857, 0.698398, 0.251822],
-    "S": [0.251186, 0.251186, 0.251186],
+    "K": [1.87758, 1.14834, 0.113507, 0.00494519, 0.477026, 2.08565, 0.325549, 6.61858, 510.902, 940.912, 1008.47],
+    "S": [0.135661, 0.150731, 0.0617772, 0.188546, 0.0421559, 0.0107086, 0.132844, 0.108697, 0.11945, 0.120988, 0.121166],
     "munsell": "Hue:1.4 PB Value:3.7 Chroma:8.6",
     "gloss_average": 91.61,
     "tint_strength": 87.92,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-manganese-blue-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2437-manganese-blue-hue-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [55.0, 61.0, 57.0],
+      "glaze_1_10": {
+        "white": [124.0, 231.0, 241.5],
+        "black": [22.0, 36.0, 35.0]
+      },
+      "glaze_1_1": {
+        "white": [2.0, 178.0, 217.0],
+        "black": [12.0, 50.0, 64.0]
+      },
+      "masstone": {
+        "white": [3.0, 146.0, 201.0],
+        "black": [6.0, 62.0, 88.0]
+      },
+      "tint_1_1": [18.0, 204.0, 234.0],
+      "tint_1_10": [146.0, 235.0, 248.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Naphthol Red Light",
@@ -693,15 +1218,35 @@
     "pigments": ["PR112"],
     "discontinued": false,
     "special": null,
-    "K": [0.176191, 1.72386, 3.63367],
-    "S": [0.36738, 0.36738, 0.36738],
+    "K": [5.90447, 5.81841, 5.62544, 194.927, 49.6061, 3.29919, 12.6864, 0.0870835, 0.0707768, 0.0227583, 0.0191462],
+    "S": [0.0163042, 0.0172046, 0.0516797, 57.1045, 7.00793, 0.0382929, 0.0369221, 1.16697, 0.45897, 0.00274014, 0.00169653],
     "munsell": "Hue:7.2 R Value:4.7 Chroma:13.8",
     "gloss_average": 49.2,
     "tint_strength": 72.21,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-naphthol-red-light",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2210-naphthol-red-light-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [58.5, 61.0, 57.0],
+      "glaze_1_10": {
+        "white": [249.0, 150.0, 171.0],
+        "black": [38.0, 39.0, 36.0]
+      },
+      "glaze_1_1": {
+        "white": [225.0, 20.0, 2.0],
+        "black": [142.0, 44.0, 8.0]
+      },
+      "masstone": {
+        "white": [226.0, 23.0, 6.0],
+        "black": [153.0, 43.0, 8.0]
+      },
+      "tint_1_1": [243.0, 73.0, 89.0],
+      "tint_1_10": [245.0, 159.0, 169.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Naphthol Red Medium",
@@ -715,15 +1260,35 @@
     "pigments": ["PR5"],
     "discontinued": false,
     "special": null,
-    "K": [0.704181, 3.9531, 5.76672],
-    "S": [0.538023, 0.538023, 0.538023],
+    "K": [0.00594734, 2.44391, 19.3927, 21.1481, 16.0995, 18.1145, 7.50146, 0.0688137, 0.453301, 17.4861, 23.331],
+    "S": [0.215584, 0.10761, 0.133582, 0.660031, 2.01138, 0.121672, 0.0418713, 0.30578, 0.0530727, 0.0424026, 0.0415034],
     "munsell": "Hue:5.9 R Value:3.8 Chroma:10.5",
     "gloss_average": 80.08,
     "tint_strength": 71.47,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-naphthol-red-medium",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2220-naphthol-red-medium-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [59.0, 60.0, 56.0],
+      "glaze_1_10": {
+        "white": [241.0, 64.0, 121.0],
+        "black": [49.0, 35.0, 24.0]
+      },
+      "glaze_1_1": {
+        "white": [220.0, 23.0, 53.0],
+        "black": [82.0, 36.0, 23.0]
+      },
+      "masstone": {
+        "white": [196.0, 26.5, 32.0],
+        "black": [106.0, 38.0, 25.0]
+      },
+      "tint_1_1": [221.0, 80.0, 117.0],
+      "tint_1_10": [250.0, 158.0, 174.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Naples Yellow Hue",
@@ -737,15 +1302,35 @@
     "pigments": ["PW6:1", "PY42", "PY83"],
     "discontinued": false,
     "special": null,
-    "K": [0.156261, 0.495445, 2.43645],
-    "S": [1.94959, 1.94959, 1.94959],
+    "K": [3.95192, 4.21224, 8.17376, 0.000309282, 1.2717, 0.14672, 0.0687242, 0.0225668, 0.00981059, 0.00768804, 0.00744178],
+    "S": [1.35016, 1.39668, 0.805362, 0.050622, 0.996943, 0.40794, 0.502141, 0.493034, 0.463709, 0.449259, 0.445357],
     "munsell": "Hue:1 Y Value:7.8 Chroma:5.9",
     "gloss_average": 56.41,
     "tint_strength": 76.58,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-naples-yellow-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2438-naples-yellow-hue-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [35.0, 46.0, 37.0],
+      "glaze_1_10": {
+        "white": [252.0, 234.0, 149.0],
+        "black": [44.0, 58.5, 49.0]
+      },
+      "glaze_1_1": {
+        "white": [251.0, 227.0, 118.0],
+        "black": [107.0, 107.0, 79.0]
+      },
+      "masstone": {
+        "white": [245.0, 194.0, 77.0],
+        "black": [224.0, 185.0, 86.0]
+      },
+      "tint_1_1": [249.0, 221.0, 135.0],
+      "tint_1_10": [252.0, 248.0, 211.5],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Nickel Azo Yellow",
@@ -759,15 +1344,35 @@
     "pigments": ["PY150"],
     "discontinued": false,
     "special": null,
-    "K": [0.0584563, 0.14262, 0.696769],
-    "S": [0.071012, 0.071012, 0.071012],
+    "K": [30.1622, 30.1386, 32.8082, 1.73936, 2.58202, 0.207738, 0.390375, 0.415219, 0.000492678, 0.000187855, 0.000168282],
+    "S": [3.4697, 3.45366, 1.35207, 0.0723755, 0.123177, 0.319365, 0.0793886, 0.0321861, 0.0614106, 0.0545769, 0.0536491],
     "munsell": "Hue:8.4 YR Value:5.1 Chroma:7.4",
     "gloss_average": 94.21,
     "tint_strength": 90.7,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-nickel-azo-yellow",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2225-nickel-azo-yellow-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [57.0, 62.0, 56.0],
+      "glaze_1_10": {
+        "white": [250.0, 232.0, 64.0],
+        "black": [30.0, 42.0, 32.0]
+      },
+      "glaze_1_1": {
+        "white": [245.0, 191.0, 6.0],
+        "black": [54.0, 73.0, 28.0]
+      },
+      "masstone": {
+        "white": [227.0, 164.0, 8.0],
+        "black": [71.0, 87.0, 27.0]
+      },
+      "tint_1_1": [244.0, 204.0, 43.0],
+      "tint_1_10": [251.0, 243.0, 156.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Payne's Gray",
@@ -781,15 +1386,35 @@
     "pigments": ["PB29", "PBk7"],
     "discontinued": false,
     "special": null,
-    "K": [0.496807, 0.484771, 0.440596],
-    "S": [0.043741, 0.043741, 0.043741],
+    "K": [0.699502, 0.66383, 1.88001, 15.2811, 1.21312, 7.74593, 4.59944, 12.9004, 2.75487, 0.547686, 0.0214953],
+    "S": [0.0233966, 0.0250065, 0.134559, 0.049719, 0.206036, 0.0145474, 0.00753595, 0.0152973, 0.0616048, 0.905587, 0.55505],
     "munsell": "Hue:6.3 PB Value:2.3 Chroma:0.4",
     "gloss_average": 29.3,
     "tint_strength": 74.88,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-paynes-gray",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2240-paynes-gray-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [39.0, 45.0, 40.0],
+      "glaze_1_10": {
+        "white": [161.0, 172.0, 209.0],
+        "black": [8.0, 19.0, 20.5]
+      },
+      "glaze_1_1": {
+        "white": [51.0, 77.0, 137.0],
+        "black": [6.0, 18.0, 25.0]
+      },
+      "masstone": {
+        "white": [24.0, 37.0, 84.0],
+        "black": [17.0, 28.0, 37.0]
+      },
+      "tint_1_1": [88.0, 109.0, 157.0],
+      "tint_1_10": [172.0, 185.0, 225.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Permanent Green Light",
@@ -803,15 +1428,35 @@
     "pigments": ["PY175", "PG7", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [3.34004, 0.889777, 2.54597],
-    "S": [0.463866, 0.463866, 0.463866],
+    "K": [69.4852, 67.3695, 2.11416, 18.32, 0.269281, 3.02144, 0.710844, 6.24917, 713.176, 1096.63, 1096.63],
+    "S": [10.8041, 7.83098, 0.294173, 0.109201, 0.697419, 0.0289583, 0.188467, 1.03022, 1.07583, 1.08974, 1.09162],
     "munsell": "Hue:4.1 G Value:4.2 Chroma:8.4",
     "gloss_average": 80.05,
     "tint_strength": 83.5,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-permanent-green-light",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2250-permanent-green-light-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [50.0, 56.0, 53.0],
+      "glaze_1_10": {
+        "white": [144.0, 221.0, 158.0],
+        "black": [26.0, 36.0, 32.0]
+      },
+      "glaze_1_1": {
+        "white": [31.0, 149.0, 70.0],
+        "black": [28.0, 87.0, 48.0]
+      },
+      "masstone": {
+        "white": [31.0, 135.0, 62.0],
+        "black": [29.0, 92.0, 49.0]
+      },
+      "tint_1_1": [80.0, 184.0, 114.0],
+      "tint_1_10": [151.0, 225.0, 180.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Permanent Violet Dark",
@@ -825,15 +1470,35 @@
     "pigments": ["PR122", "PB60"],
     "discontinued": false,
     "special": null,
-    "K": [0.128429, 0.166164, 0.117549],
-    "S": [0.0163347, 0.0163347, 0.0163347],
+    "K": [27.4782, 24.8058, 1.18898, 3.76254, 13.5418, 45.0019, 2.43443, 0.817362, 23.4536, 0.923987, 0.801106],
+    "S": [0.0555818, 0.0588248, 0.173272, 0.307977, 0.904212, 0.186557, 0.188519, 0.122242, 0.0354104, 0.0191434, 0.0176708],
     "munsell": "Hue:9.8 P Value:2.6 Chroma:1.7",
     "gloss_average": 97.79,
     "tint_strength": 73.0,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-permanent-violet-dark",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2253-permanent-violet-dark-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [49.5, 55.0, 55.0],
+      "glaze_1_10": {
+        "white": [207.0, 113.0, 174.0],
+        "black": [31.0, 28.0, 34.0]
+      },
+      "glaze_1_1": {
+        "white": [168.0, 61.0, 127.0],
+        "black": [37.0, 25.0, 36.0]
+      },
+      "masstone": {
+        "white": [90.0, 28.0, 62.0],
+        "black": [44.0, 23.0, 37.0]
+      },
+      "tint_1_1": [172.0, 96.0, 155.0],
+      "tint_1_10": [228.0, 167.0, 204.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Phthalo Blue (Green Shade)",
@@ -847,15 +1512,35 @@
     "pigments": ["PB15:3"],
     "discontinued": false,
     "special": null,
-    "K": [0.249345, 0.242602, 0.10572],
-    "S": [0.0228677, 0.0228677, 0.0228677],
+    "K": [0.100681, 0.208355, 2.40417, 0.0341793, 2.30465, 7.36796, 465.787, 40.175, 2.67807, 0.0118667, 0.00637732],
+    "S": [0.0627426, 0.0432486, 0.00730442, 0.0273524, 0.0274133, 0.123146, 0.433017, 1.30377, 0.0335216, 0.0294541, 0.0286637],
     "munsell": "Hue:8.9 PB Value:2.4 Chroma:4.2",
     "gloss_average": 94.21,
     "tint_strength": 71.17,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-phthalo-blue-green-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2255-phthalo-blue-green-shade-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [50.0, 56.0, 57.0],
+      "glaze_1_10": {
+        "white": [61.0, 163.0, 231.0],
+        "black": [20.0, 24.0, 31.0]
+      },
+      "glaze_1_1": {
+        "white": [13.0, 86.0, 183.0],
+        "black": [17.0, 20.0, 43.0]
+      },
+      "masstone": {
+        "white": [14.0, 73.0, 163.0],
+        "black": [18.0, 22.0, 49.0]
+      },
+      "tint_1_1": [34.0, 116.0, 201.0],
+      "tint_1_10": [93.0, 174.0, 238.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Phthalo Blue (Red Shade)",
@@ -869,15 +1554,35 @@
     "pigments": ["PB15:0"],
     "discontinued": false,
     "special": null,
-    "K": [0.224463, 0.245794, 0.108544],
-    "S": [0.02108, 0.02108, 0.02108],
+    "K": [0.0142248, 0.313553, 2.12338, 0.229993, 3.61881, 37.878, 81.4029, 195.848, 5.99427, 0.13554, 0.0202033],
+    "S": [0.118527, 0.0596882, 0.00894138, 0.0987598, 0.0425785, 0.959686, 2.45542, 0.546647, 0.111062, 0.201938, 0.174922],
     "munsell": "Hue:0.4 P Value:2.4 Chroma:4",
     "gloss_average": 95.07,
     "tint_strength": 70.77,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-phthalo-blue-red-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2260-phthalo-blue-red-shade-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [52.0, 57.0, 54.5],
+      "glaze_1_10": {
+        "white": [6.0, 124.0, 233.0],
+        "black": [17.0, 27.0, 35.0]
+      },
+      "glaze_1_1": {
+        "white": [6.0, 75.0, 188.0],
+        "black": [17.0, 26.0, 43.0]
+      },
+      "masstone": {
+        "white": [7.0, 47.0, 131.0],
+        "black": [16.0, 25.0, 47.0]
+      },
+      "tint_1_1": [3.0, 96.0, 189.0],
+      "tint_1_10": [84.0, 162.0, 244.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Phthalo Green (Blue Shade)",
@@ -891,15 +1596,35 @@
     "pigments": ["PG7"],
     "discontinued": false,
     "special": null,
-    "K": [0.190219, 0.122821, 0.10972],
-    "S": [0.0151745, 0.0151745, 0.0151745],
+    "K": [61.3983, 5.76079, 7.66616, 0.946728, 3.03295, 0.783394, 1.52335, 222.418, 356.85, 6.77026, 5.18316],
+    "S": [1.70568, 1.53667, 0.105575, 0.0820108, 0.0106513, 0.167614, 0.00642714, 0.0415058, 0.257736, 1.31992, 17.6695],
     "munsell": "Hue:4 B Value:2.6 Chroma:1.9",
     "gloss_average": 94.02,
     "tint_strength": 78.54,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-phthalo-green-blue-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2270-phthalo-green-blue-shade-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [54.0, 62.0, 57.0],
+      "glaze_1_10": {
+        "white": [25.0, 224.0, 160.0],
+        "black": [18.0, 37.0, 37.0]
+      },
+      "glaze_1_1": {
+        "white": [7.0, 165.0, 99.0],
+        "black": [13.0, 33.0, 40.0]
+      },
+      "masstone": {
+        "white": [8.0, 87.0, 62.0],
+        "black": [14.0, 34.0, 45.0]
+      },
+      "tint_1_1": [4.0, 161.0, 109.0],
+      "tint_1_10": [65.0, 224.0, 182.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Phthalo Green (Yellow Shade)",
@@ -913,15 +1638,35 @@
     "pigments": ["PG36"],
     "discontinued": false,
     "special": null,
-    "K": [0.234351, 0.121995, 0.149744],
-    "S": [0.0187366, 0.0187366, 0.0187366],
+    "K": [43.7734, 47.3793, 1.72066, 19.2873, 1.35526, 0.287862, 1.21687, 70.1366, 170.439, 45.2234, 29.4751],
+    "S": [6.83619, 4.40822, 0.172945, 0.0245309, 0.0104061, 0.0956772, 0.00377703, 0.0380796, 0.476048, 5.55278, 10.025],
     "munsell": "Hue:1.9 BG Value:2.8 Chroma:3.1",
     "gloss_average": 93.74,
     "tint_strength": 83.69,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-phthalo-green-yellow-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2275-phthalo-green-yellow-shade-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [57.0, 62.0, 56.0],
+      "glaze_1_10": {
+        "white": [79.0, 233.0, 168.0],
+        "black": [21.0, 39.0, 35.0]
+      },
+      "glaze_1_1": {
+        "white": [3.0, 177.0, 78.0],
+        "black": [11.0, 38.0, 35.0]
+      },
+      "masstone": {
+        "white": [4.0, 142.0, 58.0],
+        "black": [9.0, 39.0, 37.0]
+      },
+      "tint_1_1": [2.0, 192.0, 111.0],
+      "tint_1_10": [110.0, 236.0, 189.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Primary Cyan",
@@ -935,15 +1680,35 @@
     "pigments": ["PB15:3", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [5.74717, 2.34747, 0.71973],
-    "S": [0.519589, 0.519589, 0.519589],
+    "K": [0.0914608, 0.103512, 0.593283, 0.0172126, 0.835875, 6.36989, 68.3299, 44.2834, 1.64489, 0.0188268, 0.0127436],
+    "S": [0.0232738, 0.0291877, 0.158938, 0.184203, 0.0175649, 0.45264, 1.24892, 2.28535, 0.119401, 0.0538904, 0.0492761],
     "munsell": "Hue:5.1 PB Value:3.2 Chroma:8.2",
     "gloss_average": 19.25,
     "tint_strength": 78.98,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-primary-cyan",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2420-primary-cyan-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [54.0, 60.0, 54.0],
+      "glaze_1_10": {
+        "white": [21.0, 167.0, 238.0],
+        "black": [24.0, 34.0, 36.0]
+      },
+      "glaze_1_1": {
+        "white": [5.0, 132.0, 228.0],
+        "black": [18.0, 42.0, 63.5]
+      },
+      "masstone": {
+        "white": [7.0, 85.0, 185.0],
+        "black": [20.0, 58.0, 105.0]
+      },
+      "tint_1_1": [3.0, 136.0, 236.0],
+      "tint_1_10": [110.0, 195.0, 250.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Primary Magenta",
@@ -957,15 +1722,35 @@
     "pigments": ["PV19"],
     "discontinued": false,
     "special": null,
-    "K": [0.660038, 4.0905, 5.10086],
-    "S": [0.585309, 0.585309, 0.585309],
+    "K": [0.00196845, 1.93339, 15.411, 9.19312, 58.1425, 7.26505, 17.7619, 0.0645251, 0.230813, 5.82683, 7.90918],
+    "S": [0.276792, 0.138758, 0.10588, 0.688295, 4.6117, 0.200048, 0.0775032, 0.423103, 0.0143966, 0.012593, 0.0124188],
     "munsell": "Hue:5.1 R Value:3.9 Chroma:10.9",
     "gloss_average": 21.7,
     "tint_strength": 76.55,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-primary-magenta",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2421-primary-magenta-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [51.0, 54.0, 53.0],
+      "glaze_1_10": {
+        "white": [238.0, 90.0, 142.0],
+        "black": [43.0, 31.0, 26.0]
+      },
+      "glaze_1_1": {
+        "white": [228.0, 33.0, 76.0],
+        "black": [83.0, 34.0, 31.0]
+      },
+      "masstone": {
+        "white": [206.0, 18.0, 35.0],
+        "black": [118.0, 31.0, 31.0]
+      },
+      "tint_1_1": [227.0, 70.0, 115.0],
+      "tint_1_10": [241.0, 151.0, 189.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Primary Yellow",
@@ -979,15 +1764,35 @@
     "pigments": ["PY175", "PY74", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [0.0207762, 0.161408, 10.3273],
-    "S": [1.455, 1.455, 1.455],
+    "K": [8.73163, 8.6002, 7.99045, 8.604, 0.417029, 0.00815714, 0.000140916, 0.00012403, 0.190888, 2.14878, 2.68631],
+    "S": [2.54972, 2.55018, 0.703491, 0.119235, 0.0331682, 1.00297, 0.466092, 0.181941, 0.390357, 0.0803622, 0.0680449],
     "munsell": "Hue:5 Y Value:8.5 Chroma:12.5",
     "gloss_average": 44.27,
     "tint_strength": 95.17,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-primary-yellow",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2422-primary-yellow-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [57.0, 61.0, 54.0],
+      "glaze_1_10": {
+        "white": [251.0, 237.0, 102.0],
+        "black": [38.0, 48.0, 36.0]
+      },
+      "glaze_1_1": {
+        "white": [253.0, 227.0, 3.0],
+        "black": [97.0, 103.0, 28.0]
+      },
+      "masstone": {
+        "white": [253.0, 228.0, 2.0],
+        "black": [145.0, 144.0, 17.0]
+      },
+      "tint_1_1": [251.0, 239.0, 91.0],
+      "tint_1_10": [252.0, 249.0, 189.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Prussian Blue Hue",
@@ -1001,15 +1806,35 @@
     "pigments": ["PBk9", "PB15:0", "PV23"],
     "discontinued": false,
     "special": null,
-    "K": [0.525957, 0.5516, 0.457382],
-    "S": [0.0477971, 0.0477971, 0.0477971],
+    "K": [0.0772802, 1.40578, 8.8107, 0.666285, 7.12264, 55.79, 9.29401, 61.7407, 36.413, 0.394088, 0.00423459],
+    "S": [0.00244313, 0.00466305, 0.0147017, 0.268269, 0.199923, 0.186697, 0.180523, 0.546478, 1.00196, 0.730017, 0.209454],
     "munsell": "Hue:3.1 P Value:2.3 Chroma:0.8",
     "gloss_average": 73.78,
     "tint_strength": 70.3,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-prussian-blue-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2439-prussian-blue-hue-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [56.0, 61.0, 58.0],
+      "glaze_1_10": {
+        "white": [17.0, 109.0, 179.0],
+        "black": [20.0, 27.0, 35.0]
+      },
+      "glaze_1_1": {
+        "white": [18.0, 49.0, 104.0],
+        "black": [23.0, 31.0, 40.0]
+      },
+      "masstone": {
+        "white": [24.0, 44.0, 82.0],
+        "black": [23.0, 32.0, 41.0]
+      },
+      "tint_1_1": [31.0, 104.0, 164.0],
+      "tint_1_10": [121.0, 172.0, 229.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Pyrrole Orange",
@@ -1023,15 +1848,35 @@
     "pigments": ["PO73"],
     "discontinued": false,
     "special": null,
-    "K": [0.247244, 4.18628, 18.7464],
-    "S": [1.46694, 1.46694, 1.46694],
+    "K": [2.4567, 2.49033, 10.8828, 33.5829, 1.4708, 18.3887, 4.7063, 0.000316107, 0.0178589, 0.0460458, 0.0522056],
+    "S": [0.00767007, 0.00876233, 0.456475, 0.56088, 0.90259, 0.0382162, 0.0261126, 0.365173, 0.693267, 0.674556, 0.667527],
     "munsell": "Hue:9.1 R Value:5.6 Chroma:15.9",
     "gloss_average": 70.05,
     "tint_strength": 81.55,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-pyrrole-orange",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2276-pyrrole-orange-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [56.0, 59.0, 56.0],
+      "glaze_1_10": {
+        "white": [248.0, 140.0, 132.0],
+        "black": [46.0, 36.0, 29.0]
+      },
+      "glaze_1_1": {
+        "white": [249.0, 92.0, 47.0],
+        "black": [88.0, 48.0, 22.0]
+      },
+      "masstone": {
+        "white": [250.0, 72.0, 14.0],
+        "black": [161.0, 65.0, 11.0]
+      },
+      "tint_1_1": [251.0, 123.0, 118.0],
+      "tint_1_10": [252.0, 193.0, 186.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Pyrrole Red",
@@ -1045,15 +1890,35 @@
     "pigments": ["PR254"],
     "discontinued": false,
     "special": null,
-    "K": [0.5114, 5.01129, 8.47262],
-    "S": [0.786717, 0.786717, 0.786717],
+    "K": [0.0562315, 4.34939, 29.8627, 35.1761, 5.11975, 32.9185, 15.1971, 0.0340218, 0.322312, 0.746677, 0.823348],
+    "S": [0.165543, 0.421697, 0.189606, 0.267592, 0.384533, 0.261826, 0.164707, 0.658442, 0.163494, 0.4114, 0.459533],
     "munsell": "Hue:6.2 R Value:4.4 Chroma:13.8",
     "gloss_average": 88.11,
     "tint_strength": 73.37,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-pyrrole-red",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2277-pyrrole-red-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [52.0, 54.0, 53.0],
+      "glaze_1_10": {
+        "white": [238.0, 92.0, 106.0],
+        "black": [63.0, 24.0, 25.0]
+      },
+      "glaze_1_1": {
+        "white": [229.0, 24.0, 45.0],
+        "black": [117.0, 21.0, 24.0]
+      },
+      "masstone": {
+        "white": [224.0, 22.0, 43.0],
+        "black": [143.5, 22.0, 30.0]
+      },
+      "tint_1_1": [238.0, 90.0, 90.0],
+      "tint_1_10": [239.0, 157.0, 168.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Pyrrole Red Light",
@@ -1067,15 +1932,35 @@
     "pigments": ["PR255"],
     "discontinued": true,
     "special": null,
-    "K": [0.423258, 4.70092, 9.37554],
-    "S": [0.949253, 0.949253, 0.949253],
+    "K": [12.4418, 12.2797, 10.9023, 6.19473, 25.7606, 14.0958, 2.64114, 0.178525, 0.0600807, 0.0514685, 0.0502115],
+    "S": [0.517941, 0.524642, 0.608397, 0.313877, 3.10179, 0.261077, 0.641596, 0.512557, 1.78412, 1.71318, 1.69175],
     "munsell": "Hue:8 Value:4.2 Chroma:17",
     "gloss_average": 88.92,
     "tint_strength": 75.61,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-pyrrole-red-light",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2279-pyrrole-red-light-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [58.0, 61.0, 57.0],
+      "glaze_1_10": {
+        "white": [250.0, 111.0, 94.0],
+        "black": [69.0, 36.0, 25.0]
+      },
+      "glaze_1_1": {
+        "white": [248.0, 47.0, 22.0],
+        "black": [144.0, 42.0, 11.0]
+      },
+      "masstone": {
+        "white": [240.0, 33.0, 12.0],
+        "black": [190.0, 41.0, 6.0]
+      },
+      "tint_1_1": [248.0, 98.0, 96.0],
+      "tint_1_10": [252.0, 171.0, 179.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Quinacridone / Nickel Azo Gold",
@@ -1089,15 +1974,35 @@
     "pigments": ["PY150", "PO48"],
     "discontinued": true,
     "special": null,
-    "K": [0.0952196, 0.21075, 0.309476],
-    "S": [0.0322259, 0.0322259, 0.0322259],
+    "K": [0.00137383, 12.9603, 72.4711, 3.00173, 3.02511, 6.45423, 0.281024, 0.0124999, 6.77983, 0.271989, 0.194438],
+    "S": [0.0595219, 0.468643, 1.54715, 0.0984478, 0.180587, 0.0168221, 0.0931636, 0.00659577, 0.0026063, 0.00163412, 0.00153743],
     "munsell": "Hue:2.2 Y Value:3 Chroma:4",
     "gloss_average": 83.0,
     "tint_strength": 84.1,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-quinacridone-nickel-azo-gold",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2301-quinacridone-nickel-azo-gold-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [42.0, 46.0, 43.0],
+      "glaze_1_10": {
+        "white": [246.0, 208.0, 103.0],
+        "black": [15.0, 18.0, 12.0]
+      },
+      "glaze_1_1": {
+        "white": [232.0, 109.0, 9.0],
+        "black": [35.0, 30.0, 11.0]
+      },
+      "masstone": {
+        "white": [227.0, 99.0, 10.0],
+        "black": [44.0, 34.0, 14.0]
+      },
+      "tint_1_1": [234.5, 155.0, 58.0],
+      "tint_1_10": [244.0, 212.5, 145.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Quinacridone Burnt Orange",
@@ -1111,15 +2016,16 @@
     "pigments": ["PR206"],
     "discontinued": true,
     "special": null,
-    "K": [0.110469, 0.176001, 0.192325],
-    "S": [0.0204812, 0.0204812, 0.0204812],
+    "K": [0.364471, 3.40669, 13.1367, 105.026, 53.4578, 6.16263, 1.49649, 0.110882, 25.1825, 0.622444, 0.454805],
+    "S": [0.929642, 0.091705, 0.271438, 17.3933, 2.06301, 0.0970754, 0.197652, 0.0312596, 0.0114579, 0.00545578, 0.00489806],
     "munsell": "Hue:10 Value:0 Chroma:6",
     "gloss_average": 98.74,
     "tint_strength": 76.32,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-quinacridone-burnt-orange",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "OPEN photo"
   },
   {
     "name": "Quinacridone Crimson",
@@ -1133,15 +2039,16 @@
     "pigments": ["PR202", "PR206"],
     "discontinued": true,
     "special": null,
-    "K": [0.110454, 0.200627, 0.191977],
-    "S": [0.0210888, 0.0210888, 0.0210888],
+    "K": [857.218, 672.596, 5.98142, 133.231, 55.7272, 603.997, 4.89185, 0.90147, 189.496, 0.230228, 0.150519],
+    "S": [0.486582, 0.50491, 0.629814, 8.80625, 4.28146, 1.10361, 0.381052, 0.325886, 0.0342944, 0.00390326, 0.0028418],
     "munsell": "Hue:2.5 Value:0 Chroma:6",
     "gloss_average": 79.78,
     "tint_strength": 72.39,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-quinacridone-crimson",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Quinacridone Magenta",
@@ -1155,15 +2062,35 @@
     "pigments": ["PR122"],
     "discontinued": false,
     "special": null,
-    "K": [0.0950675, 0.295633, 0.256715],
-    "S": [0.0314758, 0.0314758, 0.0314758],
+    "K": [0.148695, 0.786541, 4.88084, 4.38037, 603.186, 4.17425, 9.93446, 0.0739587, 1.42523, 1.8507, 1.87052],
+    "S": [0.288388, 0.106342, 0.0442176, 0.448725, 34.3267, 0.087901, 0.0261484, 0.0785133, 0.0126421, 0.00945669, 0.00914254],
     "munsell": "Hue:1.9 R Value:3.1 Chroma:6.4",
     "gloss_average": 97.99,
     "tint_strength": 73.51,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-quinacridone-magenta",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2305-quinacridone-magenta-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [57.0, 60.0, 56.0],
+      "glaze_1_10": {
+        "white": [241.0, 135.5, 201.0],
+        "black": [36.0, 33.0, 38.0]
+      },
+      "glaze_1_1": {
+        "white": [208.0, 28.0, 116.0],
+        "black": [48.0, 29.0, 41.0]
+      },
+      "masstone": {
+        "white": [176.0, 19.0, 72.0],
+        "black": [62.0, 30.0, 45.0]
+      },
+      "tint_1_1": [226.0, 79.0, 151.0],
+      "tint_1_10": [246.0, 146.0, 211.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Quinacridone Red",
@@ -1177,15 +2104,35 @@
     "pigments": ["PV19"],
     "discontinued": false,
     "special": null,
-    "K": [0.0707867, 0.401859, 0.448965],
-    "S": [0.0530618, 0.0530618, 0.0530618],
+    "K": [0.000399821, 1.74887, 6.30361, 1.89778, 115.933, 2.91186, 6.50757, 0.0484635, 0.227574, 0.604359, 0.706939],
+    "S": [0.0827293, 0.0338417, 0.0849483, 0.290083, 9.35942, 0.0432055, 0.017266, 0.15643, 0.0873192, 0.0502115, 0.0464433],
     "munsell": "Hue:4.4 R Value:3.8 Chroma:10.4",
     "gloss_average": 82.26,
     "tint_strength": 76.49,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-quinacridone-red",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2310-quinacridone-red-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [57.0, 60.0, 55.0],
+      "glaze_1_10": {
+        "white": [247.0, 167.5, 198.0],
+        "black": [36.0, 35.0, 32.0]
+      },
+      "glaze_1_1": {
+        "white": [232.0, 42.5, 90.0],
+        "black": [62.0, 34.0, 30.0]
+      },
+      "masstone": {
+        "white": [206.0, 27.0, 38.0],
+        "black": [94.0, 35.0, 30.5]
+      },
+      "tint_1_1": [226.0, 93.0, 128.5],
+      "tint_1_10": [247.0, 171.0, 206.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Quinacridone Violet",
@@ -1199,15 +2146,35 @@
     "pigments": ["PV19"],
     "discontinued": false,
     "special": null,
-    "K": [0.103009, 0.281851, 0.267664],
-    "S": [0.0261247, 0.0261247, 0.0261247],
+    "K": [0.135216, 3.85367, 24.1799, 2.08652, 36.6207, 27.9541, 10.7514, 11.7306, 0.88532, 0.00423431, 0.00285131],
+    "S": [0.00102982, 0.00496024, 0.0422449, 0.725683, 0.823967, 0.480268, 0.40216, 0.18797, 0.710425, 0.0565008, 0.0413988],
     "munsell": "Hue:2.9 R Value:2.9 Chroma:5.6",
     "gloss_average": 80.25,
     "tint_strength": 70.65,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-quinacridone-violet",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2330-quinacridone-violet-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [51.0, 54.0, 55.0],
+      "glaze_1_10": {
+        "white": [160.0, 63.0, 136.0],
+        "black": [38.0, 25.0, 30.0]
+      },
+      "glaze_1_1": {
+        "white": [118.0, 24.0, 63.0],
+        "black": [57.0, 22.0, 34.0]
+      },
+      "masstone": {
+        "white": [116.0, 29.0, 59.0],
+        "black": [55.0, 25.0, 35.0]
+      },
+      "tint_1_1": [145.0, 67.0, 121.0],
+      "tint_1_10": [195.0, 145.0, 184.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Raw Sienna",
@@ -1221,15 +2188,35 @@
     "pigments": ["PBr7"],
     "discontinued": false,
     "special": null,
-    "K": [0.233389, 0.526069, 1.68929],
-    "S": [0.280656, 0.280656, 0.280656],
+    "K": [9.2257, 9.07678, 1.85794, 15.2141, 1.09103, 0.348757, 1.77875, 0.222669, 0.0515905, 0.0296165, 0.0275238],
+    "S": [1.45621, 1.37163, 0.222894, 0.285438, 0.478358, 0.336514, 0.0288099, 0.257409, 0.358629, 0.359009, 0.35729],
     "munsell": "Hue:8.2 YR Value:5.2 Chroma:5.9",
     "gloss_average": 27.98,
     "tint_strength": 88.08,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-raw-sienna",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2340-raw-sienna-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [56.0, 60.5, 54.0],
+      "glaze_1_10": {
+        "white": [247.0, 217.0, 154.0],
+        "black": [39.0, 45.0, 36.0]
+      },
+      "glaze_1_1": {
+        "white": [229.0, 176.0, 79.0],
+        "black": [69.0, 70.0, 45.0]
+      },
+      "masstone": {
+        "white": [194.0, 130.0, 31.0],
+        "black": [125.0, 103.0, 40.0]
+      },
+      "tint_1_1": [232.0, 193.0, 139.0],
+      "tint_1_10": [249.0, 238.0, 210.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Raw Umber",
@@ -1243,15 +2230,35 @@
     "pigments": ["PBr7"],
     "discontinued": false,
     "special": null,
-    "K": [1.08186, 1.192, 1.36221],
-    "S": [0.145028, 0.145028, 0.145028],
+    "K": [8.72681, 7.8525, 3.16732, 4.78845, 4.24296, 1.47855, 5.76297, 1.86737, 1.13427, 0.519302, 0.45341],
+    "S": [0.713683, 0.630987, 0.138188, 0.369428, 0.380982, 0.172491, 0.0294426, 0.0436339, 0.24949, 0.6696, 0.734668],
     "munsell": "Hue:0.6 Y Value:2.8 Chroma:0.6",
     "gloss_average": 16.59,
     "tint_strength": 76.39,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-raw-umber",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2350-raw-umber-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [58.0, 60.0, 54.0],
+      "glaze_1_10": {
+        "white": [221.0, 202.0, 180.0],
+        "black": [31.0, 38.0, 36.0]
+      },
+      "glaze_1_1": {
+        "white": [123.0, 88.0, 51.0],
+        "black": [51.0, 50.0, 38.0]
+      },
+      "masstone": {
+        "white": [85.0, 69.0, 52.0],
+        "black": [68.0, 63.0, 51.0]
+      },
+      "tint_1_1": [147.0, 132.0, 115.0],
+      "tint_1_10": [214.0, 205.0, 193.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Red Oxide",
@@ -1265,15 +2272,35 @@
     "pigments": ["PR101"],
     "discontinued": false,
     "special": null,
-    "K": [1.59309, 5.40192, 8.90848],
-    "S": [0.906735, 0.906735, 0.906735],
+    "K": [8.1673, 7.94634, 3.91412, 173.298, 8.1234, 2.41745, 9.19634, 0.924677, 0.765964, 0.767496, 0.769586],
+    "S": [0.910428, 0.811546, 0.14431, 0.620827, 1.76653, 0.241689, 0.0662218, 0.538979, 1.64832, 1.67862, 1.67615],
     "munsell": "Hue:8.6 R Value:3.8 Chroma:7.1",
     "gloss_average": 76.82,
     "tint_strength": 67.4,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-red-oxide",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2360-red-oxide-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [54.0, 59.0, 54.0],
+      "glaze_1_10": {
+        "white": [235.0, 166.0, 153.0],
+        "black": [55.0, 40.0, 30.0]
+      },
+      "glaze_1_1": {
+        "white": [174.0, 72.0, 44.0],
+        "black": [128.0, 49.0, 17.0]
+      },
+      "masstone": {
+        "white": [150.0, 60.0, 32.0],
+        "black": [137.0, 51.0, 21.0]
+      },
+      "tint_1_1": [182.0, 108.0, 101.0],
+      "tint_1_10": [236.0, 181.0, 184.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Sap Green Hue",
@@ -1287,15 +2314,35 @@
     "pigments": ["PY150", "PG36", "PBk7", "PR101"],
     "discontinued": false,
     "special": null,
-    "K": [0.135881, 0.118448, 0.145881],
-    "S": [0.0153127, 0.0153127, 0.0153127],
+    "K": [73.2357, 65.3226, 18.0445, 5.32319, 0.600739, 5.97372, 13.6261, 2.19105, 0.550794, 0.227995, 0.187443],
+    "S": [1.07524, 1.06708, 0.943621, 0.603231, 0.139821, 0.112307, 0.0441478, 0.0467782, 0.112774, 0.258058, 0.283306],
     "munsell": "Hue:0.4 G Value:2.7 Chroma:1.2",
     "gloss_average": 96.24,
     "tint_strength": 80.88,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-sap-green-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2440-sap-green-hue-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [61.0, 64.0, 56.0],
+      "glaze_1_10": {
+        "white": [180.0, 176.0, 70.5],
+        "black": [31.0, 39.0, 32.0]
+      },
+      "glaze_1_1": {
+        "white": [102.0, 102.0, 18.0],
+        "black": [30.0, 44.0, 30.0]
+      },
+      "masstone": {
+        "white": [73.0, 83.0, 31.0],
+        "black": [30.0, 45.0, 33.0]
+      },
+      "tint_1_1": [130.0, 143.0, 79.0],
+      "tint_1_10": [203.0, 211.0, 157.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Teal",
@@ -1309,15 +2356,35 @@
     "pigments": ["PW6", "PG7", "PB15:3"],
     "discontinued": false,
     "special": null,
-    "K": [4.96178, 0.814605, 0.71129],
-    "S": [1.89327, 1.89327, 1.89327],
+    "K": [1.56672, 1.57433, 0.62912, 0.0469771, 0.686967, 0.467501, 0.50958, 7.16387, 125.362, 183.825, 191.549],
+    "S": [3.06844, 2.69862, 1.22863, 0.551964, 1.04244, 3.19856, 0.135799, 2.79244, 2.35422, 2.31265, 2.30838],
     "munsell": "Hue:9.3 BG Value:6.2 Chroma:8.5",
     "gloss_average": 83.7,
     "tint_strength": 86.24,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-teal",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2369-teal-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [50.0, 58.0, 57.0],
+      "glaze_1_10": {
+        "white": [108.0, 231.0, 221.0],
+        "black": [52.0, 98.0, 96.0]
+      },
+      "glaze_1_1": {
+        "white": [53.0, 211.0, 196.0],
+        "black": [55.0, 167.0, 159.0]
+      },
+      "masstone": {
+        "white": [45.0, 195.0, 184.0],
+        "black": [46.0, 187.0, 177.0]
+      },
+      "tint_1_1": [72.0, 213.0, 204.0],
+      "tint_1_10": [150.0, 237.0, 236.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Titan Buff",
@@ -1331,15 +2398,35 @@
     "pigments": ["PW6:1"],
     "discontinued": false,
     "special": null,
-    "K": [0.105712, 0.165575, 0.487946],
-    "S": [2.03947, 2.03947, 2.03947],
+    "K": [1.28096, 1.19049, 0.200237, 0.100577, 0.0362004, 0.296949, 0.115928, 0.0237742, 0.0144484, 0.0132004, 0.0130633],
+    "S": [0.229801, 0.257563, 2.19983, 1.94792, 1.21926, 1.1492, 1.16464, 1.19426, 1.19778, 1.1958, 1.19401],
     "munsell": "Hue:2.9 Y Value:8.5 Chroma:2",
     "gloss_average": 35.52,
     "tint_strength": 92.87,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-titan-buff",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2370-titan-buff-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [56.0, 61.0, 56.0],
+      "glaze_1_10": {
+        "white": [242.0, 241.0, 231.0],
+        "black": [73.0, 84.0, 87.0]
+      },
+      "glaze_1_1": {
+        "white": [233.0, 225.0, 193.0],
+        "black": [169.5, 174.0, 169.0]
+      },
+      "masstone": {
+        "white": [234.0, 226.0, 194.0],
+        "black": [202.0, 202.0, 190.0]
+      },
+      "tint_1_1": [238.0, 234.0, 221.0],
+      "tint_1_10": [241.0, 244.0, 244.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Titan Green Pale",
@@ -1353,15 +2440,35 @@
     "pigments": ["PW6", "PY42", "PBr7", "PG7"],
     "discontinued": false,
     "special": null,
-    "K": [0.476379, 0.438685, 0.980399],
-    "S": [2.95398, 2.95398, 2.95398],
+    "K": [0.752566, 4.28259, 2.97019, 0.488709, 0.861952, 1.27083, 1.39112, 1.44206, 0.220026, 0.00587229, 0.00377785],
+    "S": [0.246141, 0.407282, 18.3692, 22.5269, 1.28174, 14.2108, 18.1122, 1.98282, 13.647, 0.743355, 0.536576],
     "munsell": "Hue:5.7 GY Value:7.9 Chroma:1.8",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-titan-green-pale",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2371-titan-green-pale-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [49.0, 55.0, 55.0],
+      "glaze_1_10": {
+        "white": [223.0, 226.0, 193.0],
+        "black": [163.0, 177.0, 169.0]
+      },
+      "glaze_1_1": {
+        "white": [204.0, 212.0, 181.0],
+        "black": [199.0, 209.0, 182.0]
+      },
+      "masstone": {
+        "white": [194.0, 208.0, 181.0],
+        "black": [192.0, 206.0, 181.0]
+      },
+      "tint_1_1": [208.0, 222.0, 201.0],
+      "tint_1_10": [235.0, 242.0, 232.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Titan Mars Pale",
@@ -1375,15 +2482,35 @@
     "pigments": ["PW6", "PBr6"],
     "discontinued": false,
     "special": null,
-    "K": [0.106443, 0.37783, 0.738863],
-    "S": [2.33019, 2.33019, 2.33019],
+    "K": [0.153988, 0.182078, 4.5384, 1.03981, 1.71864, 0.352749, 0.86149, 0.192255, 0.0162886, 0.00956097, 0.00896848],
+    "S": [7.87746, 6.92586, 1.56064, 30.2909, 3.2135, 2.30667, 8.50468, 5.44031, 1.1266, 0.807878, 0.777084],
     "munsell": "Hue:2.5 YR Value:8.2 Chroma:3.6",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-titan-mars-pale",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2376-titan-mars-pale-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [37.0, 45.0, 43.0],
+      "glaze_1_10": {
+        "white": [249.0, 230.0, 201.0],
+        "black": [143.0, 150.0, 149.0]
+      },
+      "glaze_1_1": {
+        "white": [241.0, 198.0, 172.0],
+        "black": [204.0, 187.0, 169.0]
+      },
+      "masstone": {
+        "white": [238.0, 194.0, 171.0],
+        "black": [214.0, 189.0, 171.0]
+      },
+      "tint_1_1": [245.0, 217.0, 197.0],
+      "tint_1_10": [245.0, 238.0, 230.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Titanium White",
@@ -1397,15 +2524,35 @@
     "pigments": ["PW6"],
     "discontinued": false,
     "special": null,
-    "K": [0.00666695, 0.00554267, 0.0122525],
-    "S": [5.53124, 5.53124, 5.53124],
+    "K": [0.00735948, 0.00728786, 0.00616393, 0.00393792, 0.00250792, 0.00198438, 0.00206741, 0.00241719, 0.0025798, 0.00261531, 0.00261963],
+    "S": [2.57097, 2.58537, 2.6145, 2.71637, 4.277, 1.99817, 1.01791, 2.01065, 6.50538, 7.92836, 8.09994],
     "munsell": "Hue:5.9 GY Value:9.7 Chroma:0.1",
     "gloss_average": 43.15,
     "tint_strength": 42.25,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-titanium-white",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2380-titanium-white-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": [109.0, 109.0, 113.0],
+      "stripe": [62.0, 64.0, 59.0],
+      "glaze_1_10": {
+        "white": [151.0, 149.0, 154.0],
+        "black": [122.0, 121.0, 123.0]
+      },
+      "glaze_1_1": {
+        "white": [194.0, 197.0, 205.0],
+        "black": [185.0, 188.0, 195.0]
+      },
+      "masstone": {
+        "white": [222.0, 228.0, 237.0],
+        "black": [213.0, 220.0, 229.0]
+      },
+      "tint_1_1": null,
+      "tint_1_10": null,
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Transparent Red Iron Oxide",
@@ -1419,15 +2566,35 @@
     "pigments": ["PR101"],
     "discontinued": false,
     "special": null,
-    "K": [0.0979507, 0.211404, 0.241421],
-    "S": [0.029827, 0.029827, 0.029827],
+    "K": [0.000691425, 6.2803, 7.36066, 8.17951, 3.89577, 4.9864, 0.389459, 1.79858, 0.0425274, 0.0318551, 0.0308913],
+    "S": [0.108971, 0.0606541, 0.125495, 1.54302, 0.0586816, 0.0227975, 0.158087, 0.0221104, 0.0341144, 0.0124952, 0.010982],
     "munsell": "Hue:5.4 R Value:3.3 Chroma:4.1",
     "gloss_average": 43.15,
     "tint_strength": 83.51,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-transparent-red-iron-oxide",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2385-transparent-red-iron-oxide-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [57.0, 60.0, 56.0],
+      "glaze_1_10": {
+        "white": [242.0, 191.0, 141.0],
+        "black": [34.0, 38.0, 35.0]
+      },
+      "glaze_1_1": {
+        "white": [203.0, 91.0, 20.0],
+        "black": [55.0, 44.0, 30.0]
+      },
+      "masstone": {
+        "white": [180.0, 70.0, 26.0],
+        "black": [66.0, 43.0, 29.0]
+      },
+      "tint_1_1": [217.0, 133.0, 89.0],
+      "tint_1_10": [245.0, 201.0, 175.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Transparent Yellow Oxide",
@@ -1441,15 +2608,35 @@
     "pigments": ["PY42"],
     "discontinued": true,
     "special": null,
-    "K": [0.0673927, 0.144279, 0.333282],
-    "S": [0.0582278, 0.0582278, 0.0582278],
+    "K": [99.3063, 7.95006, 3.79367, 2.16468, 0.0473318, 2.21509, 0.328094, 0.0114128, 0.00415305, 0.00335778, 0.00327183],
+    "S": [1.0635, 1.0162, 0.116275, 0.737012, 0.0627925, 0.14215, 0.00756471, 0.00687253, 0.0495562, 0.09948, 0.108905],
     "munsell": "Hue:8 Y Value:4 Chroma:6",
     "gloss_average": 97.22,
     "tint_strength": 91.02,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-transparent-yellow-iron-oxide",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2386-transparent-yellow-iron-oxide-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [59.0, 62.0, 55.0],
+      "glaze_1_10": {
+        "white": [249.0, 236.0, 179.0],
+        "black": [31.0, 42.0, 41.0]
+      },
+      "glaze_1_1": {
+        "white": [243.0, 184.0, 41.0],
+        "black": [60.0, 72.0, 52.0]
+      },
+      "masstone": {
+        "white": [238.0, 169.0, 35.0],
+        "black": [37.0, 47.0, 41.0]
+      },
+      "tint_1_1": [243.0, 194.0, 109.0],
+      "tint_1_10": [252.0, 241.0, 195.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Turquoise (Phthalo)",
@@ -1463,15 +2650,35 @@
     "pigments": ["PG7", "PB15:3"],
     "discontinued": false,
     "special": null,
-    "K": [0.19067, 0.155809, 0.111555],
-    "S": [0.0160009, 0.0160009, 0.0160009],
+    "K": [0.140857, 1.46103, 9.08014, 11.6093, 1.24416, 4.98321, 7.6156, 474.136, 27.9093, 0.897188, 0.686158],
+    "S": [0.00346344, 0.241544, 0.690925, 0.0683881, 0.274344, 0.00985967, 0.0160338, 0.239038, 4.12207, 0.357955, 0.0941754],
     "munsell": "Hue:4.7 PB Value:2.4 Chroma:1.9",
     "gloss_average": 93.44,
     "tint_strength": 74.57,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-turquoise-phthalo",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2390-turquoise-phthalo-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [57.0, 52.0, 56.0],
+      "glaze_1_10": {
+        "white": [6.0, 178.0, 157.0],
+        "black": [18.0, 23.0, 36.0]
+      },
+      "glaze_1_1": {
+        "white": [4.0, 82.0, 90.0],
+        "black": [16.0, 17.0, 38.0]
+      },
+      "masstone": {
+        "white": [8.0, 44.0, 63.0],
+        "black": [15.0, 18.0, 40.0]
+      },
+      "tint_1_1": [2.0, 133.0, 137.0],
+      "tint_1_10": [76.0, 201.0, 206.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Ultramarine Blue",
@@ -1485,15 +2692,35 @@
     "pigments": ["PB29"],
     "discontinued": false,
     "special": null,
-    "K": [1.77843, 2.06654, 0.33288],
-    "S": [0.157587, 0.157587, 0.157587],
+    "K": [0.007151, 0.00462848, 0.0230755, 11.4703, 0.365274, 8.97229, 3.60637, 31.1462, 0.753167, 7.16053, 9.03928],
+    "S": [0.00204639, 0.00301526, 0.0112182, 0.0101351, 0.0470257, 0.0673626, 0.26255, 0.146356, 0.0221896, 0.0249793, 0.0252358],
     "munsell": "Hue:9.3 PB Value:2.3 Chroma:10.2",
     "gloss_average": 23.89,
     "tint_strength": 79.94,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-ultramarine-blue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2400-ultramarine-blue-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [52.0, 57.0, 57.0],
+      "glaze_1_10": {
+        "white": [150.0, 177.0, 239.0],
+        "black": [22.0, 26.0, 29.0]
+      },
+      "glaze_1_1": {
+        "white": [68.0, 110.5, 231.0],
+        "black": [21.0, 26.0, 34.0]
+      },
+      "masstone": {
+        "white": [27.0, 65.0, 202.0],
+        "black": [27.0, 31.0, 42.0]
+      },
+      "tint_1_1": [92.0, 130.0, 235.0],
+      "tint_1_10": [170.0, 195.0, 244.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Ultramarine Violet",
@@ -1507,15 +2734,35 @@
     "pigments": ["PV15"],
     "discontinued": false,
     "special": null,
-    "K": [0.270567, 0.318127, 0.0988478],
-    "S": [0.0272802, 0.0272802, 0.0272802],
+    "K": [0.0158311, 0.0196269, 0.552943, 0.833052, 0.455209, 1.11237, 1.91796, 0.406365, 0.647588, 0.746884, 0.755876],
+    "S": [0.0203333, 0.0192911, 0.0116046, 0.0259963, 0.0720022, 0.0246286, 0.0117474, 0.0375149, 0.0216165, 0.0185657, 0.0182165],
     "munsell": "Hue:0.3 P Value:2.4 Chroma:6.1",
     "gloss_average": 15.93,
     "tint_strength": 88.18,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-ultramarine-violet",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2401-ultramarine-violet-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [56.0, 60.0, 55.0],
+      "glaze_1_10": {
+        "white": [231.0, 227.0, 239.0],
+        "black": [28.0, 37.0, 37.0]
+      },
+      "glaze_1_1": {
+        "white": [191.0, 170.0, 219.0],
+        "black": [33.0, 42.0, 45.0]
+      },
+      "masstone": {
+        "white": [132.0, 99.0, 178.0],
+        "black": [48.0, 54.0, 57.0]
+      },
+      "tint_1_1": [196.0, 179.0, 227.0],
+      "tint_1_10": [231.0, 227.0, 245.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Van Dyke Brown Hue",
@@ -1529,15 +2776,35 @@
     "pigments": ["PR101", "PBk7"],
     "discontinued": false,
     "special": null,
-    "K": [1.09901, 1.11777, 1.09984],
-    "S": [0.124095, 0.124095, 0.124095],
+    "K": [6.51937, 7.20997, 21.2122, 2.51228, 1.33768, 11.2911, 40.3954, 1.64853, 1.24038, 0.728273, 0.0207149],
+    "S": [0.137954, 0.140103, 0.207847, 0.89475, 0.172624, 0.032835, 0.028929, 0.0370187, 0.277237, 0.771828, 0.519847],
     "munsell": "Hue:1.7 RP Value:2.6 Chroma:0.1",
     "gloss_average": 99.81,
     "tint_strength": 74.68,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-van-dyke-brown-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2442-van-dyke-brown-hue-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [58.0, 62.0, 57.0],
+      "glaze_1_10": {
+        "white": [187.0, 163.0, 125.5],
+        "black": [32.0, 36.0, 32.0]
+      },
+      "glaze_1_1": {
+        "white": [132.0, 103.0, 61.0],
+        "black": [35.0, 39.0, 34.0]
+      },
+      "masstone": {
+        "white": [56.0, 55.0, 49.0],
+        "black": [33.0, 39.0, 38.0]
+      },
+      "tint_1_1": [121.0, 112.0, 94.0],
+      "tint_1_10": [190.0, 182.0, 170.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Vat Orange",
@@ -1551,15 +2818,35 @@
     "pigments": ["PO43"],
     "discontinued": false,
     "special": null,
-    "K": [0.261599, 3.81123, 15.5714],
-    "S": [1.41378, 1.41378, 1.41378],
+    "K": [2.52606, 2.55801, 37.9982, 8.05414, 175.106, 1.40128, 17.9627, 0.00262315, 0.0208091, 0.0340729, 0.0364976],
+    "S": [0.0184452, 0.0203047, 0.212418, 2.38375, 0.871037, 0.625454, 0.0750005, 0.449247, 0.52961, 0.511997, 0.508173],
     "munsell": "Hue:9.2 R Value:5.6 Chroma:15.1",
     "gloss_average": 88.03,
     "tint_strength": 79.62,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-vat-orange",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2403-vat-orange-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [58.0, 60.0, 54.0],
+      "glaze_1_10": {
+        "white": [250.0, 153.0, 134.0],
+        "black": [50.0, 43.0, 28.0]
+      },
+      "glaze_1_1": {
+        "white": [250.0, 99.0, 43.0],
+        "black": [87.0, 55.0, 27.0]
+      },
+      "masstone": {
+        "white": [251.0, 78.0, 19.0],
+        "black": [173.0, 73.0, 13.0]
+      },
+      "tint_1_1": [252.0, 114.0, 94.5],
+      "tint_1_10": [252.0, 175.0, 176.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Violet Oxide",
@@ -1573,15 +2860,35 @@
     "pigments": ["PR101"],
     "discontinued": true,
     "special": null,
-    "K": [2.02003, 4.17692, 4.77709],
-    "S": [0.553079, 0.553079, 0.553079],
+    "K": [0.4149, 2.6268, 24.9472, 4.18814, 2.19708, 17.8318, 8.29526, 1.44112, 1.58772, 4.15303, 4.38814],
+    "S": [0.793247, 0.33505, 0.373671, 0.149055, 0.45135, 0.0565123, 0.0555554, 1.08306, 0.0602419, 0.049868, 0.0487031],
     "munsell": "Hue:0.5 Y Value:2.7 Chroma:5.5",
     "gloss_average": 65.9,
     "tint_strength": 77.03,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-violet-oxide",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2405-violet-oxide-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [58.0, 62.0, 56.0],
+      "glaze_1_10": {
+        "white": [197.0, 147.0, 146.0],
+        "black": [53.0, 31.0, 29.0]
+      },
+      "glaze_1_1": {
+        "white": [115.0, 54.0, 55.0],
+        "black": [92.0, 34.0, 33.0]
+      },
+      "masstone": {
+        "white": [109.0, 51.0, 51.0],
+        "black": [100.0, 40.0, 39.0]
+      },
+      "tint_1_1": [162.0, 113.0, 108.0],
+      "tint_1_10": [230.0, 194.0, 195.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Viridian Green Hue",
@@ -1595,15 +2902,35 @@
     "pigments": ["PW6", "PB15:3", "PY150", "PBr7"],
     "discontinued": false,
     "special": null,
-    "K": [1.26119, 0.428056, 0.578258],
-    "S": [0.116097, 0.116097, 0.116097],
+    "K": [3.35774, 3.52315, 0.981352, 13.2796, 0.263032, 1.98131, 0.661248, 6.35126, 87.3332, 86.2553, 84.362],
+    "S": [0.638921, 0.510064, 0.170962, 0.0544643, 0.249136, 0.00944621, 0.070454, 0.510341, 1.76707, 3.34198, 3.66349],
     "munsell": "Hue:2.2 BG Value:3.4 Chroma:5.1",
     "gloss_average": 20.58,
     "tint_strength": 85.29,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-viridian-green-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2443-viridian-green-hue-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [54.0, 61.0, 57.0],
+      "glaze_1_10": {
+        "white": [138.0, 214.0, 190.0],
+        "black": [27.0, 38.0, 37.0]
+      },
+      "glaze_1_1": {
+        "white": [23.0, 168.0, 116.0],
+        "black": [25.0, 52.0, 54.0]
+      },
+      "masstone": {
+        "white": [12.0, 129.0, 91.0],
+        "black": [29.0, 69.0, 66.5]
+      },
+      "tint_1_1": [82.0, 180.5, 157.0],
+      "tint_1_10": [170.0, 226.0, 218.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Yellow Ochre",
@@ -1617,15 +2944,35 @@
     "pigments": ["PY42"],
     "discontinued": false,
     "special": null,
-    "K": [0.46726, 1.19464, 4.91044],
-    "S": [0.893549, 0.893549, 0.893549],
+    "K": [46.2054, 10.8953, 3.09458, 3.39713, 1.27918, 0.586608, 0.475245, 0.326227, 0.0485071, 0.0182477, 0.0160564],
+    "S": [3.38635, 3.21813, 0.172214, 0.332961, 0.75352, 0.472043, 0.292298, 0.406867, 0.589352, 0.57141, 0.564348],
     "munsell": "Hue:8.7 YR Value:5.7 Chroma:6.9",
     "gloss_average": 62.36,
     "tint_strength": 91.1,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-yellow-ochre",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2407-yellow-ochre-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [56.0, 61.0, 54.0],
+      "glaze_1_10": {
+        "white": [250.0, 235.0, 173.0],
+        "black": [43.0, 49.0, 41.0]
+      },
+      "glaze_1_1": {
+        "white": [244.0, 178.0, 51.0],
+        "black": [99.0, 93.0, 48.0]
+      },
+      "masstone": {
+        "white": [206.0, 139.0, 32.0],
+        "black": [162.0, 125.0, 40.0]
+      },
+      "tint_1_1": [240.0, 195.0, 110.0],
+      "tint_1_10": [250.0, 246.0, 205.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Yellow Oxide",
@@ -1639,15 +2986,35 @@
     "pigments": ["PY42"],
     "discontinued": true,
     "special": null,
-    "K": [0.406698, 1.03293, 4.95445],
-    "S": [1.01194, 1.01194, 1.01194],
+    "K": [66.9607, 62.3926, 5.19852, 5.33005, 1.27709, 1.182, 0.223483, 0.518162, 0.012816, 0.00316939, 0.00263771],
+    "S": [38.9628, 29.0635, 0.122091, 0.144845, 1.87843, 1.84329, 0.00339603, 1.4467, 1.49502, 0.79237, 0.691825],
     "munsell": "Hue:9.5 Y Value:0 Chroma:8.4",
     "gloss_average": 79.21,
     "tint_strength": 86.07,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-yellow-oxide",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2410-yellow-oxide-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": null,
+      "stripe": [57.0, 61.0, 56.0],
+      "glaze_1_10": {
+        "white": [250.0, 231.0, 144.0],
+        "black": [59.0, 68.0, 48.0]
+      },
+      "glaze_1_1": {
+        "white": [228.0, 164.0, 15.0],
+        "black": [157.0, 138.0, 25.0]
+      },
+      "masstone": {
+        "white": [219.0, 158.0, 27.0],
+        "black": [171.0, 144.0, 33.0]
+      },
+      "tint_1_1": [240.0, 190.0, 87.0],
+      "tint_1_10": [251.0, 237.0, 178.0],
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   },
   {
     "name": "Zinc White",
@@ -1661,14 +3028,34 @@
     "pigments": ["PW4"],
     "discontinued": false,
     "special": null,
-    "K": [0.00233519, 0.00224744, 0.00314567],
-    "S": [0.341097, 0.341097, 0.341097],
+    "K": [0.00400039, 0.00400307, 0.00378471, 0.00299216, 0.00234053, 0.00205091, 0.00203633, 0.00212304, 0.0021738, 0.0021855, 0.00218695],
+    "S": [16.2046, 0.684101, 0.287257, 0.325972, 0.336469, 0.317696, 0.300663, 0.289087, 0.284665, 0.283496, 0.283316],
     "munsell": "Hue:3.5 GY Value:9.5 Chroma:0.1",
     "gloss_average": 58.87,
     "tint_strength": 27.2,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/fluid/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/fluid-acrylic-color-zinc-white",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": "https://images.goldenartistcolors.com/products/golden-artist-acrylics/fluid-color/tint-glaze/2415-zinc-white-tint-glaze.webp",
+    "tint_glaze_photo": {
+      "ground": [112.0, 113.0, 111.0],
+      "stripe": [62.0, 63.0, 58.0],
+      "glaze_1_10": {
+        "white": [109.0, 109.0, 114.0],
+        "black": [49.0, 57.0, 65.0]
+      },
+      "glaze_1_1": {
+        "white": [133.0, 133.0, 140.0],
+        "black": [98.0, 100.0, 112.0]
+      },
+      "masstone": {
+        "white": [166.0, 167.0, 178.0],
+        "black": [158.0, 158.0, 171.0]
+      },
+      "tint_1_1": null,
+      "tint_1_10": null,
+      "retrieved": "2026-11-26"
+    },
+    "fit_source": "photo"
   }
 ]

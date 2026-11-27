@@ -22,22 +22,28 @@ class PlannerParityTest {
     fun colorConversions() {
         val c = fx.getJSONObject("color")
         val srgb = c.getJSONArray("srgb")
-        val out = DoubleArray(3)
+        val n = Bands.N
+        val out = DoubleArray(n)
         for (i in 0 until srgb.length()) {
             val (r, g, b) = srgb.getJSONArray(i).doubles()
-            fun check(key: String, tol: Double, f: () -> Unit) {
-                f()
-                val want = c.getJSONArray(key).getJSONArray(i).doubles()
-                for (q in 0 until 3) assertEquals("$key[$i][$q]", want[q], out[q], tol)
-            }
-            check("srgb_to_lab", 1e-9) { ColorMath.srgbToLab(r, g, b, out) }
-            check("srgb_to_working", 1e-12) { ColorMath.srgbToWorking(r, g, b, out) }
-            check("working_to_lab", 1e-9) { ColorMath.workingToLab(r, g, b, out) }
-            val want = c.getJSONArray("working_to_srgb").getJSONArray(i).doubles()
-            ColorMath.workingToSrgb(r, g, b, out)
-            for (q in 0 until 3) assertEquals(want[q].coerceIn(0.0, 1.0), out[q], 1e-9)
+            ColorMath.srgbToLab(r, g, b, out)
+            val lab = c.getJSONArray("srgb_to_lab").getJSONArray(i).doubles()
+            for (q in 0 until 3) assertEquals("srgb_to_lab[$i][$q]", lab[q], out[q], 1e-9)
+            ColorMath.srgbToWorking(r, g, b, out)
+            val spec = c.getJSONArray("srgb_to_working").getJSONArray(i).doubles()
+            for (q in 0 until n) assertEquals("srgb_to_working[$i][$q]", spec[q], out[q], 1e-9)
+        }
+        val working = c.getJSONArray("working")
+        val o3 = DoubleArray(3)
+        for (i in 0 until working.length()) {
+            val r = working.getJSONArray(i).doubles()
             val lab = c.getJSONArray("working_to_lab").getJSONArray(i).doubles()
-            assertEquals(0.0, ColorMath.deltaE(r, g, b, lab[0], lab[1], lab[2]), 1e-9)
+            ColorMath.workingToLab(r, 0, o3)
+            for (q in 0 until 3) assertEquals("working_to_lab[$i][$q]", lab[q], o3[q], 1e-9)
+            ColorMath.workingToSrgb(r, 0, o3)
+            val want = c.getJSONArray("working_to_srgb").getJSONArray(i).doubles()
+            for (q in 0 until 3) assertEquals(want[q].coerceIn(0.0, 1.0), o3[q], 1e-9)
+            assertEquals(0.0, ColorMath.deltaE(r, 0, lab[0], lab[1], lab[2]), 1e-9)
         }
     }
 
@@ -46,15 +52,16 @@ class PlannerParityTest {
         val k = fx.getJSONObject("km")
         val rg = k.getJSONArray("rg").doubles()
         val cases = k.getJSONArray("cases")
+        val n = Bands.N
         for (i in 0 until cases.length()) {
             val cs = cases.getJSONObject(i)
             val co = Km.Coefficients(cs.getJSONArray("K").doubles(), cs.getJSONArray("S").doubles())
             val t = cs.getDouble("t")
             val want = cs.getJSONArray("layer").doubles()
             val m = Km.layerMap(co, t)
-            for (q in 0 until 3) {
+            for (q in 0 until n) {
                 assertEquals(want[q], co.layer(rg[q], t, q), 1e-12)
-                assertEquals("Möbius form", want[q], (m[q] * rg[q] + m[3 + q]) / (m[6 + q] * rg[q] + 1), 1e-12)
+                assertEquals("Möbius form", want[q], (m[q] * rg[q] + m[n + q]) / (m[2 * n + q] * rg[q] + 1), 1e-12)
                 assertEquals(cs.getJSONArray("masstone").getDouble(q), co.rInf[q], 1e-12)
             }
         }
@@ -92,7 +99,7 @@ class PlannerParityTest {
         val paints = names.map { n ->
             db.first { it.name == n }.copy(K = ks.getValue(n).getJSONArray("K").doubles(), S = ks.getValue(n).getJSONArray("S").doubles())
         }
-        val bg = DoubleArray(3).also { ColorMath.srgbToWorking(128 / 255.0, 128 / 255.0, 128 / 255.0, it) }
+        val bg = DoubleArray(Bands.N).also { ColorMath.srgbToWorking(128 / 255.0, 128 / 255.0, 128 / 255.0, it) }
         return Triple(Target.fromArgb(w, h, px), paints, bg)
     }
 

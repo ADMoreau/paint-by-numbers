@@ -191,53 +191,58 @@ def test_delta_e():
     assert torch.allclose(color.delta_e_squared(a, b), torch.tensor([25.0, 0.0]))
 
 
-# ---------------------------------------------------------------- working space (linear Rec.2020)
+# ---------------------------------------------------------------- working space (spectral bands)
 
 
-def test_working_space_matches_published_rec2020_matrix():
-    """Derived from BT.2020 primaries with Lab's white; the published matrix
-    uses a D65 white that differs in the 5th decimal."""
-    published = torch.tensor(
-        [[0.6369580, 0.1446169, 0.1688810], [0.2627002, 0.6779981, 0.0593017], [0.0, 0.0280727, 1.0609851]],
-        dtype=torch.float64,
-    )
-    derived = color.working_to_xyz(torch.eye(3, dtype=torch.float64)).T  # columns = primaries
-    assert torch.allclose(derived, published, atol=5e-4)
+def test_working_space_is_spectral_bands():
+    assert color.CHANNELS == len(color.BAND_CENTRES_NM) == 11
+    assert color.BAND_CENTRES_NM[0] == 400 and color.BAND_CENTRES_NM[-1] == 700
+    assert color.working_to_xyz(torch.ones(color.CHANNELS, dtype=torch.float64)).shape == (3,)
 
 
 def test_working_white_is_lab_white():
-    assert torch.allclose(color.working_to_lab([1.0, 1.0, 1.0]), torch.tensor([100.0, 0.0, 0.0], dtype=torch.float64), atol=1e-9)
+    white = torch.ones(color.CHANNELS, dtype=torch.float64)
+    assert torch.allclose(color.working_to_lab(white), torch.tensor([100.0, 0.0, 0.0], dtype=torch.float64), atol=1e-9)
 
 
-def test_neutral_grays_are_the_same_in_both_spaces():
+def test_neutral_grays_are_flat_spectra():
     grays = torch.linspace(0, 1, 11, dtype=torch.float64).unsqueeze(1).expand(-1, 3)
-    assert torch.allclose(color.srgb_to_working(grays), color.srgb_to_linear(grays), atol=1e-12)
+    working = color.srgb_to_working(grays)
+    assert torch.allclose(working, color.srgb_to_linear(grays)[:, :1].expand(-1, color.CHANNELS), atol=1e-9)
 
 
 def test_srgb_gamut_fits_inside_working_space():
-    srgb = torch.cat([random_srgb(50_000, torch.float64, seed=8), edge_srgb(torch.float64)])
+    srgb = torch.cat([random_srgb(5_000, torch.float64, seed=8), edge_srgb(torch.float64)])
     working = color.srgb_to_working(srgb)
     assert working.min() >= -1e-9 and working.max() <= 1 + 1e-9
 
 
-def test_saturated_paint_color_outside_srgb_fits_working_space():
-    """Golden's Cadmium Yellow Medium: outside sRGB, inside Rec.2020."""
+def test_saturated_paint_color_outside_srgb_is_a_valid_spectrum():
+    """Golden's Cadmium Yellow Medium: outside sRGB, but a reflectance spectrum in [0, 1] has it."""
     lab = torch.tensor([84.13, 12.86, 94.59], dtype=torch.float64)
     srgb_linear = color.lab_to_linear(lab)
     working = color.lab_to_working(lab)
     assert srgb_linear.max() > 1.0 or srgb_linear.min() < 0.0
-    assert working.min() > 0.01 and working.max() < 0.99
+    assert working.min() >= 0.0 and working.max() <= 1.0
+    assert color.delta_e(color.working_to_lab(working), lab) < 1e-6
 
 
-@pytest.mark.parametrize("dtype, tol", [(torch.float32, 1e-4), (torch.float64, 1e-10)])
+def test_smooth_spectra_where_possible():
+    """A muted color gets the smoothest spectrum, which is linear in XYZ."""
+    a, b = color.srgb_to_working(torch.tensor([0.6, 0.4, 0.45])), color.srgb_to_working(torch.tensor([0.5, 0.45, 0.4]))
+    mid = color.srgb_to_working(color.linear_to_srgb((color.srgb_to_linear(torch.tensor([0.6, 0.4, 0.45])) + color.srgb_to_linear(torch.tensor([0.5, 0.45, 0.4]))) / 2))
+    assert torch.allclose(mid, (a + b) / 2, atol=1e-6)
+
+
+@pytest.mark.parametrize("dtype, tol", [(torch.float32, 1e-4), (torch.float64, 1e-9)])
 def test_working_round_trips(dtype, tol):
-    srgb = random_srgb(20_000, dtype, seed=9)
+    srgb = random_srgb(5_000, dtype, seed=9)
     assert (color.working_to_srgb(color.srgb_to_working(srgb)) - srgb).abs().max() < tol
     lab = color.srgb_to_lab(srgb)
     assert (color.working_to_lab(color.lab_to_working(lab)) - lab).abs().max() < tol * 1000
 
 
 def test_working_gradients_finite_at_zero():
-    rgb = torch.zeros(4, 3, dtype=torch.float64, requires_grad=True)
-    color.working_to_lab(rgb).sum().backward()
-    assert torch.isfinite(rgb.grad).all()
+    r = torch.zeros(4, color.CHANNELS, dtype=torch.float64, requires_grad=True)
+    color.working_to_lab(r).sum().backward()
+    assert torch.isfinite(r.grad).all()

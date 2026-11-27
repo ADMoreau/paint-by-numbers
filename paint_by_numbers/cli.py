@@ -206,7 +206,11 @@ def main(argv: list[str] | None = None) -> int:
             detail = f"{level_instructions(coats)}, {mask.float().mean().item():.0%} of the image"
         else:
             detail = f"{n} thickness{'es' if n != 1 else ''}"
-        print(f"  {i:2d}  {blocks}{p.name}  [{p.transparency}]  {detail}")
+        print(f"  {i:2d}  {blocks}{p.name}  [{p.transparency}]  {detail}" + ("  (approximate color data)" if p.approximate else ""))
+    rough = sorted({p.name for p in stack if p.approximate})
+    if rough:
+        print(f"note: {', '.join(rough)} {'has' if len(rough) == 1 else 'have'} no swatch photo to fit to, so "
+              "{} color comes only from the opacity rating and may be well off, most of all as a thin glaze.".format("its" if len(rough) == 1 else "their"))
     print(f"color error (ΔE): mean {sol.mean_error:.2f}, max {sol.max_error:.1f}"
           + (f"  (before quantizing: mean {sol.mean_error_continuous:.2f})" if result.uniform_config is None else ""))  # fmt: skip
     print(f"wrote layer maps, overview.png, preview.png, error.png, recipe.json"

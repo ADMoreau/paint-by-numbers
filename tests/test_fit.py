@@ -9,14 +9,14 @@ import torch
 from paint_by_numbers import color, fit, km, paints
 
 ROOT = Path(__file__).resolve().parent.parent
-WHITE, BLACK = [1.0, 1.0, 1.0], [0.0, 0.0, 0.0]
+WHITE, BLACK = 1.0, 0.0  # flat reflectance in every band
 
 PAINTS = paints.load_paints()
 # Fluorescent and phosphorescent paints emit light, so a reflectance model cannot reproduce them.
 MODELED = [p for p in PAINTS if p.special is None]
 RECORDS = {r["name"]: r for r in paints.load_records()}
 # Paints whose S comes from the transparency rating alone (no usable tint and glaze photo).
-RATED = [p for p in PAINTS if not fit._photo_usable(RECORDS[p.name])]
+RATED = [p for p in PAINTS if RECORDS[p.name].get("fit_source") == "rating"]
 
 
 def in_srgb_gamut(lab) -> bool:
@@ -30,8 +30,11 @@ def in_srgb_gamut(lab) -> bool:
 @pytest.mark.parametrize("paint", MODELED, ids=lambda p: p.slug)
 @pytest.mark.parametrize("background", [WHITE, BLACK], ids=["white", "black"])
 def test_thick_layer_renders_published_color(paint, background):
-    """Spec check: a thick layer over white and over black is within 2 Lab units."""
-    assert fit.thick_layer_error(paint, background) < 2.0
+    """Spec check: a thick layer over white and over black is within 2 Lab units of the published
+    color (less its surface reflection). Exact for paints fit from the rating; the photo fit holds
+    it there with a weight."""
+    limit = 1e-3 if paint.fit_source == "rating" else 2.0
+    assert fit.thick_layer_error(paint, background) < limit
 
 
 # ---------------------------------------------------------------- database contents
@@ -84,7 +87,7 @@ def test_published_srgb_and_lab_agree_under_d65(paint):
 def test_stored_ks_are_what_fit_produces():
     """K and S come from fit.py, not by hand, and are current with COATS_TO_HIDE and the photos."""
     records = paints.load_records()
-    for stored, fresh in zip(records, fit.fit_records(records)):
+    for stored, fresh in zip(records, fit.fit_records(records, fit.photo_donors(paints.DEFAULT_DB))):
         if stored["K"] is None:
             assert fresh["K"] is None, stored["name"]
             continue
@@ -98,9 +101,9 @@ def test_stored_ks_are_what_fit_produces():
 
 def test_estimate_ks_mid_gray():
     K, S = fit.estimate_ks([50.0, 0.0, 0.0], "opaque")
-    r = 0.18418652  # linear reflectance at L* = 50
-    assert torch.all(S == S[0])  # same S on every channel
-    assert torch.allclose(K / S, torch.full((3,), (1 - r) ** 2 / (2 * r), dtype=torch.float64), rtol=1e-6)
+    r = (0.18418652 - fit.SURFACE_REFLECTION) / (1 - fit.SURFACE_REFLECTION)  # body reflectance at L* = 50
+    assert torch.all(S == S[0])  # same S in every band
+    assert torch.allclose(K / S, torch.full((color.CHANNELS,), (1 - r) ** 2 / (2 * r), dtype=torch.float64), rtol=1e-6)
 
 
 @pytest.mark.parametrize("paint", RATED, ids=lambda p: p.slug)
@@ -134,12 +137,20 @@ def test_unknown_rating_raises():
 
 
 def test_reflectance_is_clipped():
-    assert torch.all(fit.published_reflectance([1.0, 0.0, 0.0]) == 0.01)
-    assert torch.all(fit.published_reflectance([100.0, 0.0, 0.0]) == 0.99)
+    assert torch.all(fit.published_reflectance([1.0, 0.0, 0.0]) == fit.REFLECTANCE_CLIP[0])
+    assert torch.all(fit.published_reflectance([100.0, 0.0, 0.0]) == fit.REFLECTANCE_CLIP[1])
+
+
+def test_published_reflectance_drops_the_surface_reflection():
+    """A mid gray's body reflects SURFACE_REFLECTION less than the measured color, in every band."""
+    measured = color.lab_to_working(torch.tensor([50.0, 0.0, 0.0], dtype=torch.float64))
+    body = fit.published_reflectance([50.0, 0.0, 0.0])
+    assert torch.allclose(body, (measured - fit.SURFACE_REFLECTION) / (1 - fit.SURFACE_REFLECTION))
+    assert fit.body_lab([50.0, 0.0, 0.0])[0] < 50.0
 
 
 def test_masstone_of_fit_equals_published_reflectance():
-    for p in MODELED:
+    for p in [p for p in RATED if p.special is None]:
         r = fit.published_reflectance(p.lab)
         masstone = km.masstone(torch.tensor(p.K, dtype=torch.float64), torch.tensor(p.S, dtype=torch.float64))
         assert torch.allclose(masstone, r, atol=1e-5), p.name
@@ -291,25 +302,31 @@ def test_photo_measure_rejects_other_layouts():
         mod.measure(Image.new("RGB", (400, 400), "white"))
 
 
-def test_refine_s_recovers_s_from_a_rendered_photo():
-    """Render a photo from known K and S; refitting S from the rating's starting point finds them again."""
-    ks = (1 - fit.published_reflectance([30.0, 20.0, -25.0])) ** 2 / (2 * fit.published_reflectance([30.0, 20.0, -25.0]))
-    s_true = torch.tensor([3.0, 6.0, 0.8], dtype=torch.float64)
-    K = ks * s_true
+def test_refine_ks_fits_a_rendered_photo():
+    """Render a photo from a known smooth spectral paint; refitting from the rating's estimate
+    reproduces the photo and keeps the thick layer at the published color."""
+    x = torch.linspace(-1, 1, color.CHANNELS, dtype=torch.float64)
+    K_true = torch.exp(1.5 - 2.0 * (x - 0.1) ** 2)  # absorbs mid-spectrum: a violet
+    S_true = torch.full_like(x, 0.8)
+    lab = color.working_to_lab(km.masstone(K_true, S_true))
+    # the "published" color: the true masstone plus surface reflection, as Golden would measure it
+    published = color.working_to_lab(km.masstone(K_true, S_true) * (1 - fit.SURFACE_REFLECTION) + fit.SURFACE_REFLECTION)
     white = fit.estimate_ks([96.0, 0.0, 0.0], "opaque")
-    to255 = lambda R: (color.lab_to_srgb(color.working_to_lab(R)) * 255).tolist()
-    ground = color.lab_to_working(color.srgb_to_lab(torch.tensor(fit.PHOTO_CHART_WHITE, dtype=torch.float64) / 255))
-    stripe = color.lab_to_working(color.srgb_to_lab(torch.tensor([55.0, 60.0, 53.0], dtype=torch.float64) / 255))
+    to255 = lambda R: (color.working_to_srgb(R) * 255).tolist()
+    ground = color.srgb_to_working(torch.tensor(fit.PHOTO_CHART_WHITE, dtype=torch.float64) / 255)
+    stripe = color.srgb_to_working(torch.tensor([55.0, 60.0, 53.0], dtype=torch.float64) / 255)
     photo = {"ground": None, "stripe": [55.0, 60.0, 53.0]}
     for band, t in fit.PHOTO_COATS.items():
-        photo[band] = {side: to255(km.layer(under, K, s_true, torch.tensor(t, dtype=torch.float64)))
+        photo[band] = {side: to255(km.layer(under, K_true, S_true, torch.tensor(t, dtype=torch.float64)))
                        for side, under in (("white", ground), ("black", stripe))}
     for band, c in fit.PHOTO_TINTS.items():
-        photo[band] = to255(km.layer(ground, c * K + (1 - c) * white[0], c * s_true + (1 - c) * white[1], torch.tensor(1.0, dtype=torch.float64)))
-    _, s0 = fit.estimate_ks([30.0, 20.0, -25.0], "transparent")
-    S = fit.refine_s(ks[None], s0[None], [photo], white)[0]
-    assert torch.allclose(S, s_true, rtol=0.02)
-    assert fit.photo_error(ks * S, S, photo, white).max() < 0.1
+        photo[band] = to255(km.layer(ground, c * K_true + (1 - c) * white[0], c * S_true + (1 - c) * white[1], torch.tensor(1.0, dtype=torch.float64)))
+    K0, S0 = fit.estimate_ks(published.tolist(), "transparent")
+    before = fit.photo_error(K0, S0, photo, white).mean()
+    K, S = fit.refine_ks(K0[None], S0[None], published[None], [photo], white)
+    after = fit.photo_error(K[0], S[0], photo, white)
+    assert before > 10 and after.mean() < 1.5 and after.max() < 4
+    assert color.delta_e(color.working_to_lab(km.masstone(K[0], S[0])), lab) < 1.0
 
 
 def test_photo_fit_matches_photos_better_than_the_rating():
@@ -333,6 +350,34 @@ def test_dioxazine_purple_glazes_violet():
     """The bug the photos fixed: a thin glaze of Dioxazine Purple over white was nearly white,
     so plans used it as a gentle gray and real paint turned everything purple."""
     p = next(p for p in PAINTS if p.name == "Dioxazine Purple")
-    lab = color.working_to_lab(km.layer(torch.ones(3, dtype=torch.float64), torch.tensor(p.K), torch.tensor(p.S), torch.tensor(0.125)))
-    L, a, b = lab.tolist()
+    white = torch.ones(color.CHANNELS, dtype=torch.float64)
+
+    def over_white(coats):
+        return color.working_to_lab(km.layer(white, torch.tensor(p.K), torch.tensor(p.S), torch.tensor(coats))).tolist()
+
+    L, a, b = over_white(0.125)
     assert L < 60 and a > 15 and b < -30  # a strong violet, as on Golden's swatch
+    L, a, b = over_white(0.5)  # a 1:1 glaze: still violet (it went gray with three color channels)
+    assert L < 30 and a > 10 and b < -15
+    assert over_white(1.0)[0] < 20  # a full coat is nearly black
+
+
+def test_every_golden_paint_says_what_its_color_data_is():
+    """Photo, another line's photo of the same color, or only the rating; never missing."""
+    for name in fit.PHOTO_LINES + ("paints_high_flow.json",):
+        for r in paints.load_records(paints.DEFAULT_DB.parent / name):
+            if r.get("K"):
+                assert r["fit_source"] == "photo" or r["fit_source"].endswith(" photo") or r["fit_source"] == "rating", (name, r["name"])
+
+
+def test_transfer_matches_the_published_color():
+    """A color borrowed from another line lands on this line's own published color."""
+    donors = fit.photo_donors(paints.DEFAULT_DB.parent / "paints_high_flow.json")
+    r = next(r for r in paints.load_records(paints.DEFAULT_DB.parent / "paints_high_flow.json") if r["name"] in donors)
+    K, S = fit.transfer_ks(donors[r["name"]][0], donors[r["name"]][1], r["lab"])
+    assert color.delta_e(color.working_to_lab(km.masstone(K, S)), fit.body_lab(r["lab"])) < 2.0
+
+
+def test_approximate_paints_are_flagged():
+    assert all(p.approximate == (p.fit_source == "rating") for p in PAINTS)  # Heavy Body
+    assert not next(p for p in PAINTS if p.name == "Dioxazine Purple").approximate

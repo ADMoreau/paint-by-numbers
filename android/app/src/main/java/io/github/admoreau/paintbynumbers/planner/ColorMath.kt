@@ -5,9 +5,10 @@ import kotlin.math.sqrt
 
 /**
  * Colour conversions, as in the desktop planner's color.py: sRGB, CIE XYZ (D65, white Y = 1),
- * CIE L*a*b*, and the working space where paint reflectance lives (linear Rec.2020).
+ * CIE L*a*b*, and the working space where paint reflectance lives: spectral reflectance in
+ * [Bands.N] wavelength bands ([N] values per colour).
  *
- * Matrices are 3x3, row-major. Nothing is clipped except where noted.
+ * Matrices are row-major. Nothing is clipped except where noted.
  */
 object ColorMath {
     private val RGB_TO_XYZ = doubleArrayOf(
@@ -16,15 +17,32 @@ object ColorMath {
         0.0193339, 0.1191920, 0.9503041,
     )
     val WHITE = DoubleArray(3) { r -> RGB_TO_XYZ[3 * r] + RGB_TO_XYZ[3 * r + 1] + RGB_TO_XYZ[3 * r + 2] }
-    private val REC2020 = arrayOf(doubleArrayOf(0.708, 0.292), doubleArrayOf(0.170, 0.797), doubleArrayOf(0.131, 0.046))
-    val WORKING_TO_XYZ = rgbToXyz(REC2020, WHITE)
+    const val N = Bands.N
+
+    /** Bands to XYZ, rescaled so reflectance 1 in every band is exactly the white (as color.py). */
+    val WORKING_TO_XYZ = DoubleArray(3 * N).also { m ->
+        for (r in 0 until 3) {
+            var sum = 0.0
+            for (j in 0 until N) sum += Bands.TO_XYZ[r * N + j]
+            for (j in 0 until N) m[r * N + j] = Bands.TO_XYZ[r * N + j] * WHITE[r] / sum
+        }
+    }
+
+    /** XYZ to the smoothest spectrum, made an exact inverse of [WORKING_TO_XYZ] (as color.py). */
+    private val XYZ_TO_SMOOTH = run {
+        val a = Bands.FROM_XYZ
+        val ma = DoubleArray(9) { k -> (0 until N).sumOf { j -> WORKING_TO_XYZ[(k / 3) * N + j] * a[j * 3 + k % 3] } }
+        val inv = inverse3(ma)
+        DoubleArray(N * 3) { k -> (0 until 3).sumOf { q -> a[(k / 3) * 3 + q] * inv[q * 3 + k % 3] } }
+    }
     private val XYZ_TO_RGB = inverse3(RGB_TO_XYZ)
-    private val WORKING_TO_LINEAR_SRGB = mul3(XYZ_TO_RGB, WORKING_TO_XYZ)
-    private val LINEAR_SRGB_TO_WORKING = inverse3(WORKING_TO_LINEAR_SRGB)
 
     /** Working space straight to XYZ / white, the input of the Lab companding. */
-    private val W2N = DoubleArray(9) { WORKING_TO_XYZ[it] / WHITE[it / 3] }
+    private val W2N = DoubleArray(3 * N) { WORKING_TO_XYZ[it] / WHITE[it / N] }
     private val L2N = DoubleArray(9) { RGB_TO_XYZ[it] / WHITE[it / 3] }
+
+    /** Band centres scaled to about [-1, 1], for the sigmoid fallback spectra. */
+    private val X = DoubleArray(N) { (Bands.CENTRES_NM[it] - 550.0) / 150.0 }
 
     private const val SRGB_KNEE = 0.04045
     private const val LINEAR_KNEE = SRGB_KNEE / 12.92
@@ -53,71 +71,118 @@ object ColorMath {
         return y
     }
 
-    private fun lab(m: DoubleArray, r: Double, g: Double, b: Double, out: DoubleArray, o: Int) {
-        val fx = f(m[0] * r + m[1] * g + m[2] * b)
-        val fy = f(m[3] * r + m[4] * g + m[5] * b)
-        val fz = f(m[6] * r + m[7] * g + m[8] * b)
+    private fun labOf(fx: Double, fy: Double, fz: Double, out: DoubleArray, o: Int) {
         out[o] = 116.0 * fy - 16.0
         out[o + 1] = 500.0 * (fx - fy)
         out[o + 2] = 200.0 * (fy - fz)
     }
 
-    /** Working-space reflectance to Lab, written to out[o..o+2]. */
-    fun workingToLab(r: Double, g: Double, b: Double, out: DoubleArray, o: Int = 0) = lab(W2N, r, g, b, out, o)
+    /** Working-space reflectance r[ro until ro + N] to Lab, written to out[o..o+2]. */
+    fun workingToLab(r: DoubleArray, ro: Int, out: DoubleArray, o: Int = 0) {
+        var x = 0.0; var y = 0.0; var z = 0.0
+        for (j in 0 until N) {
+            val v = r[ro + j]
+            x += W2N[j] * v; y += W2N[N + j] * v; z += W2N[2 * N + j] * v
+        }
+        labOf(f(x), f(y), f(z), out, o)
+    }
 
     /** Gamma-encoded sRGB in [0, 1] to Lab. */
-    fun srgbToLab(r: Double, g: Double, b: Double, out: DoubleArray, o: Int = 0) =
-        lab(L2N, srgbToLinear(r), srgbToLinear(g), srgbToLinear(b), out, o)
+    fun srgbToLab(r: Double, g: Double, b: Double, out: DoubleArray, o: Int = 0) {
+        val m = L2N
+        val lr = srgbToLinear(r); val lg = srgbToLinear(g); val lb = srgbToLinear(b)
+        labOf(f(m[0] * lr + m[1] * lg + m[2] * lb), f(m[3] * lr + m[4] * lg + m[5] * lb), f(m[6] * lr + m[7] * lg + m[8] * lb), out, o)
+    }
 
-    /** ΔE76 of working-space reflectance (r, g, b) from Lab (l, a, bb). */
-    fun deltaE(r: Double, g: Double, b: Double, l: Double, a: Double, bb: Double): Double {
-        val m = W2N
-        val fx = f(m[0] * r + m[1] * g + m[2] * b)
-        val fy = f(m[3] * r + m[4] * g + m[5] * b)
-        val fz = f(m[6] * r + m[7] * g + m[8] * b)
+    /** ΔE76 of working-space reflectance r[ro until ro + N] from Lab (l, a, bb). */
+    fun deltaE(r: DoubleArray, ro: Int, l: Double, a: Double, bb: Double): Double {
+        var x = 0.0; var y = 0.0; var z = 0.0
+        for (j in 0 until N) {
+            val v = r[ro + j]
+            x += W2N[j] * v; y += W2N[N + j] * v; z += W2N[2 * N + j] * v
+        }
+        val fx = f(x)
+        val fy = f(y)
+        val fz = f(z)
         val dl = 116.0 * fy - 16.0 - l
         val da = 500.0 * (fx - fy) - a
         val db = 200.0 * (fy - fz) - bb
         return sqrt(dl * dl + da * da + db * db)
     }
 
-    /** Gamma-encoded sRGB to working-space reflectance, written to out[o..o+2]. */
-    fun srgbToWorking(r: Double, g: Double, b: Double, out: DoubleArray, o: Int = 0) =
-        apply(LINEAR_SRGB_TO_WORKING, srgbToLinear(r), srgbToLinear(g), srgbToLinear(b), out, o)
-
-    /** Working-space reflectance to gamma-encoded sRGB, clipped to [0, 1]. */
-    fun workingToSrgb(r: Double, g: Double, b: Double, out: DoubleArray, o: Int = 0) {
-        apply(WORKING_TO_LINEAR_SRGB, r, g, b, out, o)
-        for (c in 0 until 3) out[o + c] = linearToSrgb(out[o + c]).coerceIn(0.0, 1.0)
+    /**
+     * CIE XYZ to a working-space reflectance with that colour, written to out[o until o + N]: the
+     * smoothest spectrum, or where that leaves [0, 1] a sigmoid-shaped one (as color.xyz_to_working).
+     */
+    fun xyzToWorking(x: Double, y: Double, z: Double, out: DoubleArray, o: Int = 0) {
+        var ok = true
+        for (j in 0 until N) {
+            val v = XYZ_TO_SMOOTH[3 * j] * x + XYZ_TO_SMOOTH[3 * j + 1] * y + XYZ_TO_SMOOTH[3 * j + 2] * z
+            out[o + j] = v
+            if (v < 0 || v > 1) ok = false
+        }
+        if (!ok) sigmoidSpectrum(x, y, z, out, o)
     }
 
-    /** Working-space reflectance to an opaque ARGB colour int. */
-    fun workingToArgb(r: Double, g: Double, b: Double): Int {
+    /** sigmoid(c0 + c1 x + c2 x^2) per band, matching XYZ by damped Gauss-Newton (as color._sigmoid_spectra). */
+    private fun sigmoidSpectrum(x: Double, y: Double, z: Double, out: DoubleArray, o: Int) {
+        val yc = y.coerceIn(1e-4, 1 - 1e-4)
+        val c = doubleArrayOf(kotlin.math.ln(yc / (1 - yc)), 0.0, 0.0)
+        val target = doubleArrayOf(x, y, z)
+        val r = DoubleArray(N)
+        val jac = DoubleArray(9)
+        repeat(60) {
+            for (j in 0 until N) r[j] = 1.0 / (1.0 + kotlin.math.exp(-(c[0] + c[1] * X[j] + c[2] * X[j] * X[j])))
+            jac.fill(0.0)
+            val res = DoubleArray(3)
+            for (row in 0 until 3) {
+                var acc = 0.0
+                for (j in 0 until N) {
+                    val m = WORKING_TO_XYZ[row * N + j]
+                    acc += m * r[j]
+                    val d = m * r[j] * (1 - r[j])
+                    jac[row * 3] += d; jac[row * 3 + 1] += d * X[j]; jac[row * 3 + 2] += d * X[j] * X[j]
+                }
+                res[row] = acc - target[row]
+            }
+            // (J'J + 1e-10 I) step = J' res
+            val jtj = DoubleArray(9) { k -> (0 until 3).sumOf { q -> jac[q * 3 + k / 3] * jac[q * 3 + k % 3] } + if (k % 4 == 0) 1e-10 else 0.0 }
+            val jtr = DoubleArray(3) { k -> (0 until 3).sumOf { q -> jac[q * 3 + k] * res[q] } }
+            val inv = inverse3(jtj)
+            for (k in 0 until 3) {
+                val step = inv[3 * k] * jtr[0] + inv[3 * k + 1] * jtr[1] + inv[3 * k + 2] * jtr[2]
+                c[k] -= step.coerceIn(-4.0, 4.0)
+            }
+        }
+        for (j in 0 until N) out[o + j] = 1.0 / (1.0 + kotlin.math.exp(-(c[0] + c[1] * X[j] + c[2] * X[j] * X[j])))
+    }
+
+    /** Gamma-encoded sRGB to working-space reflectance, written to out[o until o + N]. */
+    fun srgbToWorking(r: Double, g: Double, b: Double, out: DoubleArray, o: Int = 0) {
+        val lr = srgbToLinear(r); val lg = srgbToLinear(g); val lb = srgbToLinear(b)
+        val m = RGB_TO_XYZ
+        xyzToWorking(m[0] * lr + m[1] * lg + m[2] * lb, m[3] * lr + m[4] * lg + m[5] * lb, m[6] * lr + m[7] * lg + m[8] * lb, out, o)
+    }
+
+    /** Working-space reflectance r[ro until ro + N] to gamma-encoded sRGB, clipped to [0, 1], in out[o..o+2]. */
+    fun workingToSrgb(r: DoubleArray, ro: Int, out: DoubleArray, o: Int = 0) {
+        var x = 0.0; var y = 0.0; var z = 0.0
+        for (j in 0 until N) {
+            val v = r[ro + j]
+            x += WORKING_TO_XYZ[j] * v; y += WORKING_TO_XYZ[N + j] * v; z += WORKING_TO_XYZ[2 * N + j] * v
+        }
+        val m = XYZ_TO_RGB
+        for (c in 0 until 3) out[o + c] = linearToSrgb(m[3 * c] * x + m[3 * c + 1] * y + m[3 * c + 2] * z).coerceIn(0.0, 1.0)
+    }
+
+    /** Working-space reflectance r[ro until ro + N] to an opaque ARGB colour int. */
+    fun workingToArgb(r: DoubleArray, ro: Int = 0): Int {
         val s = DoubleArray(3)
-        workingToSrgb(r, g, b, s)
+        workingToSrgb(r, ro, s)
         return (0xFF shl 24) or (round255(s[0]) shl 16) or (round255(s[1]) shl 8) or round255(s[2])
     }
 
     fun round255(v: Double): Int = Math.rint(v * 255.0).toInt().coerceIn(0, 255)
-
-    private fun apply(m: DoubleArray, x: Double, y: Double, z: Double, out: DoubleArray, o: Int) {
-        out[o] = m[0] * x + m[1] * y + m[2] * z
-        out[o + 1] = m[3] * x + m[4] * y + m[5] * z
-        out[o + 2] = m[6] * x + m[7] * y + m[8] * z
-    }
-
-    private fun rgbToXyz(primaries: Array<DoubleArray>, white: DoubleArray): DoubleArray {
-        val p = DoubleArray(9)
-        for ((j, xy) in primaries.withIndex()) {
-            val (x, y) = xy[0] to xy[1]
-            p[j] = x / y
-            p[3 + j] = 1.0
-            p[6 + j] = (1 - x - y) / y
-        }
-        val inv = inverse3(p)
-        val s = DoubleArray(3) { r -> inv[3 * r] * white[0] + inv[3 * r + 1] * white[1] + inv[3 * r + 2] * white[2] }
-        return DoubleArray(9) { p[it] * s[it % 3] }
-    }
 
     fun inverse3(m: DoubleArray): DoubleArray {
         val (a, b, c) = Triple(m[0], m[1], m[2])
@@ -134,9 +199,4 @@ object ColorMath {
         )
     }
 
-    private fun mul3(x: DoubleArray, y: DoubleArray) = DoubleArray(9) { k ->
-        val r = k / 3
-        val c = k % 3
-        x[3 * r] * y[c] + x[3 * r + 1] * y[3 + c] + x[3 * r + 2] * y[6 + c]
-    }
 }

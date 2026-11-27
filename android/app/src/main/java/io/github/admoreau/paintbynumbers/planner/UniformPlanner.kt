@@ -61,8 +61,8 @@ class UniformPlan(
     val h: Int,
     val layers: List<Layer>, // bottom first
     val regions: List<BooleanArray>, // per layer, w*h
-    val background: DoubleArray, // working-space reflectance
-    val preview: FloatArray, // working-space reflectance, 3 per pixel
+    val background: DoubleArray, // working-space reflectance, Bands.N values
+    val preview: FloatArray, // working-space reflectance, Bands.N per pixel
     val error: FloatArray, // ΔE per pixel
     val meanError: Double,
     val maxError: Double,
@@ -123,86 +123,84 @@ class UniformPlanner(
     /** A candidate stack as parallel arrays, bottom first. */
     private class Stack(val paint: IntArray, val weight: IntArray)
 
+    /** Per-thread work arrays for [descendColor], sized for [n] layers of [Bands.N] bands. */
+    private class Scratch(n: Int) {
+        val below = DoubleArray(N * n) // the reflectance under each layer
+        val r = DoubleArray(N)
+        val a00 = DoubleArray(N) // the layers above, composed: R -> (a00 R + a01) / (a10 R + 1)
+        val a01 = DoubleArray(N)
+        val a10 = DoubleArray(N)
+        val off = DoubleArray(N)
+        val on = DoubleArray(N)
+    }
+
     /**
      * Coordinate descent for one colour over a stack: x (on/off per layer) is changed in place.
-     * Returns the ΔE of the result and fills [costOut] (ΔE plus paint cost).
+     * Returns the ΔE of the result.
      */
-    private fun descendColor(st: Stack, x: BooleanArray, l: Double, a: Double, b: Double, buf: DoubleArray): Double {
+    private fun descendColor(st: Stack, x: BooleanArray, l: Double, a: Double, b: Double, sc: Scratch): Double {
         val n = x.size
-        val below = buf // 3 * n
+        val below = sc.below
+        val r = sc.r
+        val a00 = sc.a00
+        val a01 = sc.a01
+        val a10 = sc.a10
+        val off = sc.off
+        val on = sc.on
         for (sweep in 0 until config.sweeps) {
-            var r0 = background[0]
-            var r1 = background[1]
-            var r2 = background[2]
+            background.copyInto(r)
             for (i in 0 until n) {
-                below[3 * i] = r0
-                below[3 * i + 1] = r1
-                below[3 * i + 2] = r2
+                r.copyInto(below, i * N)
                 if (x[i]) {
                     val m = maps[st.paint[i]][st.weight[i]]
-                    r0 = (m[0] * r0 + m[3]) / (m[6] * r0 + 1)
-                    r1 = (m[1] * r1 + m[4]) / (m[7] * r1 + 1)
-                    r2 = (m[2] * r2 + m[5]) / (m[8] * r2 + 1)
+                    for (c in 0 until N) r[c] = (m[c] * r[c] + m[N + c]) / (m[2 * N + c] * r[c] + 1)
                 }
             }
-            // the layers above, composed: R -> (a00 R + a01) / (a10 R + 1), per channel
-            var a00r = 1.0; var a00g = 1.0; var a00b = 1.0
-            var a01r = 0.0; var a01g = 0.0; var a01b = 0.0
-            var a10r = 0.0; var a10g = 0.0; var a10b = 0.0
+            a00.fill(1.0)
+            a01.fill(0.0)
+            a10.fill(0.0)
             var coats = 0.0
             for (i in 0 until n) if (x[i]) coats += weights[st.weight[i]]
             var changed = false
             for (i in n - 1 downTo 0) {
                 val m = maps[st.paint[i]][st.weight[i]]
                 val wi = weights[st.weight[i]]
-                val rb0 = below[3 * i]
-                val rb1 = below[3 * i + 1]
-                val rb2 = below[3 * i + 2]
+                val base = i * N
+                for (c in 0 until N) {
+                    val rb = below[base + c]
+                    off[c] = (a00[c] * rb + a01[c]) / (a10[c] * rb + 1)
+                    val pr = (m[c] * rb + m[N + c]) / (m[2 * N + c] * rb + 1)
+                    on[c] = (a00[c] * pr + a01[c]) / (a10[c] * pr + 1)
+                }
                 val others = if (x[i]) coats - wi else coats
-                val off = ColorMath.deltaE(
-                    (a00r * rb0 + a01r) / (a10r * rb0 + 1), (a00g * rb1 + a01g) / (a10g * rb1 + 1), (a00b * rb2 + a01b) / (a10b * rb2 + 1), l, a, b,
-                ) + config.paintCost * others
-                val p0 = (m[0] * rb0 + m[3]) / (m[6] * rb0 + 1)
-                val p1 = (m[1] * rb1 + m[4]) / (m[7] * rb1 + 1)
-                val p2 = (m[2] * rb2 + m[5]) / (m[8] * rb2 + 1)
-                val on = ColorMath.deltaE(
-                    (a00r * p0 + a01r) / (a10r * p0 + 1), (a00g * p1 + a01g) / (a10g * p1 + 1), (a00b * p2 + a01b) / (a10b * p2 + 1), l, a, b,
-                ) + config.paintCost * (others + wi)
-                val new = on - off < 0
+                val costOff = ColorMath.deltaE(off, 0, l, a, b) + config.paintCost * others
+                val costOn = ColorMath.deltaE(on, 0, l, a, b) + config.paintCost * (others + wi)
+                val new = costOn - costOff < 0
                 if (new != x[i]) changed = true
                 x[i] = new
                 coats = if (new) others + wi else others
-                if (new) {
-                    // A <- A . M_i
-                    var p11 = a10r * m[3] + 1
-                    val n00r = (a00r * m[0] + a01r * m[6]) / p11; val n01r = (a00r * m[3] + a01r) / p11; val n10r = (a10r * m[0] + m[6]) / p11
-                    p11 = a10g * m[4] + 1
-                    val n00g = (a00g * m[1] + a01g * m[7]) / p11; val n01g = (a00g * m[4] + a01g) / p11; val n10g = (a10g * m[1] + m[7]) / p11
-                    p11 = a10b * m[5] + 1
-                    val n00b = (a00b * m[2] + a01b * m[8]) / p11; val n01b = (a00b * m[5] + a01b) / p11; val n10b = (a10b * m[2] + m[8]) / p11
-                    a00r = n00r; a01r = n01r; a10r = n10r
-                    a00g = n00g; a01g = n01g; a10g = n10g
-                    a00b = n00b; a01b = n01b; a10b = n10b
+                if (new) for (c in 0 until N) { // A <- A . M_i
+                    val p11 = a10[c] * m[N + c] + 1
+                    val n00 = (a00[c] * m[c] + a01[c] * m[2 * N + c]) / p11
+                    val n01 = (a00[c] * m[N + c] + a01[c]) / p11
+                    val n10 = (a10[c] * m[c] + m[2 * N + c]) / p11
+                    a00[c] = n00; a01[c] = n01; a10[c] = n10
                 }
             }
             if (!changed) break
         }
-        return renderError(st, x, l, a, b)
+        return renderError(st, x, l, a, b, r)
     }
 
-    /** ΔE of the stack rendered with the stable single-layer formula (as km.render_stack). */
-    private fun renderError(st: Stack, x: BooleanArray, l: Double, a: Double, b: Double): Double {
-        var r0 = background[0]
-        var r1 = background[1]
-        var r2 = background[2]
+    /** ΔE of the stack rendered with the stable single-layer formula (as km.render_stack); [r] is scratch. */
+    private fun renderError(st: Stack, x: BooleanArray, l: Double, a: Double, b: Double, r: DoubleArray): Double {
+        background.copyInto(r)
         for (i in x.indices) if (x[i]) {
             val co = coefs[st.paint[i]]
             val t = weights[st.weight[i]]
-            r0 = co.layer(r0, t, 0)
-            r1 = co.layer(r1, t, 1)
-            r2 = co.layer(r2, t, 2)
+            for (c in 0 until N) r[c] = co.layer(r[c], t, c)
         }
-        return ColorMath.deltaE(r0, r1, r2, l, a, b)
+        return ColorMath.deltaE(r, 0, l, a, b)
     }
 
     /**
@@ -218,7 +216,7 @@ class UniformPlanner(
             if (s % 64 == 0) check()
             val st = stacks[s]
             val best = BooleanArray(n * k)
-            val buf = DoubleArray(3 * n)
+            val buf = Scratch(n)
             val x0 = BooleanArray(n * k)
             val x = BooleanArray(n)
             val bestErr = DoubleArray(k)
@@ -265,7 +263,7 @@ class UniformPlanner(
     fun select(centers: DoubleArray, k: Int): Selection {
         var ss = 0.0
         for (c in 0 until k) {
-            val e = ColorMath.deltaE(background[0], background[1], background[2], centers[3 * c], centers[3 * c + 1], centers[3 * c + 2])
+            val e = ColorMath.deltaE(background, 0, centers[3 * c], centers[3 * c + 1], centers[3 * c + 2])
             ss += e * e
         }
         val baseline = sqrt(ss / k)
@@ -361,7 +359,7 @@ class UniformPlanner(
             n = keep.size
         }
         val keptRounds = sel.rounds
-        val preview = FloatArray(3 * np)
+        val preview = FloatArray(N * np)
         val err = FloatArray(np)
         render(target, layerIdx, x, preview, err)
         val mean = err.sumOf { it.toDouble() } / np
@@ -375,23 +373,16 @@ class UniformPlanner(
 
     private fun render(target: Target, layers: List<Pair<Int, Int>>, x: List<BooleanArray>, preview: FloatArray?, err: FloatArray) {
         Parallel.forChunks(target.w * target.h) { from, to ->
+            val r = DoubleArray(N)
             for (p in from until to) {
-                var r0 = background[0]
-                var r1 = background[1]
-                var r2 = background[2]
+                background.copyInto(r)
                 for (i in layers.indices) if (x[i][p]) {
                     val co = coefs[layers[i].first]
                     val t = weights[layers[i].second]
-                    r0 = co.layer(r0, t, 0)
-                    r1 = co.layer(r1, t, 1)
-                    r2 = co.layer(r2, t, 2)
+                    for (c in 0 until N) r[c] = co.layer(r[c], t, c)
                 }
-                if (preview != null) {
-                    preview[3 * p] = r0.toFloat()
-                    preview[3 * p + 1] = r1.toFloat()
-                    preview[3 * p + 2] = r2.toFloat()
-                }
-                err[p] = ColorMath.deltaE(r0, r1, r2, target.lab[3 * p].toDouble(), target.lab[3 * p + 1].toDouble(), target.lab[3 * p + 2].toDouble()).toFloat()
+                if (preview != null) for (c in 0 until N) preview[N * p + c] = r[c].toFloat()
+                err[p] = ColorMath.deltaE(r, 0, target.lab[3 * p].toDouble(), target.lab[3 * p + 1].toDouble(), target.lab[3 * p + 2].toDouble()).toFloat()
             }
         }
     }
@@ -402,41 +393,43 @@ class UniformPlanner(
     /**
      * The per-pixel coordinate descent (uniform._descend with smoothing). Each sweep goes top layer
      * first; the layers above the current one are carried per pixel as one composed map.
+     *
+     * The reflectance under each layer is kept only under every [CHECKPOINT]th layer (with
+     * [Bands.N] values per pixel, every layer would be over 100 MB for a large plan) and rebuilt
+     * from the checkpoint below as each layer comes up; the layers below the current one don't
+     * change until the sweep reaches them, so the rebuilt values are the same.
      */
     private fun descendPixels(target: Target, layers: List<Pair<Int, Int>>, x: List<BooleanArray>, filter: GuidedFilter?) {
         val n = layers.size
         val np = target.w * target.h
         val lab = target.lab
-        val below = Array(n) { FloatArray(3 * np) }
-        val a = Array(9) { FloatArray(np) } // a00 rgb, a01 rgb, a10 rgb
+        val checkpoints = Array((n + CHECKPOINT - 1) / CHECKPOINT) { FloatArray(N * np) }
+        val a = Array(3 * N) { FloatArray(np) } // a00 per band, a01 per band, a10 per band
         val coats = FloatArray(np)
         val d = DoubleArray(np)
         for (sweep in 0 until config.sweeps) {
             check()
             Parallel.forChunks(np) { from, to ->
+                val r = DoubleArray(N)
                 for (p in from until to) {
-                    var r0 = background[0]
-                    var r1 = background[1]
-                    var r2 = background[2]
+                    background.copyInto(r)
                     var c = 0.0
                     for (i in 0 until n) {
-                        val b = below[i]
-                        b[3 * p] = r0.toFloat()
-                        b[3 * p + 1] = r1.toFloat()
-                        b[3 * p + 2] = r2.toFloat()
+                        if (i % CHECKPOINT == 0) {
+                            val ck = checkpoints[i / CHECKPOINT]
+                            for (q in 0 until N) ck[N * p + q] = r[q].toFloat()
+                        }
                         if (x[i][p]) {
                             val m = maps[layers[i].first][layers[i].second]
-                            r0 = (m[0] * r0 + m[3]) / (m[6] * r0 + 1)
-                            r1 = (m[1] * r1 + m[4]) / (m[7] * r1 + 1)
-                            r2 = (m[2] * r2 + m[5]) / (m[8] * r2 + 1)
+                            for (q in 0 until N) r[q] = (m[q] * r[q] + m[N + q]) / (m[2 * N + q] * r[q] + 1)
                             c += weights[layers[i].second]
                         }
                     }
                     coats[p] = c.toFloat()
-                    for (q in 0 until 3) {
+                    for (q in 0 until N) {
                         a[q][p] = 1f
-                        a[3 + q][p] = 0f
-                        a[6 + q][p] = 0f
+                        a[N + q][p] = 0f
+                        a[2 * N + q][p] = 0f
                     }
                 }
             }
@@ -445,31 +438,33 @@ class UniformPlanner(
                 val m = maps[layers[i].first][layers[i].second]
                 val wi = weights[layers[i].second]
                 val xi = x[i]
-                val b = below[i]
+                val ck = checkpoints[i / CHECKPOINT]
+                val from0 = (i / CHECKPOINT) * CHECKPOINT
                 Parallel.forChunks(np) { from, to ->
+                    val rb = DoubleArray(N)
+                    val off = DoubleArray(N)
+                    val on = DoubleArray(N)
                     for (p in from until to) {
-                        val others = if (xi[p]) coats[p] - wi else coats[p].toDouble()
-                        var offRgb0 = 0.0; var offRgb1 = 0.0; var offRgb2 = 0.0
-                        var onRgb0 = 0.0; var onRgb1 = 0.0; var onRgb2 = 0.0
-                        for (q in 0 until 3) {
-                            val rb = b[3 * p + q].toDouble()
-                            val pr = (m[q] * rb + m[3 + q]) / (m[6 + q] * rb + 1)
-                            val a00 = a[q][p]
-                            val a01 = a[3 + q][p]
-                            val a10 = a[6 + q][p]
-                            val off = (a00 * rb + a01) / (a10 * rb + 1)
-                            val on = (a00 * pr + a01) / (a10 * pr + 1)
-                            when (q) {
-                                0 -> { offRgb0 = off; onRgb0 = on }
-                                1 -> { offRgb1 = off; onRgb1 = on }
-                                else -> { offRgb2 = off; onRgb2 = on }
-                            }
+                        for (q in 0 until N) rb[q] = ck[N * p + q].toDouble()
+                        for (j in from0 until i) if (x[j][p]) { // rebuild the reflectance under layer i
+                            val mj = maps[layers[j].first][layers[j].second]
+                            for (q in 0 until N) rb[q] = (mj[q] * rb[q] + mj[N + q]) / (mj[2 * N + q] * rb[q] + 1)
                         }
+                        for (q in 0 until N) {
+                            val r0 = rb[q]
+                            val pr = (m[q] * r0 + m[N + q]) / (m[2 * N + q] * r0 + 1)
+                            val a00 = a[q][p]
+                            val a01 = a[N + q][p]
+                            val a10 = a[2 * N + q][p]
+                            off[q] = (a00 * r0 + a01) / (a10 * r0 + 1)
+                            on[q] = (a00 * pr + a01) / (a10 * pr + 1)
+                        }
+                        val others = if (xi[p]) coats[p] - wi else coats[p].toDouble()
                         val l = lab[3 * p].toDouble()
                         val la = lab[3 * p + 1].toDouble()
                         val lb = lab[3 * p + 2].toDouble()
-                        val costOff = ColorMath.deltaE(offRgb0, offRgb1, offRgb2, l, la, lb) + config.paintCost * others
-                        val costOn = ColorMath.deltaE(onRgb0, onRgb1, onRgb2, l, la, lb) + config.paintCost * (others + wi)
+                        val costOff = ColorMath.deltaE(off, 0, l, la, lb) + config.paintCost * others
+                        val costOn = ColorMath.deltaE(on, 0, l, la, lb) + config.paintCost * (others + wi)
                         d[p] = costOn - costOff
                     }
                 }
@@ -483,14 +478,14 @@ class UniformPlanner(
                         val others = if (xi[p]) coats[p] - wi else coats[p].toDouble()
                         xi[p] = new
                         coats[p] = (if (new) others + wi else others).toFloat()
-                        if (new) for (q in 0 until 3) {
+                        if (new) for (q in 0 until N) {
                             val a00 = a[q][p].toDouble()
-                            val a01 = a[3 + q][p].toDouble()
-                            val a10 = a[6 + q][p].toDouble()
-                            val p11 = a10 * m[3 + q] + 1
-                            a[q][p] = ((a00 * m[q] + a01 * m[6 + q]) / p11).toFloat()
-                            a[3 + q][p] = ((a00 * m[3 + q] + a01) / p11).toFloat()
-                            a[6 + q][p] = ((a10 * m[q] + m[6 + q]) / p11).toFloat()
+                            val a01 = a[N + q][p].toDouble()
+                            val a10 = a[2 * N + q][p].toDouble()
+                            val p11 = a10 * m[N + q] + 1
+                            a[q][p] = ((a00 * m[q] + a01 * m[2 * N + q]) / p11).toFloat()
+                            a[N + q][p] = ((a00 * m[N + q] + a01) / p11).toFloat()
+                            a[2 * N + q][p] = ((a10 * m[q] + m[2 * N + q]) / p11).toFloat()
                         }
                     }
                     if (ch) chunkChanged.set(true)
@@ -503,6 +498,8 @@ class UniformPlanner(
 
     companion object {
         const val TIE_DELTA_E = 0.05
+        private const val N = Bands.N
+        private const val CHECKPOINT = 4 // keep the reflectance under every 4th layer (see descendPixels)
 
         /** 0.125 -> "0.125", 1.0 -> "1", 1.5 -> "1.5" (Python's "{:g}" for these values). */
         fun fmt(v: Double): String = if (v == Math.rint(v)) v.toLong().toString() else v.toBigDecimal().stripTrailingZeros().toPlainString()

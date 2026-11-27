@@ -96,7 +96,7 @@ def parse_color(text: str) -> torch.Tensor:
 @dataclass
 class Background:
     kind: str  # "color", "paint" or "image"
-    linear: torch.Tensor  # (3,) or (3, H, W) working-space (linear Rec.2020) reflectance
+    linear: torch.Tensor  # (C,) or (C, H, W) working-space (spectral) reflectance, C = color.CHANNELS
     description: str  # what the user gave: "#7a6a58", "Burnt Umber", "ground.png"
     paint: Paint | None = None
 
@@ -152,7 +152,7 @@ def plan(
     if background.linear.ndim > 1 and background.linear.shape[1:] != target.shape[1:]:
         raise ValueError(f"background image is {tuple(background.linear.shape[1:])}, image is {tuple(target.shape[1:])}")
     selection = select_stack(target, background.linear, paints, palette_config, solve_config, progress)
-    K, S = (torch.empty(0, 3), torch.empty(0, 3))
+    K, S = (torch.empty(0, color.CHANNELS), torch.empty(0, color.CHANNELS))
     if selection.stack:
         K = torch.tensor([p.K for p in selection.stack], dtype=torch.float64)
         S = torch.tensor([p.S for p in selection.stack], dtype=torch.float64)
@@ -262,7 +262,7 @@ def _save_gray(values: torch.Tensor, path: Path) -> None:
 
 
 def _to_pil(reflectance: torch.Tensor) -> Image.Image:
-    """Working-space reflectance (3, H, W) -> sRGB image, clipped to the sRGB gamut."""
+    """Working-space reflectance (C, H, W) -> sRGB image, clipped to the sRGB gamut."""
     srgb = color.working_to_srgb(reflectance.float(), dim=0).clamp(0, 1)
     return Image.fromarray((srgb.permute(1, 2, 0) * 255).round().to(torch.uint8).numpy(), mode="RGB")
 
@@ -276,7 +276,7 @@ def _layer_alone(K, S, t) -> tuple[torch.Tensor, str]:
     painted = t[0, 0] > 0
     best = None
     for ground, value in (("white", 1.0), ("black", 0.0)):
-        bg = torch.full((3,), value, dtype=torch.float64)
+        bg = torch.full((color.CHANNELS,), value, dtype=torch.float64)
         out = km.render_stack(bg, K, S, t)
         bg_lab = color.working_to_lab(bg).reshape(3, *([1] * (out.ndim - 1)))
         contrast = color.delta_e(color.working_to_lab(out, dim=0), bg_lab, dim=0)
@@ -301,7 +301,7 @@ def swatch_colors(paint: Paint, thicknesses: Sequence[float], ground: torch.Tens
     """
     K = torch.tensor(paint.K, dtype=torch.float64)
     S = torch.tensor(paint.S, dtype=torch.float64)
-    grounds = {"white": torch.ones(3, dtype=torch.float64), "black": torch.zeros(3, dtype=torch.float64)}
+    grounds = {"white": torch.ones(color.CHANNELS, dtype=torch.float64), "black": torch.zeros(color.CHANNELS, dtype=torch.float64)}
     if ground is not None:
         grounds["ground"] = ground.double()
     colors: dict = {"full_strength": _srgb255(km.masstone(K, S))}
@@ -491,7 +491,7 @@ def write_outputs(
     flat_ground = None  # a flat background that isn't plain white or black gets its own swatch row
     if result.background.linear.ndim == 1:
         g = result.background.linear.double()
-        if not (torch.allclose(g, torch.ones(3, dtype=g.dtype), atol=1e-3) or torch.allclose(g, torch.zeros(3, dtype=g.dtype), atol=1e-3)):
+        if not (torch.allclose(g, torch.ones_like(g), atol=1e-3) or torch.allclose(g, torch.zeros_like(g), atol=1e-3)):
             flat_ground = g
     pass_sections: list[tuple[str, list[tuple[str, Image.Image]]]] = []
     thickness_sections: list[tuple[str, list[tuple[str, Image.Image]]]] = []
@@ -519,7 +519,7 @@ def write_outputs(
         written[f"step_{i}"] = steps_dir / name
         usage = {f"{lv:g}": round((t == lv).sum().item() / pixels, 4) for lv in cfg.levels if lv > 0 and (t == lv).any()}
 
-        ground_bg = torch.full((3,), 1.0 if ground == "white" else 0.0, dtype=torch.float64)
+        ground_bg = torch.full((color.CHANNELS,), 1.0 if ground == "white" else 0.0, dtype=torch.float64)
         K_i, S_i = K[i - 1 : i], S[i - 1 : i]
 
         used = [float(lv) for lv in cfg.levels if lv > 0 and (t == lv).any()]
@@ -536,6 +536,7 @@ def write_outputs(
             "layer": i, "file": f"layers/{name}", "color_file": f"layers_color/{name}", "color_file_ground": ground,
             "step_file": f"steps/{name}", "swatch_file": f"swatches/{name}", "paint": paint.name, "item": paint.item,
             "transparency": paint.transparency, "sheen": paint.sheen, "lightfastness": paint.lightfastness,
+            "color_data": paint.fit_source, "approximate": paint.approximate,
             "coverage": round((t > 0).sum().item() / pixels, 4), "coats_by_area": usage,
             "swatch": _swatch_entry(colors),
         }  # fmt: skip

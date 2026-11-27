@@ -29,6 +29,7 @@ data class PlanLayer(
     val stepFile: String?, // the painting after this layer
     val swatchFile: String?,
     val thicknesses: List<PlanThickness>,
+    val approximate: Boolean = false, // the paint's colour data is only its opacity rating
 )
 
 /** A plan made by the desktop planner and imported from its project.pbn. */
@@ -145,6 +146,7 @@ object PlanStore {
                 stepFile = l.optString("step_file").ifEmpty { null },
                 swatchFile = l.optString("swatch_file").ifEmpty { null },
                 thicknesses = thick,
+                approximate = l.optBoolean("approximate", false),
             )
         }
         return Plan(

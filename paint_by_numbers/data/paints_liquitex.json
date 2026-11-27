@@ -11,8 +11,8 @@
     "pigments": ["PR206", "PR202"],
     "discontinued": false,
     "special": null,
-    "K": [0.0721977, 0.516677, 0.588448],
-    "S": [0.0511221, 0.0511221, 0.0511221],
+    "K": [0.352098, 1.23078, 3.79968, 9.41859, 7.67691, 2.74282, 0.867456, 0.230776, 0.0385038, 0.00256846, 6.10154e-05],
+    "S": [0.103091, 0.103091, 0.103091, 0.103091, 0.103091, 0.103091, 0.103091, 0.103091, 0.103091, 0.103091, 0.103091],
     "munsell": "6.12R 3.17/11.99",
     "lab_from_munsell": [32.13, 53.59, 28.17],
     "series": 2,
@@ -22,7 +22,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-alizarin-crimson-hue-permanent",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Bright Aqua Green",
@@ -36,8 +37,8 @@
     "pigments": ["PG7", "PB15", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [5.50708, 0.870855, 1.04718],
-    "S": [1.93177, 1.93177, 1.93177],
+    "K": [13.6374, 3.0405, 1.05743, 0.59188, 0.581327, 1.00487, 2.81376, 12.1993, 409.041, 547.124, 547.124],
+    "S": [2.19728, 2.19728, 2.19728, 2.19728, 2.19728, 2.19728, 2.19728, 2.19728, 2.19728, 2.19728, 2.19728],
     "munsell": "4.56BG 6.18/9.8",
     "lab_from_munsell": [62.83, -47.99, -5.85],
     "series": 2,
@@ -47,7 +48,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-bright-aqua-green",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Brilliant Blue",
@@ -61,8 +63,8 @@
     "pigments": ["PB15:3", "PG7", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [10.3616, 2.96623, 0.792881],
-    "S": [2.01344, 2.01344, 2.01344],
+    "K": [0.816674, 0.737125, 0.815744, 1.10006, 1.77787, 3.37887, 7.55876, 21.6805, 171.616, 491.561, 491.561],
+    "S": [1.97413, 1.97413, 1.97413, 1.97413, 1.97413, 1.97413, 1.97413, 1.97413, 1.97413, 1.97413, 1.97413],
     "munsell": "8.21B 4.77/9.75",
     "lab_from_munsell": [48.66, -16.02, -36.55],
     "series": 1,
@@ -72,7 +74,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-brilliant-blue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Brilliant Purple",
@@ -86,8 +89,8 @@
     "pigments": ["PV23", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [2.81812, 4.9131, 0.715647],
-    "S": [2.10722, 2.10722, 2.10722],
+    "K": [0.130839, 0.405946, 1.02763, 2.42015, 5.11826, 7.6073, 6.38734, 4.00741, 2.4753, 1.58465, 1.03518],
+    "S": [2.48271, 2.48271, 2.48271, 2.48271, 2.48271, 2.48271, 2.48271, 2.48271, 2.48271, 2.48271, 2.48271],
     "munsell": "1.87P 4.77/11.45",
     "lab_from_munsell": [48.66, 31.29, -39.37],
     "series": 1,
@@ -97,7 +100,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-brilliant-purple",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Brilliant Yellow Green",
@@ -111,8 +115,8 @@
     "pigments": ["PG7", "PW6", "PY3", "PY97"],
     "discontinued": false,
     "special": null,
-    "K": [0.528187, 0.127089, 6.76229],
-    "S": [2.65231, 2.65231, 2.65231],
+    "K": [571.117, 571.117, 9.23874, 1.0051, 0.18918, 0.0848314, 0.108511, 0.376172, 2.636, 37.7772, 571.117],
+    "S": [2.29363, 2.29363, 2.29363, 2.29363, 2.29363, 2.29363, 2.29363, 2.29363, 2.29363, 2.29363, 2.29363],
     "munsell": "5.96GY 8.36/10.95",
     "lab_from_munsell": [84.0, -37.59, 68.11],
     "series": 2,
@@ -122,7 +126,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-brilliant-yellow-green",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Bronze Yellow",
@@ -136,8 +141,8 @@
     "pigments": ["PY42", "PR101", "PBk11"],
     "discontinued": false,
     "special": null,
-    "K": [1.25741, 1.89134, 6.54014],
-    "S": [1.16643, 1.16643, 1.16643],
+    "K": [287.76, 25.0673, 8.00659, 4.45216, 2.95118, 2.14429, 1.64609, 1.30462, 1.05217, 0.857234, 0.702903],
+    "S": [1.15566, 1.15566, 1.15566, 1.15566, 1.15566, 1.15566, 1.15566, 1.15566, 1.15566, 1.15566, 1.15566],
     "munsell": "1.82Y 4.97/5.42",
     "lab_from_munsell": [50.7, 4.69, 36.49],
     "series": 1,
@@ -147,7 +152,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-bronze-yellow",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Burnt Sienna",
@@ -161,8 +167,8 @@
     "pigments": ["PBr7"],
     "discontinued": false,
     "special": null,
-    "K": [1.83751, 3.73287, 5.44244],
-    "S": [0.691117, 0.691117, 0.691117],
+    "K": [6.62127, 7.60763, 8.86703, 9.73311, 8.37086, 5.50751, 3.33992, 2.12078, 1.44652, 1.04207, 0.777603],
+    "S": [0.696392, 0.696392, 0.696392, 0.696392, 0.696392, 0.696392, 0.696392, 0.696392, 0.696392, 0.696392, 0.696392],
     "munsell": "0.73YR 3.24/4.6",
     "lab_from_munsell": [32.86, 19.38, 17.1],
     "series": 1,
@@ -172,7 +178,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-burnt-sienna",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Burnt Umber",
@@ -186,8 +193,8 @@
     "pigments": ["PBr7"],
     "discontinued": false,
     "special": null,
-    "K": [2.05461, 2.38734, 2.69633],
-    "S": [0.355484, 0.355484, 0.355484],
+    "K": [3.53782, 3.46913, 3.40141, 3.31086, 3.14961, 2.89888, 2.59826, 2.30766, 2.05854, 1.85152, 1.67826],
+    "S": [0.289911, 0.289911, 0.289911, 0.289911, 0.289911, 0.289911, 0.289911, 0.289911, 0.289911, 0.289911, 0.289911],
     "munsell": "5.24YR 2.59/0.99",
     "lab_from_munsell": [26.17, 3.67, 4.65],
     "series": 1,
@@ -197,7 +204,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-burnt-umber",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cadmium Orange",
@@ -211,8 +219,8 @@
     "pigments": ["PO20"],
     "discontinued": false,
     "special": null,
-    "K": [0.230627, 4.32452, 72.3341],
-    "S": [4.84246, 4.84246, 4.84246],
+    "K": [469.995, 596.695, 330.382, 131.331, 45.5136, 12.4554, 2.06391, 0.148672, 0.00459387, 0.00046061, 0.00046061],
+    "S": [9.12008, 9.12008, 9.12008, 9.12008, 9.12008, 9.12008, 9.12008, 9.12008, 9.12008, 9.12008, 9.12008],
     "munsell": "3.25YR 6.68/17.47",
     "lab_from_munsell": [67.74, 44.31, 91.66],
     "series": 5,
@@ -222,7 +230,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cadmium-orange",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cadmium Red Light",
@@ -236,8 +245,8 @@
     "pigments": ["PR108"],
     "discontinued": false,
     "special": null,
-    "K": [0.623412, 7.81786, 21.591],
-    "S": [2.47343, 2.47343, 2.47343],
+    "K": [13.5365, 48.1091, 117.158, 159.265, 98.6511, 36.9034, 9.35907, 1.19222, 0.0459237, 0.000546832, 0.000296006],
+    "S": [5.86092, 5.86092, 5.86092, 5.86092, 5.86092, 5.86092, 5.86092, 5.86092, 5.86092, 5.86092, 5.86092],
     "munsell": "8.3R 5.09/15.63",
     "lab_from_munsell": [51.92, 59.22, 52.3],
     "series": 6,
@@ -247,7 +256,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cadmium-red-light",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cadmium Red Medium",
@@ -261,8 +271,8 @@
     "pigments": ["PR108"],
     "discontinued": false,
     "special": null,
-    "K": [0.876302, 9.87564, 16.7868],
-    "S": [1.83268, 1.83268, 1.83268],
+    "K": [8.27023, 35.0505, 109.162, 215.69, 150.917, 53.9799, 14.4861, 2.37985, 0.136047, 0.0021, 0.000222249],
+    "S": [4.40054, 4.40054, 4.40054, 4.40054, 4.40054, 4.40054, 4.40054, 4.40054, 4.40054, 4.40054, 4.40054],
     "munsell": "6.95R 4.36/15.11",
     "lab_from_munsell": [44.45, 61.49, 41.59],
     "series": 5,
@@ -272,7 +282,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cadmium-red-medium",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cadmium Yellow Light",
@@ -286,8 +297,8 @@
     "pigments": ["PY35"],
     "discontinued": false,
     "special": null,
-    "K": [0.0914281, 0.223734, 44.4359],
-    "S": [6.58564, 6.58564, 6.58564],
+    "K": [1832.91, 1832.91, 219.777, 9.77902, 0.945071, 0.147085, 0.0541957, 0.0541432, 0.146672, 0.941138, 9.73315],
+    "S": [7.36107, 7.36107, 7.36107, 7.36107, 7.36107, 7.36107, 7.36107, 7.36107, 7.36107, 7.36107, 7.36107],
     "munsell": "7.07Y 8.89/13.88",
     "lab_from_munsell": [89.11, -11.21, 101.1],
     "series": 4,
@@ -297,7 +308,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cadmium-yellow-light",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cadmium Yellow Medium",
@@ -311,8 +323,8 @@
     "pigments": ["PY35"],
     "discontinued": false,
     "special": null,
-    "K": [0.0879757, 1.14803, 79.7144],
-    "S": [7.97051, 7.97051, 7.97051],
+    "K": [2276.2, 2276.2, 234.772, 28.8486, 5.62487, 1.09545, 0.223528, 0.0545911, 0.0173266, 0.00740452, 0.00432014],
+    "S": [9.14134, 9.14134, 9.14134, 9.14134, 9.14134, 9.14134, 9.14134, 9.14134, 9.14134, 9.14134, 9.14134],
     "munsell": "1.42Y 8.25/15.52",
     "lab_from_munsell": [82.94, 10.78, 101.99],
     "series": 4,
@@ -322,7 +334,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cadmium-yellow-medium",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cadmium-Free Orange",
@@ -336,8 +349,8 @@
     "pigments": [],
     "discontinued": false,
     "special": null,
-    "K": [0.207635, 4.75665, 20.5572],
-    "S": [5.05207, 5.05207, 5.05207],
+    "K": [7.78934, 31.9724, 69.8492, 81.2755, 48.8382, 16.0928, 2.4334, 0.102766, 0.00112531, 0.000523765, 0.000523765],
+    "S": [10.3705, 10.3705, 10.3705, 10.3705, 10.3705, 10.3705, 10.3705, 10.3705, 10.3705, 10.3705, 10.3705],
     "munsell": "10R 6.7/14",
     "lab_from_munsell": [67.94, 48.98, 56.48],
     "series": null,
@@ -347,7 +360,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cadmium-free-orange",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cadmium-Free Red Deep",
@@ -361,8 +375,8 @@
     "pigments": [],
     "discontinued": false,
     "special": null,
-    "K": [1.2907, 6.1511, 7.46455],
-    "S": [1.21626, 1.21626, 1.21626],
+    "K": [4.46889, 7.18967, 14.6309, 48.4896, 61.1785, 12.3653, 3.91425, 1.62339, 0.760175, 0.364233, 0.163194],
+    "S": [1.46605, 1.46605, 1.46605, 1.46605, 1.46605, 1.46605, 1.46605, 1.46605, 1.46605, 1.46605, 1.46605],
     "munsell": "5R 3.9/10",
     "lab_from_munsell": [39.7, 43.38, 21.51],
     "series": 4,
@@ -372,7 +386,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cadmium-free-red-deep",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cadmium-Free Red Light",
@@ -386,8 +401,8 @@
     "pigments": [],
     "discontinued": false,
     "special": null,
-    "K": [0.63587, 6.67098, 14.0159],
-    "S": [2.44139, 2.44139, 2.44139],
+    "K": [7.58157, 25.0656, 54.1923, 72.09, 53.7398, 24.6991, 7.41732, 1.17768, 0.0659435, 0.00124876, 0.000263143],
+    "S": [5.21022, 5.21022, 5.21022, 5.21022, 5.21022, 5.21022, 5.21022, 5.21022, 5.21022, 5.21022, 5.21022],
     "munsell": "7.5R 5.2/14",
     "lab_from_munsell": [53.03, 55.35, 41.9],
     "series": 5,
@@ -397,7 +412,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cadmium-free-red-light",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cadmium-Free Red Medium",
@@ -411,8 +427,8 @@
     "pigments": [],
     "discontinued": false,
     "special": null,
-    "K": [0.97218, 6.43462, 11.5803],
-    "S": [1.68428, 1.68428, 1.68428],
+    "K": [6.1051, 10.5801, 26.0359, 327.309, 154.715, 12.9524, 3.5243, 1.22589, 0.433225, 0.123609, 0.0141456],
+    "S": [2.12891, 2.12891, 2.12891, 2.12891, 2.12891, 2.12891, 2.12891, 2.12891, 2.12891, 2.12891, 2.12891],
     "munsell": "7.5R 4.5/12",
     "lab_from_munsell": [45.89, 49.04, 35.19],
     "series": 5,
@@ -422,7 +438,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cadmium-free-red-medium",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cadmium-Free Yellow Deep",
@@ -436,8 +453,8 @@
     "pigments": [],
     "discontinued": false,
     "special": null,
-    "K": [0.0845028, 2.06058, 45.9285],
-    "S": [8.03763, 8.03763, 8.03763],
+    "K": [281.659, 185.505, 96.8405, 42.142, 14.5873, 3.47642, 0.469191, 0.0337102, 0.00142788, 0.000626291, 0.000626291],
+    "S": [12.4006, 12.4006, 12.4006, 12.4006, 12.4006, 12.4006, 12.4006, 12.4006, 12.4006, 12.4006, 12.4006],
     "munsell": "7.5YR 7.9/14",
     "lab_from_munsell": [79.56, 23.82, 83.5],
     "series": null,
@@ -447,7 +464,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cadmium-free-yellow-deep",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cadmium-Free Yellow Light",
@@ -461,8 +479,8 @@
     "pigments": [],
     "discontinued": false,
     "special": null,
-    "K": [0.069129, 0.330846, 31.0447],
-    "S": [8.50984, 8.50984, 8.50984],
+    "K": [2185.62, 2185.62, 52.0838, 7.37323, 1.22965, 0.253821, 0.0789675, 0.0409694, 0.0366784, 0.0569139, 0.150078],
+    "S": [8.77754, 8.77754, 8.77754, 8.77754, 8.77754, 8.77754, 8.77754, 8.77754, 8.77754, 8.77754, 8.77754],
     "munsell": "5Y 8.9/12",
     "lab_from_munsell": [89.21, -5.57, 86.24],
     "series": 3,
@@ -472,7 +490,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cadmium-free-yellow-light",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cadmium-Free Yellow Medium",
@@ -486,8 +505,8 @@
     "pigments": [],
     "discontinued": false,
     "special": null,
-    "K": [0.0404743, 1.51224, 62.3943],
-    "S": [11.5558, 11.5558, 11.5558],
+    "K": [1479.84, 343.053, 116.267, 38.6556, 10.3395, 1.78492, 0.171404, 0.00971531, 0.000779271, 0.000779271, 0.000779271],
+    "S": [15.4296, 15.4296, 15.4296, 15.4296, 15.4296, 15.4296, 15.4296, 15.4296, 15.4296, 15.4296, 15.4296],
     "munsell": "10YR 8.4/14",
     "lab_from_munsell": [84.38, 14.73, 89.25],
     "series": 3,
@@ -497,7 +516,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cadmium-free-yellow-medium",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cerulean Blue",
@@ -511,8 +531,8 @@
     "pigments": ["PB36"],
     "discontinued": false,
     "special": null,
-    "K": [12.1696, 5.11424, 1.05394],
-    "S": [1.53457, 1.53457, 1.53457],
+    "K": [0.563503, 0.83926, 1.31858, 2.17423, 3.76509, 6.93257, 14.1064, 35.9274, 298.203, 412.983, 412.983],
+    "S": [1.65856, 1.65856, 1.65856, 1.65856, 1.65856, 1.65856, 1.65856, 1.65856, 1.65856, 1.65856, 1.65856],
     "munsell": "2.85PB 3.64/10.45",
     "lab_from_munsell": [37.01, 0.19, -43.83],
     "series": 5,
@@ -522,7 +542,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cerulean-blue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cerulean Blue Hue",
@@ -536,8 +557,8 @@
     "pigments": ["PB29", "PG7", "PW6", "PB15:3"],
     "discontinued": false,
     "special": null,
-    "K": [8.44386, 4.27275, 1.0224],
-    "S": [1.56802, 1.56802, 1.56802],
+    "K": [0.496773, 0.798396, 1.28349, 2.06599, 3.34403, 5.48983, 9.28383, 16.66, 34.0209, 102.595, 419.183],
+    "S": [1.68346, 1.68346, 1.68346, 1.68346, 1.68346, 1.68346, 1.68346, 1.68346, 1.68346, 1.68346, 1.68346],
     "munsell": "3.25PB 3.98/9.57",
     "lab_from_munsell": [40.53, 0.07, -39.09],
     "series": 2,
@@ -547,7 +568,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cerulean-blue-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Chromium Oxide Green",
@@ -561,8 +583,8 @@
     "pigments": ["PG17"],
     "discontinued": false,
     "special": null,
-    "K": [3.02751, 1.89869, 4.31085],
-    "S": [0.780935, 0.780935, 0.780935],
+    "K": [165.199, 12.3126, 4.69009, 2.63103, 1.92154, 1.79271, 2.13344, 3.25594, 6.65372, 24.4715, 165.199],
+    "S": [0.663445, 0.663445, 0.663445, 0.663445, 0.663445, 0.663445, 0.663445, 0.663445, 0.663445, 0.663445, 0.663445],
     "munsell": "9.14GY 3.97/4.56",
     "lab_from_munsell": [40.43, -21.17, 18.9],
     "series": 2,
@@ -572,7 +594,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-chromium-oxide-green",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cobalt Blue",
@@ -586,8 +609,8 @@
     "pigments": ["PB28"],
     "discontinued": false,
     "special": null,
-    "K": [11.4518, 9.844, 0.865321],
-    "S": [1.82377, 1.82377, 1.82377],
+    "K": [0.223519, 0.559831, 1.28627, 2.99048, 7.37719, 18.7434, 33.6203, 29.2957, 20.5382, 15.1078, 11.7514],
+    "S": [2.23093, 2.23093, 2.23093, 2.23093, 2.23093, 2.23093, 2.23093, 2.23093, 2.23093, 2.23093, 2.23093],
     "munsell": "6.77PB 3.27/14.28",
     "lab_from_munsell": [33.17, 27.54, -58.85],
     "series": 5,
@@ -597,7 +620,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cobalt-blue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cobalt Blue Hue",
@@ -611,8 +635,8 @@
     "pigments": ["PB29", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [9.85452, 12.5604, 0.951209],
-    "S": [1.64122, 1.64122, 1.64122],
+    "K": [0.25952, 0.627609, 1.44266, 3.49419, 9.66879, 30.7683, 46.6195, 23.4826, 12.718, 8.17634, 5.7951],
+    "S": [2.03311, 2.03311, 2.03311, 2.03311, 2.03311, 2.03311, 2.03311, 2.03311, 2.03311, 2.03311, 2.03311],
     "munsell": "7.61PB 2.92/15.19",
     "lab_from_munsell": [29.55, 37.57, -60.5],
     "series": 2,
@@ -622,7 +646,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cobalt-blue-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cobalt Green",
@@ -636,8 +661,8 @@
     "pigments": ["PG50"],
     "discontinued": false,
     "special": null,
-    "K": [5.30906, 1.93197, 2.03875],
-    "S": [0.624722, 0.624722, 0.624722],
+    "K": [10.5997, 3.9729, 2.24987, 1.71079, 1.7203, 2.28792, 4.09211, 11.1847, 153.432, 153.432, 153.432],
+    "S": [0.616191, 0.616191, 0.616191, 0.616191, 0.616191, 0.616191, 0.616191, 0.616191, 0.616191, 0.616191, 0.616191],
     "munsell": "3.98BG 3.48/6.1",
     "lab_from_munsell": [35.35, -29.48, -4.63],
     "series": 4,
@@ -647,7 +672,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cobalt-green",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cobalt Teal",
@@ -661,8 +687,8 @@
     "pigments": ["PG50"],
     "discontinued": false,
     "special": null,
-    "K": [5.65373, 0.947971, 0.722742],
-    "S": [1.6778, 1.6778, 1.6778],
+    "K": [5.34784, 1.66187, 0.751681, 0.53199, 0.618296, 1.1548, 3.21489, 13.3885, 483.0, 483.0, 483.0],
+    "S": [1.93975, 1.93975, 1.93975, 1.93975, 1.93975, 1.93975, 1.93975, 1.93975, 1.93975, 1.93975, 1.93975],
     "munsell": "8.23BG 5.93/9.56",
     "lab_from_munsell": [60.35, -42.26, -15.0],
     "series": 3,
@@ -672,7 +698,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cobalt-teal",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Cobalt Turquoise",
@@ -686,8 +713,8 @@
     "pigments": ["PB36"],
     "discontinued": false,
     "special": null,
-    "K": [6.17801, 1.93409, 1.52661],
-    "S": [0.681885, 0.681885, 0.681885],
+    "K": [5.22905, 2.49016, 1.61262, 1.37987, 1.55956, 2.32797, 4.6889, 15.4064, 168.217, 168.217, 168.217],
+    "S": [0.675567, 0.675567, 0.675567, 0.675567, 0.675567, 0.675567, 0.675567, 0.675567, 0.675567, 0.675567, 0.675567],
     "munsell": "8.18BG 3.62/6.64",
     "lab_from_munsell": [36.8, -28.67, -12.92],
     "series": 3,
@@ -697,7 +724,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-cobalt-turquoise",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Deep Brilliant Red",
@@ -711,8 +739,8 @@
     "pigments": ["PR170", "PV19"],
     "discontinued": false,
     "special": null,
-    "K": [1.54769, 8.29758, 9.61986],
-    "S": [0.926793, 0.926793, 0.926793],
+    "K": [5.30358, 9.40724, 27.9319, 281.952, 281.952, 25.0091, 5.095, 2.0355, 1.00797, 0.542902, 0.296509],
+    "S": [1.13233, 1.13233, 1.13233, 1.13233, 1.13233, 1.13233, 1.13233, 1.13233, 1.13233, 1.13233, 1.13233],
     "munsell": "5.83R 3.12/10.42",
     "lab_from_munsell": [31.62, 46.91, 23.88],
     "series": 4,
@@ -722,7 +750,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": null,
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Deep Magenta",
@@ -736,8 +765,8 @@
     "pigments": ["PR122", "PV19", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [1.02147, 4.08136, 2.29641],
-    "S": [0.256195, 0.256195, 0.256195],
+    "K": [1.47147, 2.37221, 5.15912, 49.5893, 72.7197, 31.6881, 3.54583, 1.432, 0.790919, 0.502747, 0.343224],
+    "S": [0.292046, 0.292046, 0.292046, 0.292046, 0.292046, 0.292046, 0.292046, 0.292046, 0.292046, 0.292046, 0.292046],
     "munsell": "1.22R 1.99/9.45",
     "lab_from_munsell": [20.14, 42.73, -0.1],
     "series": 3,
@@ -747,7 +776,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-deep-magenta",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Deep Violet",
@@ -761,8 +791,8 @@
     "pigments": ["PR122", "PV19"],
     "discontinued": false,
     "special": null,
-    "K": [0.0885707, 0.510425, 0.167736],
-    "S": [0.0340205, 0.0340205, 0.0340205],
+    "K": [0.086897, 0.145775, 0.313314, 1.63727, 10.2846, 6.7656, 0.346784, 0.124347, 0.0622183, 0.0356367, 0.0215915],
+    "S": [0.0413036, 0.0413036, 0.0413036, 0.0413036, 0.0413036, 0.0413036, 0.0413036, 0.0413036, 0.0413036, 0.0413036, 0.0413036],
     "munsell": "6.8RP 2.48/11.49",
     "lab_from_munsell": [25.05, 52.51, -9.57],
     "series": 3,
@@ -772,7 +802,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-deep-violet",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Dioxazine Purple",
@@ -786,8 +817,8 @@
     "pigments": ["PV23"],
     "discontinued": false,
     "special": null,
-    "K": [0.156338, 0.237788, 0.115835],
-    "S": [0.0172241, 0.0172241, 0.0172241],
+    "K": [0.0789593, 0.106978, 0.158941, 0.269532, 0.48448, 0.593285, 0.395241, 0.23801, 0.159836, 0.117804, 0.0921012],
+    "S": [0.015001, 0.015001, 0.015001, 0.015001, 0.015001, 0.015001, 0.015001, 0.015001, 0.015001, 0.015001, 0.015001],
     "munsell": "5.83P 1.53/5",
     "lab_from_munsell": [15.62, 20.18, -16.68],
     "series": 3,
@@ -797,7 +828,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-dioxazine-purple",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Emerald Green",
@@ -811,8 +843,8 @@
     "pigments": ["PG7", "PY97", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [7.96052, 1.85492, 4.86569],
-    "S": [0.85764, 0.85764, 0.85764],
+    "K": [207.616, 165.457, 6.4688, 2.27111, 1.52903, 1.91654, 4.50448, 30.4441, 207.616, 207.616, 207.616],
+    "S": [0.833798, 0.833798, 0.833798, 0.833798, 0.833798, 0.833798, 0.833798, 0.833798, 0.833798, 0.833798, 0.833798],
     "munsell": "3.83G 3.88/9.92",
     "lab_from_munsell": [39.49, -52.82, 17.92],
     "series": 2,
@@ -822,7 +854,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-emerald-green",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Green Deep Permanent",
@@ -836,8 +869,8 @@
     "pigments": ["PG7", "PW6", "PY97"],
     "discontinued": false,
     "special": null,
-    "K": [4.91062, 2.57379, 3.82899],
-    "S": [0.341773, 0.341773, 0.341773],
+    "K": [61.7797, 17.4826, 4.96231, 2.95596, 2.47319, 2.75383, 4.20387, 11.1017, 61.7797, 61.7797, 61.7797],
+    "S": [0.24811, 0.24811, 0.24811, 0.24811, 0.24811, 0.24811, 0.24811, 0.24811, 0.24811, 0.24811, 0.24811],
     "munsell": "4.84G 2.04/5.62",
     "lab_from_munsell": [20.63, -25.82, 7.17],
     "series": 2,
@@ -847,7 +880,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-green-deep-permanent",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Green Gold",
@@ -861,8 +895,8 @@
     "pigments": ["PY129"],
     "discontinued": false,
     "special": null,
-    "K": [0.0462522, 0.0753802, 0.778309],
-    "S": [0.0833466, 0.0833466, 0.0833466],
+    "K": [20.1452, 20.1452, 1.36801, 0.366306, 0.147467, 0.075467, 0.0491075, 0.0416626, 0.0466742, 0.068432, 0.128142],
+    "S": [0.0809042, 0.0809042, 0.0809042, 0.0809042, 0.0809042, 0.0809042, 0.0809042, 0.0809042, 0.0809042, 0.0809042, 0.0809042],
     "munsell": "3.81Y 5.85/9.32",
     "lab_from_munsell": [59.56, 1.98, 64.71],
     "series": 4,
@@ -872,7 +906,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-green-gold",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Hooker's Green Deep Hue Permanent",
@@ -886,8 +921,8 @@
     "pigments": ["PBk7", "PG7", "PY74"],
     "discontinued": false,
     "special": null,
-    "K": [2.55913, 2.40124, 2.40313],
-    "S": [0.185142, 0.185142, 0.185142],
+    "K": [3.05972, 2.94826, 2.84549, 2.76778, 2.75151, 2.8305, 3.02135, 3.32068, 3.72045, 4.23545, 4.91256],
+    "S": [0.0953414, 0.0953414, 0.0953414, 0.0953414, 0.0953414, 0.0953414, 0.0953414, 0.0953414, 0.0953414, 0.0953414, 0.0953414],
     "munsell": "3.93BG 1.26/0.61",
     "lab_from_munsell": [12.99, -2.35, -0.56],
     "series": 2,
@@ -897,7 +932,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-hooker-s-green-deep-hue-permanent",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Hooker's Green Hue Permanent",
@@ -911,8 +947,8 @@
     "pigments": ["PG7", "PY110"],
     "discontinued": false,
     "special": null,
-    "K": [1.59758, 1.12832, 2.46224],
-    "S": [0.251626, 0.251626, 0.251626],
+    "K": [48.8359, 11.9856, 3.16638, 1.67705, 1.19831, 1.08415, 1.22864, 1.76862, 3.48746, 15.9385, 48.8359],
+    "S": [0.196127, 0.196127, 0.196127, 0.196127, 0.196127, 0.196127, 0.196127, 0.196127, 0.196127, 0.196127, 0.196127],
     "munsell": "7.33GY 3.01/4.34",
     "lab_from_munsell": [30.48, -17.34, 19.27],
     "series": 2,
@@ -922,7 +958,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-hooker-s-green-hue-permanent",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Indanthrene Blue",
@@ -936,8 +973,8 @@
     "pigments": ["PB60"],
     "discontinued": false,
     "special": null,
-    "K": [0.310432, 0.405217, 0.0807096],
-    "S": [0.0413795, 0.0413795, 0.0413795],
+    "K": [0.0437195, 0.0669079, 0.110645, 0.207489, 0.449174, 0.932653, 0.981692, 0.611495, 0.393064, 0.279766, 0.213115],
+    "S": [0.045379, 0.045379, 0.045379, 0.045379, 0.045379, 0.045379, 0.045379, 0.045379, 0.045379, 0.045379, 0.045379],
     "munsell": "8.74PB 2.28/9.84",
     "lab_from_munsell": [23.03, 26.2, -40.0],
     "series": 4,
@@ -947,7 +984,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-indantherene-blue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Indian Yellow",
@@ -961,8 +999,8 @@
     "pigments": ["PY139"],
     "discontinued": false,
     "special": null,
-    "K": [0.00740814, 0.0954705, 3.97645],
-    "S": [0.311132, 0.311132, 0.311132],
+    "K": [99.2845, 99.2845, 12.8103, 2.07299, 0.519247, 0.125107, 0.0263056, 0.00504973, 0.000963072, 0.000193303, 4.199e-05],
+    "S": [0.398731, 0.398731, 0.398731, 0.398731, 0.398731, 0.398731, 0.398731, 0.398731, 0.398731, 0.398731, 0.398731],
     "munsell": "8.59YR 7.66/16.1",
     "lab_from_munsell": [77.25, 21.76, 100.07],
     "series": 3,
@@ -972,7 +1010,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-indian-yellow",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Indigo",
@@ -986,8 +1025,8 @@
     "pigments": ["PB15:1", "PV19", "PBk7"],
     "discontinued": false,
     "special": null,
-    "K": [2.60151, 2.03612, 1.03836],
-    "S": [0.237861, 0.237861, 0.237861],
+    "K": [0.804852, 0.988655, 1.25558, 1.65809, 2.24983, 3.04271, 3.98895, 5.11961, 6.74554, 9.67227, 16.8107],
+    "S": [0.213689, 0.213689, 0.213689, 0.213689, 0.213689, 0.213689, 0.213689, 0.213689, 0.213689, 0.213689, 0.213689],
     "munsell": "3.58PB 2.09/4.51",
     "lab_from_munsell": [21.13, 1.07, -20.1],
     "series": 1,
@@ -997,7 +1036,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-indigo",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Ivory Black",
@@ -1011,8 +1051,8 @@
     "pigments": ["PBk9"],
     "discontinued": false,
     "special": null,
-    "K": [2.29374, 2.29374, 2.29374],
-    "S": [0.217309, 0.217309, 0.217309],
+    "K": [2.57102, 2.57102, 2.57102, 2.57102, 2.57102, 2.57102, 2.57102, 2.57102, 2.57102, 2.57102, 2.57102],
+    "S": [0.128582, 0.128582, 0.128582, 0.128582, 0.128582, 0.128582, 0.128582, 0.128582, 0.128582, 0.128582, 0.128582],
     "munsell": "N1.71",
     "lab_from_munsell": [17.38, 0.0, 0.0],
     "series": 1,
@@ -1022,7 +1062,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-ivory-black",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Light Bismuth Yellow",
@@ -1036,8 +1077,8 @@
     "pigments": ["PY184", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [0.0455106, 0.0319283, 0.387335],
-    "S": [4.46611, 4.46611, 4.46611],
+    "K": [1.38964, 0.714379, 0.336546, 0.139017, 0.0542077, 0.0274072, 0.0258901, 0.0379646, 0.0595081, 0.0886373, 0.125319],
+    "S": [4.15581, 4.15581, 4.15581, 4.15581, 4.15581, 4.15581, 4.15581, 4.15581, 4.15581, 4.15581, 4.15581],
     "munsell": "2.12GY 9.45/3.5",
     "lab_from_munsell": [94.57, -6.65, 16.47],
     "series": 1,
@@ -1047,7 +1088,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-light-bismuth-yellow",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Light Blue Permanent",
@@ -1061,8 +1103,8 @@
     "pigments": ["PB15", "PG7", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [4.08323, 1.03424, 0.364976],
-    "S": [3.16622, 3.16622, 3.16622],
+    "K": [0.555182, 0.379173, 0.330961, 0.37245, 0.536296, 0.964243, 2.08335, 5.23272, 15.6949, 77.264, 719.779],
+    "S": [2.89067, 2.89067, 2.89067, 2.89067, 2.89067, 2.89067, 2.89067, 2.89067, 2.89067, 2.89067, 2.89067],
     "munsell": "4.41B 6.81/7.81",
     "lab_from_munsell": [69.01, -24.37, -23.0],
     "series": 1,
@@ -1072,7 +1114,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-light-blue-permanent",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Light Blue Violet",
@@ -1086,8 +1129,8 @@
     "pigments": ["PB29", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [4.57852, 3.46728, 0.308332],
-    "S": [3.82452, 3.82452, 3.82452],
+    "K": [0.00135308, 0.105841, 0.468883, 1.29792, 2.80098, 4.78477, 6.37894, 7.08579, 7.33398, 7.48585, 7.63024],
+    "S": [4.62167, 4.62167, 4.62167, 4.62167, 4.62167, 4.62167, 4.62167, 4.62167, 4.62167, 4.62167, 4.62167],
     "munsell": "6.64PB 5.89/10.9",
     "lab_from_munsell": [59.95, 10.96, -42.66],
     "series": 2,
@@ -1097,7 +1140,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-light-blue-violet",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Light Emerald Green",
@@ -1111,8 +1155,8 @@
     "pigments": ["PG7", "PY97", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [4.09755, 0.99833, 7.06306],
-    "S": [1.97597, 1.97597, 1.97597],
+    "K": [464.568, 464.568, 9.19362, 2.05386, 0.89014, 0.819981, 1.63322, 6.34561, 88.061, 464.568, 464.568],
+    "S": [1.86573, 1.86573, 1.86573, 1.86573, 1.86573, 1.86573, 1.86573, 1.86573, 1.86573, 1.86573, 1.86573],
     "munsell": "0.67G 6.01/11.13",
     "lab_from_munsell": [61.15, -53.9, 40.31],
     "series": 2,
@@ -1122,7 +1166,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-light-emerald-green",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Light Green Oxide",
@@ -1136,8 +1181,8 @@
     "pigments": ["PG50"],
     "discontinued": false,
     "special": null,
-    "K": [3.66508, 1.18213, 3.88982],
-    "S": [1.65144, 1.65144, 1.65144],
+    "K": [382.306, 16.0098, 3.94345, 1.61785, 1.03374, 1.07222, 1.79721, 4.6705, 21.363, 382.306, 382.306],
+    "S": [1.53536, 1.53536, 1.53536, 1.53536, 1.53536, 1.53536, 1.53536, 1.53536, 1.53536, 1.53536, 1.53536],
     "munsell": "2.12G 5.64/8.08",
     "lab_from_munsell": [57.46, -41.8, 22.9],
     "series": 4,
@@ -1147,7 +1192,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": null,
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Light Green Permanent",
@@ -1161,8 +1207,8 @@
     "pigments": ["PG7", "PY97", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [6.87615, 1.46021, 8.15558],
-    "S": [1.2638, 1.2638, 1.2638],
+    "K": [309.3, 309.3, 14.8572, 2.71158, 1.2277, 1.30346, 3.22142, 21.4995, 309.3, 309.3, 309.3],
+    "S": [1.24216, 1.24216, 1.24216, 1.24216, 1.24216, 1.24216, 1.24216, 1.24216, 1.24216, 1.24216, 1.24216],
     "munsell": "1.35G 4.79/11.89",
     "lab_from_munsell": [48.86, -61.1, 36.68],
     "series": 2,
@@ -1172,7 +1218,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-light-green-permanent",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Light Phthalocyanine Green",
@@ -1186,8 +1233,8 @@
     "pigments": ["PG7", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [2.09376, 0.268533, 0.478005],
-    "S": [4.77159, 4.77159, 4.77159],
+    "K": [5.73912, 1.24543, 0.373007, 0.181354, 0.156356, 0.24274, 0.646451, 2.58847, 13.5304, 148.904, 1202.33],
+    "S": [4.82863, 4.82863, 4.82863, 4.82863, 4.82863, 4.82863, 4.82863, 4.82863, 4.82863, 4.82863, 4.82863],
     "munsell": "4.27BG 8.26/6.52",
     "lab_from_munsell": [83.03, -34.4, -1.26],
     "series": 1,
@@ -1197,7 +1244,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-light-phthalocyanine-green",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Light Portrait Pink",
@@ -1211,8 +1259,8 @@
     "pigments": ["PR188", "PO36", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [0.167248, 1.11653, 1.95775],
-    "S": [5.53661, 5.53661, 5.53661],
+    "K": [0.81956, 1.85943, 2.90158, 3.25793, 2.66277, 1.55237, 0.611564, 0.151168, 0.0223355, 0.00198568, 0.000345377],
+    "S": [6.83846, 6.83846, 6.83846, 6.83846, 6.83846, 6.83846, 6.83846, 6.83846, 6.83846, 6.83846, 6.83846],
     "munsell": "7.63R 8.06/5.54",
     "lab_from_munsell": [81.1, 20.71, 16.17],
     "series": 2,
@@ -1222,7 +1270,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": null,
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Liquitex Yellow",
@@ -1236,8 +1285,8 @@
     "pigments": ["PY3", "PY42"],
     "discontinued": false,
     "special": null,
-    "K": [0.24931, 0.689783, 11.6475],
-    "S": [1.48552, 1.48552, 1.48552],
+    "K": [363.143, 363.143, 19.2332, 4.82549, 1.66684, 0.683003, 0.337135, 0.210028, 0.171139, 0.18515, 0.264443],
+    "S": [1.4584, 1.4584, 1.4584, 1.4584, 1.4584, 1.4584, 1.4584, 1.4584, 1.4584, 1.4584, 1.4584],
     "munsell": "1.56Y 6.91/11.58",
     "lab_from_munsell": [69.99, 8.85, 76.41],
     "series": 2,
@@ -1247,7 +1296,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": null,
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Manganese Blue Hue",
@@ -1261,8 +1311,8 @@
     "pigments": ["PB15", "PG7", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [12.7429, 5.69862, 1.36952],
-    "S": [1.11628, 1.11628, 1.11628],
+    "K": [0.828363, 1.16104, 1.72431, 2.71136, 4.54355, 8.29966, 17.6696, 58.0014, 295.862, 295.862, 295.862],
+    "S": [1.1882, 1.1882, 1.1882, 1.1882, 1.1882, 1.1882, 1.1882, 1.1882, 1.1882, 1.1882, 1.1882],
     "munsell": "2.83PB 2.95/9.58",
     "lab_from_munsell": [29.86, 1.24, -41.21],
     "series": 2,
@@ -1272,7 +1322,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-manganese-blue-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Mars Black",
@@ -1286,8 +1337,8 @@
     "pigments": ["PBk11"],
     "discontinued": false,
     "special": null,
-    "K": [2.31472, 2.31472, 2.31472],
-    "S": [0.209437, 0.209437, 0.209437],
+    "K": [2.60524, 2.60524, 2.60524, 2.60524, 2.60524, 2.60524, 2.60524, 2.60524, 2.60524, 2.60524, 2.60524],
+    "S": [0.119835, 0.119835, 0.119835, 0.119835, 0.119835, 0.119835, 0.119835, 0.119835, 0.119835, 0.119835, 0.119835],
     "munsell": "N1.62",
     "lab_from_munsell": [16.5, 0.0, 0.0],
     "series": 1,
@@ -1297,7 +1348,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-mars-black",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Medium Magenta",
@@ -1311,8 +1363,8 @@
     "pigments": ["PR122", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [0.922101, 5.96847, 1.68253],
-    "S": [1.66693, 1.66693, 1.66693],
+    "K": [0.496798, 1.12415, 2.66455, 7.43136, 20.2285, 12.4659, 3.70758, 1.2123, 0.392846, 0.0951294, 0.00480224],
+    "S": [2.08672, 2.08672, 2.08672, 2.08672, 2.08672, 2.08672, 2.08672, 2.08672, 2.08672, 2.08672, 2.08672],
     "munsell": "3.34RP 4.73/13.45",
     "lab_from_munsell": [48.25, 55.71, -14.78],
     "series": 3,
@@ -1322,7 +1374,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-medium-magenta",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Muted Green",
@@ -1336,8 +1389,8 @@
     "pigments": ["PV23", "PY74", "PB15:3"],
     "discontinued": false,
     "special": null,
-    "K": [2.69816, 2.31305, 2.10923],
-    "S": [0.288338, 0.288338, 0.288338],
+    "K": [2.29319, 2.3122, 2.33232, 2.36774, 2.4549, 2.63906, 2.96277, 3.46522, 4.20719, 5.34091, 7.26225],
+    "S": [0.20864, 0.20864, 0.20864, 0.20864, 0.20864, 0.20864, 0.20864, 0.20864, 0.20864, 0.20864, 0.20864],
     "munsell": "2.29B 2.16/1.35",
     "lab_from_munsell": [21.83, -3.89, -3.77],
     "series": 3,
@@ -1347,7 +1400,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-muted-green",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Muted Grey",
@@ -1361,8 +1415,8 @@
     "pigments": ["PV23", "PY74", "PB15:3"],
     "discontinued": false,
     "special": null,
-    "K": [2.3307, 2.25848, 2.14587],
-    "S": [0.2441, 0.2441, 0.2441],
+    "K": [2.27199, 2.32521, 2.38085, 2.43953, 2.50266, 2.57172, 2.64738, 2.72931, 2.81692, 2.91016, 3.00946],
+    "S": [0.161173, 0.161173, 0.161173, 0.161173, 0.161173, 0.161173, 0.161173, 0.161173, 0.161173, 0.161173, 0.161173],
     "munsell": "9.17B 1.95/0.42",
     "lab_from_munsell": [19.74, -0.52, -1.73],
     "series": 3,
@@ -1372,7 +1426,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-muted-grey",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Muted Pink",
@@ -1386,8 +1441,8 @@
     "pigments": ["PV23", "PO36", "PR122"],
     "discontinued": false,
     "special": null,
-    "K": [1.84372, 4.30809, 4.9466],
-    "S": [0.683885, 0.683885, 0.683885],
+    "K": [4.51439, 5.9014, 8.26413, 11.6581, 11.7372, 7.13185, 3.80391, 2.20683, 1.41749, 0.976506, 0.701533],
+    "S": [0.71172, 0.71172, 0.71172, 0.71172, 0.71172, 0.71172, 0.71172, 0.71172, 0.71172, 0.71172, 0.71172],
     "munsell": "5.61R 3.09/5.26",
     "lab_from_munsell": [31.31, 24.7, 12.05],
     "series": 3,
@@ -1397,7 +1452,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-muted-pink",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Muted Turquoise",
@@ -1411,8 +1467,8 @@
     "pigments": ["PB60", "PG7"],
     "discontinued": false,
     "special": null,
-    "K": [7.40674, 4.2078, 1.81806],
-    "S": [0.67303, 0.67303, 0.67303],
+    "K": [1.42926, 1.70662, 2.13424, 2.80164, 3.88245, 5.75244, 9.38455, 18.2649, 60.9614, 159.662, 159.662],
+    "S": [0.641209, 0.641209, 0.641209, 0.641209, 0.641209, 0.641209, 0.641209, 0.641209, 0.641209, 0.641209, 0.641209],
     "munsell": "0.77PB 2.56/5.9",
     "lab_from_munsell": [25.87, -4.19, -25.97],
     "series": 3,
@@ -1422,7 +1478,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-muted-turquoise",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Muted Violet",
@@ -1436,8 +1493,8 @@
     "pigments": ["PV23", "PB15:3", "PR206"],
     "discontinued": false,
     "special": null,
-    "K": [2.04977, 4.94692, 4.43149],
-    "S": [0.527666, 0.527666, 0.527666],
+    "K": [3.65858, 5.11092, 8.07417, 14.6031, 18.9837, 10.2841, 4.74869, 2.59002, 1.63619, 1.13273, 0.827736],
+    "S": [0.544171, 0.544171, 0.544171, 0.544171, 0.544171, 0.544171, 0.544171, 0.544171, 0.544171, 0.544171, 0.544171],
     "munsell": "3.26R 2.47/5.7",
     "lab_from_munsell": [24.95, 27.11, 5.86],
     "series": 3,
@@ -1447,7 +1504,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-muted-violet",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Naphthol Crimson",
@@ -1461,8 +1519,8 @@
     "pigments": ["PR170"],
     "discontinued": false,
     "special": null,
-    "K": [0.523242, 7.23527, 10.4877],
-    "S": [0.757403, 0.757403, 0.757403],
+    "K": [4.56608, 27.1353, 231.383, 515.951, 515.951, 84.541, 13.9509, 1.9931, 0.097604, 0.000992571, 0.000104651],
+    "S": [2.07208, 2.07208, 2.07208, 2.07208, 2.07208, 2.07208, 2.07208, 2.07208, 2.07208, 2.07208, 2.07208],
     "munsell": "7.29R 3.76/16.1",
     "lab_from_munsell": [38.25, 66.64, 44.91],
     "series": 3,
@@ -1472,7 +1530,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-naphthol-crimson",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Naphthol Red Light",
@@ -1486,8 +1545,8 @@
     "pigments": ["PR9"],
     "discontinued": false,
     "special": null,
-    "K": [0.369018, 5.53991, 13.8869],
-    "S": [1.06597, 1.06597, 1.06597],
+    "K": [7.27195, 37.8667, 191.258, 741.859, 229.837, 44.1905, 8.73097, 0.950985, 0.0254719, 0.000161277, 0.000150472],
+    "S": [2.97934, 2.97934, 2.97934, 2.97934, 2.97934, 2.97934, 2.97934, 2.97934, 2.97934, 2.97934, 2.97934],
     "munsell": "8.13R 4.57/17.11",
     "lab_from_munsell": [46.61, 65.95, 56.31],
     "series": 3,
@@ -1497,7 +1556,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-naphthol-red-light",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Naples Yellow Hue",
@@ -1511,8 +1571,8 @@
     "pigments": ["PBr24", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [0.269717, 1.07827, 10.0557],
-    "S": [4.3883, 4.3883, 4.3883],
+    "K": [62.4242, 25.3857, 11.6522, 5.51267, 2.58283, 1.17691, 0.520372, 0.225283, 0.0968684, 0.0419607, 0.0185217],
+    "S": [4.54133, 4.54133, 4.54133, 4.54133, 4.54133, 4.54133, 4.54133, 4.54133, 4.54133, 4.54133, 4.54133],
     "munsell": "9.81YR 7.7/8.87",
     "lab_from_munsell": [77.64, 10.54, 55.78],
     "series": 2,
@@ -1522,7 +1582,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-naples-yellow-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Neutral Gray 4",
@@ -1536,8 +1597,8 @@
     "pigments": ["PBk9", "PBr7", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [1.74969, 1.74969, 1.74969],
-    "S": [0.493193, 0.493193, 0.493193],
+    "K": [1.865, 1.865, 1.865, 1.865, 1.865, 1.865, 1.865, 1.865, 1.865, 1.865, 1.865],
+    "S": [0.422616, 0.422616, 0.422616, 0.422616, 0.422616, 0.422616, 0.422616, 0.422616, 0.422616, 0.422616, 0.422616],
     "munsell": "N3.6",
     "lab_from_munsell": [36.59, 0.0, 0.0],
     "series": 1,
@@ -1547,7 +1608,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": null,
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Neutral Gray 5",
@@ -1561,8 +1623,8 @@
     "pigments": ["PBk9", "PBr7", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [1.38214, 1.38214, 1.38214],
-    "S": [0.769552, 0.769552, 0.769552],
+    "K": [1.45479, 1.45479, 1.45479, 1.45479, 1.45479, 1.45479, 1.45479, 1.45479, 1.45479, 1.45479, 1.45479],
+    "S": [0.707957, 0.707957, 0.707957, 0.707957, 0.707957, 0.707957, 0.707957, 0.707957, 0.707957, 0.707957, 0.707957],
     "munsell": "N4.71",
     "lab_from_munsell": [48.05, 0.0, -0.0],
     "series": 1,
@@ -1572,7 +1634,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-neutral-gray-5",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Neutral Gray 7",
@@ -1586,8 +1649,8 @@
     "pigments": ["PBk9", "PBr7", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [0.743448, 0.743448, 0.743448],
-    "S": [1.55826, 1.55826, 1.55826],
+    "K": [0.773024, 0.773024, 0.773024, 0.773024, 0.773024, 0.773024, 0.773024, 0.773024, 0.773024, 0.773024, 0.773024],
+    "S": [1.50642, 1.50642, 1.50642, 1.50642, 1.50642, 1.50642, 1.50642, 1.50642, 1.50642, 1.50642, 1.50642],
     "munsell": "N6.69",
     "lab_from_munsell": [67.84, 0.0, 0.0],
     "series": 1,
@@ -1597,7 +1660,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": null,
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Parchment",
@@ -1611,8 +1675,8 @@
     "pigments": ["PBk7", "PG7", "PW6", "PY42"],
     "discontinued": false,
     "special": null,
-    "K": [0.282257, 0.329387, 1.02727],
-    "S": [3.7607, 3.7607, 3.7607],
+    "K": [2.41864, 1.55004, 0.996019, 0.643497, 0.436864, 0.330695, 0.285363, 0.269635, 0.263454, 0.259089, 0.254958],
+    "S": [3.65824, 3.65824, 3.65824, 3.65824, 3.65824, 3.65824, 3.65824, 3.65824, 3.65824, 3.65824, 3.65824],
     "munsell": "5.63Y 8.4/2.05",
     "lab_from_munsell": [84.38, -2.83, 16.55],
     "series": 1,
@@ -1622,7 +1686,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-parchment",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Payne's Gray",
@@ -1636,8 +1701,8 @@
     "pigments": ["PB29", "PBk9", "PV15"],
     "discontinued": false,
     "special": null,
-    "K": [2.22412, 2.2065, 2.10443],
-    "S": [0.264554, 0.264554, 0.264554],
+    "K": [2.18731, 2.24878, 2.31336, 2.37821, 2.43546, 2.47717, 2.50178, 2.51519, 2.52457, 2.53321, 2.54182],
+    "S": [0.182472, 0.182472, 0.182472, 0.182472, 0.182472, 0.182472, 0.182472, 0.182472, 0.182472, 0.182472, 0.182472],
     "munsell": "5.16PB 2.15/0.3",
     "lab_from_munsell": [21.73, 0.19, -1.4],
     "series": 2,
@@ -1647,7 +1712,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-payne-s-gray",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Permanent Light Violet",
@@ -1661,8 +1727,8 @@
     "pigments": ["PV23", "PB15", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [1.20264, 1.88177, 0.261591],
-    "S": [4.11916, 4.11916, 4.11916],
+    "K": [0.000246174, 0.0825486, 0.390361, 1.05205, 1.9887, 2.56644, 2.28365, 1.61016, 1.03468, 0.633757, 0.364667],
+    "S": [4.87424, 4.87424, 4.87424, 4.87424, 4.87424, 4.87424, 4.87424, 4.87424, 4.87424, 4.87424, 4.87424],
     "munsell": "2.69P 7.03/7.97",
     "lab_from_munsell": [71.15, 19.24, -26.25],
     "series": 1,
@@ -1672,7 +1738,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": null,
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Phthalocyanine Blue (Green Shade)",
@@ -1686,8 +1753,8 @@
     "pigments": ["PB15"],
     "discontinued": false,
     "special": null,
-    "K": [0.462497, 0.372121, 0.0889835],
-    "S": [0.0352257, 0.0352257, 0.0352257],
+    "K": [0.0553167, 0.0785555, 0.119556, 0.20224, 0.388247, 0.812035, 1.45879, 1.69409, 1.53675, 1.3484, 1.19561],
+    "S": [0.0373483, 0.0373483, 0.0373483, 0.0373483, 0.0373483, 0.0373483, 0.0373483, 0.0373483, 0.0373483, 0.0373483, 0.0373483],
     "munsell": "5.96PB 1.89/8.96",
     "lab_from_munsell": [19.15, 14.8, -39.31],
     "series": 2,
@@ -1697,7 +1764,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-phthalocyanine-blue-green-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Phthalocyanine Blue (Red Shade)",
@@ -1711,8 +1779,8 @@
     "pigments": ["PB15:6"],
     "discontinued": false,
     "special": null,
-    "K": [0.278118, 0.342364, 0.103327],
-    "S": [0.024306, 0.024306, 0.024306],
+    "K": [0.0669574, 0.093248, 0.14191, 0.248483, 0.512439, 1.02196, 1.03224, 0.641957, 0.419213, 0.304035, 0.236192],
+    "S": [0.0241582, 0.0241582, 0.0241582, 0.0241582, 0.0241582, 0.0241582, 0.0241582, 0.0241582, 0.0241582, 0.0241582, 0.0241582],
     "munsell": "8.69PB 1.47/7.46",
     "lab_from_munsell": [15.04, 21.05, -31.2],
     "series": 3,
@@ -1722,7 +1790,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-phthalocyanine-blue-red-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Phthalocyanine Green (Blue Shade)",
@@ -1736,8 +1805,8 @@
     "pigments": ["PG7"],
     "discontinued": false,
     "special": null,
-    "K": [0.186964, 0.128526, 0.131333],
-    "S": [0.0119628, 0.0119628, 0.0119628],
+    "K": [0.233247, 0.187042, 0.155996, 0.137178, 0.132768, 0.148043, 0.200263, 0.374063, 1.8542, 1.8542, 1.8542],
+    "S": [0.00744657, 0.00744657, 0.00744657, 0.00744657, 0.00744657, 0.00744657, 0.00744657, 0.00744657, 0.00744657, 0.00744657, 0.00744657],
     "munsell": "3.2BG 1.5/3",
     "lab_from_munsell": [15.33, -13.45, -2.26],
     "series": 2,
@@ -1747,7 +1816,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-phthalocyanine-green-blue-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Phthalocyanine Green (Yellow Shade)",
@@ -1761,8 +1831,8 @@
     "pigments": ["PG36"],
     "discontinued": false,
     "special": null,
-    "K": [0.611683, 0.0708108, 0.322616],
-    "S": [0.0654806, 0.0654806, 0.0654806],
+    "K": [17.6294, 17.6294, 0.602173, 0.102341, 0.0499993, 0.0729624, 0.300415, 17.6294, 17.6294, 17.6294, 17.6294],
+    "S": [0.0708004, 0.0708004, 0.0708004, 0.0708004, 0.0708004, 0.0708004, 0.0708004, 0.0708004, 0.0708004, 0.0708004, 0.0708004],
     "munsell": "3.08G 4.79/14.22",
     "lab_from_munsell": [48.86, -75.61, 29.09],
     "series": 2,
@@ -1772,7 +1842,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-phthalocyanine-green-yellow-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Prism Violet",
@@ -1786,8 +1857,8 @@
     "pigments": ["PV23", "PR122"],
     "discontinued": false,
     "special": null,
-    "K": [0.128783, 0.275438, 0.113126],
-    "S": [0.0200342, 0.0200342, 0.0200342],
+    "K": [0.071419, 0.102513, 0.166648, 0.334908, 0.801731, 0.865281, 0.371914, 0.183687, 0.111985, 0.0773831, 0.0574169],
+    "S": [0.0195707, 0.0195707, 0.0195707, 0.0195707, 0.0195707, 0.0195707, 0.0195707, 0.0195707, 0.0195707, 0.0195707, 0.0195707],
     "munsell": "0.46RP 1.8/7.15",
     "lab_from_munsell": [18.26, 29.91, -17.3],
     "series": 3,
@@ -1797,7 +1868,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-prism-violet",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Prussian Blue Hue",
@@ -1811,8 +1883,8 @@
     "pigments": ["PB15:3", "PV23", "PBk11"],
     "discontinued": false,
     "special": null,
-    "K": [3.51115, 3.2585, 0.944513],
-    "S": [0.3074, 0.3074, 0.3074],
+    "K": [0.609573, 0.843494, 1.25071, 2.05179, 3.73406, 6.83471, 9.4934, 8.97932, 7.45526, 6.23088, 5.33004],
+    "S": [0.314159, 0.314159, 0.314159, 0.314159, 0.314159, 0.314159, 0.314159, 0.314159, 0.314159, 0.314159, 0.314159],
     "munsell": "6.67PB 1.89/7.68",
     "lab_from_munsell": [19.15, 14.31, -33.66],
     "series": 2,
@@ -1822,7 +1894,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-prussian-blue-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Pyrrole Crimson",
@@ -1836,8 +1909,8 @@
     "pigments": ["PR264"],
     "discontinued": false,
     "special": null,
-    "K": [1.41027, 9.92999, 10.2334],
-    "S": [1.05744, 1.05744, 1.05744],
+    "K": [5.38689, 19.0508, 54.9474, 119.686, 111.202, 47.8417, 16.2022, 4.39327, 0.727855, 0.0474356, 0.00109923],
+    "S": [2.11152, 2.11152, 2.11152, 2.11152, 2.11152, 2.11152, 2.11152, 2.11152, 2.11152, 2.11152, 2.11152],
     "munsell": "5.17R 3.27/11.77",
     "lab_from_munsell": [33.17, 53.46, 24.39],
     "series": 4,
@@ -1847,7 +1920,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-pyrrole-crimson",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Pyrrole Orange",
@@ -1861,8 +1935,8 @@
     "pigments": ["PO73"],
     "discontinued": false,
     "special": null,
-    "K": [0.163888, 3.43724, 16.2987],
-    "S": [1.93062, 1.93062, 1.93062],
+    "K": [7.46618, 33.2377, 90.0769, 115.597, 58.4401, 16.9327, 2.6917, 0.125111, 0.00122167, 0.000230216, 0.000230216],
+    "S": [4.55827, 4.55827, 4.55827, 4.55827, 4.55827, 4.55827, 4.55827, 4.55827, 4.55827, 4.55827, 4.55827],
     "munsell": "9.38R 5.97/16.77",
     "lab_from_munsell": [60.75, 58.6, 65.5],
     "series": 4,
@@ -1872,7 +1946,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-pyrrole-orange",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Pyrrole Red",
@@ -1886,8 +1961,8 @@
     "pigments": ["PR254"],
     "discontinued": false,
     "special": null,
-    "K": [0.789794, 11.8195, 19.8349],
-    "S": [2.00039, 2.00039, 2.00039],
+    "K": [7.28404, 44.3163, 210.42, 1021.84, 494.583, 98.9295, 19.7911, 2.2673, 0.0634777, 0.00038139, 0.000285718],
+    "S": [5.65722, 5.65722, 5.65722, 5.65722, 5.65722, 5.65722, 5.65722, 5.65722, 5.65722, 5.65722, 5.65722],
     "munsell": "6.88R 4.42/16.51",
     "lab_from_munsell": [45.07, 66.98, 45.2],
     "series": 4,
@@ -1897,7 +1972,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-pyrrole-red",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Quinacridone Crimson",
@@ -1911,8 +1987,8 @@
     "pigments": ["PV19"],
     "discontinued": false,
     "special": null,
-    "K": [0.0671365, 0.554149, 0.588599],
-    "S": [0.0564392, 0.0564392, 0.0564392],
+    "K": [0.294763, 1.16927, 3.92791, 11.0783, 9.72116, 3.22944, 0.94747, 0.226616, 0.0304667, 0.00138615, 2.11587e-05],
+    "S": [0.121369, 0.121369, 0.121369, 0.121369, 0.121369, 0.121369, 0.121369, 0.121369, 0.121369, 0.121369, 0.121369],
     "munsell": "5.63R 3.33/12.72",
     "lab_from_munsell": [33.79, 56.84, 27.85],
     "series": 3,
@@ -1922,7 +1998,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-quinacridone-crimson",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Quinacridone Magenta",
@@ -1936,8 +2013,8 @@
     "pigments": ["PR122"],
     "discontinued": false,
     "special": null,
-    "K": [0.0796793, 0.549262, 0.373183],
-    "S": [0.0431115, 0.0431115, 0.0431115],
+    "K": [0.148511, 0.621443, 2.09655, 6.42201, 8.91118, 3.45901, 1.06093, 0.287063, 0.0522183, 0.0039345, 9.58553e-05],
+    "S": [0.0882777, 0.0882777, 0.0882777, 0.0882777, 0.0882777, 0.0882777, 0.0882777, 0.0882777, 0.0882777, 0.0882777, 0.0882777],
     "munsell": "3.11R 2.82/11.48",
     "lab_from_munsell": [28.53, 53.78, 13.16],
     "series": 4,
@@ -1947,7 +2024,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-quinacridone-magenta",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Quinacridone Red",
@@ -1961,8 +2039,8 @@
     "pigments": ["PR209"],
     "discontinued": false,
     "special": null,
-    "K": [0.0421559, 0.560897, 0.967617],
-    "S": [0.0945563, 0.0945563, 0.0945563],
+    "K": [0.412843, 2.1273, 8.65122, 27.2715, 15.3919, 3.92155, 0.881543, 0.119449, 0.00470645, 4.34733e-05, 1.23873e-05],
+    "S": [0.245269, 0.245269, 0.245269, 0.245269, 0.245269, 0.245269, 0.245269, 0.245269, 0.245269, 0.245269, 0.245269],
     "munsell": "7.04R 4.34/16.03",
     "lab_from_munsell": [44.25, 64.89, 44.75],
     "series": 4,
@@ -1972,7 +2050,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-quinacridone-red",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Quinacridone Red Orange",
@@ -1986,8 +2065,8 @@
     "pigments": [],
     "discontinued": false,
     "special": null,
-    "K": [0.0546978, 0.647677, 0.900031],
-    "S": [0.0723963, 0.0723963, 0.0723963],
+    "K": [0.422135, 2.12024, 10.7838, 45.1957, 45.1957, 5.37143, 1.14773, 0.194175, 0.0130539, 0.00021075, 9.16708e-06],
+    "S": [0.181508, 0.181508, 0.181508, 0.181508, 0.181508, 0.181508, 0.181508, 0.181508, 0.181508, 0.181508, 0.181508],
     "munsell": "6.98R 3.73/15.22",
     "lab_from_munsell": [37.94, 63.76, 40.6],
     "series": 3,
@@ -1997,7 +2076,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-quinacridone-red-orange",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Raw Sienna",
@@ -2011,8 +2091,8 @@
     "pigments": ["PBr7"],
     "discontinued": false,
     "special": null,
-    "K": [1.4176, 2.89498, 6.78526],
-    "S": [1.08282, 1.08282, 1.08282],
+    "K": [15.48, 12.0095, 9.71344, 7.72328, 5.60636, 3.70815, 2.3711, 1.54512, 1.04461, 0.726762, 0.51324],
+    "S": [1.11156, 1.11156, 1.11156, 1.11156, 1.11156, 1.11156, 1.11156, 1.11156, 1.11156, 1.11156, 1.11156],
     "munsell": "5.11YR 4.35/5.7",
     "lab_from_munsell": [44.35, 16.55, 29.41],
     "series": 1,
@@ -2022,7 +2102,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-raw-sienna",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Raw Umber",
@@ -2036,8 +2117,8 @@
     "pigments": ["PBr7"],
     "discontinued": false,
     "special": null,
-    "K": [2.10957, 2.49051, 3.26625],
-    "S": [0.369735, 0.369735, 0.369735],
+    "K": [5.8453, 5.02023, 4.38978, 3.87839, 3.42973, 3.02029, 2.65438, 2.34268, 2.0855, 1.8735, 1.69644],
+    "S": [0.301516, 0.301516, 0.301516, 0.301516, 0.301516, 0.301516, 0.301516, 0.301516, 0.301516, 0.301516, 0.301516],
     "munsell": "9.68YR 2.58/1.56",
     "lab_from_munsell": [26.07, 3.13, 9.05],
     "series": 1,
@@ -2047,7 +2128,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-raw-umber",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Red Oxide",
@@ -2061,8 +2143,8 @@
     "pigments": ["PR101"],
     "discontinued": false,
     "special": null,
-    "K": [1.44435, 4.50295, 7.77012],
-    "S": [1.06193, 1.06193, 1.06193],
+    "K": [7.18798, 9.66327, 14.1302, 19.8464, 15.6426, 7.28827, 3.34286, 1.71529, 0.965986, 0.571269, 0.341238],
+    "S": [1.18744, 1.18744, 1.18744, 1.18744, 1.18744, 1.18744, 1.18744, 1.18744, 1.18744, 1.18744, 1.18744],
     "munsell": "9.42R 3.88/7.59",
     "lab_from_munsell": [39.49, 30.85, 26.1],
     "series": 1,
@@ -2072,7 +2154,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-red-oxide",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Sap Green Permanent",
@@ -2086,8 +2169,8 @@
     "pigments": ["PY139", "PB15:3", "PBk11"],
     "discontinued": false,
     "special": null,
-    "K": [3.33674, 2.48945, 4.15971],
-    "S": [0.355939, 0.355939, 0.355939],
+    "K": [62.055, 16.4103, 5.41818, 3.30424, 2.60695, 2.51621, 2.91414, 4.01107, 6.87168, 22.7071, 62.055],
+    "S": [0.249216, 0.249216, 0.249216, 0.249216, 0.249216, 0.249216, 0.249216, 0.249216, 0.249216, 0.249216, 0.249216],
     "munsell": "8.31GY 2.29/3.56",
     "lab_from_munsell": [23.13, -14.09, 12.74],
     "series": 3,
@@ -2097,7 +2180,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-sap-green-permanent",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Scarlet Red",
@@ -2111,8 +2195,8 @@
     "pigments": ["PR9", "PY74", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [0.26126, 4.39394, 13.1384],
-    "S": [1.40433, 1.40433, 1.40433],
+    "K": [5.85962, 29.2807, 99.2372, 178.451, 94.4195, 27.3994, 5.34214, 0.418226, 0.00690336, 0.000187739, 0.000187739],
+    "S": [3.71724, 3.71724, 3.71724, 3.71724, 3.71724, 3.71724, 3.71724, 3.71724, 3.71724, 3.71724, 3.71724],
     "munsell": "8.25R 5.24/16.88",
     "lab_from_munsell": [53.44, 63.6, 56.95],
     "series": 3,
@@ -2122,7 +2206,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": null,
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Titanium White",
@@ -2136,8 +2221,8 @@
     "pigments": ["PW6"],
     "discontinued": false,
     "special": null,
-    "K": [0.0373497, 0.0373497, 0.0373497],
-    "S": [7.16502, 7.16502, 7.16502],
+    "K": [0.038521, 0.038521, 0.038521, 0.038521, 0.038521, 0.038521, 0.038521, 0.038521, 0.038521, 0.038521, 0.038521],
+    "S": [7.08151, 7.08151, 7.08151, 7.08151, 7.08151, 7.08151, 7.08151, 7.08151, 7.08151, 7.08151, 7.08151],
     "munsell": "N9.6",
     "lab_from_munsell": [96.04, 0.0, 0.0],
     "series": 1,
@@ -2147,7 +2232,8 @@
     "source": "https://coolcolors.lbl.gov/LBNL-Pigment-Database/assets/manufacturer-TDS/Liquitex/PaintTechInfo.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-titanium-white",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Transparent Burnt Sienna",
@@ -2161,8 +2247,8 @@
     "pigments": ["PR101"],
     "discontinued": false,
     "special": null,
-    "K": [0.0524295, 0.302054, 0.883042],
-    "S": [0.0786524, 0.0786524, 0.0786524],
+    "K": [0.537239, 0.94634, 2.78501, 24.4155, 5.22403, 0.58122, 0.173464, 0.06543, 0.0258935, 0.00919288, 0.00216476],
+    "S": [0.0980538, 0.0980538, 0.0980538, 0.0980538, 0.0980538, 0.0980538, 0.0980538, 0.0980538, 0.0980538, 0.0980538, 0.0980538],
     "munsell": "10R 4.39/12.08",
     "lab_from_munsell": [44.76, 45.0, 47.82],
     "series": 3,
@@ -2172,7 +2258,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-transparent-burnt-sienna",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Transparent Burnt Umber",
@@ -2186,8 +2273,8 @@
     "pigments": ["PY42", "PR101", "PBk11"],
     "discontinued": false,
     "special": null,
-    "K": [0.104535, 0.136321, 0.168976],
-    "S": [0.0206621, 0.0206621, 0.0206621],
+    "K": [0.245189, 0.238712, 0.232332, 0.222609, 0.203385, 0.17454, 0.143728, 0.117768, 0.0981249, 0.0833863, 0.0720239],
+    "S": [0.0177208, 0.0177208, 0.0177208, 0.0177208, 0.0177208, 0.0177208, 0.0177208, 0.0177208, 0.0177208, 0.0177208, 0.0177208],
     "munsell": "4.54YR 2.67/1.79",
     "lab_from_munsell": [26.99, 6.65, 8.3],
     "series": 3,
@@ -2197,7 +2284,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-transparent-burnt-umber",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Transparent Mixing White",
@@ -2211,8 +2299,8 @@
     "pigments": ["PW4"],
     "discontinued": false,
     "special": null,
-    "K": [0.00186749, 0.00186749, 0.00186749],
-    "S": [0.358251, 0.358251, 0.358251],
+    "K": [0.00192605, 0.00192605, 0.00192605, 0.00192605, 0.00192605, 0.00192605, 0.00192605, 0.00192605, 0.00192605, 0.00192605, 0.00192605],
+    "S": [0.354075, 0.354075, 0.354075, 0.354075, 0.354075, 0.354075, 0.354075, 0.354075, 0.354075, 0.354075, 0.354075],
     "munsell": "N9.6",
     "lab_from_munsell": [96.04, 0.0, 0.0],
     "series": 1,
@@ -2222,7 +2310,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-transparent-mixing-white",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Transparent Orange",
@@ -2236,8 +2325,8 @@
     "pigments": [],
     "discontinued": false,
     "special": null,
-    "K": [0.0228394, 0.379589, 1.77079],
-    "S": [0.155525, 0.155525, 0.155525],
+    "K": [1.21517, 4.55597, 11.9002, 14.1845, 6.50719, 1.93784, 0.377224, 0.0289424, 0.000541044, 1.88165e-05, 1.88165e-05],
+    "S": [0.372567, 0.372567, 0.372567, 0.372567, 0.372567, 0.372567, 0.372567, 0.372567, 0.372567, 0.372567, 0.372567],
     "munsell": "9.37R 5.52/16.99",
     "lab_from_munsell": [56.26, 60.08, 67.14],
     "series": 2,
@@ -2247,7 +2336,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-transparent-orange",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Transparent Raw Sienna",
@@ -2261,8 +2351,8 @@
     "pigments": ["PY42"],
     "discontinued": false,
     "special": null,
-    "K": [0.0174801, 0.0719792, 1.19848],
-    "S": [0.19167, 0.19167, 0.19167],
+    "K": [49.2944, 14.8697, 1.8051, 0.549507, 0.198142, 0.0766579, 0.0318525, 0.0147188, 0.00784543, 0.00495071, 0.00375547],
+    "S": [0.197969, 0.197969, 0.197969, 0.197969, 0.197969, 0.197969, 0.197969, 0.197969, 0.197969, 0.197969, 0.197969],
     "munsell": "0.1Y 7.26/11.88",
     "lab_from_munsell": [73.38, 13.35, 75.9],
     "series": 3,
@@ -2272,7 +2362,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-transparent-raw-sienna",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Transparent Raw Umber",
@@ -2286,8 +2377,8 @@
     "pigments": ["PY42", "PR101", "PBk11"],
     "discontinued": false,
     "special": null,
-    "K": [0.11344, 0.14143, 0.175161],
-    "S": [0.0154296, 0.0154296, 0.0154296],
+    "K": [0.308675, 0.288847, 0.271102, 0.251693, 0.225072, 0.191793, 0.158728, 0.13146, 0.110848, 0.0953146, 0.083284],
+    "S": [0.0119676, 0.0119676, 0.0119676, 0.0119676, 0.0119676, 0.0119676, 0.0119676, 0.0119676, 0.0119676, 0.0119676, 0.0119676],
     "munsell": "6.41YR 2.07/1.77",
     "lab_from_munsell": [20.93, 5.44, 8.32],
     "series": 3,
@@ -2297,7 +2388,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-transparent-raw-umber",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Transparent Viridian Hue",
@@ -2311,8 +2403,8 @@
     "pigments": ["PG7"],
     "discontinued": false,
     "special": null,
-    "K": [1.63998, 0.0717254, 0.168937],
-    "S": [0.0637021, 0.0637021, 0.0637021],
+    "K": [20.0304, 20.0304, 0.265769, 0.0599569, 0.0432207, 0.107271, 0.868206, 20.0304, 20.0304, 20.0304, 20.0304],
+    "S": [0.0804429, 0.0804429, 0.0804429, 0.0804429, 0.0804429, 0.0804429, 0.0804429, 0.0804429, 0.0804429, 0.0804429, 0.0804429],
     "munsell": "8.02G 4.68/15.53",
     "lab_from_munsell": [47.74, -82.92, 9.92],
     "series": 2,
@@ -2322,7 +2414,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-transparent-viridian-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Turquoise Deep",
@@ -2336,8 +2429,8 @@
     "pigments": ["PB15:3", "PG7"],
     "discontinued": false,
     "special": null,
-    "K": [5.3911, 1.55225, 0.957368],
-    "S": [0.279895, 0.279895, 0.279895],
+    "K": [2.33957, 1.22237, 0.882247, 0.844729, 1.06989, 1.83283, 4.91567, 56.582, 56.582, 56.582, 56.582],
+    "S": [0.227236, 0.227236, 0.227236, 0.227236, 0.227236, 0.227236, 0.227236, 0.227236, 0.227236, 0.227236, 0.227236],
     "munsell": "0.61B 2.54/7.24",
     "lab_from_munsell": [25.66, -25.61, -19.61],
     "series": 2,
@@ -2347,7 +2440,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-turquoise-deep",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Ultramarine Blue (Green Shade)",
@@ -2361,8 +2455,8 @@
     "pigments": ["PB29"],
     "discontinued": false,
     "special": null,
-    "K": [0.545614, 1.11808, 0.0426425],
-    "S": [0.0891913, 0.0891913, 0.0891913],
+    "K": [0.00786346, 0.0256051, 0.0704105, 0.200378, 0.730484, 8.22779, 16.5838, 1.47068, 0.588861, 0.331904, 0.21491],
+    "S": [0.11807, 0.11807, 0.11807, 0.11807, 0.11807, 0.11807, 0.11807, 0.11807, 0.11807, 0.11807, 0.11807],
     "munsell": "7.83PB 2.58/19.01",
     "lab_from_munsell": [26.07, 54.0, -70.78],
     "series": 2,
@@ -2372,7 +2466,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-ultramarine-blue-green-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Ultramarine Blue (Red Shade)",
@@ -2386,8 +2481,8 @@
     "pigments": ["PB29"],
     "discontinued": false,
     "special": null,
-    "K": [0.662326, 1.20493, 0.0316589],
-    "S": [0.114852, 0.114852, 0.114852],
+    "K": [0.00169966, 0.0148619, 0.0568136, 0.187711, 0.714903, 6.56214, 37.3146, 2.02989, 0.768647, 0.422153, 0.268221],
+    "S": [0.16145, 0.16145, 0.16145, 0.16145, 0.16145, 0.16145, 0.16145, 0.16145, 0.16145, 0.16145, 0.16145],
     "munsell": "7.46PB 2.88/20.59",
     "lab_from_munsell": [29.14, 55.32, -76.73],
     "series": 2,
@@ -2397,7 +2492,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-ultramarine-blue-red-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Unbleached Titanium",
@@ -2411,8 +2507,8 @@
     "pigments": ["PW6", "PY42", "PR101", "PBk11"],
     "discontinued": false,
     "special": null,
-    "K": [0.316569, 0.481758, 1.43565],
-    "S": [3.33514, 3.33514, 3.33514],
+    "K": [3.27695, 2.16009, 1.4532, 0.990955, 0.694048, 0.508208, 0.390078, 0.307684, 0.242911, 0.189071, 0.144039],
+    "S": [3.33279, 3.33279, 3.33279, 3.33279, 3.33279, 3.33279, 3.33279, 3.33279, 3.33279, 3.33279, 3.33279],
     "munsell": "1.58Y 8.05/2.87",
     "lab_from_munsell": [81.01, 0.87, 19.87],
     "series": 1,
@@ -2422,7 +2518,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-unbleached-titanium",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Van Dyke Red",
@@ -2436,8 +2533,8 @@
     "pigments": ["PBr25"],
     "discontinued": false,
     "special": null,
-    "K": [1.10615, 2.48615, 3.09591],
-    "S": [0.218068, 0.218068, 0.218068],
+    "K": [3.73868, 5.28262, 8.72743, 16.4272, 14.644, 5.73509, 2.54921, 1.41754, 0.920011, 0.655286, 0.493391],
+    "S": [0.2163, 0.2163, 0.2163, 0.2163, 0.2163, 0.2163, 0.2163, 0.2163, 0.2163, 0.2163, 0.2163],
     "munsell": "10R 2.05/5.72",
     "lab_from_munsell": [20.73, 24.05, 15.83],
     "series": 3,
@@ -2447,7 +2544,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-van-dyke-red",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Viridian Hue Permanent",
@@ -2461,8 +2559,8 @@
     "pigments": ["PBr7", "PG7"],
     "discontinued": false,
     "special": null,
-    "K": [2.99678, 2.44097, 2.61811],
-    "S": [0.25465, 0.25465, 0.25465],
+    "K": [4.35219, 3.63545, 3.11873, 2.77691, 2.64397, 2.76351, 3.20875, 4.14251, 6.04372, 11.1156, 41.5551],
+    "S": [0.166887, 0.166887, 0.166887, 0.166887, 0.166887, 0.166887, 0.166887, 0.166887, 0.166887, 0.166887, 0.166887],
     "munsell": "0.24BG 1.79/1.89",
     "lab_from_munsell": [18.16, -7.55, 0.43],
     "series": 2,
@@ -2472,7 +2570,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-viridian-hue-permanent",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Vivid Lime Green",
@@ -2486,8 +2585,8 @@
     "pigments": ["PY97", "PG7", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [2.23814, 0.576391, 11.9153],
-    "S": [3.13637, 3.13637, 3.13637],
+    "K": [711.047, 711.047, 18.6121, 2.48962, 0.657201, 0.405219, 0.66127, 2.51672, 18.9201, 711.047, 711.047],
+    "S": [2.8556, 2.8556, 2.8556, 2.8556, 2.8556, 2.8556, 2.8556, 2.8556, 2.8556, 2.8556, 2.8556],
     "munsell": "7.85GY 7.23/11.76",
     "lab_from_munsell": [73.09, -47.67, 61.15],
     "series": 2,
@@ -2497,7 +2596,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-vivid-lime-green",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Vivid Red Orange",
@@ -2511,8 +2611,8 @@
     "pigments": ["PO73", "PY139"],
     "discontinued": false,
     "special": null,
-    "K": [0.0156878, 0.256168, 2.32834],
-    "S": [0.201198, 0.201198, 0.201198],
+    "K": [4.0036, 8.03507, 9.66814, 6.28599, 2.70261, 0.84695, 0.16332, 0.0131849, 0.000379929, 2.01527e-05, 2.01527e-05],
+    "S": [0.399024, 0.399024, 0.399024, 0.399024, 0.399024, 0.399024, 0.399024, 0.399024, 0.399024, 0.399024, 0.399024],
     "munsell": "1.63YR 6.26/16.65",
     "lab_from_munsell": [63.62, 49.56, 78.58],
     "series": 4,
@@ -2522,7 +2622,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-vivid-red-orange",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Yellow Light Hansa",
@@ -2536,8 +2637,8 @@
     "pigments": ["PY3"],
     "discontinued": false,
     "special": null,
-    "K": [0.00595249, 0.0043925, 0.560347],
-    "S": [0.373085, 0.373085, 0.373085],
+    "K": [94.2499, 12.336, 0.708891, 0.0868265, 0.0140165, 0.00401184, 0.00239156, 0.00309565, 0.00853644, 0.0449367, 0.343261],
+    "S": [0.378512, 0.378512, 0.378512, 0.378512, 0.378512, 0.378512, 0.378512, 0.378512, 0.378512, 0.378512, 0.378512],
     "munsell": "0.48GY 9.2/11.7",
     "lab_from_munsell": [92.13, -17.38, 67.65],
     "series": 2,
@@ -2547,7 +2648,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-yellow-light-hansa",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Yellow Medium Azo",
@@ -2561,8 +2663,8 @@
     "pigments": ["PY74"],
     "discontinued": false,
     "special": null,
-    "K": [0.048356, 0.330034, 36.4887],
-    "S": [3.754, 3.754, 3.754],
+    "K": [908.714, 908.714, 148.649, 9.0065, 1.28387, 0.225429, 0.0608951, 0.029932, 0.0283702, 0.0520299, 0.176243],
+    "S": [3.64944, 3.64944, 3.64944, 3.64944, 3.64944, 3.64944, 3.64944, 3.64944, 3.64944, 3.64944, 3.64944],
     "munsell": "3.68Y 8.5/15.13",
     "lab_from_munsell": [85.35, 1.3, 104.46],
     "series": 2,
@@ -2572,7 +2674,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-yellow-medium-azo",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Yellow Orange Azo",
@@ -2586,8 +2689,8 @@
     "pigments": ["PY83"],
     "discontinued": false,
     "special": null,
-    "K": [0.0057718, 0.11432, 3.57093],
-    "S": [0.347136, 0.347136, 0.347136],
+    "K": [129.381, 113.576, 9.55567, 2.72442, 0.804641, 0.190441, 0.0299849, 0.00301396, 0.000212961, 2.62425e-05, 2.62425e-05],
+    "S": [0.519601, 0.519601, 0.519601, 0.519601, 0.519601, 0.519601, 0.519601, 0.519601, 0.519601, 0.519601, 0.519601],
     "munsell": "7.34YR 7.66/15.8",
     "lab_from_munsell": [77.25, 26.26, 94.95],
     "series": 3,
@@ -2597,7 +2700,8 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-yellow-orange-azo",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Yellow Oxide",
@@ -2611,8 +2715,8 @@
     "pigments": ["PY42"],
     "discontinued": false,
     "special": null,
-    "K": [0.789715, 1.70183, 9.6235],
-    "S": [2.02899, 2.02899, 2.02899],
+    "K": [139.089, 29.7829, 12.2485, 6.0352, 3.26155, 1.88407, 1.15897, 0.763661, 0.544006, 0.422769, 0.360952],
+    "S": [2.04856, 2.04856, 2.04856, 2.04856, 2.04856, 2.04856, 2.04856, 2.04856, 2.04856, 2.04856, 2.04856],
     "munsell": "9.99YR 6.09/7.9",
     "lab_from_munsell": [61.94, 10.24, 50.2],
     "series": 1,
@@ -2622,6 +2726,7 @@
     "source": "https://www.jp.liquitex.com/wp-content/uploads/2026/03/LQ-Catalog-202603_ALL.pdf",
     "product_page": "https://www.liquitex.com/products/professional-heavy-body-acrylic-yellow-oxide",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   }
 ]

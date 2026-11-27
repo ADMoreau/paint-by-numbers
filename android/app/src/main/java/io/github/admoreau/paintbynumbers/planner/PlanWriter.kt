@@ -73,7 +73,7 @@ object PhonePlanner {
         val w = small.width
         val h = small.height
         val px = IntArray(w * h).also { small.getPixels(it, 0, w, 0, 0, w, h) }
-        val bg = parseHex(backgroundHex).let { (r, g, b) -> DoubleArray(3).also { ColorMath.srgbToWorking(r / 255.0, g / 255.0, b / 255.0, it) } }
+        val bg = parseHex(backgroundHex).let { (r, g, b) -> DoubleArray(Bands.N).also { ColorMath.srgbToWorking(r / 255.0, g / 255.0, b / 255.0, it) } }
         val plan = UniformPlanner(paints, bg, config, progress, cancelled).plan(Target.fromArgb(w, h, px))
         val dir = File(parent, "plan_${System.currentTimeMillis()}")
         try {
@@ -100,7 +100,9 @@ object PhonePlanner {
 
     private fun hex(argb: Int) = "#%06x".format(argb and 0xFFFFFF)
 
-    private fun argb(r: Double, g: Double, b: Double) = ColorMath.workingToArgb(r, g, b)
+    private fun argb(r: DoubleArray) = ColorMath.workingToArgb(r)
+
+    private fun argb(r: FloatArray, o: Int) = ColorMath.workingToArgb(DoubleArray(Bands.N) { r[o + it].toDouble() })
 
     /** "1 full coat", "1 coat of 1 part paint to 3 parts Gloss Medium", as level_instructions in plan.py. */
     fun howToPaint(coats: Double): String {
@@ -130,7 +132,8 @@ object PhonePlanner {
         val digits = max(2, plan.layers.size.toString().length)
 
         // the painting after each layer
-        val r = FloatArray(3 * np) { bg[it % 3].toFloat() }
+        val n = Bands.N
+        val r = FloatArray(n * np) { bg[it % n].toFloat() }
         val out = IntArray(np)
         val layers = JSONArray()
         for ((i, layer) in plan.layers.withIndex()) {
@@ -141,18 +144,18 @@ object PhonePlanner {
             val map = IntArray(np) { if (region[it]) (0xFF shl 24) or (gray * 0x010101) else 0xFF000000.toInt() }
             png(Bitmap.createBitmap(map, w, h, Bitmap.Config.ARGB_8888), File(dir, "layers/$name"))
             for (p in 0 until np) {
-                if (region[p]) for (c in 0 until 3) r[3 * p + c] = co.layer(r[3 * p + c].toDouble(), layer.coats, c).toFloat()
-                out[p] = argb(r[3 * p].toDouble(), r[3 * p + 1].toDouble(), r[3 * p + 2].toDouble())
+                if (region[p]) for (c in 0 until n) r[n * p + c] = co.layer(r[n * p + c].toDouble(), layer.coats, c).toFloat()
+                out[p] = argb(r, n * p)
             }
             png(Bitmap.createBitmap(out, w, h, Bitmap.Config.ARGB_8888), File(dir, "steps/$name"))
 
             val key = UniformPlanner.fmt(layer.coats)
             val area = region.count { it }.toDouble() / np
-            fun over(ground: DoubleArray) = JSONObject().put(key, hex(argb(co.layer(ground[0], layer.coats, 0), co.layer(ground[1], layer.coats, 1), co.layer(ground[2], layer.coats, 2))))
+            fun over(ground: DoubleArray) = JSONObject().put(key, hex(argb(DoubleArray(n) { co.layer(ground[it], layer.coats, it) })))
             val swatch = JSONObject()
-                .put("full_strength", hex(argb(co.rInf[0], co.rInf[1], co.rInf[2])))
-                .put("on_white", over(doubleArrayOf(1.0, 1.0, 1.0)))
-                .put("on_black", over(doubleArrayOf(0.0, 0.0, 0.0)))
+                .put("full_strength", hex(argb(co.rInf)))
+                .put("on_white", over(DoubleArray(n) { 1.0 }))
+                .put("on_black", over(DoubleArray(n)))
             if (flatGround) swatch.put("on_ground", over(bg))
             layers.put(
                 JSONObject()
@@ -164,6 +167,8 @@ object PhonePlanner {
                     .put("transparency", layer.paint.transparency)
                     .put("sheen", layer.paint.sheen ?: JSONObject.NULL)
                     .put("lightfastness", layer.paint.lightfastness ?: JSONObject.NULL)
+                    .put("color_data", layer.paint.fitSource ?: JSONObject.NULL)
+                    .put("approximate", layer.paint.approximate)
                     .put("coverage", Math.round(area * 1e4) / 1e4)
                     .put("coats_by_area", JSONObject().put(key, Math.round(area * 1e4) / 1e4))
                     .put("swatch", swatch)
@@ -171,11 +176,11 @@ object PhonePlanner {
                     .put("how", howToPaint(layer.coats)),
             )
         }
-        val preview = IntArray(np) { argb(plan.preview[3 * it].toDouble(), plan.preview[3 * it + 1].toDouble(), plan.preview[3 * it + 2].toDouble()) }
+        val preview = IntArray(np) { argb(plan.preview, n * it) }
         png(Bitmap.createBitmap(preview, w, h, Bitmap.Config.ARGB_8888), File(dir, "preview.png"))
         png(fit(source, 2048), File(dir, "target.png"))
 
-        val bgLab = DoubleArray(3).also { ColorMath.workingToLab(bg[0], bg[1], bg[2], it) }
+        val bgLab = DoubleArray(3).also { ColorMath.workingToLab(bg, 0, it) }
         val levels = JSONArray()
         for (lv in listOf(0.0) + weights) {
             levels.put(JSONObject().put("coats", lv).put("pixel_value", Math.rint(lv / tMax * 255).toInt()).put("how", howToPaint(lv)))
@@ -184,7 +189,7 @@ object PhonePlanner {
         for (rd in plan.rounds) rounds.put(JSONObject().put("paint", rd.paint).put("coats", rd.coats).put("position", rd.position).put("rms_error", Math.round(rd.rmsError * 1000) / 1000.0))
         val recipe = JSONObject()
             .put("image", JSONObject().put("width", w).put("height", h))
-            .put("background", JSONObject().put("kind", "color").put("value", backgroundHex.lowercase()).put("srgb_hex", hex(argb(bg[0], bg[1], bg[2])))
+            .put("background", JSONObject().put("kind", "color").put("value", backgroundHex.lowercase()).put("srgb_hex", hex(argb(bg)))
                 .put("lab", JSONArray(bgLab.map { Math.round(it * 100) / 100.0 })))
             .put("layers", layers)
             .put("thickness_levels", levels)

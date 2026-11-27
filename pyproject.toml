@@ -24,7 +24,7 @@ paint-by-numbers = "paint_by_numbers.cli:main"
 [project.optional-dependencies]
 test = ["pytest"]
 tracking = ["opencv-python-headless", "scipy"]  # prototypes/x_tracking only
-liquitex = ["colour-science"]  # scripts/fetch_liquitex_japan.py only (Munsell to L*a*b*)
+liquitex = ["colour-science"]  # build time only: scripts/fetch_liquitex_japan.py (Munsell) and scripts/make_spectral_bands.py
 
 [tool.setuptools.packages.find]
 include = ["paint_by_numbers*"]

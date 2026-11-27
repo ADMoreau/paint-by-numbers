@@ -102,11 +102,11 @@ def order_violations(stack: Sequence[Paint]) -> int:
 
 
 def _background_per_cluster(background: torch.Tensor, labels: torch.Tensor, k: int) -> torch.Tensor:
-    """(3,) stays as is; (3, H, W) becomes the per-cluster mean, shape (3, k, 1)."""
+    """(C,) stays as is; (C, H, W) becomes the per-cluster mean, shape (C, k, 1)."""
     if background.ndim == 1:
         return background
-    flat = background.reshape(3, -1).double()
-    sums = torch.zeros(3, k, dtype=torch.float64).index_add_(1, labels, flat)
+    flat = background.reshape(background.shape[0], -1).double()
+    sums = torch.zeros(background.shape[0], k, dtype=torch.float64).index_add_(1, labels, flat)
     counts = torch.bincount(labels, minlength=k).clamp(min=1)
     return (sums / counts).unsqueeze(-1)
 
@@ -119,7 +119,8 @@ def _solve_stacks(stacks: list[list[int]], K_all, S_all, target, background, sol
     """RMS quantized error over the clusters of each stack (all the same length)."""
     n, c = len(stacks[0]), len(stacks)
     if n == 0:
-        out = background.expand(3, target.shape[1], 1) if background.ndim > 1 else background.reshape(3, 1, 1)
+        ch = background.shape[0]
+        out = background.expand(ch, target.shape[1], 1) if background.ndim > 1 else background.reshape(ch, 1, 1)
         err = color.delta_e(color.working_to_lab(out.to(target.dtype), dim=0), target[:, :, :1], dim=0)
         return _rms(err).expand(c)
     idx = torch.tensor(stacks).T  # (n, c)
@@ -141,7 +142,7 @@ def select_stack(
 
     Args:
         target_lab: (3, H, W) target image in Lab.
-        background: working-space reflectance, (3,) or (3, H, W).
+        background: working-space reflectance, (C,) or (C, H, W).
         paints: the paints that may be used (each may appear in many layers).
         solve_config: solver settings; selection overrides steps and turns
             smoothing off (neighbors in the batched image are unrelated).
@@ -163,7 +164,7 @@ def select_stack(
     stack: list[int] = []
     forced = None
     image_median_l = target_lab[0].median().item()
-    bg_l = color.working_to_lab(background.reshape(3, -1), dim=0)[0].median().item()
+    bg_l = color.working_to_lab(background.reshape(background.shape[0], -1), dim=0)[0].median().item()
     opaque = [i for i, p in enumerate(paints) if p.transparency == "opaque"]
     if bg_l < image_median_l and opaque:
         lightest = max(opaque, key=lambda i: paints[i].lab[0])

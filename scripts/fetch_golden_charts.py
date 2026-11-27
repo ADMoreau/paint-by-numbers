@@ -216,6 +216,9 @@ def main(argv: list[str] | None = None) -> int:
             o = old.get(item)
             if o and o.get("K") and o["lab"] == r["lab"] and o["transparency"] == r["transparency"]:
                 r["K"], r["S"] = o["K"], o["S"]
+            for key in ("tint_glaze_image", "tint_glaze_photo"):  # from scripts/fetch_tint_glaze.py
+                if o and o.get(key):
+                    r[key] = o[key]
         save_records(list(records.values()), db)
         print(f"  wrote {db.relative_to(ROOT)}")
     return 0

@@ -20,7 +20,7 @@ class PlannerImageRun {
         val db = PaintDb.parse(File("../../paint_by_numbers/data/paints_heavy_body.json").readText())
         val paints = System.getenv("PLANNER_PAINTS")?.let { PaintDb.select(db, it.split(",").map(String::trim)) } ?: db
         val hex = (System.getenv("PLANNER_BG") ?: "#ffffff").removePrefix("#").toInt(16)
-        val bg = DoubleArray(3).also { ColorMath.srgbToWorking((hex shr 16 and 255) / 255.0, (hex shr 8 and 255) / 255.0, (hex and 255) / 255.0, it) }
+        val bg = DoubleArray(Bands.N).also { ColorMath.srgbToWorking((hex shr 16 and 255) / 255.0, (hex shr 8 and 255) / 255.0, (hex and 255) / 255.0, it) }
         val layers = System.getenv("PLANNER_LAYERS")?.toInt() ?: 14
         val t0 = System.nanoTime()
         val plan = UniformPlanner(paints, bg, UniformConfig(layers = layers), { println("%7.1f s  %s".format((System.nanoTime() - t0) / 1e9, it)) })

@@ -5,15 +5,16 @@ import torch
 
 from core_paints import core_paints
 from paint_by_numbers import color, km, paints, solve
+from core_paints import spectrum  # noqa: E402
 
 PAINTS = core_paints()
 BY_NAME = {p.name: p for p in PAINTS}
 K_ALL, S_ALL = paints.ks_tensors(PAINTS)
 
-WHITE = [1.0, 1.0, 1.0]
-BLACK = [0.0, 0.0, 0.0]
-GRAY = [0.2158605] * 3  # sRGB #808080
-UMBER = [0.19, 0.14, 0.10]
+WHITE = [1.0] * color.CHANNELS
+BLACK = [0.0] * color.CHANNELS
+GRAY = [0.2158605] * color.CHANNELS  # sRGB #808080
+UMBER = spectrum([0.19, 0.14, 0.10]).tolist()
 
 
 def flat(lab, h=4, w=4):
@@ -84,7 +85,7 @@ def test_solution_shapes_and_ranges():
     cfg = solve.SolveConfig(steps=50)
     sol = solve.solve(target, torch.tensor(WHITE), K, S, cfg)
     assert sol.t.shape == sol.t_snapped.shape == (3, 1, 5, 7)
-    assert sol.preview.shape == (3, 5, 7)
+    assert sol.preview.shape == (color.CHANNELS, 5, 7)
     assert sol.error.shape == (5, 7)
     assert sol.t.min() >= 0 and sol.t.max() <= cfg.t_max
     assert set(sol.t_snapped.unique().tolist()) <= set(cfg.levels)
@@ -115,7 +116,7 @@ def test_per_pixel_background():
 def test_no_layers():
     bg = torch.tensor(GRAY)
     target = flat([50.0, 0.0, 0.0])
-    sol = solve.solve(target, bg, torch.empty(0, 3), torch.empty(0, 3))
+    sol = solve.solve(target, bg, torch.empty(0, color.CHANNELS), torch.empty(0, color.CHANNELS))
     assert sol.t.shape == (0, 1, 4, 4)
     expected = color.delta_e(color.working_to_lab(bg), [50.0, 0.0, 0.0]).item()
     assert sol.mean_error == pytest.approx(expected, abs=1e-4)
@@ -207,7 +208,7 @@ def test_total_paint_sums_layers():
 def test_ks_tensors_keep_order_and_repeats():
     white, blue = BY_NAME["Titanium White"], BY_NAME["Ultramarine Blue"]
     K, S = paints.ks_tensors([white, blue, white])
-    assert K.shape == S.shape == (3, 3)
+    assert K.shape == S.shape == (3, color.CHANNELS)
     assert torch.equal(K[0], K[2]) and not torch.equal(K[0], K[1])
     assert paints.ks_tensors([])[0].shape == (0, 3)
 

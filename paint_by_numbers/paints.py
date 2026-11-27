@@ -43,6 +43,14 @@ class Paint:
     lightfastness: str | None = None  # Golden's rating: "Excellent", "Very Good", "Fair", "Very Poor"
     discontinued: bool = False
     special: str | None = None  # "fluorescent" or "phosphorescent": not modeled as plain paint
+    fit_source: str | None = None  # what K and S were fit to: "photo", "<line> photo" or "rating" (see fit.py)
+
+    @property
+    def approximate(self) -> bool:
+        """True when the color data is weak: K and S from the opacity rating alone, which can be far
+        off (see fit.py), or a High Flow color, whose published values look like thin films rather
+        than full-strength paint (see the README)."""
+        return self.fit_source == "rating" or self.line == "High Flow"
 
     @property
     def slug(self) -> str:
@@ -148,6 +156,7 @@ def load_paints(path: str | Path = DEFAULT_DB) -> list[Paint]:
                 lightfastness=r.get("lightfastness"),
                 discontinued=bool(r.get("discontinued", False)),
                 special=r.get("special"),
+                fit_source=r.get("fit_source"),
             )
         )
     return paints

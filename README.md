@@ -184,9 +184,35 @@ The fetch script makes one request per paint (`--all` is about 156), and only wh
 
 Golden's published L\*a\*b\* is a paint at full hiding. For dark, strong, transparent paints that is close to black: Dioxazine Purple is L\* 25, a\* 2.6, b\* 1.3, nearly a neutral dark gray. Fitted from that alone, those paints came out as weak gray glazes. One full coat of Dioxazine Purple over white rendered almost white, so plans used two coats of it as a gentle darkener, and real paint turned the whole picture purple.
 
-Each Heavy Body product page also has a photo of the paint as a 1:10 and a 1:1 glaze, at full strength, and as 1:1 and 1:10 tints with Titanium White, brushed over a white chart with a black stripe. `scripts/fetch_tint_glaze.py` measures each band's color (one request per paint; only the numbers are stored, as `tint_glaze_photo`), and the fit then sets each paint's S per channel to match them. The published L\*a\*b\* stays exact: thick paint still renders as Golden measured it.
+Each Heavy Body product page also has a photo of the paint as a 1:10 and a 1:1 glaze, at full strength, and as 1:1 and 1:10 tints with Titanium White, brushed over a white chart with a black stripe. `scripts/fetch_tint_glaze.py` measures each band's color (one request per paint; only the numbers are stored, as `tint_glaze_photo`), and the fit then sets each paint's K and S to match them, while holding a thick layer within about 1.5 ΔE of the published color.
 
-Against the photos, the fit's median error went from 21 ΔE to 12, and from about 50 to 15 for the strongest transparent paints (Dioxazine Purple, the phthalos and quinacridones). The photos' own colors are only roughly right: for opaque paints, whose photographed full-strength band should match the published color, they differ by a median 8 ΔE. 117 paints have a photo. The fluorescents, Hansa Yellow Light, Quinacridone Burnt Orange and Quinacridone Red Light have none, and keep the estimate from their opacity rating.
+### Spectral bands
+
+The paint model works on light in 11 wavelength bands, 30 nm wide from 400 to 700 nm, not on red, green and blue. With three channels, no fit could get Dioxazine Purple right. Real Dioxazine passes a narrow band of deep violet even when thick, so a heavy coat over white stays violet; averaged over a broad "blue" channel, that light dies out, and the model turned it gray from a 1:1 glaze up. In bands, Dioxazine over white matches Golden's photo at every strength: L\* 36 a\* 48 b\* −50 at 1:10 (photo: 39, 48, −48), L\* 17 a\* 20 b\* −24 at 1:1 (photo: 20, 19, −25), and near-black from a full coat.
+
+Against all 117 photos, the median error went from 21 ΔE with the original fit, to 11 with three channels fit to the photos, to 5 in bands.
+
+### How accurate each paint is
+
+Every record says what its color data is, in `fit_source`:
+
+| | Heavy Body | Fluid | OPEN | SoFlat | High Flow | Liquitex |
+| --- | --- | --- | --- | --- | --- | --- |
+| `photo`: its own tint and glaze photo | 117 | 69 | 75 | 52 | 0 | 0 |
+| `<line> photo`: the same color's photo in another Golden line | 1 | 2 | 2 | 2 | 59 | 0 |
+| `rating`: only its published color and opacity rating | 2 | 0 | 0 | 0 | 7 | 105 |
+
+(Fluorescent and phosphorescent colors are not modeled: they give off light.) Plans and the app mark paints with weak color data as approximate: `rating` paints, and all of High Flow, whose published colors look like thin films rather than full-strength paint (see below).
+
+How close is close? Golden's instrument measurements are consistent: the same color in two lines differs by a median 1.3 ΔE at full strength, and the fit holds every thick layer within about 1.5 ΔE of its own. Thin layers are less certain, because the photos are the only evidence and they vary: Golden's photos of the same color in two lines differ by 6 to 19 ΔE band for band (most for the 1:10 glaze, whose brushed thickness varies). So:
+
+- A photo fit matches its own photo to a median 5 ΔE, but that flatters it, since part of what it matches is that photo's quirks. Scored against the same color's photo from another line, it is a median 13 ΔE off, and much of that is the other photo's own variation.
+- A color borrowed from another line (`<line> photo`) scores about the same against an independent photo: 13 to 14 ΔE.
+- The rating alone scores 19 to 21 ΔE, and much worse for dark, strong, transparent paints (it made Dioxazine Purple a weak gray).
+
+Fitting a color to all its lines' photos at once barely helped (12.2 against 12.9 on held-out photos), and building colors from their pigments was no better than the rating (15 against 17: pigment codes are too coarse, PR101 covers both opaque Red Oxide and Transparent Red Iron Oxide). More accuracy needs better measurements: swatches of your own paints photographed beside a color reference, or a colorimeter.
+
+Two smaller changes came with it. Golden's measurements include light reflected off the glossy surface, which lifts and grays very dark colors, so 2% is taken off before fitting (`SURFACE_REFLECTION` in `paint_by_numbers/fit.py`): the model's colors are the paint itself, as a painting looks lit without glare. And colors given as RGB or Lab (a background, a published color) become the smoothest spectrum with that color. The bands' weights come from the CIE 1931 observer and D65 daylight, in `paint_by_numbers/data/spectral_bands.json` (`scripts/make_spectral_bands.py`).
 
 **Plans made before this fix (2026-11-26) used the weak values. Make them again.**
 
@@ -206,11 +232,11 @@ Golden publishes a Pigment Detail Chart for each acrylic line, with every color'
 .venv/bin/python -m paint_by_numbers.cli image.jpg --db paint_by_numbers/data/paints_fluid.json --layers 10
 ```
 
-To refresh them: `scripts/fetch_golden_charts.py --cache pages/` (one request per line), then `python -m paint_by_numbers.fit --db <file>` for each. Colors the charts publish no L\*a\*b\* for (iridescent, interference and a few others) are skipped. Two checks were run on the data. Each color's L\*a\*b\* agrees with its Munsell notation in the same chart, except fluorescents. And colors shared with Heavy Body come out close: Fluid and OPEN within about 1 ΔE typically, SoFlat about 3 (a matte, more opaque formula).
+To refresh them: `scripts/fetch_golden_charts.py --cache pages/` (one request per line), then `scripts/fetch_tint_glaze.py --db <file> --cache photos/<line>/` for the swatch photos (two requests per color: its product page, then the photo; High Flow pages have none), then `python -m paint_by_numbers.fit --db <file>` for each, Heavy Body first (other lines borrow from it). Colors the charts publish no L\*a\*b\* for (iridescent, interference and a few others) are skipped. Two checks were run on the data. Each color's L\*a\*b\* agrees with its Munsell notation in the same chart, except fluorescents. And colors shared with Heavy Body come out close: Fluid and OPEN within about 1 ΔE typically, SoFlat about 3 (a matte, more opaque formula).
 
 Caveats:
 
-- **High Flow's transparent colors look like thin films.** They are much lighter than the same paints in the other lines (Transparent Red Iron Oxide: L\* 47, against 31 in Heavy Body). The published value seems to be a thin layer over white rather than full strength, so the fit treats these colors as lighter than a thick coat really is.
+- **High Flow's transparent colors look like thin films.** They are much lighter than the same paints in the other lines (Transparent Red Iron Oxide: L\* 47, against 31 in Heavy Body). The published value seems to be a thin layer over white rather than full strength, but the fit holds thick paint to it, so these colors may come out lighter than a thick coat really is. High Flow has no swatch photos either (its colors borrow the other lines'), so plans mark every High Flow color as approximate.
 - **No sheen names.** The charts give a gloss reading (`gloss_average`) instead of gloss, satin or matte, so the varnish note can't compare sheens for these lines.
 - **Not used:** the Mineral Spirit Acrylic chart. Half its colors have no L\*a\*b\*, opacity is given as numbers, and some values don't match the names: Pyrrole Red reads as a blue. Williamsburg oils have published L\*a\*b\* too, but this database is acrylics only for now.
 - **Other brands.** A search (2026-11-26) turned up no other acrylic maker publishing measured color values per paint. That includes Winsor & Newton, Daler-Rowney, Matisse, Atelier, Tri-Art, Nova Color, Lascaux and Schmincke. Liquitex publishes Munsell notation instead (see below). artistpigments.org has measured L\*a\*b\* for many brands, but doesn't allow automated collection. A possible future source is Roy Berns's *Artist Acrylic Paint Spectral, Colorimetric, and Image Dataset* (2022): spectral measurements, which could fit K and S better than one L\*a\*b\* value.
@@ -242,11 +268,10 @@ These colors are less certain than Golden's:
 
 ## Known limits
 
-- **Three-channel paint model.** Kubelka-Munk on red, green and blue only approximates real paint; some mixtures will be off in hue.
-- **Thick strong paints are neutral.** The published full-strength color is kept exact, so a full coat or more of Dioxazine Purple renders as a very dark gray rather than a very dark violet. Thin glazes have the right hue.
-- **Hiding power without a photo is estimated.** For paints with no tint and glaze photo, including every line except Heavy Body, each transparency rating is mapped to how many coats hide a black-and-white chart (opaque 1, semi-opaque 2, semi-transparent 5, transparent 20), in `paint_by_numbers/fit.py` as `COATS_TO_HIDE`. **This makes dark transparent paints far too weak** (see above), so Fluid, High Flow, OPEN, SoFlat and Liquitex plans have the problem Heavy Body had.
+- **11 bands, fit to photos.** The spectra are fit to a handful of photographed swatches and one published color per paint, not measured with a spectrophotometer, so they are smooth guesses that reproduce those colors. A swatch band left out of the fit is predicted less well than the ones in it.
+- **Paints with only a rating are approximate.** With no photo of their own or of the same Golden color, each transparency rating is mapped to how many coats hide a black-and-white chart (opaque 1, semi-opaque 2, semi-transparent 5, transparent 20), in `paint_by_numbers/fit.py` as `COATS_TO_HIDE`. **This can make dark transparent paints far too weak** (see above). It applies to all of Liquitex, 7 High Flow colors and 2 Heavy Body colors (Hansa Yellow Light, Quinacridone Red Light); plans and the app flag them.
 - **Fluorescent and phosphorescent paints are not modeled.** They emit light (Fluorescent Chartreuse's published L\* is 106, brighter than white), so a reflectance model cannot reproduce them. They are left out unless named in `--paints`.
-- **Wide-gamut model, sRGB files.** Paint is modeled in linear Rec.2020, which holds every non-fluorescent Golden paint (cadmium yellows, cobalt teals). Input images and `preview.png` are sRGB, so a preview cannot show colors more saturated than a screen's sRGB; the color error is measured in Lab and is not affected.
+- **Spectral model, sRGB files.** Paint is modeled as spectra, which hold every non-fluorescent Golden paint (cadmium yellows, cobalt teals). Input images and `preview.png` are sRGB, so a preview cannot show colors more saturated than a screen's sRGB; the color error is measured in Lab and is not affected.
 - **Some colors are unreachable.** Saturated screen colors, and anything darker than Carbon Black (L\* 25), cannot be painted with these paints. `error.png` shows where.
 - **Rounding to thickness levels costs accuracy.** Smooth gradients show banding. Fine texture in the image becomes many small regions; `--smoothing` and `--max-thicknesses` trade accuracy for fewer, larger regions. On the test render, smoothing 2 cut the number of separate regions by about 80% for 0.3 ΔE. `--layers` goes further: one region per layer.
 - **With `--layers`, the layers are chosen on 64 colors, not on the regions you will paint.** A layer that looked useful on the colors can end up with only a few small patches once its regions are smoothed, and a layer left with no region is dropped.
@@ -261,7 +286,7 @@ These colors are less certain than Golden's:
 
 | Module | Role |
 | --- | --- |
-| `paint_by_numbers/color.py` | sRGB, working space (linear Rec.2020), XYZ, Lab conversions (torch, differentiable) |
+| `paint_by_numbers/color.py` | sRGB, working space (11 spectral bands), XYZ, Lab conversions (torch, differentiable) |
 | `paint_by_numbers/km.py` | Kubelka-Munk layer, stack renderer, mixing |
 | `paint_by_numbers/paints.py` | Paint database load/save and name lookup |
 | `paint_by_numbers/fit.py` | K and S per paint from published data |

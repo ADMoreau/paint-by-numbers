@@ -11,6 +11,7 @@ from PIL import Image
 from images import landscape
 from core_paints import core_paints
 from paint_by_numbers import color, km, palette, paints, plan, solve
+from core_paints import spectrum  # noqa: E402
 
 PAINTS = core_paints()
 BY_NAME = {p.name: p for p in PAINTS}
@@ -119,7 +120,7 @@ def test_parse_color_rejects(text):
 
 def test_background_from_color_is_linear():
     bg = plan.background_from_color("#808080")
-    assert torch.allclose(bg.linear, torch.full((3,), 0.2158605, dtype=torch.float64), atol=1e-6)
+    assert torch.allclose(bg.linear, torch.full((color.CHANNELS,), 0.2158605, dtype=torch.float64), atol=1e-6)
     assert bg.description == "#808080"
 
 
@@ -142,7 +143,7 @@ def test_background_image_is_resized_per_pixel(tmp_path, image_path):
     ground = tmp_path / "ground.png"
     Image.new("RGB", (10, 10), (128, 128, 128)).save(ground)
     bg = plan.background_from_image(ground, height=12, width=16)
-    assert bg.kind == "image" and bg.linear.shape == (3, 12, 16)
+    assert bg.kind == "image" and bg.linear.shape == (color.CHANNELS, 12, 16)
     image = plan.load_image(image_path, size=16)
     result = plan.plan(image, PAINTS, plan.background_from_image(ground, *image.shape[1:]),
                        palette.PaletteConfig(n_colors=8, steps=100, max_layers=1), solve.SolveConfig(steps=100, refine_sweeps=1))  # fmt: skip
@@ -152,7 +153,7 @@ def test_background_image_is_resized_per_pixel(tmp_path, image_path):
 
 def test_background_image_size_mismatch_raises(tmp_path, image_path):
     image = plan.load_image(image_path, size=16)
-    bg = plan.Background("image", torch.ones(3, 5, 5, dtype=torch.float64), "x.png")
+    bg = plan.Background("image", torch.ones(color.CHANNELS, 5, 5, dtype=torch.float64), "x.png")
     with pytest.raises(ValueError, match="background image"):
         plan.plan(image, PAINTS, bg)
 
@@ -229,7 +230,7 @@ def test_color_layer_is_that_paint_alone_over_its_ground(runs):
     layers = json.loads((out_dir / "recipe.json").read_text())["layers"]
     for i, (f, layer) in enumerate(zip(sorted((out_dir / "layers_color").glob("*.png")), layers)):
         ground = {"white": 1.0, "black": 0.0}[layer["color_file_ground"]]
-        bg = torch.full((3,), ground, dtype=torch.float64)
+        bg = torch.full((color.CHANNELS,), ground, dtype=torch.float64)
         expected = _srgb(km.render_stack(bg, K[i : i + 1], S[i : i + 1], t[i : i + 1]))
         assert np.abs(_png(f) - expected).max() <= 0.5 / 255 + 1e-6
 
@@ -292,10 +293,10 @@ def test_passes_render_exactly_like_the_layer():
     gen = torch.Generator().manual_seed(3)
     levels = torch.tensor(solve.SolveConfig().levels, dtype=torch.float64)
     t = levels[torch.randint(0, len(levels), (6, 6), generator=gen)]
-    bg = torch.tensor([0.4, 0.3, 0.35], dtype=torch.float64)
+    bg = spectrum([0.4, 0.3, 0.35])
     one_layer = km.render_stack(bg, K, S, t.reshape(1, 1, 6, 6))
     passes = plan.layer_passes(t, solve.SolveConfig().levels)
-    Kp, Sp = K.expand(len(passes), 3), S.expand(len(passes), 3)
+    Kp, Sp = K.expand(len(passes), -1), S.expand(len(passes), -1)
     tp = torch.stack([(c * m.double()).reshape(1, 6, 6) for c, m in passes])
     assert torch.allclose(km.render_stack(bg, Kp, Sp, tp), one_layer, atol=1e-12)
 
@@ -360,7 +361,7 @@ def test_thickness_region_alone_renders_only_that_region(runs):
     result, out_dir, _ = runs["white"]
     layer = json.loads((out_dir / "recipe.json").read_text())["layers"][0]
     K, S = paints.ks_tensors(result.selection.stack[:1])
-    ground = torch.full((3,), {"white": 1.0, "black": 0.0}[layer["color_file_ground"]], dtype=torch.float64)
+    ground = torch.full((color.CHANNELS,), {"white": 1.0, "black": 0.0}[layer["color_file_ground"]], dtype=torch.float64)
     t = result.solution.t_snapped[0, 0].double()
     for e in layer["thicknesses"]:
         t_region = (e["coats"] * (t == e["coats"]).double()).reshape(1, 1, *t.shape)
@@ -427,7 +428,7 @@ def test_swatch_files_and_recipe(runs, name):
         K, S = torch.tensor(paint.K, dtype=torch.float64), torch.tensor(paint.S, dtype=torch.float64)
         assert swatch["full_strength"] == _hex(plan._srgb255(km.masstone(K, S)))
         for c in used:
-            on_white = km.layer(torch.ones(3, dtype=torch.float64), K, S, torch.tensor(c, dtype=torch.float64))
+            on_white = km.layer(torch.ones(color.CHANNELS, dtype=torch.float64), K, S, torch.tensor(c, dtype=torch.float64))
             assert swatch["on_white"][f"{c:g}"] == _hex(plan._srgb255(on_white))
 
 
@@ -439,12 +440,12 @@ def test_swatch_colors_get_lighter_or_darker_toward_full_strength():
     assert lightness == sorted(lightness, reverse=True)
     assert sum(colors["full_strength"]) <= lightness[-1] + 3
     assert "on_ground" not in colors
-    ground = torch.tensor([0.4, 0.2, 0.3], dtype=torch.float64)
+    ground = spectrum([0.4, 0.2, 0.3])
     assert set(plan.swatch_colors(umber, [1.0], ground)["on_ground"]) == {1.0}
 
 
 def test_swatch_card_size():
-    colors = plan.swatch_colors(BY_NAME["Titanium White"], [0.125, 0.25, 1.5], torch.tensor([0.4, 0.2, 0.3], dtype=torch.float64))
+    colors = plan.swatch_colors(BY_NAME["Titanium White"], [0.125, 0.25, 1.5], spectrum([0.4, 0.2, 0.3]))
     for size in [(256, 192), (520, 260), (40, 40)]:
         assert plan._swatch_card(BY_NAME["Titanium White"], colors, size).size == size
 

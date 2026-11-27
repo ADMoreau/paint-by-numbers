@@ -12,6 +12,7 @@ from PIL import Image
 from core_paints import CORE_NAMES, core_paints
 from images import landscape
 from paint_by_numbers import color, km, plan, uniform
+from core_paints import spectrum  # noqa: E402
 
 PAINTS = core_paints()
 FAST = uniform.UniformConfig(layers=5, n_colors=16, improve_passes=1)
@@ -76,7 +77,7 @@ def test_descend_never_raises_the_cost():
     target = color.srgb_to_lab(torch.rand(3, 6, 7), dim=0)
     K, S = (x.float() for x in (torch.tensor([p.K for p in PAINTS[:4]]), torch.tensor([p.S for p in PAINTS[:4]])))
     W = torch.tensor([0.25, 1.0, 0.5, 2.0]).reshape(4, 1, 1, 1)
-    bg = torch.full((3,), 0.5)
+    bg = torch.full((color.CHANNELS,), 0.5)
     X = torch.rand(4, 1, 6, 7) > 0.5
     _, before = uniform._cost(target, bg, K, S, W, X, 0.1)
     X, _ = uniform._descend(target, bg, K, S, W, X, 10, 0.1)
@@ -110,7 +111,7 @@ def test_descend_ends_where_no_single_change_helps():
     K = torch.tensor([p.K for p in PAINTS[:n]], dtype=torch.float32)
     S = torch.tensor([p.S for p in PAINTS[:n]], dtype=torch.float32)
     W = torch.tensor([0.25, 1.0, 0.5, 2.0, 0.125]).reshape(n, 1, 1, 1)
-    bg = torch.tensor([0.8, 0.6, 0.4])
+    bg = spectrum([0.8, 0.6, 0.4]).float()
     X, _ = uniform._descend(target, bg, K, S, W, torch.rand(n, 1, 5, 6) > 0.5, 50, 0.1)
     _, cost = uniform._cost(target, bg, K, S, W, X, 0.1)
     for i in range(n):
@@ -143,12 +144,12 @@ def test_guided_filter_keeps_edges_and_flat_areas():
 
 def test_weights_must_be_positive(image):
     with pytest.raises(ValueError, match="positive"):
-        uniform.select_uniform_stack(color.srgb_to_lab(image, dim=0), torch.ones(3), PAINTS, uniform.UniformConfig(weights=(0.0, 1.0)))
+        uniform.select_uniform_stack(color.srgb_to_lab(image, dim=0), torch.ones(color.CHANNELS), PAINTS, uniform.UniformConfig(weights=(0.0, 1.0)))
 
 
 def test_max_paints_limits_the_palette(image):
     cfg = uniform.UniformConfig(layers=4, n_colors=12, improve_passes=1, max_paints=2)
-    sel = uniform.select_uniform_stack(color.srgb_to_lab(image, dim=0), torch.ones(3, dtype=torch.float64), PAINTS, cfg)
+    sel = uniform.select_uniform_stack(color.srgb_to_lab(image, dim=0), torch.ones(color.CHANNELS, dtype=torch.float64), PAINTS, cfg)
     assert len({p.name for p in sel.stack}) <= 2
 
 

@@ -1,7 +1,8 @@
-"""Measure Golden's tint and glaze swatch photos into the Heavy Body database.
+"""Measure Golden's tint and glaze swatch photos into a paint database.
 
-Build time only: the planner never touches the network. Each Heavy Body product page has a photo
-(its URL is stored as ``tint_glaze_image``) of five brushed bands over a white chart with a black
+Build time only: the planner never touches the network. Each Golden acrylic product page has a photo
+(its URL is stored as ``tint_glaze_image``; for records without one, the product page named in
+``product_page`` is fetched to find it) of five brushed bands over a white chart with a black
 stripe down it, top to bottom:
 
     glaze 1:10   1 part paint to 10 parts medium, one coat
@@ -16,8 +17,9 @@ or what hue a thin layer is. The photo shows both. This script stores each band'
 (sRGB 0-255, over the white chart and over the black stripe) as ``tint_glaze_photo``; then
 python -m paint_by_numbers.fit uses them to set each paint's S per channel.
 
-    python scripts/fetch_tint_glaze.py                  # every paint with a photo
+    python scripts/fetch_tint_glaze.py                  # Heavy Body: every paint with a photo
     python scripts/fetch_tint_glaze.py --cache photos/  # save/reuse the downloaded photos
+    python scripts/fetch_tint_glaze.py --db paint_by_numbers/data/paints_fluid.json --cache photos/fluid/
 
 The photos are Golden's, so only the measured numbers go in the database. Whites are shot on a gray
 card instead of the white chart; the card's color is stored as ``ground``, and their tint bands are
@@ -29,6 +31,7 @@ from __future__ import annotations
 import argparse
 import datetime
 import io
+import re
 import sys
 import time
 import urllib.request
@@ -98,6 +101,15 @@ def fetch(url: str) -> bytes:
         return resp.read()
 
 
+PHOTO_ON_PAGE = re.compile(r'https://images\.goldenartistcolors\.com/[^"\s]+?tint-glaze[^"\s/]*\.webp')
+
+
+def photo_url(page_html: str) -> str | None:
+    """The tint and glaze photo's URL on a product page."""
+    m = PHOTO_ON_PAGE.search(page_html)
+    return m.group(0) if m else None
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--db", type=Path, default=DEFAULT_DB)
@@ -107,6 +119,19 @@ def main(argv: list[str] | None = None) -> int:
     fetched, measured, failed = False, 0, []
     for r in records:
         url = r.get("tint_glaze_image")
+        source = r.get("source") or ""
+        page = r.get("product_page") or (source if "/products/" in source and "pigment-data" not in source else None)
+        if not url and page and not r.get("special"):
+            if fetched:
+                time.sleep(DELAY_S)
+            fetched = True
+            try:
+                url = photo_url(fetch(page).decode("utf-8", errors="replace"))
+            except OSError as e:
+                failed.append(f"{r['name']}: product page: {e}")
+                continue
+            if url:
+                r["tint_glaze_image"] = url
         if not url:
             continue
         cached = args.cache / f"{r['item']}{Path(url).suffix}" if args.cache else None

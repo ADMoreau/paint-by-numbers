@@ -53,6 +53,11 @@ fun LayerSwatch(
         }
     }
     val shape = RoundedCornerShape(4.dp)
+    if (layer.approximate) Text(
+        "Approximate colour: no swatch data for this paint, so the real paint may look quite different, most of all thinned.",
+        style = MaterialTheme.typography.labelSmall,
+        color = Color(0xFFFFD54F),
+    )
     Row(modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
         for (c in chips) Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Box(

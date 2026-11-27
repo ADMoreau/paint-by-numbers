@@ -93,7 +93,7 @@ def hiding_thickness(K, S, tol: float = 1e-3) -> torch.Tensor:
 
     For any background in [0, 1], a layer at least this thick is within
     ``tol`` (in reflectance) of the masstone on every channel. Uses the bound
-    |R - R_inf| <= 1 - tanh(b S t). K and S have shape (..., 3); the result
+    |R - R_inf| <= 1 - tanh(b S t). K and S have shape (..., C); the result
     has shape (...), the worst channel.
 
     Light, transparent paints need many coats: a channel at 0.95 reflectance
@@ -108,16 +108,16 @@ def render_stack(background, K, S, t) -> torch.Tensor:
     """Render a stack of paint layers over a background, bottom layer first.
 
     Args:
-        background: working-space reflectance, shape (3,) for a flat color or
-            (3, *spatial) for a per-pixel background (any shape that
-            broadcasts to (3, *spatial)).
-        K, S: shape (n, 3), one paint per layer. Paints may repeat. May also
+        background: working-space reflectance, shape (C,) for a flat color or
+            (C, *spatial) for a per-pixel background (any shape that
+            broadcasts to (C, *spatial)).
+        K, S: shape (n, C), one paint per layer. Paints may repeat. May also
             be (n, 3, *spatial) for per-pixel paint constants, which lets
             many candidate stacks render side by side as one image.
         t: thickness in coats, shape (n, 1, *spatial). Any n >= 0.
 
     Returns:
-        Working-space reflectance, shape (3, *spatial), in t's dtype and device.
+        Working-space reflectance, shape (C, *spatial), in t's dtype and device.
     """
     t = _as_float(t)
     if t.ndim < 2 or t.shape[1] != 1:
@@ -126,21 +126,22 @@ def render_stack(background, K, S, t) -> torch.Tensor:
     ones = (1,) * len(spatial)
 
     K, S, background = (_as_float(x, like=t) for x in (K, S, background))
+    channels = background.shape[0]  # 3 or color.CHANNELS: the model is the same per channel
     for name, x in (("K", K), ("S", S)):
-        if x.ndim < 2 or x.shape[0] != n or x.shape[1] != 3:
-            raise ValueError(f"{name} must have shape (n={n}, 3, ...), got {tuple(x.shape)}")
+        if x.ndim < 2 or x.shape[0] != n or x.shape[1] != channels:
+            raise ValueError(f"{name} must have shape (n={n}, {channels}, ...), got {tuple(x.shape)}")
     if K.ndim == 2:
-        K = K.reshape(n, 3, *ones)
+        K = K.reshape(n, channels, *ones)
     if S.ndim == 2:
-        S = S.reshape(n, 3, *ones)
+        S = S.reshape(n, channels, *ones)
     if background.ndim == 1:
-        background = background.reshape(3, *ones)
+        background = background.reshape(channels, *ones)
 
     a, b, r_inf, bs = _coefficients(K, S)  # each (n, 3, ...), computed once
     r = background
     for i in range(n):
         r = _apply(r, a[i], b[i], r_inf[i], bs[i], t[i])
-    return r.expand(torch.broadcast_shapes(r.shape, (3, *spatial)))
+    return r.expand(torch.broadcast_shapes(r.shape, (channels, *spatial)))
 
 
 def mix(c, K, S) -> tuple[torch.Tensor, torch.Tensor]:
@@ -150,10 +151,10 @@ def mix(c, K, S) -> tuple[torch.Tensor, torch.Tensor]:
         c: concentrations, shape (..., m). They need not sum to 1: clear
             medium has K = S = 0, so 1 part paint to 3 parts medium is
             c = 0.25 of that paint.
-        K, S: shape (m, 3).
+        K, S: shape (m, C).
 
     Returns:
-        (K_mix, S_mix), each shape (..., 3).
+        (K_mix, S_mix), each shape (..., C).
     """
     K = _as_float(K)
     S = _as_float(S, like=K)

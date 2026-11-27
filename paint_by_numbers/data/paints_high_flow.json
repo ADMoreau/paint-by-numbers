@@ -11,15 +11,16 @@
     "pigments": ["PR122", "PY150", "PG7"],
     "discontinued": false,
     "special": null,
-    "K": [0.103361, 0.215784, 0.23378],
-    "S": [0.0260239, 0.0260239, 0.0260239],
+    "K": [241.941, 5.83068, 109.253, 345.833, 775.339, 8.25307, 82.5215, 0.92052, 0.920248, 138.479, 219.941],
+    "S": [0.69162, 0.682097, 1.47989, 53.0074, 56.0202, 0.542632, 0.239531, 0.39715, 0.29212, 0.268047, 0.265257],
     "munsell": "Hue:4.5 R Value:3.1 Chroma:3.8",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-alizarin-crimson-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Anthraquinone Blue",
@@ -33,15 +34,16 @@
     "pigments": ["PB60"],
     "discontinued": false,
     "special": null,
-    "K": [0.67825, 0.73308, 0.46961],
-    "S": [0.060408, 0.060408, 0.060408],
+    "K": [20.2622, 19.7817, 1.17619, 1.42256, 7.00792, 211.666, 58.4692, 405.451, 6.83294, 2.23029, 0.0180799],
+    "S": [0.041639, 0.0447312, 0.12051, 0.246016, 0.59596, 0.472932, 0.459854, 0.769628, 1.19104, 0.666103, 0.448266],
     "munsell": "Hue:1.1 P Value:2.3 Chroma:1.8",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-anthraquinone-blue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Benzimidazolone Yellow Light",
@@ -55,15 +57,16 @@
     "pigments": ["PY175"],
     "discontinued": false,
     "special": null,
-    "K": [0.05058, 0.277722, 28.2017],
-    "S": [3.61328, 3.61328, 3.61328],
+    "K": [72.8371, 120.41, 68.2078, 0.432418, 0.176564, 0.0466163, 0.0257969, 0.00334217, 0.00132384, 0.0010724, 0.00104086],
+    "S": [65.9971, 32.679, 0.488357, 0.0136857, 0.962803, 1.12922, 0.699154, 0.3935, 0.289526, 0.267108, 0.264753],
     "munsell": "Hue:6.9 Y Value:8.7 Chroma:12.8",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-benzimidazolone-yellow-light",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Benzimidazolone Yellow Medium",
@@ -77,15 +80,16 @@
     "pigments": ["PY154"],
     "discontinued": false,
     "special": null,
-    "K": [0.0516516, 0.629133, 39.8625],
-    "S": [3.67908, 3.67908, 3.67908],
+    "K": [130.129, 178.684, 104.922, 0.355926, 0.645429, 0.0772881, 0.0343081, 0.000796024, 0.00017708, 0.000130853, 0.000128699],
+    "S": [35.1062, 20.8549, 0.601956, 0.0279645, 1.99227, 0.378908, 0.56027, 0.495289, 0.212198, 0.172259, 0.168588],
     "munsell": "Hue:3.5 Y Value:8.3 Chroma:13.8",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-benzimidazolone-yellow-medium",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Burnt Sienna",
@@ -99,15 +103,16 @@
     "pigments": ["PBr7"],
     "discontinued": false,
     "special": null,
-    "K": [0.902948, 2.23195, 3.41793],
-    "S": [0.361518, 0.361518, 0.361518],
+    "K": [3.86554, 7.62563, 32.949, 480.746, 8.23138, 21.9933, 2.13313, 6.24276, 2.07916, 0.0125065, 0.00723267],
+    "S": [0.952015, 1.4886, 0.394178, 0.570866, 0.675897, 0.599057, 1.05143, 0.122946, 0.7406, 3.03751, 2.81312],
     "munsell": "Hue:9.6 R Value:3.5 Chroma:5.1",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-burnt-sienna",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Burnt Umber",
@@ -121,15 +126,16 @@
     "pigments": ["PBr7"],
     "discontinued": false,
     "special": null,
-    "K": [1.05963, 1.47536, 1.83618],
-    "S": [0.213207, 0.213207, 0.213207],
+    "K": [1.27504, 7.078, 50.0906, 852.039, 45.3253, 3.52737, 63.2415, 43.3619, 1.34427, 1.44263, 1.49484],
+    "S": [5.94174, 1.31043, 0.328557, 0.318066, 0.314664, 1.10574, 0.480589, 0.549926, 0.835477, 0.879147, 0.861888],
     "munsell": "Hue:3.5 YR Value:3.1 Chroma:1.6",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-burnt-umber",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Carbon Black",
@@ -143,15 +149,16 @@
     "pigments": ["PBk7"],
     "discontinued": false,
     "special": null,
-    "K": [2.34822, 2.31825, 2.23043],
-    "S": [0.215305, 0.215305, 0.215305],
+    "K": [428.9, 414.023, 254.833, 139.361, 246.255, 412.106, 122.256, 163.105, 462.307, 580.962, 596.675],
+    "S": [11.9741, 12.0933, 13.1201, 13.255, 10.1238, 9.56286, 9.71802, 8.42811, 8.46544, 8.49237, 8.50272],
     "munsell": "Hue:4.9 PB Value:2.4 Chroma:0.2",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-carbon-black",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Cerulean Blue Hue",
@@ -165,15 +172,16 @@
     "pigments": ["PW6", "PB15:0", "PG7"],
     "discontinued": false,
     "special": null,
-    "K": [12.5284, 4.56414, 1.20293],
-    "S": [1.32517, 1.32517, 1.32517],
+    "K": [0.203843, 0.333532, 1.78346, 0.0202692, 7.33569, 187.317, 2.11663, 129.643, 203.536, 213.346, 214.54],
+    "S": [0.000492694, 0.00086238, 2.34894, 0.184355, 0.0564831, 11.6088, 0.82104, 0.271586, 0.20499, 0.193734, 0.19221],
     "munsell": "Hue:5.3 PB Value:3.6 Chroma:9.6",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-cerulean-blue-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "SoFlat photo"
   },
   {
     "name": "Chromium Oxide Green",
@@ -187,15 +195,16 @@
     "pigments": ["PG17"],
     "discontinued": false,
     "special": null,
-    "K": [1.31659, 0.884889, 1.92582],
-    "S": [0.434958, 0.434958, 0.434958],
+    "K": [959.802, 45.4771, 5.90631, 127.974, 17.8341, 1.31807, 8.16066, 5.1485, 995.65, 993.307, 992.865],
+    "S": [1.155, 1.16516, 1.80675, 7.54581, 23.7221, 0.0557899, 4.42439, 2.34517, 2.22262, 2.20989, 2.20987],
     "munsell": "Hue:9.8 GY Value:4.5 Chroma:4.4",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-chromium-oxide-green",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Cobalt Blue",
@@ -209,15 +218,16 @@
     "pigments": ["PB28"],
     "discontinued": false,
     "special": null,
-    "K": [4.08773, 1.56263, 0.143298],
-    "S": [0.442227, 0.442227, 0.442227],
+    "K": [0.106432, 0.107355, 0.483748, 0.0378959, 1.24487, 4.27371, 9.54218, 1.63756, 17.7559, 21.785, 22.0781],
+    "S": [0.619601, 0.656433, 0.481087, 1.07725, 0.0563983, 0.848272, 0.558355, 0.21085, 0.142953, 0.137952, 0.138499],
     "munsell": "Hue:7 PB Value:3.6 Chroma:15.3",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-cobalt-blue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Cobalt Turquoise",
@@ -231,15 +241,16 @@
     "pigments": ["PB36"],
     "discontinued": false,
     "special": null,
-    "K": [3.11477, 0.877408, 0.801695],
-    "S": [0.35305, 0.35305, 0.35305],
+    "K": [0.920141, 3.52084, 1.02769, 47.1021, 0.631222, 6.21584, 1.80925, 87.202, 25.2244, 0.513322, 0.425543],
+    "S": [3.37678, 1.876, 0.372761, 0.431005, 1.60803, 0.0922758, 0.139588, 0.179803, 0.380338, 4.90119, 5.56571],
     "munsell": "Hue:8.2 BG Value:3.9 Chroma:5.8",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-cobalt-turquoise",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Diarylide Yellow",
@@ -253,15 +264,16 @@
     "pigments": ["PY83"],
     "discontinued": false,
     "special": null,
-    "K": [0.0622299, 1.526, 41.0152],
-    "S": [3.33329, 3.33329, 3.33329],
+    "K": [427.969, 396.897, 75.238, 165.837, 0.350842, 6.08372, 0.256513, 0.000262724, 0.000150487, 0.000149016, 0.000148346],
+    "S": [0.361833, 0.363782, 0.493529, 36.9883, 0.355989, 5.40012, 2.9129, 1.04332, 0.427547, 0.306723, 0.292405],
     "munsell": "Hue:8 YR Value:7.7 Chroma:14.7",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-diarylide-yellow",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Dioxazine Purple",
@@ -275,15 +287,16 @@
     "pigments": ["PV23"],
     "discontinued": false,
     "special": null,
-    "K": [0.116815, 0.154869, 0.147507],
-    "S": [0.0144558, 0.0144558, 0.0144558],
+    "K": [13.1939, 13.0747, 1.86756, 1001.51, 8.13266, 646.62, 104.276, 140.225, 2.36352, 2.39469, 2.46692],
+    "S": [0.469759, 0.440215, 0.145248, 0.472182, 1.55074, 0.548286, 0.358003, 0.619387, 1.04952, 1.01517, 0.982765],
     "munsell": "Hue:2.6 R Value:2.5 Chroma:1.2",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-dioxazine-purple",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Fluorescent Blue",
@@ -297,15 +310,16 @@
     "pigments": [],
     "discontinued": false,
     "special": "fluorescent",
-    "K": [1.64976, 0.192255, 0.0144835],
-    "S": [0.210658, 0.210658, 0.210658],
+    "K": [0.0187786, 0.0129343, 0.0144408, 0.0258379, 0.0693342, 0.249386, 1.17802, 29.2185, 53.5172, 53.5172, 53.5172],
+    "S": [0.214927, 0.214927, 0.214927, 0.214927, 0.214927, 0.214927, 0.214927, 0.214927, 0.214927, 0.214927, 0.214927],
     "munsell": "Hue:2.8 PB Value:5.2 Chroma:14.3",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-fluorescent-blue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Fluorescent Chartreuse",
@@ -319,15 +333,16 @@
     "pigments": [],
     "discontinued": false,
     "special": "fluorescent",
-    "K": [5.99856e-05, 5.99856e-05, 9.16031],
-    "S": [1.18771, 1.18771, 1.18771],
+    "K": [0.0267453, 0.00132838, 3.76646e-05, 3.76646e-05, 3.76646e-05, 3.76646e-05, 3.76646e-05, 3.76646e-05, 3.76646e-05, 3.76646e-05, 3.76646e-05],
+    "S": [0.745758, 0.745758, 0.745758, 0.745758, 0.745758, 0.745758, 0.745758, 0.745758, 0.745758, 0.745758, 0.745758],
     "munsell": "Hue:0 Value:0 Chroma:0",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-fluorescent-chartreuse",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Fluorescent Green",
@@ -341,15 +356,16 @@
     "pigments": [],
     "discontinued": false,
     "special": "fluorescent",
-    "K": [0.26675, 0.00568507, 2.32423],
-    "S": [0.409766, 0.409766, 0.409766],
+    "K": [120.453, 120.453, 120.453, 0.312742, 0.00418354, 0.00120866, 0.0138082, 1.7127, 120.453, 120.453, 120.453],
+    "S": [0.483746, 0.483746, 0.483746, 0.483746, 0.483746, 0.483746, 0.483746, 0.483746, 0.483746, 0.483746, 0.483746],
     "munsell": "Hue:0.3 G Value:8.5 Chroma:19.6",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-fluorescent-green",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Fluorescent Magenta",
@@ -363,15 +379,16 @@
     "pigments": [],
     "discontinued": false,
     "special": "fluorescent",
-    "K": [0.010755, 1.07378, 0.358841],
-    "S": [0.228656, 0.228656, 0.228656],
+    "K": [0.000878351, 212.043, 212.043, 212.043, 212.043, 212.043, 212.043, 5.77932e-05, 4.30089e-05, 4.30089e-05, 4.30089e-05],
+    "S": [0.851577, 0.851577, 0.851577, 0.851577, 0.851577, 0.851577, 0.851577, 0.851577, 0.851577, 0.851577, 0.851577],
     "munsell": "Hue:9.8 RP Value:5.8 Chroma:22.2",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-fluorescent-magenta",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Fluorescent Orange",
@@ -385,15 +402,16 @@
     "pigments": [],
     "discontinued": false,
     "special": "fluorescent",
-    "K": [6.5545e-05, 0.811714, 11.7372],
-    "S": [1.29779, 1.29779, 1.29779],
+    "K": [0.0901226, 160.342, 160.342, 160.342, 160.342, 160.342, 27.1862, 0.00156841, 3.25222e-05, 3.25222e-05, 3.25222e-05],
+    "S": [0.64394, 0.64394, 0.64394, 0.64394, 0.64394, 0.64394, 0.64394, 0.64394, 0.64394, 0.64394, 0.64394],
     "munsell": "Hue:10 RP Value:8.4 Chroma:4.9",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-fluorescent-orange",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Fluorescent Orange-Yellow",
@@ -407,15 +425,16 @@
     "pigments": [],
     "discontinued": false,
     "special": "fluorescent",
-    "K": [6.68504e-05, 0.563109, 13.4343],
-    "S": [1.32364, 1.32364, 1.32364],
+    "K": [0.0134105, 157.195, 217.371, 217.371, 217.371, 217.371, 4.30531, 0.000176255, 4.40895e-05, 4.40895e-05, 4.40895e-05],
+    "S": [0.872972, 0.872972, 0.872972, 0.872972, 0.872972, 0.872972, 0.872972, 0.872972, 0.872972, 0.872972, 0.872972],
     "munsell": "Hue:1.5 P Value:8.7 Chroma:5.6",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-fluorescent-orange-yellow",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Fluorescent Pink",
@@ -429,15 +448,16 @@
     "pigments": [],
     "discontinued": false,
     "special": "fluorescent",
-    "K": [5.8868e-05, 2.70724, 1.86398],
-    "S": [1.16559, 1.16559, 1.16559],
+    "K": [0.0410143, 187.563, 187.563, 187.563, 187.563, 187.563, 10.1873, 0.000611581, 3.80436e-05, 3.80436e-05, 3.80436e-05],
+    "S": [0.753262, 0.753262, 0.753262, 0.753262, 0.753262, 0.753262, 0.753262, 0.753262, 0.753262, 0.753262, 0.753262],
     "munsell": "Hue:10 RP Value:7 Chroma:0",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-fluorescent-pink",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Fluorescent Violet",
@@ -451,15 +471,16 @@
     "pigments": [],
     "discontinued": false,
     "special": "fluorescent",
-    "K": [0.06884, 0.463513, 0.0714894],
-    "S": [0.0559382, 0.0559382, 0.0559382],
+    "K": [0.0236272, 0.0507171, 0.119304, 0.374065, 2.61943, 1.87762, 0.305202, 0.0994241, 0.0407919, 0.0175028, 0.00682415],
+    "S": [0.0726897, 0.0726897, 0.0726897, 0.0726897, 0.0726897, 0.0726897, 0.0726897, 0.0726897, 0.0726897, 0.0726897, 0.0726897],
     "munsell": "Hue:2 RP Value:3.9 Chroma:15.7",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-fluorescent-violet",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Green Gold",
@@ -473,15 +494,16 @@
     "pigments": ["PY150", "PG36", "PY175"],
     "discontinued": false,
     "special": null,
-    "K": [0.061214, 0.0691142, 0.522769],
-    "S": [0.0591662, 0.0591662, 0.0591662],
+    "K": [241.382, 361.988, 89.1623, 7.15557, 1.40018, 0.327927, 3.58842, 0.181456, 1.4184, 1.54407, 1.56849],
+    "S": [112.68, 53.0962, 1.52963, 0.16784, 2.09177, 0.286607, 0.0961441, 1.33252, 0.046568, 0.027339, 0.0254805],
     "munsell": "Hue:1.6 GY Value:5.6 Chroma:6.9",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-green-gold",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "India Yellow Hue",
@@ -495,15 +517,16 @@
     "pigments": ["PY175", "PY150", "PR122"],
     "discontinued": false,
     "special": null,
-    "K": [0.03874, 0.193084, 0.918458],
-    "S": [0.106809, 0.106809, 0.106809],
+    "K": [213.055, 205.409, 49.3207, 9.36248, 0.353032, 12.0066, 0.337677, 0.0358066, 0.0162107, 0.0136604, 0.013609],
+    "S": [0.5609, 0.556683, 0.600605, 3.05748, 0.610995, 0.0781329, 0.0477701, 0.408314, 0.335878, 0.285242, 0.273227],
     "munsell": "Hue:2.9 YR Value:5.6 Chroma:10.5",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-india-yellow-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Iridescent Copper (Fine)",
@@ -517,15 +540,16 @@
     "pigments": [],
     "discontinued": false,
     "special": "iridescent",
-    "K": [2.49673, 1.3815, 0.116597],
-    "S": [2.24548, 2.24548, 2.24548],
+    "K": [0.000137911, 0.0371685, 0.178574, 0.491876, 1.04639, 1.84569, 2.80504, 3.9146, 5.4142, 7.82712, 12.4587],
+    "S": [2.73065, 2.73065, 2.73065, 2.73065, 2.73065, 2.73065, 2.73065, 2.73065, 2.73065, 2.73065, 2.73065],
     "munsell": "Hue:6.8 PB Value:6.2 Chroma:10.6",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-iridescent-copper-fine",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Light Green (Yellow Shade)",
@@ -539,15 +563,16 @@
     "pigments": ["PY74", "PW6", "PG36"],
     "discontinued": false,
     "special": null,
-    "K": [0.14695, 0.114242, 3.30585],
-    "S": [0.535146, 0.535146, 0.535146],
+    "K": [223.144, 196.215, 13.0608, 19.0641, 1.84367, 0.261937, 0.561105, 2.78923, 15.9857, 30.4242, 35.0761],
+    "S": [5.66256, 5.13302, 3.33508, 1.00706, 0.937173, 5.95446, 8.65556, 4.98288, 11.6748, 11.6258, 10.9004],
     "munsell": "Hue:4.9 GY Value:7.6 Chroma:11",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-light-green-yellow-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Light Magenta",
@@ -561,15 +586,16 @@
     "pigments": ["PW6", "PR112"],
     "discontinued": false,
     "special": null,
-    "K": [0.14961, 1.21559, 0.857259],
-    "S": [2.00557, 2.00557, 2.00557],
+    "K": [0.000493793, 0.0014245, 6.11273, 18.2436, 115.217, 0.747602, 1.56537, 0.0872633, 0.0732672, 0.0702849, 0.0695235],
+    "S": [0.401901, 4.84954, 0.43139, 62.526, 31.092, 1.6763, 3.96979, 3.15499, 3.12887, 3.17617, 3.19831],
     "munsell": "Hue:8.2 RP Value:7.1 Chroma:9.6",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-light-magenta",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Light Phthalo Blue",
@@ -583,15 +609,16 @@
     "pigments": ["PW6", "PB15:3"],
     "discontinued": false,
     "special": null,
-    "K": [1.41976, 0.324672, 0.0518002],
-    "S": [3.12666, 3.12666, 3.12666],
+    "K": [0.0351665, 0.0377586, 0.0722584, 0.25528, 0.00800504, 0.43639, 2.00976, 0.19191, 2.82415, 4.26707, 4.5109],
+    "S": [15.7155, 15.18, 5.23526, 1.58512, 1.33507, 33.8299, 0.155062, 0.522128, 20.9922, 27.583, 27.9321],
     "munsell": "Hue:8.7 B Value:7.8 Chroma:6.4",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-light-phthalo-blue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Light Phthalo Green",
@@ -605,15 +632,16 @@
     "pigments": ["PW6", "PG36"],
     "discontinued": false,
     "special": null,
-    "K": [0.540513, 0.0797749, 0.251968],
-    "S": [3.33472, 3.33472, 3.33472],
+    "K": [1.81521, 1.77673, 0.9182, 0.457498, 0.143854, 0.0972853, 0.481096, 1.71001, 67.4526, 149.946, 165.348],
+    "S": [22.9175, 21.6362, 12.5629, 4.19839, 13.9775, 18.98, 3.94942, 12.2427, 120.805, 143.31, 145.161],
     "munsell": "Hue:1 BG Value:8.7 Chroma:4.3",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-light-phthalo-green",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Mars Black",
@@ -627,15 +655,16 @@
     "pigments": ["PBk11"],
     "discontinued": false,
     "special": null,
-    "K": [0.115047, 0.115498, 0.113962],
-    "S": [0.0106875, 0.0106875, 0.0106875],
+    "K": [1.60074, 6.71893, 145.463, 463.277, 4.37726, 163.991, 77.8007, 182.116, 3.71776, 3.22854, 3.13052],
+    "S": [2.32707, 0.788889, 0.354292, 0.508667, 0.792556, 1.07981, 0.560856, 0.49931, 0.762887, 1.10703, 1.17128],
     "munsell": "Hue:3.6 P Value:2.4 Chroma:0.1",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-mars-black",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Medium Magenta",
@@ -649,15 +678,16 @@
     "pigments": ["PW6", "PR122"],
     "discontinued": false,
     "special": null,
-    "K": [0.506248, 2.52421, 0.716545],
-    "S": [0.774608, 0.774608, 0.774608],
+    "K": [0.272355, 0.310724, 4.88672, 2.22589, 1096.63, 4.22204, 10.5416, 0.432843, 0.388384, 0.38976, 0.388914],
+    "S": [4.36546, 4.3327, 1.08653, 0.294052, 1.14472, 4.09609, 0.246062, 0.841132, 1.99455, 2.12352, 2.1485],
     "munsell": "Hue:3 RP Value:4.9 Chroma:12.9",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-medium-magenta",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "N5 Neutral Gray",
@@ -671,15 +701,16 @@
     "pigments": ["PW6", "PBk7", "PR101", "PY42"],
     "discontinued": false,
     "special": null,
-    "K": [1.30738, 1.29739, 1.34706],
-    "S": [0.847002, 0.847002, 0.847002],
+    "K": [0.137337, 15.2752, 18.2468, 20.2102, 11.6972, 24.002, 5.41861, 15.248, 24.1763, 26.1062, 26.2257],
+    "S": [5.04519, 9.43032, 9.13909, 7.78288, 5.37864, 8.58388, 8.61219, 5.44348, 4.19968, 4.03501, 4.03333],
     "munsell": "Hue:6.7 GY Value:5.1 Chroma:0.1",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-n5-neutral-gray",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "N8 Neutral Gray",
@@ -693,15 +724,16 @@
     "pigments": ["PW6", "PBk7", "PR101", "PY42"],
     "discontinued": false,
     "special": null,
-    "K": [0.199726, 0.193407, 0.200801],
-    "S": [1.23322, 1.23322, 1.23322],
+    "K": [2.43539, 2.43036, 1.31849, 3.63795, 1.21902, 1.42155, 1.48917, 1.92808, 1.04452, 0.979078, 0.968554],
+    "S": [2.58977, 2.9956, 40.2964, 11.1224, 1.03399, 33.9222, 27.3034, 9.84057, 0.91773, 0.717696, 0.702454],
     "munsell": "Hue:5.7 G Value:7.9 Chroma:0.1",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-n8-neutral-gray",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Naphthol Pink",
@@ -715,15 +747,16 @@
     "pigments": ["PW6", "PR112"],
     "discontinued": false,
     "special": null,
-    "K": [0.308245, 3.0372, 2.90043],
-    "S": [1.23595, 1.23595, 1.23595],
+    "K": [0.236533, 2.0134, 11.6486, 16.992, 17.6828, 9.67914, 1.11901, 0.269116, 0.0429457, 0.0278834, 0.0265424],
+    "S": [0.410858, 0.480022, 4.92872, 6.03596, 4.93788, 2.99156, 0.15077, 3.67744, 3.0497, 2.70818, 2.6465],
     "munsell": "Hue:2.6 R Value:5.5 Chroma:13",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-naphthol-pink",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Naphthol Red Light",
@@ -737,15 +770,16 @@
     "pigments": ["PR112"],
     "discontinued": false,
     "special": null,
-    "K": [0.433042, 4.77655, 10.0166],
-    "S": [0.929571, 0.929571, 0.929571],
+    "K": [0.00585433, 8.46955, 418.771, 761.797, 720.485, 13.904, 20.2063, 0.012764, 0.15991, 0.833404, 1.09382],
+    "S": [0.424796, 0.192732, 3.4887, 38.1647, 10.1626, 1.16366, 0.228326, 1.42219, 0.0966318, 0.116445, 0.116771],
     "munsell": "Hue:7 R Value:4.7 Chroma:14.4",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-naphthol-red-light",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Naphthol Red Medium",
@@ -759,15 +793,16 @@
     "pigments": ["PR5"],
     "discontinued": false,
     "special": null,
-    "K": [0.268411, 1.80916, 2.57736],
-    "S": [0.228755, 0.228755, 0.228755],
+    "K": [0.0429659, 4.07156, 80.3726, 326.171, 607.188, 13.5486, 21.4815, 0.142553, 0.765895, 36.4952, 55.8018],
+    "S": [0.175745, 0.160051, 0.806907, 32.5733, 59.2694, 0.186294, 0.0774551, 0.610257, 0.365929, 0.195143, 0.184668],
     "munsell": "Hue:5.6 R Value:3.9 Chroma:11.6",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-naphthol-red-medium",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Nickel Azo Yellow",
@@ -781,15 +816,16 @@
     "pigments": ["PY150"],
     "discontinued": false,
     "special": null,
-    "K": [0.0397625, 0.149418, 1.03258],
-    "S": [0.105315, 0.105315, 0.105315],
+    "K": [237.716, 259.014, 62.7842, 2.9503, 6.66707, 0.708622, 0.0551848, 0.660213, 0.00207452, 0.00114066, 0.0011666],
+    "S": [14.946, 12.8912, 5.70754, 0.0711671, 0.50206, 0.276439, 0.412935, 0.0378833, 0.212587, 0.147897, 0.128326],
     "munsell": "Hue:7 YR Value:5.8 Chroma:9.8",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-nickel-azo-yellow",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Payne's Gray",
@@ -803,15 +839,16 @@
     "pigments": ["PB29", "PBk7"],
     "discontinued": false,
     "special": null,
-    "K": [0.530954, 0.516874, 0.447657],
-    "S": [0.0444398, 0.0444398, 0.0444398],
+    "K": [2.1402, 2.54602, 84.2532, 84.5474, 2.64597, 172.883, 21.1202, 147.88, 3.39305, 2.39861, 0.00940487],
+    "S": [0.707598, 0.4229, 0.264984, 0.328122, 0.441506, 0.258027, 0.184384, 0.210409, 0.307374, 0.838012, 0.777234],
     "munsell": "Hue:7 PB Value:2.3 Chroma:0.6",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-paynes-gray",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Permanent Green Light",
@@ -825,15 +862,16 @@
     "pigments": ["PY175", "PG7", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [3.56921, 0.871779, 2.8808],
-    "S": [0.480504, 0.480504, 0.480504],
+    "K": [227.679, 183.545, 20.2994, 3.16016, 1.06968, 27.6103, 1.70993, 46.1143, 1072.7, 1052.05, 1037.59],
+    "S": [1.80942, 1.74869, 1.38432, 1.44103, 2.24514, 0.229549, 0.634252, 1.6026, 87.1418, 636.386, 823.925],
     "munsell": "Hue:3.6 G Value:4.3 Chroma:9.2",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-permanent-green-light",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Permanent Violet Dark",
@@ -847,15 +885,16 @@
     "pigments": ["PR122", "PB60"],
     "discontinued": false,
     "special": null,
-    "K": [0.477774, 0.63279, 0.48557],
-    "S": [0.0659469, 0.0659469, 0.0659469],
+    "K": [14.456, 14.308, 1.81701, 158.088, 7.42195, 345.587, 7.48665, 1.88028, 29.805, 1.00357, 0.746315],
+    "S": [0.848942, 0.79254, 0.250885, 0.518282, 1.34557, 0.271216, 0.102546, 0.445573, 0.234008, 0.146364, 0.152895],
     "munsell": "Hue:2.5 RP Value:2.7 Chroma:1.6",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-permanent-violet-dark",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Phthalo Blue (Green Shade)",
@@ -869,15 +908,16 @@
     "pigments": ["PB15:3"],
     "discontinued": false,
     "special": null,
-    "K": [1.07478, 0.916491, 0.422224],
-    "S": [0.0920279, 0.0920279, 0.0920279],
+    "K": [0.246815, 0.560431, 3.53229, 0.245466, 2.87967, 12.9789, 16.8642, 15.3346, 3.76824, 0.110696, 0.0774724],
+    "S": [0.234672, 0.114679, 0.0138211, 0.195076, 0.0377566, 0.211298, 0.475009, 0.220486, 0.0996881, 0.157178, 0.165014],
     "munsell": "Hue:7.6 PB Value:2.4 Chroma:4",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-phthalo-blue-green-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Phthalo Blue (Red Shade)",
@@ -891,15 +931,16 @@
     "pigments": ["PB15:0"],
     "discontinued": false,
     "special": null,
-    "K": [0.402903, 0.285196, 0.0926387],
-    "S": [0.0324645, 0.0324645, 0.0324645],
+    "K": [0.00223602, 20.9061, 0.513622, 0.339932, 27.48, 132.954, 141.474, 498.789, 96.2813, 0.416806, 0.00796384],
+    "S": [0.16407, 0.0598665, 0.145624, 0.280243, 1.26185, 3.23132, 4.42319, 3.66327, 2.21214, 0.338758, 0.224671],
     "munsell": "Hue:7.4 PB Value:2.5 Chroma:6.7",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-phthalo-blue-red-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Phthalo Green (Blue Shade)",
@@ -913,15 +954,16 @@
     "pigments": ["PG7"],
     "discontinued": false,
     "special": null,
-    "K": [1.23511, 0.439999, 0.579487],
-    "S": [0.106956, 0.106956, 0.106956],
+    "K": [0.162073, 5.00778, 174.121, 150.527, 8.78422, 0.717823, 16.0548, 888.898, 81.3683, 807.164, 795.985],
+    "S": [0.481861, 2.46593, 0.792819, 0.904866, 1.82254, 0.28562, 0.625269, 0.747112, 0.666707, 0.714001, 0.724105],
     "munsell": "Hue:2.8 BG Value:3.2 Chroma:4.5",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-phthalo-green-blue-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Phthalo Green (Yellow Shade)",
@@ -935,15 +977,16 @@
     "pigments": ["PG36"],
     "discontinued": false,
     "special": null,
-    "K": [0.423971, 0.0946562, 0.254108],
-    "S": [0.0411717, 0.0411717, 0.0411717],
+    "K": [406.764, 333.572, 8.4759, 11.7568, 3.00472, 0.316649, 8.41429, 570.482, 34.0148, 18.7103, 15.2183],
+    "S": [1.27329, 1.23868, 1.65152, 1.46428, 0.635908, 0.330611, 0.197591, 0.456826, 0.577632, 0.773015, 0.921293],
     "munsell": "Hue:4.9 G Value:4 Chroma:8.7",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-phthalo-green-yellow-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Primary Cyan",
@@ -957,15 +1000,16 @@
     "pigments": ["PB15:3", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [0.76514, 0.237593, 0.0680848],
-    "S": [0.0569062, 0.0569062, 0.0569062],
+    "K": [0.0667838, 1.06807, 1.58871, 0.299746, 4.30459, 45.2571, 263.986, 8.5006, 1052.08, 1022.91, 1017.36],
+    "S": [0.0015831, 0.0177813, 1.46684, 1.43481, 0.087731, 8.07964, 1.56072, 1.26606, 1.19107, 1.17969, 1.18085],
     "munsell": "Hue:4.8 PB Value:3.2 Chroma:9.2",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-primary-cyan",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Primary Magenta",
@@ -979,15 +1023,16 @@
     "pigments": ["PV19"],
     "discontinued": false,
     "special": null,
-    "K": [0.235223, 1.88981, 2.31384],
-    "S": [0.268927, 0.268927, 0.268927],
+    "K": [0.0491637, 3.05293, 38.1954, 63.6872, 805.284, 12.631, 38.1975, 0.241095, 0.552479, 0.59263, 0.617466],
+    "S": [0.139334, 0.217728, 0.408174, 10.6071, 62.1098, 0.166635, 0.116572, 1.00162, 0.91606, 0.86455, 0.828634],
     "munsell": "Hue:4.9 R Value:4.1 Chroma:12.5",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-primary-magenta",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Primary Yellow",
@@ -1001,15 +1046,16 @@
     "pigments": ["PY175", "PY74", "PW6"],
     "discontinued": false,
     "special": null,
-    "K": [0.0174636, 0.154117, 11.5864],
-    "S": [1.59475, 1.59475, 1.59475],
+    "K": [1046.91, 993.725, 6.39335, 173.817, 0.402132, 0.0144799, 0.000185459, 0.00012341, 0.163812, 15.0895, 28.0924],
+    "S": [165.95, 120.788, 1.14268, 0.344544, 0.0966629, 1.86452, 0.857466, 0.288376, 0.64729, 0.190514, 0.17357],
     "munsell": "Hue:5.3 Y Value:8.6 Chroma:12.8",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-primary-yellow",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Prussian Blue Hue",
@@ -1023,15 +1069,16 @@
     "pigments": ["PB15:0", "PBk7", "PV23"],
     "discontinued": false,
     "special": null,
-    "K": [0.139441, 0.140527, 0.113031],
-    "S": [0.0127988, 0.0127988, 0.0127988],
+    "K": [18.8207, 18.8653, 1.4395, 1.37865, 7.8116, 355.609, 90.9701, 256.462, 6.42052, 1.71803, 0.00665208],
+    "S": [0.0315628, 0.033346, 0.0852039, 0.303141, 0.819284, 0.422241, 0.350815, 0.641157, 1.08263, 0.982296, 0.444069],
     "munsell": "Hue:10 PB Value:2.4 Chroma:1",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-prussian-blue-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Pyrrole Orange",
@@ -1045,15 +1092,16 @@
     "pigments": ["PO73"],
     "discontinued": false,
     "special": null,
-    "K": [0.198398, 3.97678, 20.7833],
-    "S": [1.70518, 1.70518, 1.70518],
+    "K": [2.48507, 2.78359, 144.016, 412.827, 240.991, 1.95886, 14.0546, 0.00133076, 0.00595313, 0.0139507, 0.0178333],
+    "S": [0.0201886, 0.0245598, 9.55418, 16.6382, 2.46085, 1.43744, 0.136245, 1.95159, 2.31684, 1.78826, 1.51778],
     "munsell": "Hue:9.5 R Value:5.9 Chroma:16.1",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-pyrrole-orange",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Pyrrole Red",
@@ -1067,15 +1115,16 @@
     "pigments": ["PR254"],
     "discontinued": false,
     "special": null,
-    "K": [0.536351, 5.40182, 9.1583],
-    "S": [0.745947, 0.745947, 0.745947],
+    "K": [0.0714687, 27.0244, 87.2047, 1096.63, 173.259, 32.6857, 23.6424, 0.446643, 2.34647, 2.71718, 2.75873],
+    "S": [0.844718, 0.672938, 1.2614, 1.82319, 2.49605, 3.28194, 3.43512, 0.367077, 89.0229, 154.227, 163.666],
     "munsell": "Hue:6.2 R Value:4.2 Chroma:14",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-pyrrole-red",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Quinacridone Magenta",
@@ -1089,15 +1138,16 @@
     "pigments": ["PR122"],
     "discontinued": false,
     "special": null,
-    "K": [0.0730539, 0.407934, 0.361008],
-    "S": [0.0503321, 0.0503321, 0.0503321],
+    "K": [3.97941, 454.33, 0.845224, 293.914, 100.302, 123.756, 3.68526, 0.0564968, 88.4812, 0.410652, 0.287235],
+    "S": [0.107145, 0.129327, 0.143842, 19.417, 6.90762, 0.409367, 0.0454274, 0.234594, 0.0604181, 0.0241531, 0.0210718],
     "munsell": "Hue:3 R Value:3.7 Chroma:10.3",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-quinacridone-magenta",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Quinacridone Red",
@@ -1111,15 +1161,16 @@
     "pigments": ["PV19"],
     "discontinued": false,
     "special": null,
-    "K": [0.217941, 1.85293, 2.49725],
-    "S": [0.293948, 0.293948, 0.293948],
+    "K": [0.0492165, 3.62246, 8.61535, 1045.9, 231.695, 16.1998, 5.01107, 0.0350856, 5.67519, 0.0620225, 0.0463989],
+    "S": [0.272047, 0.430602, 0.306219, 2.52048, 13.4075, 0.249776, 0.0961915, 0.951726, 0.0533695, 0.00818783, 0.00603188],
     "munsell": "Hue:5.3 R Value:4.3 Chroma:12.9",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-quinacridone-red",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Raw Sienna",
@@ -1133,15 +1184,16 @@
     "pigments": ["PY43"],
     "discontinued": false,
     "special": null,
-    "K": [0.600406, 1.44574, 4.46705],
-    "S": [0.68261, 0.68261, 0.68261],
+    "K": [1096.63, 1096.63, 6.37751, 2.1093, 64.9426, 1.54942, 0.351553, 2.67024, 0.138275, 0.0218401, 0.0175116],
+    "S": [0.179835, 0.17944, 0.172898, 1.75127, 5.7747, 0.144919, 0.93601, 0.0642424, 0.731991, 0.731731, 0.710283],
     "munsell": "Hue:6.9 YR Value:5 Chroma:6.2",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-raw-sienna",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Raw Umber",
@@ -1155,15 +1207,16 @@
     "pigments": ["PBr7"],
     "discontinued": false,
     "special": null,
-    "K": [2.17981, 2.45029, 2.82657],
-    "S": [0.291234, 0.291234, 0.291234],
+    "K": [0.627271, 3.55242, 24.1152, 442.667, 61.688, 1.97633, 12.3155, 104.195, 2.3481, 0.496934, 0.00336797],
+    "S": [0.345949, 0.55967, 0.450539, 0.678945, 0.936512, 0.4349, 0.0647362, 0.0750418, 0.123277, 1.30385, 0.302327],
     "munsell": "Hue:9.8 YR Value:2.7 Chroma:0.7",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-raw-umber",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Sap Green Hue",
@@ -1177,15 +1230,16 @@
     "pigments": ["PY150", "PG36", "PBk7", "PR101"],
     "discontinued": false,
     "special": null,
-    "K": [2.68673, 2.29142, 2.58946],
-    "S": [0.313457, 0.313457, 0.313457],
+    "K": [266.229, 237.472, 35.2182, 9.48327, 54.0966, 1.96521, 8.28519, 51.7088, 2.49701, 43.2014, 58.1845],
+    "S": [2.24308, 2.2772, 2.55748, 2.17564, 0.546476, 0.380867, 0.0547462, 0.115907, 0.940884, 0.46614, 0.438256],
     "munsell": "Hue:6.2 G Value:2.8 Chroma:1",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-sap-green-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Sepia",
@@ -1199,15 +1253,16 @@
     "pigments": ["PR101", "PY150", "PBk7"],
     "discontinued": false,
     "special": null,
-    "K": [0.415978, 0.429089, 0.467068],
-    "S": [0.0624796, 0.0624796, 0.0624796],
+    "K": [0.589602, 0.562076, 0.536872, 0.514199, 0.494775, 0.478967, 0.466253, 0.455462, 0.44557, 0.436146, 0.427086],
+    "S": [0.0469132, 0.0469132, 0.0469132, 0.0469132, 0.0469132, 0.0469132, 0.0469132, 0.0469132, 0.0469132, 0.0469132, 0.0469132],
     "munsell": "Hue:4.3 Y Value:3 Chroma:0.3",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-sepia",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Teal",
@@ -1221,15 +1276,16 @@
     "pigments": ["PW6", "PG7", "PB15:3"],
     "discontinued": false,
     "special": null,
-    "K": [6.8997, 1.10691, 0.908449],
-    "S": [1.37979, 1.37979, 1.37979],
+    "K": [58.1209, 52.0996, 0.608571, 145.131, 0.00313543, 35.289, 16.0624, 23.4744, 1096.63, 1096.63, 1096.63],
+    "S": [0.343593, 0.407513, 4.34672, 0.849978, 1.14275, 0.101, 1.34226, 17.0384, 10.5165, 9.48415, 9.17308],
     "munsell": "Hue:9.7 BG Value:5.3 Chroma:8.5",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-teal",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Titan Buff",
@@ -1243,15 +1299,16 @@
     "pigments": ["PW6:1"],
     "discontinued": false,
     "special": null,
-    "K": [0.151909, 0.266989, 0.723168],
-    "S": [1.70893, 1.70893, 1.70893],
+    "K": [4.89522, 4.65173, 1.08372, 1.2081, 0.829511, 0.521899, 0.299782, 0.238992, 0.367332, 0.41004, 0.420911],
+    "S": [11.53, 10.5902, 1.48116, 14.044, 0.659023, 5.51247, 6.86013, 4.54474, 0.858628, 0.58883, 0.556062],
     "munsell": "Hue:0.9 Y Value:8 Chroma:2.7",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-titan-buff",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Titan Green Pale",
@@ -1265,15 +1322,16 @@
     "pigments": ["PW6", "PY42", "PBr7", "PG7"],
     "discontinued": false,
     "special": null,
-    "K": [0.221189, 0.194127, 0.444823],
-    "S": [1.59865, 1.59865, 1.59865],
+    "K": [2.68322, 2.79545, 7.81462, 0.0232957, 0.490467, 1.15886, 4.65057, 0.982004, 0.00343471, 0.000392352, 0.000299945],
+    "S": [177.095, 146.942, 2.47265, 2.88367, 1.07262, 28.3693, 29.3224, 1.52577, 4.353, 0.21885, 0.167518],
     "munsell": "Hue:6.4 GY Value:8.1 Chroma:1.7",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-titan-green-pale",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Titan Mars Pale",
@@ -1287,15 +1345,16 @@
     "pigments": ["PW6", "PBr6"],
     "discontinued": false,
     "special": null,
-    "K": [0.114432, 0.403462, 0.794082],
-    "S": [2.25429, 2.25429, 2.25429],
+    "K": [0.00963523, 0.0138582, 11.2363, 18.482, 0.496593, 7.78649, 2.28264, 0.133089, 0.0462496, 0.0378456, 0.0370224],
+    "S": [20.5987, 20.7259, 7.83493, 4.96176, 4.44479, 49.5098, 13.8665, 1.89677, 20.9742, 34.9871, 37.096],
     "munsell": "Hue:2.4 YR Value:8.1 Chroma:3.8",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-titan-mars-pale",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Titan Violet Pale",
@@ -1309,15 +1368,16 @@
     "pigments": ["PW6", "PR101"],
     "discontinued": false,
     "special": null,
-    "K": [0.0869411, 0.125224, 0.105519],
-    "S": [1.79519, 1.79519, 1.79519],
+    "K": [0.0806281, 0.0828754, 0.43277, 10.6332, 0.00186969, 0.787955, 2.74164, 0.028637, 0.0165264, 0.0182999, 0.0185857],
+    "S": [3.38223, 3.85735, 19.3187, 5.67358, 2.10353, 20.4666, 5.46876, 5.65005, 0.966043, 0.751955, 0.731235],
     "munsell": "Hue:3.4 RP Value:8.6 Chroma:1.9",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-titan-violet-pale",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Titanium White",
@@ -1331,15 +1391,16 @@
     "pigments": ["PW6"],
     "discontinued": false,
     "special": null,
-    "K": [0.023595, 0.0224618, 0.0308784],
-    "S": [3.39904, 3.39904, 3.39904],
+    "K": [0.120446, 0.109444, 0.0662497, 0.0477027, 0.0337766, 0.0268611, 0.0213673, 0.0178577, 0.0180818, 0.0183552, 0.0184475],
+    "S": [25.437, 24.5299, 3.70426, 13.5619, 14.2701, 5.82147, 0.642563, 7.87252, 29.5345, 37.2975, 38.2228],
     "munsell": "Hue:4 GY Value:9.5 Chroma:0.1",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-titanium-white",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Transparent Brown Iron Oxide",
@@ -1353,15 +1414,16 @@
     "pigments": ["PR101", "PY42", "PBk7"],
     "discontinued": false,
     "special": null,
-    "K": [0.0791149, 0.226222, 0.438524],
-    "S": [0.0462709, 0.0462709, 0.0462709],
+    "K": [3.1954, 8.67201, 93.3238, 314.333, 6.18276, 80.7338, 0.328565, 3.42995, 0.145216, 0.148493, 0.204702],
+    "S": [1.65872, 1.67948, 0.646122, 0.884098, 0.626622, 0.359986, 0.281991, 0.0468389, 0.321724, 0.364968, 0.267168],
     "munsell": "Hue:1.1 YR Value:4 Chroma:6.2",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-transparent-brown-iron-oxide",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Transparent Dioxazine Purple",
@@ -1375,15 +1437,16 @@
     "pigments": ["PV23"],
     "discontinued": false,
     "special": null,
-    "K": [0.327421, 0.520611, 0.0680619],
-    "S": [0.0535928, 0.0535928, 0.0535928],
+    "K": [0.0301516, 0.0523563, 0.0970852, 0.205184, 0.523306, 1.38115, 1.30738, 0.637869, 0.3625, 0.239667, 0.172694],
+    "S": [0.0620599, 0.0620599, 0.0620599, 0.0620599, 0.0620599, 0.0620599, 0.0620599, 0.0620599, 0.0620599, 0.0620599, 0.0620599],
     "munsell": "Hue:1.1 P Value:2.8 Chroma:12.1",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-transparent-dioxazine-purple",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Transparent Naphthol Red Light",
@@ -1397,15 +1460,16 @@
     "pigments": ["PR112"],
     "discontinued": false,
     "special": null,
-    "K": [0.0313424, 0.442707, 0.802048],
-    "S": [0.122073, 0.122073, 0.122073],
+    "K": [0.274406, 1.4561, 4.68573, 8.80715, 6.53515, 2.40955, 0.57078, 0.0628539, 0.00170215, 1.54341e-05, 1.54341e-05],
+    "S": [0.305595, 0.305595, 0.305595, 0.305595, 0.305595, 0.305595, 0.305595, 0.305595, 0.305595, 0.305595, 0.305595],
     "munsell": "Hue:6.4 R Value:5.2 Chroma:15",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-transparent-naphthol-red-light",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Transparent Phthalo Blue (Green Shade)",
@@ -1419,15 +1483,16 @@
     "pigments": ["PB15:3"],
     "discontinued": false,
     "special": null,
-    "K": [1.56091, 0.183067, 0.048631],
-    "S": [0.0862079, 0.0862079, 0.0862079],
+    "K": [0.142298, 0.0614967, 0.0418037, 0.0467875, 0.0849218, 0.237419, 1.1854, 19.697, 19.697, 19.697, 19.697],
+    "S": [0.0791039, 0.0791039, 0.0791039, 0.0791039, 0.0791039, 0.0791039, 0.0791039, 0.0791039, 0.0791039, 0.0791039, 0.0791039],
     "munsell": "Hue:1.2 PB Value:4 Chroma:11.1",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-transparent-phthalo-blue-green-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Transparent Phthalo Green (Blue Shade)",
@@ -1441,15 +1506,16 @@
     "pigments": ["PG7"],
     "discontinued": false,
     "special": null,
-    "K": [0.508725, 0.0442981, 0.11785],
-    "S": [0.109976, 0.109976, 0.109976],
+    "K": [31.2404, 1.00238, 0.129233, 0.0362605, 0.0253355, 0.0486376, 0.216925, 2.58382, 31.2404, 31.2404, 31.2404],
+    "S": [0.125463, 0.125463, 0.125463, 0.125463, 0.125463, 0.125463, 0.125463, 0.125463, 0.125463, 0.125463, 0.125463],
     "munsell": "Hue:0.5 BG Value:6.1 Chroma:12.7",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-transparent-phthalo-green-blue-shade",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Transparent Quinacridone Red",
@@ -1463,15 +1529,16 @@
     "pigments": ["PV19"],
     "discontinued": false,
     "special": null,
-    "K": [0.0427472, 0.516242, 0.551312],
-    "S": [0.0930127, 0.0930127, 0.0930127],
+    "K": [0.151895, 0.906511, 3.23966, 7.55384, 7.13682, 2.88157, 0.775019, 0.119662, 0.00569048, 6.41141e-05, 1.15479e-05],
+    "S": [0.228648, 0.228648, 0.228648, 0.228648, 0.228648, 0.228648, 0.228648, 0.228648, 0.228648, 0.228648, 0.228648],
     "munsell": "Hue:4.3 R Value:4.7 Chroma:14.6",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-transparent-quinacridone-red",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Transparent Red Iron Oxide",
@@ -1485,15 +1552,16 @@
     "pigments": ["PR101"],
     "discontinued": false,
     "special": null,
-    "K": [0.0515556, 0.310983, 0.748355],
-    "S": [0.0797605, 0.0797605, 0.0797605],
+    "K": [2.19678, 3.79052, 44.5158, 250.352, 42.7036, 3.0477, 0.36737, 0.0344674, 6.46112, 0.0165919, 0.012094],
+    "S": [0.518342, 0.361096, 1.50476, 26.1897, 1.12893, 0.207936, 0.16424, 0.282814, 0.113904, 0.362392, 0.257261],
     "munsell": "Hue:8.9 R Value:4.7 Chroma:10.9",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-transparent-red-iron-oxide",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Transparent Shading Gray",
@@ -1507,15 +1575,16 @@
     "pigments": ["PBk7"],
     "discontinued": false,
     "special": null,
-    "K": [0.104255, 0.107894, 0.113813],
-    "S": [0.0148245, 0.0148245, 0.0148245],
+    "K": [0.135757, 0.132626, 0.129623, 0.126684, 0.123682, 0.120529, 0.117256, 0.113986, 0.110827, 0.107815, 0.104948],
+    "S": [0.0108584, 0.0108584, 0.0108584, 0.0108584, 0.0108584, 0.0108584, 0.0108584, 0.0108584, 0.0108584, 0.0108584, 0.0108584],
     "munsell": "Hue:0.9 Y Value:2.9 Chroma:0.2",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-transparent-shading-gray",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "rating"
   },
   {
     "name": "Transparent Yellow Iron Oxide",
@@ -1529,15 +1598,16 @@
     "pigments": ["PY42"],
     "discontinued": false,
     "special": null,
-    "K": [0.0241227, 0.119817, 1.15],
-    "S": [0.155585, 0.155585, 0.155585],
+    "K": [1.48683, 2.28606, 39.2569, 2.41312, 0.0523882, 1.17749, 0.0750949, 0.0181302, 0.000477194, 0.000426121, 0.000450778],
+    "S": [0.0868854, 0.0690906, 2.49949, 0.261869, 0.443181, 0.0502856, 0.0725777, 0.45237, 0.334482, 0.193874, 0.169883],
     "munsell": "Hue:8.5 YR Value:6.7 Chroma:10.7",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-transparent-yellow-iron-oxide",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Turquoise (Phthalo)",
@@ -1551,15 +1621,16 @@
     "pigments": ["PG7", "PB15:3"],
     "discontinued": false,
     "special": null,
-    "K": [0.745039, 0.584489, 0.437869],
-    "S": [0.0640438, 0.0640438, 0.0640438],
+    "K": [0.559061, 1.06246, 10.6269, 168.413, 59.95, 1.34473, 44.4724, 465.223, 439.366, 335.891, 319.513],
+    "S": [0.0854615, 0.326681, 0.424709, 0.215935, 0.136168, 0.280023, 0.312831, 2.60797, 15.9024, 32.0685, 35.7506],
     "munsell": "Hue:3.4 PB Value:2.5 Chroma:1.8",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-turquoise-phthalo",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Ultramarine Blue",
@@ -1573,15 +1644,16 @@
     "pigments": ["PB29"],
     "discontinued": false,
     "special": null,
-    "K": [3.37012, 3.13857, 0.19518],
-    "S": [0.322507, 0.322507, 0.322507],
+    "K": [0.00216893, 0.00314023, 0.149394, 0.0848946, 3.07557, 209.631, 3.09297, 202.767, 5.50988, 0.42963, 0.220149],
+    "S": [0.0437049, 0.0688763, 0.0207333, 0.235462, 0.244691, 0.210364, 0.0611911, 0.195799, 0.243512, 0.31552, 0.650496],
     "munsell": "Hue:8.1 PB Value:2.7 Chroma:17",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-ultramarine-blue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Viridian Green Hue",
@@ -1595,15 +1667,16 @@
     "pigments": ["PW6", "PBr7", "PB15:3", "PY150"],
     "discontinued": false,
     "special": null,
-    "K": [0.934146, 0.418341, 0.492266],
-    "S": [0.113201, 0.113201, 0.113201],
+    "K": [0.318581, 37.6276, 9.41207, 0.870235, 0.782085, 32.5738, 0.810508, 11.8137, 1003.98, 1005.79, 1005.71],
+    "S": [2.25504, 1.07534, 0.546198, 0.798085, 0.288428, 0.089727, 0.205662, 1.15526, 1.31572, 1.35684, 1.36201],
     "munsell": "Hue:3.5 BG Value:3.5 Chroma:3.9",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-viridian-green-hue",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Yellow Ochre",
@@ -1617,15 +1690,16 @@
     "pigments": ["PY42"],
     "discontinued": false,
     "special": null,
-    "K": [0.194758, 0.546693, 2.33006],
-    "S": [0.345796, 0.345796, 0.345796],
+    "K": [26.6581, 27.6129, 5.89099, 334.306, 3.39737, 1.24319, 0.641685, 1.15213, 0.00523416, 0.00189529, 0.00168095],
+    "S": [9.69425, 7.66952, 0.236797, 0.618196, 1.71041, 1.6368, 0.0518652, 0.935243, 1.62869, 1.34769, 1.29746],
     "munsell": "Hue:7.8 YR Value:5.5 Chroma:7.5",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-yellow-ochre",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   },
   {
     "name": "Yellow Oxide",
@@ -1639,14 +1713,15 @@
     "pigments": ["PY42"],
     "discontinued": false,
     "special": null,
-    "K": [0.476359, 1.23142, 6.1214],
-    "S": [0.880973, 0.880973, 0.880973],
+    "K": [475.915, 427.04, 65.2411, 9.53627, 139.911, 4.11637, 0.918548, 6.77458, 0.00589471, 0.000762879, 0.000589712],
+    "S": [2.34444, 2.35027, 2.48234, 6.36919, 3.51947, 11.2681, 0.0345919, 5.37725, 5.34559, 0.746269, 0.573544],
     "munsell": "Hue:9.5 YR Value:5.7 Chroma:7.4",
     "gloss_average": null,
     "tint_strength": null,
     "source": "https://goldenartistcolors.com/products/golden-artist-acrylics/high-flow/pigment-data",
     "product_page": "https://goldenartistcolors.com/products/high-flow-acrylic-color-yellow-oxide",
     "retrieved": "2026-11-26",
-    "tint_glaze_image": null
+    "tint_glaze_image": null,
+    "fit_source": "Heavy Body photo"
   }
 ]

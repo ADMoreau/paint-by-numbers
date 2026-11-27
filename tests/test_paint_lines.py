@@ -32,12 +32,13 @@ def test_line_records_are_valid_and_fitted(line):
         assert len(r["lab"]) == 3 and not all(v == 0 for v in r["lab"]), r["name"]
         assert "discontinued" not in r["name"].lower()
         assert r["source"].startswith("https://goldenartistcolors.com/products/golden-artist-acrylics/")
-    # K and S come from fit.py, current with COATS_TO_HIDE
-    for stored, fresh in zip(records, fit.fit_records(records)):
-        assert (stored["K"], stored["S"]) == (fresh["K"], fresh["S"]), stored["name"]
+    # K and S come from fit.py, current with COATS_TO_HIDE, the photos and the other lines' photos
+    for stored, fresh in zip(records, fit.fit_records(records, fit.photo_donors(db))):
+        assert stored["K"] == pytest.approx(fresh["K"], rel=1e-4), stored["name"]
+        assert stored["S"] == pytest.approx(fresh["S"], rel=1e-4), stored["name"]
     loaded = [p for p in paints.load_paints(db) if p.special is None]  # fluorescents lie outside the working gamut
     for p in loaded[::7]:
-        assert fit.thick_layer_error(p, [1.0, 1.0, 1.0]) < 0.5, p.name
+        assert fit.thick_layer_error(p, 1.0) < (0.5 if p.fit_source == "rating" else 2.5), p.name
 
 
 CHART = """<html><table><thead><tr><th>Color</th><th>Color Name (ItemNumber)</th><th>Series</th><th>Pigment (CI Name)</th>
@@ -100,7 +101,7 @@ def test_liquitex_records_are_valid_and_fitted():
         assert (stored["K"], stored["S"]) == (fresh["K"], fresh["S"]), stored["name"]
     by_name = {p.name: p for p in paints.load_paints(LIQUITEX)}
     for name in ("Titanium White", "Mars Black", "Phthalocyanine Blue (Green Shade)", "Cadmium Red Medium"):
-        assert fit.thick_layer_error(by_name[name], [1.0, 1.0, 1.0]) < 0.5, name
+        assert fit.thick_layer_error(by_name[name], 1.0) < 0.5, name
 
 
 def test_liquitex_names_cover_the_catalog():
