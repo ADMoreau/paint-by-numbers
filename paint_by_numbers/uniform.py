@@ -371,7 +371,7 @@ def solve_uniform(
     target = target_lab.float()
     bg = background.float()
     X = selection.assignment[:, :, selection.labels].reshape(n, 1, h, w).clone()
-    _, err0 = _cost(target, bg, K, S, W, X, config.paint_cost)
+    err0, _ = _cost(target, bg, K, S, W, X, config.paint_cost)
     radius = round(config.smooth * max(h, w))
     smooth = guided_filter(target.permute(1, 2, 0).double().numpy(), radius, config.edge**2) if radius > 0 else None
     min_area = round(config.min_region * h * w)
