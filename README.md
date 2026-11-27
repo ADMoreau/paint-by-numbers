@@ -72,7 +72,7 @@ python3 -m venv .venv
 .venv/bin/pip install -e ".[test]"
 ```
 
-It runs on a laptop CPU. The planner works offline; paint data is in `paint_by_numbers/data/paints_heavy_body.json`.
+It runs on a laptop CPU. The planner works offline; paint data is in `paint_by_numbers/data/` (`paints_heavy_body.json` by default; other Golden acrylic lines alongside it).
 
 The database holds all 129 Golden Heavy Body colors that publish color data (27 special-effect products without it, such as interference, iridescent and mica colors, are skipped). By default the planner chooses from the 116 current, non-fluorescent ones; the 4 discontinued and 9 fluorescent/phosphorescent paints are used only when named in `--paints`.
 
@@ -177,6 +177,56 @@ The database already has the whole Heavy Body line. To refresh it from Golden's 
 
 The fetch script makes one request per paint (`--all` is about 156), and only when you run it. Pages without color data are reported as skipped.
 
+### Other Golden acrylic lines
+
+Golden publishes a Pigment Detail Chart for each acrylic line, with every color's L\*a\*b\*, opacity rating, pigments, lightfastness and Munsell notation. That is all the fit needs, so four more lines are in the database, one file each. Plan with one by passing its file to `--db`:
+
+| Line | File | Colors |
+| --- | --- | --- |
+| Heavy Body | `paints_heavy_body.json` (default) | 129 |
+| Fluid | `paints_fluid.json` | 76 |
+| High Flow | `paints_high_flow.json` | 75 |
+| OPEN (slow-drying) | `paints_open.json` | 77 |
+| SoFlat (matte) | `paints_soflat.json` | 60 |
+
+```
+.venv/bin/python -m paint_by_numbers.cli image.jpg --db paint_by_numbers/data/paints_fluid.json --layers 10
+```
+
+To refresh them: `scripts/fetch_golden_charts.py --cache pages/` (one request per line), then `python -m paint_by_numbers.fit --db <file>` for each. Colors the charts publish no L\*a\*b\* for (iridescent, interference and a few others) are skipped. Two checks were run on the data. Each color's L\*a\*b\* agrees with its Munsell notation in the same chart, except fluorescents. And colors shared with Heavy Body come out close: Fluid and OPEN within about 1 ΔE typically, SoFlat about 3 (a matte, more opaque formula).
+
+Caveats:
+
+- **High Flow's transparent colors look like thin films.** They are much lighter than the same paints in the other lines (Transparent Red Iron Oxide: L\* 47, against 31 in Heavy Body). The published value seems to be a thin layer over white rather than full strength, so the fit treats these colors as lighter than a thick coat really is.
+- **No sheen names.** The charts give a gloss reading (`gloss_average`) instead of gloss, satin or matte, so the varnish note can't compare sheens for these lines.
+- **Not used:** the Mineral Spirit Acrylic chart. Half its colors have no L\*a\*b\*, opacity is given as numbers, and some values don't match the names: Pyrrole Red reads as a blue. Williamsburg oils have published L\*a\*b\* too, but this database is acrylics only for now.
+- **Other brands.** A search (2026-11-26) turned up no other acrylic maker publishing measured color values per paint. That includes Winsor & Newton, Daler-Rowney, Matisse, Atelier, Tri-Art, Nova Color, Lascaux and Schmincke. Liquitex publishes Munsell notation instead (see below). artistpigments.org has measured L\*a\*b\* for many brands, but doesn't allow automated collection. A possible future source is Roy Berns's *Artist Acrylic Paint Spectral, Colorimetric, and Image Dataset* (2022): spectral measurements, which could fit K and S better than one L\*a\*b\* value.
+- **The phone app uses Heavy Body only** for now.
+
+### Liquitex Heavy Body
+
+`paints_liquitex.json` has 105 Liquitex colors under their US English names. The data comes from Liquitex Japan's catalog (March 2026), which lists each color's Munsell notation, pigments and opacity. The Japanese names were translated and matched to Liquitex's US Heavy Body names:
+
+- **92 matched** to a US Heavy Body name.
+- **5 probable matches**, noted in the script. For example, ブリリアント ブルー パープル (Brilliant Blue Purple) is listed as Cobalt Blue Hue, because Liquitex's older US sheet gives both names for it.
+- **8 with no US Heavy Body color** by that name (Light Portrait Pink, Scarlet Red, Neutral Gray 4…), kept under the translated name.
+
+Each record keeps the Japanese number and name, the Munsell notation, the match quality and the US product page.
+
+```
+.venv/bin/python -m paint_by_numbers.cli image.jpg --db paint_by_numbers/data/paints_liquitex.json --layers 10
+```
+
+To rebuild it: `pip install colour-science` (or `pip install -e ".[liquitex]"`), and have `pdftotext` (poppler-utils) installed. Then run `scripts/fetch_liquitex_japan.py --cache pages/` and `python -m paint_by_numbers.fit --db paint_by_numbers/data/paints_liquitex.json`.
+
+These colors are less certain than Golden's:
+
+- **Munsell to L\*a\*b\* is approximate.** Converting Golden's own Munsell notation lands a median 3.4 ΔE (90th percentile about 10) from Golden's measured L\*a\*b\*.
+- **Measured another way.** Raw Liquitex values are darker and more saturated than the same-pigment Golden colors, as when a measurement leaves out the light reflected off the paint's surface (Mars Black L\* 16.5 against Golden's 25). Adding 2% white (`SURFACE_REFLECTION`) matches Golden's convention best. It cuts the typical difference from 8.1 to 5.3 ΔE across the 23 colors both brands share; the rest is the conversion and real differences between the paints. The uncorrected value is kept as `lab_from_munsell`.
+- **Opacity is three levels.** The catalog uses opaque, semi-transparent and transparent. Semi-transparent is read as semi-opaque, where Golden rates the same pigments.
+- **Gaps.** Titanium White's Munsell value is from Liquitex's older US sheet (a neutral at 9.6). The Cadmium-Free colors' notations look nominal (round numbers). Metallic, iridescent and fluorescent colors have no Munsell value and are left out.
+- **Japanese-market paint.** The catalog is for Liquitex Japan's Regular and Soft Type, which it says are color-matched to the earlier colors. US tubes may differ slightly.
+
 ## Known limits
 
 - **Three-channel paint model.** Kubelka-Munk on red, green and blue only approximates real paint; some mixtures will be off in hue.
@@ -207,6 +257,8 @@ The fetch script makes one request per paint (`--all` is about 156), and only wh
 | `paint_by_numbers/plan.py` | End-to-end pipeline and output files |
 | `paint_by_numbers/cli.py` | Command line |
 | `scripts/fetch_golden.py` | Adds paints from Golden's product pages (build time only) |
+| `scripts/fetch_golden_charts.py` | Adds Golden's Fluid, High Flow, OPEN and SoFlat lines from their pigment charts (build time only) |
+| `scripts/fetch_liquitex_japan.py` | Adds Liquitex colors from the Liquitex Japan catalog's Munsell data, under US names (build time only) |
 
 ## Phone app (Android)
 
