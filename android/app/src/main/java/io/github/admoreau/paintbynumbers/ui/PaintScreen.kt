@@ -585,10 +585,7 @@ fun PaintScreen(
                         }
                     }
                     val t = thickness ?: single
-                    if (t != null) Row(verticalAlignment = Alignment.CenterVertically) {
-                        Box(Modifier.size(14.dp).clip(CircleShape).background(Color(android.graphics.Color.parseColor(t.colorHex))))
-                        Text("  looks like this on the canvas", color = Color(0xFFBDBDBD))
-                    }
+                    LayerSwatch(layer, t, plan.backgroundHex, chipHeight = 28.dp)
                     Text(
                         if (t != null) "${t.label}: ${t.how}. %.0f%% of the canvas.".format(100 * t.area) +
                             (if (single != null && layerIndex == 0 && plan.groundPaint != null) " Ground coat first: ${plan.groundPaint}." else "")

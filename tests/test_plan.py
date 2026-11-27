@@ -176,11 +176,11 @@ def test_layer_filename_padding():
     "coats, text",
     [
         (0.0, "no paint"),
-        (0.125, "1 coat of 1 part paint to 7 parts medium"),
-        (0.25, "1 coat of 1 part paint to 3 parts medium"),
-        (0.75, "1 coat of 3 parts paint to 1 part medium"),
+        (0.125, "1 coat of 1 part paint to 7 parts Gloss Medium"),
+        (0.25, "1 coat of 1 part paint to 3 parts Gloss Medium"),
+        (0.75, "1 coat of 3 parts paint to 1 part Gloss Medium"),
         (1.0, "1 full coat"),
-        (1.5, "1 full coat + 1 coat of 1 part paint to 1 part medium"),
+        (1.5, "1 full coat + 1 coat of 1 part paint to 1 part Gloss Medium"),
         (2.0, "2 full coats"),
     ],
 )

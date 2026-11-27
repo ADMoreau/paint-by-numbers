@@ -1,6 +1,13 @@
-"""A fixed set of paints for algorithm tests, so they don't depend on what the database holds."""
+"""A fixed set of paints for algorithm tests, so they don't depend on what the database holds.
 
-from paint_by_numbers import paints
+K and S come from each paint's published color and transparency rating alone (fit.estimate_ks),
+not from the stored fit, so refitting the database (as the tint and glaze photos did) doesn't move
+these tests.
+"""
+
+import dataclasses
+
+from paint_by_numbers import fit, paints
 
 CORE_NAMES = (
     "Burnt Umber",
@@ -17,4 +24,9 @@ CORE_NAMES = (
 
 def core_paints() -> list[paints.Paint]:
     by_name = {p.name: p for p in paints.load_paints()}
-    return [by_name[n] for n in CORE_NAMES]
+    out = []
+    for name in CORE_NAMES:
+        p = by_name[name]
+        K, S = fit.estimate_ks(p.lab, p.transparency)
+        out.append(dataclasses.replace(p, K=tuple(fit._rounded(K)), S=tuple(fit._rounded(S))))
+    return out

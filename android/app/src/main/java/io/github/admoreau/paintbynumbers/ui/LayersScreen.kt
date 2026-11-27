@@ -168,10 +168,7 @@ fun LayersScreen(plan: Plan, startLayer: Int, onLayer: (Int) -> Unit, onBack: ()
                 } + (if (index == 0 && plan.groundPaint != null) " Paint a ground coat of ${plan.groundPaint} first." else ""),
                 style = MaterialTheme.typography.bodyMedium,
             )
-            if (t != null) Row(verticalAlignment = Alignment.CenterVertically) {
-                Box(Modifier.size(14.dp).clip(CircleShape).background(hexColor(t.colorHex)))
-                Text("  how it looks on the canvas · ${layer.transparency}", style = MaterialTheme.typography.bodySmall, color = Color(0xFFBDBDBD))
-            }
+            LayerSwatch(layer, t, plan.backgroundHex)
             Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 for (v in LayerView.entries) FilterChip(selected = view == v, onClick = { view = v }, label = { Text(v.label) })
             }

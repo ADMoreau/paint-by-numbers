@@ -11,10 +11,13 @@ import java.util.zip.ZipInputStream
 data class PlanThickness(
     val coats: Double,
     val label: String, // e.g. "1/8 coat"
-    val how: String, // e.g. "1 coat of 1 part paint to 7 parts medium"
+    val how: String, // e.g. "1 coat of 1 part paint to 7 parts Gloss Medium"
     val area: Double, // share of the canvas
     val pixelValue: Int, // its gray value in the layer's thickness map
     val colorHex: String, // the paint at this thickness over the ground (or white)
+    val onWhiteHex: String? = null, // the swatch: this thickness over white, over black, over a flat background
+    val onBlackHex: String? = null,
+    val onGroundHex: String? = null,
 )
 
 data class PlanLayer(
@@ -117,6 +120,7 @@ object PlanStore {
             }
             val swatch = l.optJSONObject("swatch")
             val colors = swatch?.optJSONObject("on_ground") ?: swatch?.optJSONObject("on_white")
+            fun swatchHex(ground: String, key: String) = swatch?.optJSONObject(ground)?.optString(key)?.takeIf { it.isNotEmpty() }
             val byArea = l.optJSONObject("coats_by_area") ?: JSONObject()
             val thick = byArea.keys().asSequence().map { key ->
                 val c = key.toDouble()
@@ -127,6 +131,9 @@ object PlanStore {
                     area = byArea.getDouble(key),
                     pixelValue = pixelOf[c] ?: Math.round(c / 2.0 * 255).toInt(),
                     colorHex = colors?.optString(key)?.takeIf { it.isNotEmpty() } ?: swatch?.optString("full_strength") ?: "#808080",
+                    onWhiteHex = swatchHex("on_white", key),
+                    onBlackHex = swatchHex("on_black", key),
+                    onGroundHex = swatchHex("on_ground", key),
                 )
             }.filter { it.area > 0 }.sortedBy { it.coats }.toList()
             layers += PlanLayer(

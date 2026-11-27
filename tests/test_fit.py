@@ -14,6 +14,9 @@ WHITE, BLACK = [1.0, 1.0, 1.0], [0.0, 0.0, 0.0]
 PAINTS = paints.load_paints()
 # Fluorescent and phosphorescent paints emit light, so a reflectance model cannot reproduce them.
 MODELED = [p for p in PAINTS if p.special is None]
+RECORDS = {r["name"]: r for r in paints.load_records()}
+# Paints whose S comes from the transparency rating alone (no usable tint and glaze photo).
+RATED = [p for p in PAINTS if not fit._photo_usable(RECORDS[p.name])]
 
 
 def in_srgb_gamut(lab) -> bool:
@@ -79,11 +82,15 @@ def test_published_srgb_and_lab_agree_under_d65(paint):
 
 
 def test_stored_ks_are_what_fit_produces():
-    """K and S come from fit.py, not by hand, and are current with COATS_TO_HIDE."""
+    """K and S come from fit.py, not by hand, and are current with COATS_TO_HIDE and the photos."""
     records = paints.load_records()
     for stored, fresh in zip(records, fit.fit_records(records)):
-        assert stored["K"] == fresh["K"], stored["name"]
-        assert stored["S"] == fresh["S"], stored["name"]
+        if stored["K"] is None:
+            assert fresh["K"] is None, stored["name"]
+            continue
+        # the photo refit is an optimizer run, so allow for floating-point differences between machines
+        assert stored["K"] == pytest.approx(fresh["K"], rel=1e-4), stored["name"]
+        assert stored["S"] == pytest.approx(fresh["S"], rel=1e-4), stored["name"]
 
 
 # ---------------------------------------------------------------- estimate_ks
@@ -96,7 +103,7 @@ def test_estimate_ks_mid_gray():
     assert torch.allclose(K / S, torch.full((3,), (1 - r) ** 2 / (2 * r), dtype=torch.float64), rtol=1e-6)
 
 
-@pytest.mark.parametrize("paint", PAINTS, ids=lambda p: p.slug)
+@pytest.mark.parametrize("paint", RATED, ids=lambda p: p.slug)
 def test_coverage_matches_rating(paint):
     """Each paint hides black and white to 2 ΔE in exactly its rating's coat count."""
     coats = fit.COATS_TO_HIDE[paint.transparency]
@@ -116,9 +123,9 @@ def test_more_transparent_ratings_scatter_less(rating):
 def test_light_and_dark_opaque_paints_hide_equally():
     """The point of calibrating: one coat of white over black hides as well as
     one coat of black over white."""
-    by_name = {p.name: p for p in PAINTS}
-    white, black = by_name["Titanium White"], by_name["Carbon Black"]
-    assert fit.hiding_error(white.K, white.S, 1.0) == pytest.approx(fit.hiding_error(black.K, black.S, 1.0), abs=1e-3)
+    white = fit.estimate_ks(RECORDS["Titanium White"]["lab"], "opaque")
+    black = fit.estimate_ks(RECORDS["Carbon Black"]["lab"], "opaque")
+    assert fit.hiding_error(*white, 1.0) == pytest.approx(fit.hiding_error(*black, 1.0), abs=1e-3)
 
 
 def test_unknown_rating_raises():
@@ -223,3 +230,109 @@ def test_default_palette_leaves_out_discontinued_and_special():
     assert all(not p.discontinued and p.special is None for p in default)
     assert len(default) == len([p for p in PAINTS if not p.discontinued and p.special is None])
     assert "Titanium White" in {p.name for p in default}
+
+
+# ---------------------------------------------------------------- tint and glaze photos
+
+
+def _photo_module():
+    spec = importlib.util.spec_from_file_location("fetch_tint_glaze", ROOT / "scripts" / "fetch_tint_glaze.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def _swatch_photo(background, bands):
+    """A 400 px photo in Golden's layout: ``bands`` maps band -> (color over white, color over the stripe)."""
+    import numpy as np
+    from PIL import Image
+
+    mod = _photo_module()
+    a = np.full((400, 400, 3), background, dtype=np.uint8)
+    a[:, 255:316] = (55, 60, 53)  # the black stripe
+    for band, (y0, y1) in mod.BANDS.items():
+        if band in bands:
+            over_white, over_black = bands[band]
+            a[y0 - 6 : y1 + 6, 125:] = over_white
+            a[y0 - 6 : y1 + 6, 255:316] = over_black
+    return Image.fromarray(a)
+
+
+def test_photo_measure_reads_each_band():
+    mod = _photo_module()
+    bands = {
+        "glaze_1_10": ((200, 150, 230), (60, 50, 70)),
+        "glaze_1_1": ((120, 60, 170), (50, 40, 60)),
+        "masstone": ((40, 30, 50), (35, 30, 40)),
+        "tint_1_1": ((140, 110, 200), (140, 110, 200)),
+        "tint_1_10": ((210, 200, 240), (210, 200, 240)),
+    }
+    m = mod.measure(_swatch_photo((255, 255, 255), bands))
+    assert m["ground"] is None  # cut-out white: the chart itself
+    assert m["stripe"] == [55, 60, 53]
+    for band in ("glaze_1_10", "glaze_1_1", "masstone"):
+        assert m[band] == {"white": list(bands[band][0]), "black": list(bands[band][1])}
+    assert m["tint_1_1"] == [140, 110, 200] and m["tint_1_10"] == [210, 200, 240]
+
+
+def test_photo_measure_whites_on_gray_card():
+    """Whites are shot on a gray card: it is the ground, and their tint bands are empty."""
+    mod = _photo_module()
+    m = mod.measure(_swatch_photo((95, 100, 105), {"masstone": ((240, 240, 240), (230, 230, 230))}))
+    assert m["ground"] == [95, 100, 105]
+    assert m["tint_1_1"] is None and m["tint_1_10"] is None
+
+
+def test_photo_measure_rejects_other_layouts():
+    from PIL import Image
+
+    mod = _photo_module()
+    with pytest.raises(mod.Unreadable):
+        mod.measure(Image.new("RGB", (400, 400), "white"))
+
+
+def test_refine_s_recovers_s_from_a_rendered_photo():
+    """Render a photo from known K and S; refitting S from the rating's starting point finds them again."""
+    ks = (1 - fit.published_reflectance([30.0, 20.0, -25.0])) ** 2 / (2 * fit.published_reflectance([30.0, 20.0, -25.0]))
+    s_true = torch.tensor([3.0, 6.0, 0.8], dtype=torch.float64)
+    K = ks * s_true
+    white = fit.estimate_ks([96.0, 0.0, 0.0], "opaque")
+    to255 = lambda R: (color.lab_to_srgb(color.working_to_lab(R)) * 255).tolist()
+    ground = color.lab_to_working(color.srgb_to_lab(torch.tensor(fit.PHOTO_CHART_WHITE, dtype=torch.float64) / 255))
+    stripe = color.lab_to_working(color.srgb_to_lab(torch.tensor([55.0, 60.0, 53.0], dtype=torch.float64) / 255))
+    photo = {"ground": None, "stripe": [55.0, 60.0, 53.0]}
+    for band, t in fit.PHOTO_COATS.items():
+        photo[band] = {side: to255(km.layer(under, K, s_true, torch.tensor(t, dtype=torch.float64)))
+                       for side, under in (("white", ground), ("black", stripe))}
+    for band, c in fit.PHOTO_TINTS.items():
+        photo[band] = to255(km.layer(ground, c * K + (1 - c) * white[0], c * s_true + (1 - c) * white[1], torch.tensor(1.0, dtype=torch.float64)))
+    _, s0 = fit.estimate_ks([30.0, 20.0, -25.0], "transparent")
+    S = fit.refine_s(ks[None], s0[None], [photo], white)[0]
+    assert torch.allclose(S, s_true, rtol=0.02)
+    assert fit.photo_error(ks * S, S, photo, white).max() < 0.1
+
+
+def test_photo_fit_matches_photos_better_than_the_rating():
+    """For every paint with a photo, the stored fit renders the photo's bands closer than the rating's S does."""
+    white = (RECORDS["Titanium White"]["K"], RECORDS["Titanium White"]["S"])
+    stored, rated = [], []
+    for r in RECORDS.values():
+        if not fit._photo_usable(r):
+            continue
+        photo = r["tint_glaze_photo"]
+        e_fit = fit.photo_error(r["K"], r["S"], photo, white)
+        e_rating = fit.photo_error(*fit.estimate_ks(r["lab"], r["transparency"]), photo, white)
+        assert (e_fit**2).sum() <= (e_rating**2).sum() + 1e-6, r["name"]
+        stored.append(e_fit.mean().item())
+        rated.append(e_rating.mean().item())
+    assert len(stored) > 100
+    assert torch.tensor(stored).median() < 0.7 * torch.tensor(rated).median()
+
+
+def test_dioxazine_purple_glazes_violet():
+    """The bug the photos fixed: a thin glaze of Dioxazine Purple over white was nearly white,
+    so plans used it as a gentle gray and real paint turned everything purple."""
+    p = next(p for p in PAINTS if p.name == "Dioxazine Purple")
+    lab = color.working_to_lab(km.layer(torch.ones(3, dtype=torch.float64), torch.tensor(p.K), torch.tensor(p.S), torch.tensor(0.125)))
+    L, a, b = lab.tolist()
+    assert L < 60 and a > 15 and b < -30  # a strong violet, as on Golden's swatch

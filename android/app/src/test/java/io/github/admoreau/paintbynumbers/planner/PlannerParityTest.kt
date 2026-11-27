@@ -48,8 +48,7 @@ class PlannerParityTest {
         val cases = k.getJSONArray("cases")
         for (i in 0 until cases.length()) {
             val cs = cases.getJSONObject(i)
-            val paint = db.first { it.name == cs.getString("paint") }
-            val co = Km.Coefficients(paint.K, paint.S)
+            val co = Km.Coefficients(cs.getJSONArray("K").doubles(), cs.getJSONArray("S").doubles())
             val t = cs.getDouble("t")
             val want = cs.getJSONArray("layer").doubles()
             val m = Km.layerMap(co, t)
@@ -88,7 +87,11 @@ class PlannerParityTest {
         val h = p.getInt("h")
         val px = p.getJSONArray("pixels").let { a -> IntArray(a.length()) { a.getInt(it) or (0xFF shl 24) } }
         val names = p.getJSONArray("paints").let { a -> List(a.length()) { a.getString(it) } }
-        val paints = names.map { n -> db.first { it.name == n } } // the fixture's order
+        // the fixture's order, with the fixture's K and S (the tests' paints use the rating-only fit)
+        val ks = fx.getJSONArray("paints").let { a -> List(a.length()) { a.getJSONObject(it) } }.associateBy { it.getString("name") }
+        val paints = names.map { n ->
+            db.first { it.name == n }.copy(K = ks.getValue(n).getJSONArray("K").doubles(), S = ks.getValue(n).getJSONArray("S").doubles())
+        }
         val bg = DoubleArray(3).also { ColorMath.srgbToWorking(128 / 255.0, 128 / 255.0, 128 / 255.0, it) }
         return Triple(Target.fromArgb(w, h, px), paints, bg)
     }

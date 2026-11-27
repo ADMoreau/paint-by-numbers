@@ -107,7 +107,7 @@ fun PlanScreen(
         }
         planning.error?.let { Text(it, color = MaterialTheme.colorScheme.error) }
         Text(
-            "The plan is a stack of layers. Each layer is one paint at one strength (such as 1/4 coat: 1 part paint to 3 parts medium) over one area. " +
+            "The plan is a stack of layers. Each layer is one paint at one strength (such as 1/4 coat: 1 part paint to 3 parts Gloss Medium) over one area. " +
                 "Light washes go down first and stronger coats build up the image on top.",
             style = MaterialTheme.typography.bodySmall,
         )

@@ -21,7 +21,7 @@ sys.path[:0] = [str(ROOT), str(ROOT / "tests")]
 
 from core_paints import CORE_NAMES, core_paints  # noqa: E402
 from images import landscape  # noqa: E402
-from paint_by_numbers import color, km, plan, uniform  # noqa: E402
+from paint_by_numbers import color, km, paints as paintdb, plan, uniform  # noqa: E402
 from paint_by_numbers.palette import cluster_colors  # noqa: E402
 
 OUT = ROOT / "android/app/src/test/resources/planner_fixture.json"
@@ -33,8 +33,10 @@ def bits(mask) -> str:
 
 def main():
     rng = np.random.default_rng(0)
-    paints = core_paints()
-    fx = {}
+    paints = core_paints()  # K and S from the rating alone, so they are stored here for the phone tests
+    fx = {"paints": [{"name": p.name, "K": list(p.K), "S": list(p.S)} for p in paints]}
+    # plus a database paint with a different S on each channel (from its tint and glaze photo)
+    photo_fit = next(p for p in paintdb.load_paints() if p.name == "Dioxazine Purple")
 
     srgb = rng.random((8, 3))
     fx["color"] = {
@@ -49,11 +51,11 @@ def main():
     fx["km"] = {
         "rg": rg.tolist(),
         "cases": [
-            {"paint": p.name, "t": t,
+            {"paint": p.name, "K": list(p.K), "S": list(p.S), "t": t,
              "layer": km.layer(torch.from_numpy(rg), torch.tensor(p.K, dtype=torch.float64), torch.tensor(p.S, dtype=torch.float64),
                                torch.tensor(t, dtype=torch.float64)).tolist(),
              "masstone": km.masstone(torch.tensor(p.K, dtype=torch.float64), torch.tensor(p.S, dtype=torch.float64)).tolist()}
-            for p in paints[:4] for t in (0.125, 1.0, 2.0)
+            for p in [*paints[:4], photo_fit] for t in (0.125, 1.0, 2.0)
         ],
     }  # fmt: skip
 

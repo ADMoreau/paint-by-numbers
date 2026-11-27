@@ -155,15 +155,17 @@ Thickness levels and their gray values in the layer maps, with the default `--t-
 
 | Coats | Gray value | How to paint it |
 | --- | --- | --- |
-| 0.125 | 16 | 1 coat of 1 part paint to 7 parts medium |
-| 0.25 | 32 | 1 coat of 1 part paint to 3 parts medium |
-| 0.5 | 64 | 1 coat of 1 part paint to 1 part medium |
-| 0.75 | 96 | 1 coat of 3 parts paint to 1 part medium |
+| 0.125 | 16 | 1 coat of 1 part paint to 7 parts Gloss Medium |
+| 0.25 | 32 | 1 coat of 1 part paint to 3 parts Gloss Medium |
+| 0.5 | 64 | 1 coat of 1 part paint to 1 part Gloss Medium |
+| 0.75 | 96 | 1 coat of 3 parts paint to 1 part Gloss Medium |
 | 1 | 128 | 1 full coat |
-| 1.5 | 191 | 1 full coat + 1 coat of 1:1 paint to medium |
+| 1.5 | 191 | 1 full coat + 1 coat of 1:1 paint to Gloss Medium |
 | 2 | 255 | 2 full coats |
 
 A fraction of a coat can be painted as a glaze because, in the paint model, diluting with clear medium is the same as a thinner layer.
+
+**Which medium.** The plans say Golden Gloss Medium because the paint model treats the medium as perfectly clear, and gloss mediums dry the clearest. Matte and satin mediums dry slightly cloudy and, over several glazes, lighten and haze what is underneath (use a matte varnish at the end instead if you want a matte finish). Golden Acrylic Glazing Liquid (Gloss) also works and stays wet longer, which helps large areas brush out evenly, but it dries more slowly and stays tacky if applied thickly; Golden suggests at most 1 part paint to 10 parts of it. Don't thin with water alone beyond about 1 part water to 1 part paint (Golden's guidance), and a little water in the medium mix for flow is fine. Medium-heavy mixes look lighter while wet and dry darker, so judge a glaze dry, against the plan's swatch.
 
 ## Adding paints
 
@@ -172,10 +174,21 @@ The database already has the whole Heavy Body line. To refresh it from Golden's 
 ```
 .venv/bin/python scripts/fetch_golden.py --all --cache pages/
 .venv/bin/python scripts/fetch_golden.py "Burnt Sienna"
+.venv/bin/python scripts/fetch_tint_glaze.py --cache photos/
 .venv/bin/python -m paint_by_numbers.fit
 ```
 
 The fetch script makes one request per paint (`--all` is about 156), and only when you run it. Pages without color data are reported as skipped.
+
+### How strong each paint is: the tint and glaze photos
+
+Golden's published L\*a\*b\* is a paint at full hiding. For dark, strong, transparent paints that is close to black: Dioxazine Purple is L\* 25, a\* 2.6, b\* 1.3, nearly a neutral dark gray. Fitted from that alone, those paints came out as weak gray glazes. One full coat of Dioxazine Purple over white rendered almost white, so plans used two coats of it as a gentle darkener, and real paint turned the whole picture purple.
+
+Each Heavy Body product page also has a photo of the paint as a 1:10 and a 1:1 glaze, at full strength, and as 1:1 and 1:10 tints with Titanium White, brushed over a white chart with a black stripe. `scripts/fetch_tint_glaze.py` measures each band's color (one request per paint; only the numbers are stored, as `tint_glaze_photo`), and the fit then sets each paint's S per channel to match them. The published L\*a\*b\* stays exact: thick paint still renders as Golden measured it.
+
+Against the photos, the fit's median error went from 21 ΔE to 12, and from about 50 to 15 for the strongest transparent paints (Dioxazine Purple, the phthalos and quinacridones). The photos' own colors are only roughly right: for opaque paints, whose photographed full-strength band should match the published color, they differ by a median 8 ΔE. 117 paints have a photo. The fluorescents, Hansa Yellow Light, Quinacridone Burnt Orange and Quinacridone Red Light have none, and keep the estimate from their opacity rating.
+
+**Plans made before this fix (2026-11-26) used the weak values. Make them again.**
 
 ### Other Golden acrylic lines
 
@@ -230,8 +243,8 @@ These colors are less certain than Golden's:
 ## Known limits
 
 - **Three-channel paint model.** Kubelka-Munk on red, green and blue only approximates real paint; some mixtures will be off in hue.
-- **Tints of strong transparent paints can be off in hue.** K and S are fitted from each paint's published full-strength color only. Phthalo Blue's full strength is very dark with a slight red cast, so its tints with white come out lavender instead of cyan. The planned fix is fitting each paint to the tint and glaze swatch on its product page (the image links are already stored in the database).
-- **Hiding power is estimated.** Each transparency rating is mapped to how many coats hide a black-and-white chart (opaque 1, semi-opaque 2, semi-transparent 5, transparent 20). That table is the least certain part of the model; it lives in `paint_by_numbers/fit.py` as `COATS_TO_HIDE`.
+- **Thick strong paints are neutral.** The published full-strength color is kept exact, so a full coat or more of Dioxazine Purple renders as a very dark gray rather than a very dark violet. Thin glazes have the right hue.
+- **Hiding power without a photo is estimated.** For paints with no tint and glaze photo, including every line except Heavy Body, each transparency rating is mapped to how many coats hide a black-and-white chart (opaque 1, semi-opaque 2, semi-transparent 5, transparent 20), in `paint_by_numbers/fit.py` as `COATS_TO_HIDE`. **This makes dark transparent paints far too weak** (see above), so Fluid, High Flow, OPEN, SoFlat and Liquitex plans have the problem Heavy Body had.
 - **Fluorescent and phosphorescent paints are not modeled.** They emit light (Fluorescent Chartreuse's published L\* is 106, brighter than white), so a reflectance model cannot reproduce them. They are left out unless named in `--paints`.
 - **Wide-gamut model, sRGB files.** Paint is modeled in linear Rec.2020, which holds every non-fluorescent Golden paint (cadmium yellows, cobalt teals). Input images and `preview.png` are sRGB, so a preview cannot show colors more saturated than a screen's sRGB; the color error is measured in Lab and is not affected.
 - **Some colors are unreachable.** Saturated screen colors, and anything darker than Carbon Black (L\* 25), cannot be painted with these paints. `error.png` shows where.

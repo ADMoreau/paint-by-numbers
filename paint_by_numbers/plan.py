@@ -209,7 +209,7 @@ def level_instructions(coats: float) -> str:
     if part > 1e-9:
         f = Fraction(part).limit_denominator(16)
         paint_parts, medium_parts = f.numerator, f.denominator - f.numerator
-        pieces.append(f"1 coat of {paint_parts} part{'s' if paint_parts > 1 else ''} paint to {medium_parts} part{'s' if medium_parts > 1 else ''} medium")
+        pieces.append(f"1 coat of {paint_parts} part{'s' if paint_parts > 1 else ''} paint to {medium_parts} part{'s' if medium_parts > 1 else ''} Gloss Medium")
     return " + ".join(pieces)
 
 
@@ -397,11 +397,16 @@ def _swatch_entry(colors: dict) -> dict:
 
 
 def _overview(rows: list[tuple[str, list[tuple[str, Image.Image]]]], path: Path, columns: int = 6) -> None:
-    """Labeled contact sheet: one titled section per row of (label, image) tiles."""
-    from PIL import ImageDraw
+    """Labeled contact sheet: one titled section per row of (label, image) tiles.
+
+    Text scales with the tiles, so it stays readable when the sheet is shown shrunk to fit a screen.
+    """
+    from PIL import ImageDraw, ImageFont
 
     w, h = rows[0][1][0][1].size
-    gap, title = 8, 16
+    label_size = max(12, w // 18)
+    heading_font, label_font = ImageFont.load_default(size=round(label_size * 1.25)), ImageFont.load_default(size=label_size)
+    gap, title = max(8, w // 40), round(label_size * 1.25) + max(8, w // 40)
     cols = min(columns, max(len(tiles) for _, tiles in rows))
     section_rows = [(len(tiles) + cols - 1) // cols for _, tiles in rows]
     height = sum(title + r * (h + gap) for r in section_rows)
@@ -409,14 +414,15 @@ def _overview(rows: list[tuple[str, list[tuple[str, Image.Image]]]], path: Path,
     draw = ImageDraw.Draw(sheet)
     y = 0
     for (heading, tiles), nrows in zip(rows, section_rows):
-        draw.text((0, y + 2), heading, fill="black")
+        draw.text((0, y + gap // 2), heading, fill="black", font=heading_font)
         y += title
         for k, (label, img) in enumerate(tiles):
             x, yy = (k % cols) * (w + gap), y + (k // cols) * (h + gap)
             sheet.paste(img, (x, yy))
             if label:  # tiles that carry their own title (swatch cards) pass ""
-                draw.rectangle((x, yy, x + 6 * len(label) + 6, yy + 13), fill="white")
-                draw.text((x + 3, yy + 1), label, fill="black")
+                pad = max(3, label_size // 5)
+                draw.rectangle((x, yy, x + draw.textlength(label, font=label_font) + 2 * pad, yy + label_size + 2 * pad), fill="white")
+                draw.text((x + pad, yy + pad), label, fill="black", font=label_font)
         y += nrows * (h + gap)
     sheet.save(path)
 
@@ -522,7 +528,7 @@ def write_outputs(
         title = f"{i}. {paint.name} ({paint.transparency})"
         card_size = (max(400, 90 + 76 * (len(used) + 1)), 50 + 60 * rows)
         _swatch_card(paint, colors, card_size, title, font_size=14).save(swatch_dir / name)
-        swatch_tile = _swatch_card(paint, colors, tile_size, title)
+        swatch_tile = _swatch_card(paint, colors, tile_size, title, font_size=max(10, tile_size[0] // 22))
         overview_swatches.append(("", swatch_tile))
         written[f"swatch_{i}"] = swatch_dir / name
 

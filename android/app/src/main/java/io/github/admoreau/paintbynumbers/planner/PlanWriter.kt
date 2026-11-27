@@ -102,7 +102,7 @@ object PhonePlanner {
 
     private fun argb(r: Double, g: Double, b: Double) = ColorMath.workingToArgb(r, g, b)
 
-    /** "1 full coat", "1 coat of 1 part paint to 3 parts medium", as level_instructions in plan.py. */
+    /** "1 full coat", "1 coat of 1 part paint to 3 parts Gloss Medium", as level_instructions in plan.py. */
     fun howToPaint(coats: Double): String {
         if (coats <= 0) return "no paint"
         val whole = coats.toInt()
@@ -113,7 +113,7 @@ object PhonePlanner {
             val den = (1..16).first { d -> kotlin.math.abs(part * d - Math.rint(part * d)) < 1e-9 || d == 16 }
             val num = Math.rint(part * den).toInt()
             val medium = den - num
-            pieces += "1 coat of $num part${if (num > 1) "s" else ""} paint to $medium part${if (medium > 1) "s" else ""} medium"
+            pieces += "1 coat of $num part${if (num > 1) "s" else ""} paint to $medium part${if (medium > 1) "s" else ""} Gloss Medium"
         }
         return pieces.joinToString(" + ")
     }
